@@ -28,42 +28,49 @@ const rateLimited = (ip: string) => {
 };
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+const noStore = { "Cache-Control": "no-store" };
 
 export async function POST(req: NextRequest) {
   try {
     const ip = getIp(req);
     if (rateLimited(ip)) {
-      return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+      return NextResponse.json({ error: "Too many requests" }, { status: 429, headers: noStore });
     }
 
     const body = await req.json();
     const domain = body?.domain as string;
     if (!domain) {
-      return NextResponse.json({ error: "domain is required" }, { status: 400 });
+      return NextResponse.json({ error: "domain is required" }, { status: 400, headers: noStore });
     }
 
     const normalized = normalizeDomain(domain);
     const cached = await findCachedScan(normalized);
     if (cached) {
-      return NextResponse.json({
-        status: "done",
-        cached: true,
-        scanId: cached.id,
-        result: cached.result,
-      });
+      return NextResponse.json(
+        {
+          status: "done",
+          cached: true,
+          scanId: cached.id,
+          result: cached.result,
+        },
+        { headers: noStore }
+      );
     }
 
     const existingRunning = await prisma.scan.findFirst({
       where: { domain: normalized, status: { in: ["queued", "running"] } },
     });
     if (existingRunning) {
-      return NextResponse.json({ status: existingRunning.status, scanId: existingRunning.id });
+      return NextResponse.json({ status: existingRunning.status, scanId: existingRunning.id }, { headers: noStore });
     }
 
     const scan = await createQueuedScan(normalized);
     await enqueueScan(scan.id, normalized);
-    return NextResponse.json({ status: scan.status, scanId: scan.id });
+    return NextResponse.json({ status: scan.status, scanId: scan.id }, { headers: noStore });
   } catch (err) {
-    return NextResponse.json({ error: (err as Error).message }, { status: 400 });
+    return NextResponse.json({ error: (err as Error).message }, { status: 400, headers: noStore });
   }
 }
