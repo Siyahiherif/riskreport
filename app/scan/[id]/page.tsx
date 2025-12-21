@@ -13,14 +13,17 @@ const fetchScan = async (scanId: string): Promise<ScanResponse> => {
   if (!scanId) {
     throw new Error("Scan id is missing");
   }
-  const res = await fetch(`/api/scan/${scanId}?t=${Date.now()}`, { cache: "no-store" });
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
+  const url = origin ? `${origin}/api/scan/${scanId}?t=${Date.now()}` : `/api/scan/${scanId}?t=${Date.now()}`;
+  const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) {
     throw new Error("Scan not found");
   }
   const json = await res.json();
-  if ("result" in json) {
+  if (json && typeof json === "object" && "result" in json) {
     return json as ScanResponse;
   }
+  // fallback: entire body is the result
   return { status: "done", scanId, result: json as unknown as ScanResult };
 };
 
