@@ -27,7 +27,6 @@ export const findCachedScan = async (
     where: {
       cacheKey,
       status: ScanStatus.done,
-      resultJson: { not: null },
       createdAt: { gte: since },
     },
     orderBy: { createdAt: "desc" },

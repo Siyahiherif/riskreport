@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
   const cacheKey = buildCacheKey(normalizedDomain);
   const since = new Date(Date.now() - CACHE_TTL_MS);
   const cachedScan = await prisma.scan.findFirst({
-    where: { cacheKey, status: "done", createdAt: { gte: since }, resultJson: { not: null } },
+    where: { cacheKey, status: "done", createdAt: { gte: since } },
     orderBy: { createdAt: "desc" },
   });
 

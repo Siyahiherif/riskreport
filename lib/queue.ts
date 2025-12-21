@@ -8,7 +8,7 @@ const getQueue = () => {
   if (!process.env.REDIS_URL) return null;
   if (!queue) {
     queue = new Queue(queueName, {
-      connection: { connectionString: process.env.REDIS_URL },
+      connection: { url: process.env.REDIS_URL! },
       defaultJobOptions: { removeOnComplete: true, removeOnFail: true },
     });
   }
@@ -36,6 +36,6 @@ export const createWorker = async () => {
       const { scanId, domain } = job.data as { scanId: string; domain: string };
       await runScanAndPersist(scanId, domain);
     },
-    { connection: { connectionString: process.env.REDIS_URL } }
+    { connection: { url: process.env.REDIS_URL! } }
   );
 };

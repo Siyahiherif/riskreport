@@ -4,8 +4,9 @@ import { prisma } from "@/lib/db";
 
 export const runtime = "nodejs";
 
-export async function GET(_req: NextRequest, { params }: { params: { token: string } }) {
-  const report = await prisma.report.findUnique({ where: { reportToken: params.token } });
+export async function GET(_req: NextRequest, { params }: { params: Promise<{ token: string }> }) {
+  const { token } = await params;
+  const report = await prisma.report.findUnique({ where: { reportToken: token } });
   if (!report) {
     return NextResponse.json({ error: "Report not found" }, { status: 404 });
   }
