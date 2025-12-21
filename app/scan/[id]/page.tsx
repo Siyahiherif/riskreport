@@ -35,6 +35,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
       try {
         const res = await fetchScan(params.id);
         if (!active) return;
+        setError(null);
         setData(res);
         if (res.status === "done" || res.status === "error") return;
         setTimeout(poll, 2000);
