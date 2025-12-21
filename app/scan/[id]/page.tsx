@@ -10,21 +10,21 @@ type ScanResponse =
   | { status: "error"; scanId: string; error?: string };
 
 const fetchScan = async (scanId: string): Promise<ScanResponse> => {
-  if (!scanId) {
-    throw new Error("Scan id is missing");
-  }
   const origin = typeof window !== "undefined" ? window.location.origin : "";
   const url = origin ? `${origin}/api/scan/${scanId}?t=${Date.now()}` : `/api/scan/${scanId}?t=${Date.now()}`;
   const res = await fetch(url, { cache: "no-store" });
-  if (!res.ok) {
-    throw new Error("Scan not found");
-  }
   const json = await res.json();
+  if (!res.ok) {
+    throw new Error(json?.error || "Scan not found");
+  }
   if (json && typeof json === "object" && "result" in json) {
     return json as ScanResponse;
   }
-  // fallback: entire body is the result
-  return { status: "done", scanId, result: json as unknown as ScanResult };
+  return {
+    status: (json as any)?.status ?? "done",
+    scanId: (json as any)?.scanId ?? scanId,
+    result: json as unknown as ScanResult,
+  };
 };
 
 export default function ScanPage({ params }: { params: { id: string } }) {
