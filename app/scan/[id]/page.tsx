@@ -30,6 +30,7 @@ const fetchScan = async (scanId: string): Promise<ScanResponse> => {
 export default function ScanPage({ params }: { params: { id: string } }) {
   const router = useRouter();
   const [data, setData] = useState<ScanResponse | null>(null);
+  const [lastData, setLastData] = useState<ScanResponse | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -44,11 +45,13 @@ export default function ScanPage({ params }: { params: { id: string } }) {
         if (!active) return;
         setError(null);
         setData(res);
+        setLastData(res);
         if (res.status === "done" || res.status === "error") return;
         setTimeout(poll, 2000);
       } catch (err) {
         if (!active) return;
-        setError((err as Error).message);
+        // keep showing last successful data if we have it
+        setError(lastData ? null : (err as Error).message);
       }
     };
     poll();
@@ -57,8 +60,9 @@ export default function ScanPage({ params }: { params: { id: string } }) {
     };
   }, [params.id]);
 
-  const result = data && "result" in data ? data.result : null;
-  const statusLabel = data?.status ?? "queued";
+  const resultCandidate = data && "result" in data ? data.result : lastData && "result" in lastData ? lastData.result : null;
+  const result = resultCandidate ?? null;
+  const statusLabel = data?.status ?? lastData?.status ?? "queued";
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
