@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ScanStatus {
+  queued
+  running
+  done
+  error
+}
+
+model Scan {
+  id            String     @id @default(uuid())
+  domain        String
+  status        ScanStatus
+  createdAt     DateTime   @default(now())
+  finishedAt    DateTime?
+  resultJson    Json?
+  cacheKey      String
+  errorMessage  String?
+  analysisVersion String
+
+  order   Order?
+  reports Report[]
+
+  @@index([domain])
+  @@index([cacheKey])
+}
+
+model Order {
+  id             String   @id @default(uuid())
+  lemonOrderId   String   @unique
+  email          String?
+  productType    String
+  domain         String
+  scanId         String?  @unique
+  reportToken    String   @unique
+  createdAt      DateTime @default(now())
+
+  scan           Scan?    @relation(fields: [scanId], references: [id])
+}
+
+model Report {
+  id          String   @id @default(uuid())
+  reportToken String   @unique
+  scanId      String
+  storageUrl  String
+  expiresAt   DateTime
+  createdAt   DateTime @default(now())
+
+  scan        Scan     @relation(fields: [scanId], references: [id])
+}
