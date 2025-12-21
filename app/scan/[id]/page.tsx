@@ -17,7 +17,11 @@ const fetchScan = async (scanId: string): Promise<ScanResponse> => {
   if (!res.ok) {
     throw new Error("Scan not found");
   }
-  return res.json();
+  const json = await res.json();
+  if ("result" in json) {
+    return json as ScanResponse;
+  }
+  return { status: "done", scanId, result: json as unknown as ScanResult };
 };
 
 export default function ScanPage({ params }: { params: { id: string } }) {
@@ -68,7 +72,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
           </div>
         </div>
 
-        {error && <p className="mt-4 text-sm text-red-600">{error}</p>}
+        {error && !result && <p className="mt-4 text-sm text-red-600">{error}</p>}
 
         {!result && !error && (
           <div className="mt-8 rounded-2xl bg-white p-6 shadow ring-1 ring-slate-200">
