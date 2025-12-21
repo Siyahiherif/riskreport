@@ -13,7 +13,7 @@ const fetchScan = async (scanId: string): Promise<ScanResponse> => {
   if (!scanId) {
     throw new Error("Scan id is missing");
   }
-  const res = await fetch(`/api/scan/${scanId}`, { cache: "no-store" });
+  const res = await fetch(`/api/scan/${scanId}?t=${Date.now()}`, { cache: "no-store" });
   if (!res.ok) {
     throw new Error("Scan not found");
   }
@@ -50,7 +50,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
   }, [params.id]);
 
   const result = data && "result" in data ? data.result : null;
-  const statusLabel = data?.status ?? "queued";
+  const statusLabel = data?.status ? "queued";
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
