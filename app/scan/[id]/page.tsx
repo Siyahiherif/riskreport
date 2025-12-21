@@ -50,7 +50,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
   }, [params.id]);
 
   const result = data && "result" in data ? data.result : null;
-  const statusLabel = data?.status ? "queued";
+  const statusLabel = data?.status ?? "queued";
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -59,7 +59,7 @@ export default function ScanPage({ params }: { params: { id: string } }) {
           <div>
             <p className="text-sm font-semibold uppercase text-slate-500">Scan Status</p>
             <h1 className="text-3xl font-semibold">Domain risk snapshot</h1>
-            <p className="text-sm text-slate-600">Passive assessment only — DNS, TLS handshake, HTTP headers, redirects.</p>
+            <p className="text-sm text-slate-600">Passive assessment only - DNS, TLS handshake, HTTP headers, redirects.</p>
           </div>
           <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold shadow ring-1 ring-slate-200">
             <span className={`h-2 w-2 rounded-full ${statusLabel === "done" ? "bg-green-500" : statusLabel === "error" ? "bg-red-500" : "bg-amber-500"}`} />
