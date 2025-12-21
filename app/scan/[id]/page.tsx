@@ -10,6 +10,9 @@ type ScanResponse =
   | { status: "error"; scanId: string; error?: string };
 
 const fetchScan = async (scanId: string): Promise<ScanResponse> => {
+  if (!scanId) {
+    throw new Error("Scan id is missing");
+  }
   const res = await fetch(`/api/scan/${scanId}`, { cache: "no-store" });
   if (!res.ok) {
     throw new Error("Scan not found");
@@ -23,6 +26,10 @@ export default function ScanPage({ params }: { params: { id: string } }) {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    if (!params.id) {
+      setError("Scan not found");
+      return;
+    }
     let active = true;
     const poll = async () => {
       try {
