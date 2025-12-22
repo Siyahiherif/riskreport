@@ -5,11 +5,21 @@ import { prisma } from "@/lib/db";
 
 const formatNumber = (n: number | null) => (n === null ? "-" : n.toLocaleString("en-US"));
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPage() {
   const token = process.env.ADMIN_TOKEN;
+  const user = process.env.ADMIN_USER;
+  const pass = process.env.ADMIN_PASS;
   const cookieStore = await cookies();
   const cookieToken = cookieStore.get("admin_token")?.value;
-  if (!token || cookieToken !== token) {
+
+  const cookieAllowed = [
+    token,
+    user && pass ? `${user}:${pass}` : null,
+  ].filter(Boolean) as string[];
+
+  if (!cookieAllowed.length || !cookieToken || !cookieAllowed.includes(cookieToken)) {
     redirect("/admin/login");
   }
 

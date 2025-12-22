@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 export default function AdminLoginPage() {
   const hasToken = !!process.env.ADMIN_TOKEN;
   const hasUser = !!process.env.ADMIN_USER && !!process.env.ADMIN_PASS;
