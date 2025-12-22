@@ -268,6 +268,12 @@ export const generatePdfReport = async ({
             <Text style={{ fontSize: 11, fontWeight: 700, marginBottom: 6 }}>Overall Risk Score</Text>
             <DonutScore score={result.score.overall} label={result.score.label} />
             <Text style={{ fontSize: 10, color: "#475569", marginTop: 8 }}>Legend: Green (Low) • Orange (Moderate) • Red (High)</Text>
+            <View style={{ marginTop: 10, alignItems: "center", paddingHorizontal: 12 }}>
+              <Text style={{ fontSize: 11, fontWeight: 700, marginBottom: 4 }}>What {result.score.label} means</Text>
+              <Text style={{ fontSize: 10, color: "#475569", textAlign: "center", lineHeight: 1.3 }}>
+                This score indicates increased exposure to common web-based attacks. No breach detected, but preventive controls are missing.
+              </Text>
+            </View>
           </View>
           <View style={[styles.card, { flex: 1 }]}>
             <Text style={styles.h3}>At a glance</Text>
