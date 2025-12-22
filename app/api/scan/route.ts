@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { enqueueScan } from "@/lib/queue";
 import { prisma } from "@/lib/db";
 import { createQueuedScan, findCachedScan, normalizeDomain } from "@/lib/scan/service";
+import { generatePdfReport } from "@/lib/pdf";
+import { generateReportToken } from "@/lib/tokens";
+import { sendMail } from "@/lib/email";
 
 const windowMs = 60_000;
 const maxHits = 20;
@@ -53,6 +56,31 @@ export async function POST(req: NextRequest) {
     const normalized = normalizeDomain(domain);
     const cached = await findCachedScan(normalized);
     if (cached) {
+      if (emailOptIn) {
+        await prisma.scan.update({ where: { id: cached.id }, data: { emailOptIn } }).catch(() => {});
+        try {
+          const reportToken = generateReportToken();
+          const pdfPath = await generatePdfReport({ result: cached.result, productType: "pro", reportToken });
+          await prisma.report.create({
+            data: {
+              reportToken,
+              scanId: cached.id,
+              storageUrl: pdfPath,
+              expiresAt: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+            },
+          });
+          const downloadBase = process.env.REPORT_BASE_URL ?? "http://localhost:3000";
+          const downloadUrl = `${downloadBase}/api/report/${reportToken}`;
+          await sendMail({
+            to: emailOptIn,
+            subject: `Your passive risk report is ready for ${cached.result.domain}`,
+            text: `Your report is ready. Download: ${downloadUrl}`,
+            html: `<p>Your passive IT risk report is ready.</p><p><a href="${downloadUrl}">Download PDF</a></p><p>This link expires in 7 days.</p>`,
+          });
+        } catch (err) {
+          console.error("Failed to send cached report email", err);
+        }
+      }
       return NextResponse.json(
         {
           status: "done",
