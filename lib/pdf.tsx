@@ -56,6 +56,7 @@ const DonutScore = ({ score }: { score: number }) => {
         strokeWidth={12}
         fill="none"
         strokeDasharray={`${circumference} ${circumference}`}
+        // @ts-expect-error react-pdf types miss strokeDashoffset
         strokeDashoffset={offset}
         transform="rotate(-90 60 60)"
       />
