@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useParams } from "next/navigation";
 import { ScanResult } from "@/lib/types";
 
 type ScanApiResponse = {
@@ -110,6 +111,9 @@ function FindingsList({ result }: { result: ScanResult }) {
 }
 
 export default function ScanClient({ scanId, initialData }: Props) {
+  const routeParams = useParams();
+  const resolvedScanId = (scanId || (routeParams?.id as string) || "").trim();
+
   const [data, setData] = useState<ScanApiResponse>(initialData);
   const [lastResult, setLastResult] = useState<ScanResult | undefined>(initialData.result);
   const [fetchError, setFetchError] = useState<string | null>(initialData.error ?? null);
@@ -120,7 +124,11 @@ export default function ScanClient({ scanId, initialData }: Props) {
 
     const poll = async () => {
       try {
-        const res = await fetch(`/api/scan/${scanId}?t=${Date.now()}`, { cache: "no-store" });
+        if (!resolvedScanId) {
+          setFetchError("Scan ID missing in URL.");
+          return;
+        }
+        const res = await fetch(`/api/scan/${resolvedScanId}?t=${Date.now()}`, { cache: "no-store" });
         const json = (await res.json()) as ScanApiResponse;
         if (cancelled) return;
         setData((prev) => ({ ...prev, ...json }));
@@ -143,7 +151,7 @@ export default function ScanClient({ scanId, initialData }: Props) {
       cancelled = true;
       if (timer) clearTimeout(timer);
     };
-  }, [initialData.status, scanId]);
+  }, [initialData.status, resolvedScanId, initialData.result]);
 
   const status = data.status ?? initialData.status;
   const currentResult = useMemo(() => data.result ?? lastResult, [data.result, lastResult]);
@@ -158,7 +166,7 @@ export default function ScanClient({ scanId, initialData }: Props) {
           <p className="text-sm font-semibold uppercase text-slate-500">Scan Status</p>
           <h1 className="text-3xl font-semibold">Domain risk snapshot</h1>
           <p className="text-sm text-slate-600">Passive assessment only — DNS, TLS handshake, HTTP headers, redirects.</p>
-          <p className="text-xs text-slate-500">Scan ID: {scanId}</p>
+          <p className="text-xs text-slate-500">Scan ID: {resolvedScanId || "unknown"}</p>
         </div>
         <StatusBadge status={status} cached={data.cached} />
       </div>
