@@ -301,6 +301,8 @@ export default function Home() {
             <a className="underline hover:text-slate-900" href="/terms">Terms of Service</a>
             <span>•</span>
             <a className="underline hover:text-slate-900" href="/pricing">Pricing</a>
+            <span>•</span>
+            <a className="underline hover:text-slate-900" href="/refund">Refund Policy</a>
           </div>
         </div>
       </footer>
