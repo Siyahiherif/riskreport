@@ -25,6 +25,7 @@ export async function POST(req: NextRequest) {
     secure: true,
     sameSite: "lax",
     path: "/",
+    domain: req.nextUrl.hostname.includes("localhost") ? undefined : req.nextUrl.hostname,
   });
   return res;
 }

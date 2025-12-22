@@ -14,12 +14,12 @@ export default async function AdminPage() {
   const cookieStore = await cookies();
   const cookieToken = cookieStore.get("admin_token")?.value;
 
-  const cookieAllowed = [
+  const allowed = [
     token,
     user && pass ? `${user}:${pass}` : null,
   ].filter(Boolean) as string[];
 
-  if (!cookieAllowed.length || !cookieToken || !cookieAllowed.includes(cookieToken)) {
+  if (!allowed.length || !cookieToken || !allowed.includes(cookieToken)) {
     redirect("/admin/login");
   }
 
