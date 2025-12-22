@@ -84,17 +84,25 @@ export default function Home() {
               Executive Report ($99)
             </a>
           </form>
-          {error && <p className="text-sm text-red-600">{error}</p>}
-          <div className="flex flex-col gap-2 md:flex-row md:items-center">
+      {error && <p className="text-sm text-red-600">{error}</p>}
+      <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+        <div className="flex-1">
+          <label className="text-xs font-semibold text-slate-700">Get the PDF link by email (optional)</label>
+          <div className="mt-1 flex items-center gap-2">
             <input
               type="email"
-              placeholder="Send me the sample PDF + updates (optional email)"
+              placeholder="you@company.com"
               value={emailOptIn}
               onChange={(e) => setEmailOptIn(e.target.value)}
               className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm shadow-sm focus:border-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-900/10"
             />
-            <p className="text-xs text-slate-600">We only use this to share the sample link and product updates.</p>
+            <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">Optional</span>
           </div>
+          <p className="mt-1 text-xs text-slate-600">
+            We email the download link to you. No marketing spam. If empty, you can still view the free score on screen.
+          </p>
+        </div>
+      </div>
           <ul className="grid gap-2 md:grid-cols-2">
             {perks.map((perk) => (
               <li key={perk} className="flex items-start gap-2 text-sm text-slate-700">
