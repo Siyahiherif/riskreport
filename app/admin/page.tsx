@@ -7,7 +7,8 @@ const formatNumber = (n: number | null) => (n === null ? "-" : n.toLocaleString(
 
 export default async function AdminPage() {
   const token = process.env.ADMIN_TOKEN;
-  const cookieToken = cookies().get("admin_token")?.value;
+  const cookieStore = await cookies();
+  const cookieToken = cookieStore.get("admin_token")?.value;
   if (!token || cookieToken !== token) {
     redirect("/admin/login");
   }
