@@ -10,6 +10,9 @@ export default function TermsPage() {
         <div>
           <p className="text-xs uppercase font-semibold text-slate-500">Terms of Service</p>
           <h1 className="text-3xl font-semibold">CyberFaceX Terms of Service</h1>
+          <p className="text-sm text-slate-700 mt-1">
+            These Terms and Conditions apply to the use of the CyberFaceX service, operated by CyberFaceX.
+          </p>
         </div>
 
         <p className="text-sm text-slate-700">
@@ -63,6 +66,16 @@ export default function TermsPage() {
         <section className="space-y-2">
           <h2 className="text-xl font-semibold">6. Contact</h2>
           <p className="text-sm text-slate-700">info@cyberfacex.com</p>
+        </section>
+
+        <section className="space-y-2">
+          <h2 className="text-xl font-semibold">Refund Policy</h2>
+          <p className="text-sm text-slate-700">
+            CyberFaceX provides digital security reports generated on demand. Due to the nature of the service, refunds are generally not provided once a report has been generated and delivered.
+          </p>
+          <p className="text-sm text-slate-700">
+            If you experience a technical issue or incorrect charge, please contact us at support@cyberfacex.com within 7 days. We review refund requests on a case-by-case basis.
+          </p>
         </section>
       </div>
     </div>
