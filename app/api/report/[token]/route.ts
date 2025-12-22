@@ -39,7 +39,7 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ tok
     }
   }
 
-  return new NextResponse(data, {
+  return new NextResponse(data as any, {
     status: 200,
     headers: {
       "Content-Type": "application/pdf",
