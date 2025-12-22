@@ -5,7 +5,7 @@ import { computeOverallScore, selectTopFindings } from "../scoring";
 import { Finding, ScanResult } from "../types";
 import { runDnsChecks, runHeaderChecks, runRedirectChecks, runTlsChecks } from "./modules";
 import { assertPublicHostname, toAsciiDomain } from "./security";
-import { sendMail } from "../email";
+import { sendMail, composeReportEmail } from "../email";
 import { generatePdfReport } from "../pdf";
 import { generateReportToken } from "../tokens";
 
@@ -104,12 +104,12 @@ export const runScanAndPersist = async (scanId: string, domain: string): Promise
         });
         const downloadBase = process.env.REPORT_BASE_URL ?? "http://localhost:3000";
         const downloadUrl = `${downloadBase}/api/report/${reportToken}`;
-        await sendMail({
+        const mail = composeReportEmail({
           to: existingScan.emailOptIn,
-          subject: `Your passive risk report is ready for ${result.domain}`,
-          text: `Your report is ready. Download: ${downloadUrl}`,
-          html: `<p>Your passive IT risk report is ready.</p><p><a href="${downloadUrl}">Download PDF</a></p><p>This link expires in 7 days.</p>`,
+          domain: result.domain,
+          downloadUrl,
         });
+        await sendMail(mail);
       } catch (emailErr) {
         console.error("Failed to send report email", emailErr);
       }

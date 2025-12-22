@@ -5,6 +5,7 @@ import { createQueuedScan, findCachedScan, normalizeDomain } from "@/lib/scan/se
 import { generatePdfReport } from "@/lib/pdf";
 import { generateReportToken } from "@/lib/tokens";
 import { sendMail } from "@/lib/email";
+import { composeReportEmail } from "@/lib/email";
 
 const windowMs = 60_000;
 const maxHits = 20;
@@ -71,12 +72,12 @@ export async function POST(req: NextRequest) {
           });
           const downloadBase = process.env.REPORT_BASE_URL ?? "http://localhost:3000";
           const downloadUrl = `${downloadBase}/api/report/${reportToken}`;
-          await sendMail({
+          const mail = composeReportEmail({
             to: emailOptIn,
-            subject: `Your passive risk report is ready for ${cached.result.domain}`,
-            text: `Your report is ready. Download: ${downloadUrl}`,
-            html: `<p>Your passive IT risk report is ready.</p><p><a href="${downloadUrl}">Download PDF</a></p><p>This link expires in 7 days.</p>`,
+            domain: cached.result.domain,
+            downloadUrl,
           });
+          await sendMail(mail);
         } catch (err) {
           console.error("Failed to send cached report email", err);
         }
