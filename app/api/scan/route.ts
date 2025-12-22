@@ -40,6 +40,8 @@ const noStore = { "Cache-Control": "no-store" };
 export async function POST(req: NextRequest) {
   try {
     const ip = getIp(req);
+    const country = req.headers.get("cf-ipcountry") || req.headers.get("x-country-code") || null;
+    const ua = req.headers.get("user-agent") || null;
     if (rateLimited(ip)) {
       return NextResponse.json({ error: "Too many requests" }, { status: 429, headers: noStore });
     }
@@ -100,7 +102,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ status: existingRunning.status, scanId: existingRunning.id }, { headers: noStore });
     }
 
-    const scan = await createQueuedScan(normalized, emailOptIn);
+    const scan = await createQueuedScan(normalized, emailOptIn, { ip, country, ua });
     await enqueueScan(scan.id, normalized);
     return NextResponse.json({ status: scan.status, scanId: scan.id }, { headers: noStore });
   } catch (err) {

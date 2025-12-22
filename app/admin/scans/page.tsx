@@ -45,6 +45,8 @@ export default async function AdminScansPage() {
                 <th className="px-4 py-3">Risk score</th>
                 <th className="px-4 py-3">Status</th>
                 <th className="px-4 py-3">Created</th>
+                <th className="px-4 py-3">IP / Country</th>
+                <th className="px-4 py-3">User Agent</th>
                 <th className="px-4 py-3">Error</th>
               </tr>
             </thead>
@@ -60,6 +62,12 @@ export default async function AdminScansPage() {
                     <td className="px-4 py-2">
                       {new Date(scan.createdAt).toLocaleString(undefined, { dateStyle: "short", timeStyle: "short" })}
                     </td>
+                    <td className="px-4 py-2 text-xs text-slate-700">
+                      {scan.ipAddress ?? "-"}
+                      <br />
+                      {scan.country ?? "-"}
+                    </td>
+                    <td className="px-4 py-2 text-xs text-slate-700 truncate max-w-[180px]">{scan.userAgent ?? "-"}</td>
                     <td className="px-4 py-2 text-red-600 text-xs">{scan.errorMessage ?? ""}</td>
                   </tr>
                 );

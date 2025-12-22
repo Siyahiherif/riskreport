@@ -38,13 +38,16 @@ export const findCachedScan = async (
   return { id: scan.id, result: scan.resultJson as ScanResult };
 };
 
-export const createQueuedScan = async (domain: string, emailOptIn?: string) => {
+export const createQueuedScan = async (domain: string, emailOptIn?: string, meta?: { ip?: string | null; country?: string | null; ua?: string | null }) => {
   const normalized = normalizeDomain(domain);
   await assertPublicHostname(normalized);
   return prisma.scan.create({
     data: {
       domain: normalized,
       emailOptIn: emailOptIn || null,
+      ipAddress: meta?.ip || null,
+      country: meta?.country || null,
+      userAgent: meta?.ua || null,
       cacheKey: buildCacheKey(normalized),
       status: ScanStatus.queued,
       analysisVersion: ANALYSIS_VERSION,

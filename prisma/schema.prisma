@@ -18,6 +18,9 @@ model Scan {
   id            String     @id @default(uuid())
   domain        String
   emailOptIn    String?
+  ipAddress     String?
+  country       String?
+  userAgent     String?
   status        ScanStatus
   createdAt     DateTime   @default(now())
   finishedAt    DateTime?
