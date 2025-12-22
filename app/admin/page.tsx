@@ -19,7 +19,12 @@ export default async function AdminPage() {
       prisma.scan.count({ where: { createdAt: { gte: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000) } } }),
       prisma.scan.count({ where: { createdAt: { gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) } } }),
       prisma.scan.count({ where: { createdAt: { gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) } } }),
-      prisma.scan.aggregate({ _avg: { resultJson: true } }),
+      prisma.scan.findMany({
+        where: { status: "done" },
+        select: { resultJson: true },
+        take: 200,
+        orderBy: { createdAt: "desc" },
+      }),
       prisma.scan.count({ where: { order: null } }),
       prisma.order.count(),
       prisma.scan.findMany({
@@ -30,8 +35,14 @@ export default async function AdminPage() {
       prisma.report.findMany({ orderBy: { createdAt: "desc" }, take: 10, include: { scan: true } }),
     ]);
 
-  const avgScore =
-    ((avgScoreRow as any)?._avg?.resultJson?.score?.overall as number | undefined) || null;
+  const avgScore = (() => {
+    const scores = (avgScoreRow as any[])
+      .map((s) => (s.resultJson as any)?.score?.overall as number | undefined)
+      .filter((n) => typeof n === "number") as number[];
+    if (!scores.length) return null;
+    const sum = scores.reduce((a, b) => a + b, 0);
+    return sum / scores.length;
+  })();
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
