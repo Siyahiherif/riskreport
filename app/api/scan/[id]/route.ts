@@ -7,8 +7,8 @@ export const revalidate = 0;
 
 const noStore = { "Cache-Control": "no-store" };
 
-export async function GET(_req: NextRequest, { params }: { params: { id: string } }) {
-  const { id } = params;
+export async function GET(_req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const { id } = await context.params;
   const scan = await prisma.scan.findUnique({ where: { id } });
   if (!scan) {
     return NextResponse.json({ error: "Scan not found" }, { status: 404, headers: noStore });
