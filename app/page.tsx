@@ -282,6 +282,18 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <footer className="border-t border-slate-200 bg-white/90 backdrop-blur py-6">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 text-sm text-slate-600">
+          <div>CyberFaceX Passive IT Risk Intelligence</div>
+          <div className="flex items-center gap-3">
+            <a className="underline hover:text-slate-900" href="/privacy">Privacy Policy</a>
+            <span>•</span>
+            <a className="underline hover:text-slate-900" href="/cookie">Cookie Policy</a>
+            <span>•</span>
+            <a className="underline hover:text-slate-900" href="/terms">Terms of Service</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
