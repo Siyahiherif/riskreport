@@ -19,13 +19,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.redirect(new URL("/admin/login?error=1", req.url));
   }
 
-  const res = NextResponse.redirect(new URL("/admin", req.url));
+  const originHost = req.headers.get("host") || req.nextUrl.host;
+  const originProto = req.nextUrl.protocol || "https:";
+  const origin = `${originProto}//${originHost}`;
+
+  const res = NextResponse.redirect(new URL("/admin", origin));
   res.cookies.set(cookieName, token || `${user}:${pass}`, {
     httpOnly: true,
     secure: true,
     sameSite: "lax",
     path: "/",
-    domain: req.nextUrl.hostname.includes("localhost") ? undefined : req.nextUrl.hostname,
+    domain: originHost.includes("localhost") ? undefined : originHost,
   });
   return res;
 }
