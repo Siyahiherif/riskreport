@@ -42,8 +42,12 @@ export async function POST(req: NextRequest) {
 
     const body = await req.json();
     const domain = body?.domain as string;
+    const emailOptIn = (body?.emailOptIn as string | undefined)?.trim();
     if (!domain) {
       return NextResponse.json({ error: "domain is required" }, { status: 400, headers: noStore });
+    }
+    if (emailOptIn && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailOptIn)) {
+      return NextResponse.json({ error: "invalid email" }, { status: 400, headers: noStore });
     }
 
     const normalized = normalizeDomain(domain);
@@ -67,7 +71,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ status: existingRunning.status, scanId: existingRunning.id }, { headers: noStore });
     }
 
-    const scan = await createQueuedScan(normalized);
+    const scan = await createQueuedScan(normalized, emailOptIn);
     await enqueueScan(scan.id, normalized);
     return NextResponse.json({ status: scan.status, scanId: scan.id }, { headers: noStore });
   } catch (err) {

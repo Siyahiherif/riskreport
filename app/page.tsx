@@ -31,7 +31,7 @@ export default function Home() {
       const res = await fetch("/api/scan", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ domain }),
+        body: JSON.stringify({ domain, emailOptIn: emailOptIn || undefined }),
       });
       const json = await res.json();
       if (!res.ok) {

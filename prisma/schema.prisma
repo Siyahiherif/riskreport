@@ -17,6 +17,7 @@ enum ScanStatus {
 model Scan {
   id            String     @id @default(uuid())
   domain        String
+  emailOptIn    String?
   status        ScanStatus
   createdAt     DateTime   @default(now())
   finishedAt    DateTime?
