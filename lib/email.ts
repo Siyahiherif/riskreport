@@ -77,7 +77,7 @@ export const composeReportEmail = ({
         CyberFaceX<br/>
         Passive IT Risk Intelligence<br/>
         <a href="https://cyberfacex.com" style="color:#0b132b;text-decoration:none;">https://cyberfacex.com</a><br/>
-        Need help? <a href="mailto:info@ishazir.com" style="color:#0b132b;text-decoration:none;">info@ishazir.com</a>
+        Need help? <a href="mailto:info@cyberfacex.com" style="color:#0b132b;text-decoration:none;">info@cyberfacex.com</a>
       </p>
     </div>
   </div>`;
