@@ -40,39 +40,34 @@ const scoreColor = (score: number) => {
   return "#dc2626";
 };
 
-const DonutScore = ({ score }: { score: number }) => {
+const DonutScore = ({ score, label }: { score: number; label: string }) => {
   const radius = 45;
   const circumference = 2 * Math.PI * radius;
   const pct = Math.min(Math.max(score, 0), 100) / 100;
   const offset = circumference * (1 - pct);
   return (
-    <Svg width={120} height={120}>
-      <Circle cx={60} cy={60} r={radius} stroke="#e2e8f0" strokeWidth={12} fill="none" />
-      <Circle
-        cx={60}
-        cy={60}
-        r={radius}
-        stroke={scoreColor(score)}
-        strokeWidth={12}
-        fill="none"
-        strokeDasharray={`${circumference} ${circumference}`}
-        // @ts-expect-error react-pdf types miss strokeDashoffset
-        strokeDashoffset={offset}
-        transform="rotate(-90 60 60)"
-      />
-      <Text
-        style={{
-          position: "absolute",
-          top: 45,
-          left: 36,
-          fontSize: 22,
-          fontWeight: 700,
-          color: "#0f172a",
-        }}
-      >
-        {score}
-      </Text>
-    </Svg>
+    <View style={{ alignItems: "center" }}>
+      <Svg width={120} height={120}>
+        <Circle cx={60} cy={60} r={radius} stroke="#e2e8f0" strokeWidth={12} fill="none" />
+        <Circle
+          cx={60}
+          cy={60}
+          r={radius}
+          stroke={scoreColor(score)}
+          strokeWidth={12}
+          fill="none"
+          strokeDasharray={`${circumference} ${circumference}`}
+          // @ts-expect-error react-pdf types miss strokeDashoffset
+          strokeDashoffset={offset}
+          transform="rotate(-90 60 60)"
+        />
+      </Svg>
+      <View style={{ position: "absolute", top: 40, alignItems: "center" }}>
+        <Text style={{ fontSize: 20, fontWeight: 700, color: "#0f172a" }}>{score}</Text>
+        <Text style={{ fontSize: 9, color: "#475569" }}>/100</Text>
+        <Text style={{ fontSize: 10, fontWeight: 700, marginTop: 2 }}>{label}</Text>
+      </View>
+    </View>
   );
 };
 
@@ -80,17 +75,21 @@ const ScoreBreakdown = ({ result }: { result: ScanResult }) => {
   const categories = categoryScoreEntries(result.score);
   return (
     <View style={{ marginTop: 8 }}>
-      {categories.map((c) => (
-        <View key={c.key} style={{ marginBottom: 8 }}>
-          <View style={styles.row}>
-            <Text style={{ fontSize: 11, fontWeight: 700 }}>{c.label}</Text>
-            <Text style={{ fontSize: 11, fontWeight: 700 }}>{c.value}</Text>
+      {categories.map((c) => {
+        const status = c.value >= 80 ? "Good" : c.value >= 60 ? "Acceptable" : "Needs attention";
+        return (
+          <View key={c.key} style={{ marginBottom: 8 }}>
+            <View style={styles.row}>
+              <Text style={{ fontSize: 11, fontWeight: 700 }}>{c.label}</Text>
+              <Text style={{ fontSize: 11, fontWeight: 700 }}>{c.value}</Text>
+            </View>
+            <View style={styles.barBg}>
+              <View style={{ height: 8, borderRadius: 4, backgroundColor: scoreColor(c.value), width: `${c.value}%` }} />
+            </View>
+            <Text style={{ fontSize: 9, color: "#475569", marginTop: 2 }}>{status}</Text>
           </View>
-          <View style={styles.barBg}>
-            <View style={{ height: 8, borderRadius: 4, backgroundColor: scoreColor(c.value), width: `${c.value}%` }} />
-          </View>
-        </View>
-      ))}
+        );
+      })}
     </View>
   );
 };
@@ -107,6 +106,9 @@ const TopRisks = ({ findings }: { findings: Finding[] }) => (
         <Text style={{ fontSize: 10, marginTop: 4 }}>
           Evidence: <Text style={{ fontWeight: 700 }}>{f.evidence}</Text>
         </Text>
+        <Text style={{ fontSize: 10, marginTop: 2 }}>
+          Business impact: <Text style={{ fontWeight: 700 }}>{f.business_impact}</Text>
+        </Text>
       </View>
     ))}
   </View>
@@ -122,7 +124,9 @@ const FindingsOverview = ({ findings }: { findings: Finding[] }) => (
     </View>
     {findings.map((f, idx) => (
       <View key={`${f.id}-${idx}`} style={{ flexDirection: "row", marginBottom: 6 }}>
-        <Text style={[styles.cell, { color: severityColor(f.severity) }]}>{f.severity.toUpperCase()}</Text>
+        <Text style={[styles.cell, { color: severityColor(f.severity) }]}>
+          {f.severity === "critical" ? "!!" : f.severity === "high" ? "!" : f.severity === "medium" ? "~" : "-"} {f.severity.toUpperCase()}
+        </Text>
         <Text style={[styles.cell, { flex: 2 }]}>{f.title}</Text>
         <Text style={[styles.cell, { flex: 2 }]}>{f.category}</Text>
         <Text style={[styles.cell, { flex: 2 }]}>{f.evidence}</Text>
@@ -131,29 +135,46 @@ const FindingsOverview = ({ findings }: { findings: Finding[] }) => (
   </View>
 );
 
-const DetailedFindings = ({ findings }: { findings: Finding[] }) => (
-  <View>
-    {findings.map((f, idx) => (
-      <View key={`${f.id}-${idx}`} style={styles.card}>
-        <View style={styles.row}>
-          <Text style={{ fontSize: 12, fontWeight: 700 }}>{f.title}</Text>
-          <Text style={[styles.pill, { backgroundColor: severityColor(f.severity), color: "#fff" }]}>{f.severity.toUpperCase()}</Text>
+const DetailedFindings = ({ findings }: { findings: Finding[] }) => {
+  const ownerByCategory: Record<string, string> = {
+    email_security: "Email / IT",
+    transport_security: "IT",
+    web_security: "Web / IT",
+    hygiene: "IT",
+  };
+  const effortBySeverity = (severity: Finding["severity"]) => {
+    if (severity === "critical" || severity === "high") return "High";
+    if (severity === "medium") return "Medium";
+    return "Low";
+  };
+
+  return (
+    <View>
+      {findings.map((f, idx) => (
+        <View key={`${f.id}-${idx}`} style={styles.card}>
+          <View style={styles.row}>
+            <Text style={{ fontSize: 12, fontWeight: 700 }}>{f.title}</Text>
+            <Text style={[styles.pill, { backgroundColor: severityColor(f.severity), color: "#fff" }]}>{f.severity.toUpperCase()}</Text>
+          </View>
+          <Text style={styles.muted}>{f.summary}</Text>
+          <Text style={styles.h3}>What we observed</Text>
+          <Text>{f.evidence}</Text>
+          <Text style={styles.h3}>Business impact</Text>
+          <Text>{f.business_impact}</Text>
+          <Text style={styles.h3}>Recommended actions</Text>
+          <View style={styles.list}>
+            {f.recommendation.map((r, i) => (
+              <Text key={i}>- {r}</Text>
+            ))}
+          </View>
+          <Text style={{ fontSize: 10, marginTop: 6 }}>
+            Estimated effort: {effortBySeverity(f.severity)} | Owner: {ownerByCategory[f.category] || "IT"}
+          </Text>
         </View>
-        <Text style={styles.muted}>{f.summary}</Text>
-        <Text style={styles.h3}>What we observed</Text>
-        <Text>{f.evidence}</Text>
-        <Text style={styles.h3}>Business impact</Text>
-        <Text>{f.business_impact}</Text>
-        <Text style={styles.h3}>Recommended actions</Text>
-        <View style={styles.list}>
-          {f.recommendation.map((r, i) => (
-            <Text key={i}>- {r}</Text>
-          ))}
-        </View>
-      </View>
-    ))}
-  </View>
-);
+      ))}
+    </View>
+  );
+};
 
 const methodologyLines = [
   "Passive-only signals: DNS, TLS handshake, HTTP response headers, redirect checks.",
@@ -196,8 +217,8 @@ export const generatePdfReport = async ({
         <View style={{ flexDirection: "row", gap: 16, marginTop: 12 }}>
           <View style={[styles.card, { flex: 1, alignItems: "center" }]}>
             <Text style={{ fontSize: 11, fontWeight: 700, marginBottom: 6 }}>Overall Risk Score</Text>
-            <DonutScore score={result.score.overall} />
-            <Text style={{ fontSize: 12, fontWeight: 700, marginTop: 6 }}>{result.score.label}</Text>
+            <DonutScore score={result.score.overall} label={result.score.label} />
+            <Text style={{ fontSize: 10, color: "#475569", marginTop: 8 }}>Legend: Green (Low) • Orange (Moderate) • Red (High)</Text>
           </View>
           <View style={[styles.card, { flex: 1 }]}>
             <Text style={styles.h3}>At a glance</Text>
@@ -215,11 +236,19 @@ export const generatePdfReport = async ({
             Email spoofing, missing web security headers, and weak TLS hygiene increase the risk of invoice fraud, browser-based attacks,
             and data interception.
           </Text>
+          <View style={{ marginTop: 6, marginLeft: 6 }}>
+            <Text>- Increased likelihood of invoice fraud</Text>
+            <Text>- Higher exposure to browser-based attacks</Text>
+            <Text>- Elevated risk during TLS renewal periods</Text>
+          </View>
         </View>
         <Text style={styles.h3}>Top risks</Text>
         <TopRisks findings={topRisks} />
         <Text style={styles.h3}>30-day action plan</Text>
         <View style={styles.card}>
+          <Text style={{ fontSize: 10, color: "#475569", marginBottom: 6 }}>
+            Addressing P0 and P1 items within 30 days will significantly reduce your overall risk score.
+          </Text>
           {defaultActionPlan.map((item, idx) => (
             <View key={idx} style={[styles.row, { marginBottom: 6 }]}>
               <Text style={[styles.pill, { backgroundColor: "#e2e8f0", fontWeight: 700 }]}>{item.priority}</Text>
@@ -259,6 +288,12 @@ export const generatePdfReport = async ({
           ))}
         </View>
         <Text style={[styles.muted, { marginTop: 8 }]}>Passive analysis only — no intrusive scanning performed.</Text>
+        <View style={[styles.card, { marginTop: 8, backgroundColor: "#f8fafc" }]}>
+          <Text style={{ fontSize: 10, fontWeight: 700 }}>Trust note</Text>
+          <Text style={{ fontSize: 10, color: "#475569", marginTop: 2 }}>
+            This report is based solely on publicly observable signals and does not require authorization.
+          </Text>
+        </View>
       </Page>
     </Document>
   );
