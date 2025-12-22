@@ -125,9 +125,7 @@ const FindingsOverview = ({ findings }: { findings: Finding[] }) => (
         <Text style={[styles.cell, { color: severityColor(f.severity) }]}>{f.severity.toUpperCase()}</Text>
         <Text style={[styles.cell, { flex: 2 }]}>{f.title}</Text>
         <Text style={[styles.cell, { flex: 2 }]}>{f.category}</Text>
-        <Text style={[styles.cell, { flex: 2 }]} numberOfLines={1}>
-          {f.evidence}
-        </Text>
+        <Text style={[styles.cell, { flex: 2 }]}>{f.evidence}</Text>
       </View>
     ))}
   </View>
