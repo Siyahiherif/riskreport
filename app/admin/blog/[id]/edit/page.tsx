@@ -14,14 +14,19 @@ export default async function AdminBlogEditPage({ params }: Props) {
   const token = process.env.ADMIN_TOKEN;
   const user = process.env.ADMIN_USER;
   const pass = process.env.ADMIN_PASS;
-  const cookieStore = await cookies();
+  const cookieStore = cookies();
   const cookieToken = cookieStore.get("admin_token")?.value;
   const allowed = [token, user && pass ? `${user}:${pass}` : null].filter(Boolean) as string[];
   if (!allowed.length || !cookieToken || !allowed.includes(cookieToken)) {
     redirect("/admin/login");
   }
 
-  const post = await prisma.blogPost.findUnique({ where: { id: params.id } });
+  let post = null;
+  try {
+    post = await prisma.blogPost.findUnique({ where: { id: params.id } });
+  } catch (err) {
+    redirect("/admin/blog");
+  }
   if (!post) {
     redirect("/admin/blog");
   }
@@ -38,7 +43,7 @@ export default async function AdminBlogEditPage({ params }: Props) {
             const user = process.env.ADMIN_USER;
             const pass = process.env.ADMIN_PASS;
             const cookieStore = cookies();
-            const cookieToken = (await cookieStore).get("admin_token")?.value;
+            const cookieToken = cookieStore.get("admin_token")?.value;
             const allowed = [token, user && pass ? `${user}:${pass}` : null].filter(Boolean) as string[];
             if (!allowed.length || !cookieToken || !allowed.includes(cookieToken)) {
               redirect("/admin/login");
@@ -79,25 +84,30 @@ export default async function AdminBlogEditPage({ params }: Props) {
                     .filter(Boolean)
                 : [];
 
-            await prisma.blogPost.update({
-              where: { id: params.id },
-              data: {
-                title,
-                slug: finalSlug,
-                summary,
-                content,
-                status,
-                publishDate: publishDate ? new Date(publishDate) : null,
-                category,
-                tags,
-                seoTitle,
-                canonicalUrl,
-                indexable,
-                focusKeyword,
-                wordCount: words,
-                readMinutes,
-              },
-            });
+            try {
+              await prisma.blogPost.update({
+                where: { id: params.id },
+                data: {
+                  title,
+                  slug: finalSlug,
+                  summary,
+                  content,
+                  status,
+                  publishDate: publishDate ? new Date(publishDate) : null,
+                  category,
+                  tags,
+                  seoTitle,
+                  canonicalUrl,
+                  indexable,
+                  focusKeyword,
+                  wordCount: words,
+                  readMinutes,
+                },
+              });
+            } catch (err) {
+              console.error("Failed to update blog post", err);
+              redirect("/admin/blog?error=update_failed");
+            }
 
             redirect("/admin/blog");
           }}
