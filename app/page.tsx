@@ -198,7 +198,7 @@ export default function Home() {
               <p className="text-sm text-slate-700">Free for top 3 risks; upgrade for full PDF and prioritized fixes.</p>
             </div>
             <div className="text-sm text-slate-600">
-              LemonSqueezy handles payments (Merchant of Record). No company required.
+              Payments are handled by our authorized Merchant of Record. No company required.
             </div>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
