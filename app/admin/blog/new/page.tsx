@@ -1,6 +1,8 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import { prisma } from "@/lib/db";
+import { BlogStatus } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
@@ -34,26 +36,69 @@ export default async function AdminBlogNewPage() {
             if (!allowed.length || !cookieToken || !allowed.includes(cookieToken)) {
               redirect("/admin/login");
             }
-            const payload = {
-              title: formData.get("title"),
-              slug: formData.get("slug"),
-              summary: formData.get("summary"),
-              content: formData.get("content"),
-              status: formData.get("status"),
-              publishDate: formData.get("publishDate"),
-              category: formData.get("category"),
-              tags: formData.get("tags"),
-              seoTitle: formData.get("seoTitle"),
-              canonicalUrl: formData.get("canonicalUrl"),
-              indexable: formData.get("indexable") === "on",
-              focusKeyword: formData.get("focusKeyword"),
+            const title = (formData.get("title") as string)?.trim();
+            const slugInput = (formData.get("slug") as string)?.trim();
+            const summary = (formData.get("summary") as string)?.trim() || "";
+            const content = (formData.get("content") as string)?.trim();
+            const status = (formData.get("status") as BlogStatus) || "draft";
+            const publishDate = formData.get("publishDate") as string;
+            const category = (formData.get("category") as string) || "Passive Security";
+            const tagsRaw = formData.get("tags") as string;
+            const seoTitle = (formData.get("seoTitle") as string) || null;
+            const canonicalUrl = (formData.get("canonicalUrl") as string) || null;
+            const indexable = formData.get("indexable") === "on";
+            const focusKeyword = (formData.get("focusKeyword") as string) || null;
+
+            if (!title || !content) {
+              redirect("/admin/blog?error=missing_fields");
+            }
+
+            const makeSlug = (text: string) =>
+              text
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, "-")
+                .replace(/^-+|-+$/g, "")
+                .slice(0, 80);
+
+            let finalSlug = slugInput || makeSlug(title);
+            const words = content.trim().split(/\s+/).length;
+            const readMinutes = Math.max(1, Math.round(words / 200));
+            const tags =
+              tagsRaw && typeof tagsRaw === "string"
+                ? tagsRaw
+                    .split(",")
+                    .map((t) => t.trim())
+                    .filter(Boolean)
+                : [];
+
+            const data = {
+              title,
+              slug: finalSlug,
+              summary,
+              content,
+              status,
+              publishDate: publishDate ? new Date(publishDate) : null,
+              category,
+              tags,
+              seoTitle,
+              canonicalUrl,
+              indexable,
+              focusKeyword,
+              wordCount: words,
+              readMinutes,
             };
-            await fetch(`${process.env.REPORT_BASE_URL ?? "http://localhost:3000"}/api/admin/blog/create`, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-              cache: "no-store",
-            });
+
+            try {
+              await prisma.blogPost.create({ data });
+            } catch (err: any) {
+              if (err.code === "P2002") {
+                finalSlug = `${finalSlug}-${Date.now()}`;
+                await prisma.blogPost.create({ data: { ...data, slug: finalSlug } });
+              } else {
+                throw err;
+              }
+            }
+
             redirect("/admin/blog");
           }}
         >
