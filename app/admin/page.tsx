@@ -81,6 +81,21 @@ export default async function AdminPage() {
           <StatCard label="Recent reports" value={formatNumber(recentReports.length)} />
         </div>
 
+        <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow flex flex-wrap items-center gap-3">
+          <p className="text-sm font-semibold text-slate-900">Quick admin actions</p>
+          <div className="flex flex-wrap gap-2 text-sm">
+            <Link href="/admin/scans" className="rounded-lg border border-slate-200 px-3 py-2 font-semibold text-slate-800">
+              View scans
+            </Link>
+            <Link href="/admin/blog" className="rounded-lg border border-slate-200 px-3 py-2 font-semibold text-slate-800">
+              Blog posts
+            </Link>
+            <Link href="/admin/blog/new" className="rounded-lg bg-slate-900 px-3 py-2 font-semibold text-white shadow">
+              New blog post
+            </Link>
+          </div>
+        </div>
+
         <section className="space-y-3">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-semibold">Recent scans</h2>
