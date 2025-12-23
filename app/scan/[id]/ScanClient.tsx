@@ -117,6 +117,9 @@ export default function ScanClient({ scanId, initialData }: Props) {
   const [data, setData] = useState<ScanApiResponse>(initialData);
   const [lastResult, setLastResult] = useState<ScanResult | undefined>(initialData.result);
   const [fetchError, setFetchError] = useState<string | null>(initialData.error ?? null);
+  const [email, setEmail] = useState("");
+  const [sendState, setSendState] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [sendError, setSendError] = useState<string | null>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -219,12 +222,47 @@ export default function ScanClient({ scanId, initialData }: Props) {
                 <p className="text-sm font-semibold text-slate-900">🔒 Want the full report?</p>
                 <p className="text-sm text-slate-700">Get the executive-ready PDF with prioritized fixes.</p>
               </div>
-              <a
-                href="/api/report/sample"
-                className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-0.5 hover:shadow-lg transition"
+              <form
+                className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-2"
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  if (!currentResult) return;
+                  if (!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email.trim())) {
+                    setSendError("Enter a valid email.");
+                    return;
+                  }
+                  setSendError(null);
+                  setSendState("sending");
+                  try {
+                    const res = await fetch("/api/report/send-live", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ scanId: resolvedScanId, email: email.trim() }),
+                    });
+                    if (!res.ok) throw new Error(await res.text());
+                    setSendState("sent");
+                  } catch (err) {
+                    setSendState("error");
+                    setSendError("Could not send the PDF. Please try again.");
+                  }
+                }}
               >
-                Send PDF to my email
-              </a>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="name@company.com"
+                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-slate-900 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  disabled={sendState === "sending" || !currentResult}
+                  className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-0.5 hover:shadow-lg transition disabled:opacity-60"
+                >
+                  {sendState === "sent" ? "Sent!" : sendState === "sending" ? "Sending..." : "Send PDF to my email"}
+                </button>
+              </form>
             </div>
             <ScoreCards result={currentResult} />
           </div>
