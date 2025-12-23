@@ -6,15 +6,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const staticPaths = ["/", "/pricing", "/refund", "/privacy", "/terms", "/blog"];
 
-  const posts = await prisma.blogPost.findMany({
-    where: { status: "published", OR: [{ publishDate: null }, { publishDate: { lte: new Date() } }] },
-    select: { slug: true, updatedAt: true, publishDate: true },
-  });
-
-  const postPaths = posts.map((p) => ({
-    url: `${base}/blog/${p.slug}`,
-    lastModified: p.updatedAt || p.publishDate || now,
-  }));
+  let postPaths: MetadataRoute.Sitemap = [];
+  try {
+    const posts = await prisma.blogPost.findMany({
+      where: { status: "published", OR: [{ publishDate: null }, { publishDate: { lte: new Date() } }] },
+      select: { slug: true, updatedAt: true, publishDate: true },
+    });
+    postPaths = posts.map((p) => ({
+      url: `${base}/blog/${p.slug}`,
+      lastModified: p.updatedAt || p.publishDate || now,
+    }));
+  } catch (err) {
+    // If the blog table does not exist yet, skip posts to avoid build failures.
+    postPaths = [];
+  }
 
   return [
     ...staticPaths.map((path) => ({
