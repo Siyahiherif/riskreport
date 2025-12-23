@@ -7,7 +7,12 @@ export const dynamic = "force-dynamic";
 type Props = { params: { slug: string } };
 
 export default async function BlogPostPage({ params }: Props) {
-  const post = await prisma.blogPost.findUnique({ where: { slug: params.slug } });
+  let post = null;
+  try {
+    post = await prisma.blogPost.findUnique({ where: { slug: params.slug } });
+  } catch (err) {
+    return notFound();
+  }
   if (!post || post.status === "draft" || (post.status === "scheduled" && post.publishDate && post.publishDate > new Date())) {
     notFound();
   }
@@ -29,13 +34,13 @@ export default async function BlogPostPage({ params }: Props) {
             <time dateTime={(post.publishDate ?? post.createdAt).toISOString()}>
               {new Date(post.publishDate ?? post.createdAt).toLocaleDateString()}
             </time>{" "}
-            · {post.readMinutes} min read
+            · {post.readMinutes || Math.max(1, Math.round((post.content?.trim().split(/\s+/).length || 0) / 200))} min read
           </p>
           <p className="text-sm text-slate-700 mt-2">{post.summary}</p>
           <div className="mt-6 text-slate-900 whitespace-pre-line leading-relaxed text-[15px]">{post.content}</div>
-          {post.tags.length > 0 && (
+          {(post.tags || []).length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-600">
-              {post.tags.map((t) => (
+              {(post.tags || []).map((t) => (
                 <span key={t} className="rounded-full bg-slate-100 px-3 py-1">
                   #{t}
                 </span>
@@ -55,7 +60,12 @@ export default async function BlogPostPage({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const post = await prisma.blogPost.findUnique({ where: { slug: params.slug } });
+  let post = null;
+  try {
+    post = await prisma.blogPost.findUnique({ where: { slug: params.slug } });
+  } catch {
+    return {};
+  }
   if (!post) return {};
   const title = post.seoTitle || post.title;
   const description = post.summary || post.focusKeyword || "";
