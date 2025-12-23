@@ -14,7 +14,7 @@ export default async function AdminBlogEditPage({ params }: Props) {
   const token = process.env.ADMIN_TOKEN;
   const user = process.env.ADMIN_USER;
   const pass = process.env.ADMIN_PASS;
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const cookieToken = cookieStore.get("admin_token")?.value;
   const allowed = [token, user && pass ? `${user}:${pass}` : null].filter(Boolean) as string[];
   if (!allowed.length || !cookieToken || !allowed.includes(cookieToken)) {
@@ -42,7 +42,7 @@ export default async function AdminBlogEditPage({ params }: Props) {
             const token = process.env.ADMIN_TOKEN;
             const user = process.env.ADMIN_USER;
             const pass = process.env.ADMIN_PASS;
-            const cookieStore = cookies();
+            const cookieStore = await cookies();
             const cookieToken = cookieStore.get("admin_token")?.value;
             const allowed = [token, user && pass ? `${user}:${pass}` : null].filter(Boolean) as string[];
             if (!allowed.length || !cookieToken || !allowed.includes(cookieToken)) {
