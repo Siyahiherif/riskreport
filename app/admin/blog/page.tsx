@@ -47,6 +47,7 @@ export default async function AdminBlogPage() {
                 <th className="px-4 py-3">Publish date</th>
                 <th className="px-4 py-3">Category</th>
                 <th className="px-4 py-3">Tags</th>
+                <th className="px-4 py-3 text-right">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -62,6 +63,28 @@ export default async function AdminBlogPage() {
                   </td>
                   <td className="px-4 py-2 text-sm">{p.category}</td>
                   <td className="px-4 py-2 text-xs text-slate-600">{p.tags.join(", ")}</td>
+                  <td className="px-4 py-2 text-right">
+                    <div className="flex justify-end gap-2">
+                      <Link href={`/admin/blog/${p.id}/edit`} className="rounded-lg border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-800">
+                        Edit
+                      </Link>
+                      <form
+                        action={`/api/admin/blog/delete`}
+                        method="POST"
+                        onSubmit={(e) => {
+                          if (!confirm("Delete this post?")) e.preventDefault();
+                        }}
+                      >
+                        <input type="hidden" name="id" value={p.id} />
+                        <button
+                          type="submit"
+                          className="rounded-lg border border-red-200 px-3 py-1 text-xs font-semibold text-red-700 hover:bg-red-50"
+                        >
+                          Delete
+                        </button>
+                      </form>
+                    </div>
+                  </td>
                 </tr>
               ))}
               {posts.length === 0 && (
