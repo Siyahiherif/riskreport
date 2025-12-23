@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cyberfacex.com/sitemap.xml

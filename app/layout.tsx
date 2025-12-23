@@ -15,8 +15,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Passive IT Risk Report",
-  description: "Passive-only IT security scoring with executive-ready PDF reports.",
+  title: "Passive IT Security Risk Report | Email, TLS & Web Risk Score",
+  description: "Get a passive IT security risk score for your domain. Email security, TLS, and web headers analyzed in minutes. No scans. Executive-ready PDF.",
+  alternates: {
+    canonical: "https://cyberfacex.com/",
+  },
+  openGraph: {
+    title: "Passive IT Security Risk Report",
+    description: "Get a passive IT security risk score in minutes.",
+    url: "https://cyberfacex.com/",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

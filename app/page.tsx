@@ -289,6 +289,21 @@ export default function Home() {
             ))}
           </div>
         </section>
+
+        <section className="space-y-6 rounded-3xl bg-white p-8 shadow-lg ring-1 ring-slate-200">
+          <h2 className="text-2xl font-semibold text-slate-900">What is a Passive IT Security Risk Assessment?</h2>
+          <p className="text-sm text-slate-700">
+            We analyze publicly observable signals only: DNS, TLS/HTTPS handshake, HTTP response headers, and redirect behavior. No intrusive scans, no port probing, no authentication attempts.
+          </p>
+          <h3 className="text-xl font-semibold text-slate-900">Email Security Risks We Detect (SPF, DMARC, DKIM)</h3>
+          <p className="text-sm text-slate-700">We check SPF presence, DMARC policy strength, and DKIM alignment notes to surface spoofing and invoice fraud risks.</p>
+          <h3 className="text-xl font-semibold text-slate-900">TLS & HTTPS Configuration Issues Explained</h3>
+          <p className="text-sm text-slate-700">We verify HTTPS reachability, certificate validity, expiry countdown, and HTTP→HTTPS enforcement to prevent downgrade risks.</p>
+          <h3 className="text-xl font-semibold text-slate-900">Web Security Headers That Impact Your Risk Score</h3>
+          <p className="text-sm text-slate-700">HSTS, CSP, X-Frame-Options, X-Content-Type-Options, and Referrer-Policy are evaluated to reduce browser-based attack exposure.</p>
+          <h3 className="text-xl font-semibold text-slate-900">Who Is This Report For?</h3>
+          <p className="text-sm text-slate-700">IT Managers, founders, and security owners who need a management-ready summary without intrusive scans.</p>
+        </section>
       </main>
       <footer className="border-t border-slate-200 bg-white/90 backdrop-blur py-6">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-6 text-sm text-slate-600">

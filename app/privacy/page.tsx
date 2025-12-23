@@ -76,8 +76,13 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-xl font-semibold">5. Data Sharing</h2>
           <p className="text-sm text-slate-700">We do not sell or rent personal data. Limited sharing may occur with:</p>
           <ul className="list-disc text-sm text-slate-700 pl-5 space-y-1">
-            <li>Payment processors (e.g. LemonSqueezy)</li>
-            <li>Infrastructure providers (hosting, email delivery)</li>
+            <li>We do not sell or rent personal data.</li>
+            <li>Limited data sharing may occur with trusted third-party service providers, including:
+
+- Authorized payment processors acting as our Merchant of Record
+- Infrastructure and service providers (such as hosting, email delivery, and analytics)
+
+All partners process data solely for service delivery purposes and are contractually bound to comply with applicable data protection laws, including GDPR.</li>
           </ul>
           <p className="text-sm text-slate-700">All partners are GDPR-compliant.</p>
         </section>
