@@ -167,6 +167,9 @@ export default function ScanClient({ scanId, initialData }: Props) {
           <h1 className="text-3xl font-semibold">Domain risk snapshot</h1>
           <p className="text-sm text-slate-600">Passive assessment only — DNS, TLS handshake, HTTP headers, redirects.</p>
           <p className="text-xs text-slate-500">Scan ID: {resolvedScanId || "unknown"}</p>
+          <p className="text-xs text-slate-500 mt-1">
+            Free scans are cached for 24 hours; repeated scans within that window return the cached result.
+          </p>
         </div>
         <StatusBadge status={status} cached={data.cached} />
       </div>
