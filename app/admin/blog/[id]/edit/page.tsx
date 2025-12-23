@@ -103,7 +103,13 @@ export default async function AdminBlogEditPage({ params }: Props) {
           }}
         >
           <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow space-y-3">
-            <input name="title" defaultValue={post.title} required placeholder="Title" className "w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
+            <input
+              name="title"
+              defaultValue={post.title}
+              required
+              placeholder="Title"
+              className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
+            />
             <input name="slug" defaultValue={post.slug} placeholder="Slug (optional)" className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
             <textarea name="summary" defaultValue={post.summary} placeholder="Summary / meta description (155 chars)" maxLength={200} className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm" />
             <textarea
