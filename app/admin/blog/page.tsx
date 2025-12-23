@@ -68,13 +68,7 @@ export default async function AdminBlogPage() {
                       <Link href={`/admin/blog/${p.id}/edit`} className="rounded-lg border border-slate-200 px-3 py-1 text-xs font-semibold text-slate-800">
                         Edit
                       </Link>
-                      <form
-                        action={`/api/admin/blog/delete`}
-                        method="POST"
-                        onSubmit={(e) => {
-                          if (!confirm("Delete this post?")) e.preventDefault();
-                        }}
-                      >
+                      <form action={`/api/admin/blog/delete`} method="POST">
                         <input type="hidden" name="id" value={p.id} />
                         <button
                           type="submit"
