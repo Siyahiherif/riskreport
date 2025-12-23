@@ -14,6 +14,12 @@ enum ScanStatus {
   error
 }
 
+enum BlogStatus {
+  draft
+  published
+  scheduled
+}
+
 model Scan {
   id            String     @id @default(uuid())
   domain        String
@@ -58,4 +64,26 @@ model Report {
   createdAt   DateTime @default(now())
 
   scan        Scan     @relation(fields: [scanId], references: [id])
+}
+
+model BlogPost {
+  id            String      @id @default(uuid())
+  title         String
+  slug          String      @unique
+  summary       String      @default("")
+  content       String
+  status        BlogStatus  @default(draft)
+  publishDate   DateTime?
+  category      String      @default("Passive Security")
+  tags          String[]    @default([])
+  seoTitle      String?
+  canonicalUrl  String?
+  indexable     Boolean     @default(true)
+  focusKeyword  String?
+  wordCount     Int         @default(0)
+  readMinutes   Int         @default(1)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  @@index([status, publishDate])
 }
