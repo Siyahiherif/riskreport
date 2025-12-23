@@ -227,7 +227,7 @@ export default function ScanClient({ scanId, initialData }: Props) {
                 onSubmit={async (e) => {
                   e.preventDefault();
                   if (!currentResult) return;
-                  if (!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email.trim())) {
+                  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.trim())) {
                     setSendError("Enter a valid email.");
                     return;
                   }
