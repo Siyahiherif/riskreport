@@ -255,13 +255,17 @@ export default function ScanClient({ scanId, initialData }: Props) {
                   placeholder="name@company.com"
                   className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm shadow-sm focus:border-slate-900 focus:outline-none"
                 />
-                <button
-                  type="submit"
-                  disabled={sendState === "sending" || !currentResult}
-                  className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-0.5 hover:shadow-lg transition disabled:opacity-60"
-                >
-                  {sendState === "sent" ? "Sent!" : sendState === "sending" ? "Sending..." : "Send PDF to my email"}
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="submit"
+                    disabled={sendState === "sending" || !currentResult}
+                    className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-0.5 hover:shadow-lg transition disabled:opacity-60"
+                  >
+                    {sendState === "sent" ? "Sent!" : sendState === "sending" ? "Sending..." : "Send PDF to my email"}
+                  </button>
+                  {sendState === "sent" && <span className="text-xs font-semibold text-emerald-700">Email sent</span>}
+                </div>
+                {sendError && <p className="text-xs text-red-600">{sendError}</p>}
               </form>
             </div>
             <ScoreCards result={currentResult} />
