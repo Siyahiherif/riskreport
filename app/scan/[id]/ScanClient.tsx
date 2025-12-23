@@ -220,7 +220,7 @@ export default function ScanClient({ scanId, initialData }: Props) {
                 <p className="text-sm text-slate-700">Get the executive-ready PDF with prioritized fixes.</p>
               </div>
               <a
-                href="/pricing#executive"
+                href="/api/report/sample"
                 className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white shadow hover:-translate-y-0.5 hover:shadow-lg transition"
               >
                 Send PDF to my email
