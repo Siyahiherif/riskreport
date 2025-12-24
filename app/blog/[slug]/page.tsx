@@ -5,6 +5,8 @@ import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
+export const dynamic = "force-dynamic";
+
 type Props = { params: { slug: string } };
 
 export default async function BlogPostPage({ params }: Props) {
