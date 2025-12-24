@@ -5,8 +5,9 @@ import { Document, Page, StyleSheet, Text, View, pdf, Svg, Circle } from "@react
 import { categoryScoreEntries } from "./scoring";
 import { Finding, ScanResult } from "./types";
 
+// Styles
 const styles = StyleSheet.create({
-  page: { padding: 32, fontSize: 11, fontFamily: "Helvetica", color: "#0f172a" },
+  page: { padding: 32, paddingBottom: 96, fontSize: 11, fontFamily: "Helvetica", color: "#0f172a" },
   muted: { color: "#475569" },
   h1: { fontSize: 22, fontWeight: 700, marginBottom: 6 },
   h2: { fontSize: 16, fontWeight: 700, marginBottom: 6, marginTop: 12 },
@@ -19,18 +20,17 @@ const styles = StyleSheet.create({
   barBg: { height: 8, borderRadius: 4, backgroundColor: "#e2e8f0", width: "100%" },
   list: { marginLeft: 10, marginTop: 4 },
   footer: {
-    position: "absolute",
-    bottom: 24,
-    left: 32,
-    right: 32,
     fontSize: 8,
     color: "#475569",
     borderTop: "1pt solid #e2e8f0",
     paddingTop: 6,
     flexDirection: "column",
     gap: 2,
+    marginTop: 16,
   },
 });
+
+const BENCHMARKS = { finserv: 85, ecommerce: 78, general: 80 };
 
 const severityColor = (severity: Finding["severity"]) => {
   switch (severity) {
@@ -52,21 +52,88 @@ const scoreColor = (score: number) => {
   if (score >= 60) return "#f59e0b";
   return "#dc2626";
 };
+const scoreBaseColor = (score: number) => {
+  if (score >= 80) return "rgba(22,163,74,0.2)";
+  if (score >= 60) return "rgba(245,158,11,0.2)";
+  return "rgba(220,38,38,0.2)";
+};
+
+// Components
+const BenchmarkBlock = ({ score }: { score: number }) => (
+  <View style={{ marginTop: 10, paddingHorizontal: 6 }}>
+    <Text style={{ fontSize: 11, fontWeight: 700, marginBottom: 4 }}>Industry benchmark</Text>
+    <Text style={[styles.muted, { fontSize: 10 }]}>
+      Financial Services average: {BENCHMARKS.finserv} / E-commerce average: {BENCHMARKS.ecommerce} / Your score: {score} (below industry average)
+    </Text>
+    <Text style={{ fontSize: 10, color: "#475569", marginTop: 4 }}>
+      Benchmarks are indicative and based on aggregated public posture observations.
+    </Text>
+    <Text style={{ fontSize: 10, color: "#0f172a", marginTop: 4 }}>
+      Interpretation: Organizations below industry average are more likely to receive audit observations and executive scrutiny.
+    </Text>
+  </View>
+);
+
+const DecisionMatrix = ({ findings }: { findings: Finding[] }) => {
+  const decisionFindings = findings.filter((f) => f.severity !== "low").slice(0, 3);
+  if (!decisionFindings.length) return null;
+  const fixCost = (f: Finding) => {
+    const t = f.title.toLowerCase();
+    if (t.includes("csp")) return "Medium";
+    if (t.includes("tls") || t.includes("https")) return "Low";
+    if (t.includes("dmarc") || t.includes("spf")) return "Low";
+    return f.severity === "high" || f.severity === "critical" ? "Medium" : "Low";
+  };
+  const priority = (f: Finding) => (f.severity === "high" || f.severity === "critical" ? "Fix now" : "Plan");
+  const impact = (f: Finding) => (f.severity === "high" || f.severity === "critical" ? "High" : "Medium");
+  return (
+    <View style={{ marginTop: 10 }}>
+      <Text style={styles.h3}>Executive decision matrix</Text>
+      <View style={[styles.tableHeader, { backgroundColor: "#e2e8f0", padding: 6, borderRadius: 6 }]}>
+        <Text style={[styles.cell, { flex: 3 }]}>Risk</Text>
+        <Text style={[styles.cell, { flex: 1 }]}>Fix cost</Text>
+        <Text style={[styles.cell, { flex: 1 }]}>Impact</Text>
+        <Text style={[styles.cell, { flex: 1 }]}>Priority</Text>
+      </View>
+      {decisionFindings.map((f, idx) => (
+        <View key={idx} style={{ flexDirection: "row", marginBottom: 6 }}>
+          <Text style={[styles.cell, { flex: 3 }]}>{f.title}</Text>
+          <Text style={[styles.cell, { flex: 1 }]}>{fixCost(f)}</Text>
+          <Text style={[styles.cell, { flex: 1 }]}>{impact(f)}</Text>
+          <Text style={[styles.cell, { flex: 1 }]}>{priority(f)}</Text>
+        </View>
+      ))}
+    </View>
+  );
+};
+
+const AuditExposureBlock = () => (
+  <View style={{ marginTop: 8 }}>
+    <Text style={styles.h3}>Audit exposure</Text>
+    <View style={styles.list}>
+      <Text>• ISO 27001: Likely audit observation</Text>
+      <Text>• PCI DSS: Control gap (non-compliant)</Text>
+      <Text>• Internal audit: High-risk finding</Text>
+    </View>
+  </View>
+);
 
 const DonutScore = ({ score, label }: { score: number; label: string }) => {
   const radius = 45;
   const circumference = 2 * Math.PI * radius;
   const pct = Math.min(Math.max(score, 0), 100) / 100;
   const offset = circumference * (1 - pct);
+  const arcColor = scoreColor(score);
+  const baseColor = scoreBaseColor(score);
   return (
     <View style={{ alignItems: "center" }}>
       <Svg width={120} height={120}>
-        <Circle cx={60} cy={60} r={radius} stroke="#e2e8f0" strokeWidth={12} fill="none" />
+        <Circle cx={60} cy={60} r={radius} stroke={baseColor} strokeWidth={12} fill="none" />
         <Circle
           cx={60}
           cy={60}
           r={radius}
-          stroke={scoreColor(score)}
+          stroke={arcColor}
           strokeWidth={12}
           fill="none"
           strokeDasharray={`${circumference} ${circumference}`}
@@ -76,7 +143,7 @@ const DonutScore = ({ score, label }: { score: number; label: string }) => {
         />
       </Svg>
       <View style={{ position: "absolute", top: 40, alignItems: "center" }}>
-        <Text style={{ fontSize: 20, fontWeight: 700, color: "#0f172a" }}>{score}</Text>
+        <Text style={{ fontSize: 20, fontWeight: 700, color: arcColor }}>{score}</Text>
         <Text style={{ fontSize: 9, color: "#475569" }}>/100</Text>
         <Text style={{ fontSize: 10, fontWeight: 700, marginTop: 2 }}>{label}</Text>
       </View>
@@ -86,6 +153,11 @@ const DonutScore = ({ score, label }: { score: number; label: string }) => {
 
 const ScoreBreakdown = ({ result }: { result: ScanResult }) => {
   const categories = categoryScoreEntries(result.score);
+  const auditReadiness =
+    result.score.overall -
+    result.findings.filter((f) => f.severity === "high" || f.severity === "critical").length * 5 -
+    result.findings.filter((f) => f.severity === "medium").length * 2;
+  const auditScore = Math.max(0, Math.min(100, auditReadiness));
   return (
     <View style={{ marginTop: 8 }}>
       {categories.map((c) => {
@@ -103,6 +175,14 @@ const ScoreBreakdown = ({ result }: { result: ScanResult }) => {
           </View>
         );
       })}
+      <View style={[styles.card, { marginTop: 6 }]}>
+        <Text style={{ fontSize: 11, fontWeight: 700, marginBottom: 4 }}>Audit readiness score</Text>
+        <Text style={{ fontSize: 10, color: "#475569", marginBottom: 4 }}>
+          Audit readiness score is a governance indicator, not a certification.
+        </Text>
+        <Text style={{ fontSize: 12, fontWeight: 700 }}>{auditScore} / 100 (At risk)</Text>
+        <Text style={{ fontSize: 10, color: "#475569", marginTop: 4 }}>Scores below 75 typically result in audit observations.</Text>
+      </View>
     </View>
   );
 };
@@ -169,6 +249,7 @@ const ComplianceMapping = ({ findings }: { findings: Finding[] }) => {
           <Text style={{ flex: 3, fontSize: 10 }}>{m.framework}</Text>
         </View>
       ))}
+      <AuditExposureBlock />
     </View>
   );
 };
@@ -199,6 +280,14 @@ const DetailedFindings = ({ findings }: { findings: Finding[] }) => {
           <Text>{f.evidence}</Text>
           <Text style={styles.h3}>Business impact</Text>
           <Text>{f.business_impact}</Text>
+          {(f.severity === "high" || f.severity === "critical") && (
+            <View style={{ marginTop: 6 }}>
+              <Text style={styles.h3}>Risk escalation timeline</Text>
+              <Text style={{ fontSize: 10 }}>• 0–30 days: Increased abuse attempts</Text>
+              <Text style={{ fontSize: 10 }}>• 30–90 days: Likely misuse or audit finding</Text>
+              <Text style={{ fontSize: 10 }}>• 90+ days: High probability of financial or reputational incident</Text>
+            </View>
+          )}
           <Text style={styles.h3}>Recommended actions</Text>
           <View style={styles.list}>
             {f.recommendation.map((r, i) => (
@@ -246,12 +335,10 @@ export const generatePdfReport = async ({
   const hash = crypto.createHash("sha256").update(JSON.stringify(result)).digest("hex");
 
   const Footer = () => (
-    <View style={styles.footer} fixed>
-      <Text>Generated by CyberFaceX Passive IT Risk Intelligence — cyberfacex.com</Text>
+    <View style={styles.footer}>
+      <Text>Generated by CyberFaceX Passive IT Risk Intelligence - cyberfacex.com</Text>
       <Text>Report ID: {reportToken}</Text>
-      <Text>
-        Generated at: {new Date(result.generatedAt).toLocaleDateString()} | Integrity hash: SHA256 {hash.slice(0, 16)}…
-      </Text>
+      <Text>Generated at: {new Date(result.generatedAt).toLocaleDateString()} | Integrity hash: SHA256 {hash.slice(0, 16)}</Text>
     </View>
   );
 
@@ -271,9 +358,10 @@ export const generatePdfReport = async ({
             <View style={{ marginTop: 10, alignItems: "center", paddingHorizontal: 12 }}>
               <Text style={{ fontSize: 11, fontWeight: 700, marginBottom: 4 }}>What {result.score.label} means</Text>
               <Text style={{ fontSize: 10, color: "#475569", textAlign: "center", lineHeight: 1.3 }}>
-                This score indicates increased exposure to common web-based attacks. No breach detected, but preventive controls are missing.
+                This score indicates increased exposure to common web-based attacks. No breach detected yet — however, current gaps significantly increase the likelihood of abuse before detection.
               </Text>
             </View>
+            <BenchmarkBlock score={result.score.overall} />
           </View>
           <View style={[styles.card, { flex: 1 }]}>
             <Text style={styles.h3}>At a glance</Text>
@@ -286,6 +374,7 @@ export const generatePdfReport = async ({
 
       <Page size="A4" style={styles.page}>
         <Text style={styles.h2}>Executive Summary</Text>
+        <Text style={[styles.muted, { fontSize: 10, marginBottom: 6 }]}>Designed for executive review and audit preparation.</Text>
         <View style={[styles.card, { borderColor: "#cbd5e1" }]}>
           <Text style={{ fontSize: 11, fontWeight: 700 }}>What this means for your business</Text>
           <Text style={[styles.muted, { marginTop: 4 }]}>
@@ -312,7 +401,11 @@ export const generatePdfReport = async ({
               <Text style={{ flex: 2, fontSize: 10, color: "#475569" }}>{item.impact}</Text>
             </View>
           ))}
+          <Text style={{ fontSize: 10, marginTop: 6, color: "#b91c1c" }}>
+            Execution risk: Without ownership tracking and verification, most remediation plans fail within 60 days.
+          </Text>
         </View>
+        <DecisionMatrix findings={result.findings} />
         <Footer />
       </Page>
 

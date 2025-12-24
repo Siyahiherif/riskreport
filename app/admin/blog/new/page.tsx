@@ -116,9 +116,9 @@ export default async function AdminBlogNewPage() {
             <div className="grid gap-3 md:grid-cols-2">
               <label className="text-sm text-slate-700">
                 Status
-                <select name="status" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm">
-                  <option value="draft">Draft</option>
+                <select name="status" defaultValue="published" className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm">
                   <option value="published">Published</option>
+                  <option value="draft">Draft</option>
                   <option value="scheduled">Scheduled</option>
                 </select>
               </label>

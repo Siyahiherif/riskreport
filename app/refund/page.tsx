@@ -13,12 +13,15 @@ export default function RefundPolicyPage() {
         </div>
 
         <p className="text-sm text-slate-700">
-          We offer a 14-day no-questions-asked refund policy. If you are not satisfied with your purchase for any reason, you may request a full refund within 14 days of the purchase date by contacting us at{" "}
-          <a href="mailto:info@cyberfacex.com">info@cyberfacex.com</a>.
+          CyberFaceX Refund Policy
+          <br />
+          We offer a 14-day no-questions-asked refund policy.
         </p>
         <p className="text-sm text-slate-700">
-          Approved refunds will be processed back to the original payment method. Processing times may vary depending on the payment provider.
+          If you are not satisfied with your purchase for any reason, you are entitled to request a full refund within 14 days of the purchase date by contacting us at{" "}
+          <a href="mailto:info@cyberfacex.com">info@cyberfacex.com</a>.
         </p>
+        <p className="text-sm text-slate-700">Refunds will be issued to the original payment method in accordance with Paddle’s refund policy.</p>
       </div>
     </div>
   );
