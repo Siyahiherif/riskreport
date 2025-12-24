@@ -11,6 +11,9 @@ export default async function BlogPostPage({ params }: Props) {
   let post = null;
   try {
     post = await prisma.blogPost.findUnique({ where: { slug: params.slug } });
+    if (!post) {
+      post = await prisma.blogPost.findFirst({ where: { slug: { equals: params.slug, mode: "insensitive" } } });
+    }
   } catch (err) {
     return notFound();
   }
