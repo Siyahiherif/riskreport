@@ -8,22 +8,13 @@ export const dynamic = "force-dynamic";
 type Props = { params: { slug: string } };
 
 export default async function BlogPostPage({ params }: Props) {
-  const cookieStore = await cookies();
-  const cookieToken = cookieStore.get("admin_token")?.value;
-  const token = process.env.ADMIN_TOKEN;
-  const user = process.env.ADMIN_USER;
-  const pass = process.env.ADMIN_PASS;
-  const allowed = [token, user && pass ? `${user}:${pass}` : null].filter(Boolean) as string[];
-  const isAdmin = !!(cookieToken && allowed.length && allowed.includes(cookieToken));
-
   let post = null;
   try {
     post = await prisma.blogPost.findUnique({ where: { slug: params.slug } });
   } catch (err) {
     return notFound();
   }
-  const isFuture = post?.publishDate && post.publishDate > new Date();
-  if (!post || (!isAdmin && (post.status === "draft" || (post.status === "scheduled" && isFuture)))) {
+  if (!post) {
     notFound();
   }
 

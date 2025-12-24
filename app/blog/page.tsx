@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export default async function BlogIndexPage() {
   const posts = await prisma.blogPost.findMany({
     where: { status: "published", OR: [{ publishDate: null }, { publishDate: { lte: new Date() } }] },
-    orderBy: { publishDate: "desc" },
+    orderBy: [{ publishDate: "desc" }, { createdAt: "desc" }],
     take: 20,
   });
 
