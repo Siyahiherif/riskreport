@@ -1,28 +1,26 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
 import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
 
 type Props = { params: { slug: string } };
 
-export default async function BlogPostPage({ params }: Props) {
-  let post = null;
+async function getPost(slug: string) {
   try {
-    post = await prisma.blogPost.findUnique({ where: { slug: params.slug } });
-    if (!post) {
-      post = await prisma.blogPost.findFirst({ where: { slug: { equals: params.slug, mode: "insensitive" } } });
-    }
-  } catch (err) {
-    return notFound();
+    const exact = await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
+    if (exact) return exact;
+    return await prisma.blogPost.findFirst({ where: { slug: { contains: slug, mode: "insensitive" } } });
+  } catch {
+    return null;
   }
+}
+
+export default async function BlogPostPage({ params }: Props) {
+  const post = await getPost(params.slug);
   if (!post) {
     notFound();
   }
-
-  const metaTitle = post.seoTitle || post.title;
-  const metaDesc = post.summary || post.focusKeyword || "";
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -38,7 +36,7 @@ export default async function BlogPostPage({ params }: Props) {
             <time dateTime={(post.publishDate ?? post.createdAt).toISOString()}>
               {new Date(post.publishDate ?? post.createdAt).toLocaleDateString()}
             </time>{" "}
-            · {post.readMinutes || Math.max(1, Math.round((post.content?.trim().split(/\s+/).length || 0) / 200))} min read
+            - {post.readMinutes || Math.max(1, Math.round((post.content?.trim().split(/\s+/).length || 0) / 200))} min read
           </p>
           <p className="text-sm text-slate-700 mt-2">{post.summary}</p>
           <div className="mt-6 text-slate-900 whitespace-pre-line leading-relaxed text-[15px]">{post.content}</div>
@@ -64,12 +62,7 @@ export default async function BlogPostPage({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props) {
-  let post = null;
-  try {
-    post = await prisma.blogPost.findUnique({ where: { slug: params.slug } });
-  } catch {
-    return {};
-  }
+  const post = await getPost(params.slug);
   if (!post) return {};
   const title = post.seoTitle || post.title;
   const description = post.summary || post.focusKeyword || "";
