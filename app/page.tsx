@@ -79,7 +79,7 @@ export default function Home() {
             </button>
             <a
               className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-slate-900 ring-1 ring-slate-200 transition hover:-translate-y-0.5 hover:shadow-lg"
-              href="#pricing"
+              href="/pricing"
             >
               Executive Report ($99)
             </a>
@@ -179,7 +179,7 @@ export default function Home() {
               Executive summary, category scores, top 3 risks, and a 30-day action plan. Detailed findings include evidence, business impact, and remediation steps.
             </p>
             <a
-              href="#pricing"
+              href="/pricing"
               className="mt-6 inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-slate-900 font-semibold shadow-lg transition hover:-translate-y-0.5"
             >
               View pricing
@@ -201,11 +201,24 @@ export default function Home() {
               Payments are handled by our authorized Merchant of Record. No company required.
             </div>
           </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
             {[
-              { title: "Free", price: "$0", cta: "Get free score", features: ["Overall + category scores", "Top 3 findings", "24h cache"], highlight: false },
-              { title: "Executive", price: "$99", cta: "Get Executive Report", features: ["Executive summary (1 page)", "Business impact + evidence", "30-day action plan", "Full findings (10-20)", "PDF (6-10 pages)"], highlight: true },
-              { title: "Pro (optional)", price: "$49", cta: "See Pro details", features: ["Full findings + evidence", "Prioritized remediation", "PDF (5-8 pages)"], highlight: false },
+              {
+                title: "Free ($0)",
+                price: "$0",
+                cta: "Get free score",
+                features: ["Overall + category scores", "Top 3 findings", "24h cache"],
+                highlight: false,
+                href: "/#scan",
+              },
+              {
+                title: "Professional Executive Report",
+                price: "$99",
+                cta: "Get Executive Report",
+                features: ["Executive summary (1 page)", "Business impact + evidence", "30-day action plan", "Full findings (10-20)", "PDF (6-10 pages)"],
+                highlight: true,
+                href: "/pricing",
+              },
             ].map((plan) => (
               <div
                 key={plan.title}
@@ -227,17 +240,16 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  className={`mt-6 w-full rounded-xl px-4 py-3 text-sm font-semibold transition ${
+                <a
+                  className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-3 text-sm font-semibold transition ${
                     plan.highlight
                       ? "bg-white text-slate-900 hover:-translate-y-0.5 hover:shadow-lg"
                       : "bg-slate-900 text-white hover:-translate-y-0.5 hover:shadow-lg"
                   }`}
-                  type="button"
-                  onClick={() => router.push("/#pricing")}
+                  href={plan.href}
                 >
                   {plan.cta}
-                </button>
+                </a>
               </div>
             ))}
           </div>
