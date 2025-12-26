@@ -9,7 +9,12 @@ export const fetchCache = "force-no-store";
 type Props = { params: { slug: string } };
 
 async function getPost(rawSlug: string) {
-  const slug = decodeURIComponent(rawSlug).trim();
+  let slug = rawSlug;
+  try {
+    slug = decodeURIComponent(rawSlug).trim();
+  } catch {
+    slug = rawSlug.trim();
+  }
   if (!slug) return null;
   try {
     const exact = await prisma.blogPost.findFirst({
