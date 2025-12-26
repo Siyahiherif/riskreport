@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
@@ -10,12 +9,10 @@ export const fetchCache = "force-no-store";
 type Props = { params: { slug: string } };
 
 async function getPost(rawSlug: string) {
-  const normalizedSlug = (rawSlug ? decodeURIComponent(rawSlug) : "").trim().toLowerCase();
-  if (!normalizedSlug) return null;
+  const slug = (rawSlug || "").trim().toLowerCase();
+  if (!slug) return null;
   try {
-    return await prisma.blogPost.findFirst({
-      where: { slug: { equals: normalizedSlug, mode: "insensitive" } },
-    });
+    return await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
   } catch {
     return null;
   }
@@ -23,8 +20,17 @@ async function getPost(rawSlug: string) {
 
 export default async function BlogPostPage({ params }: Props) {
   const post = await getPost(params.slug);
+
   if (!post) {
-    notFound();
+    return (
+      <div className="min-h-screen bg-slate-50 text-slate-900">
+        <div className="mx-auto max-w-3xl px-6 py-12 space-y-4">
+          <p className="text-sm text-slate-600">Home &gt; Blog</p>
+          <h1 className="text-2xl font-semibold">Post not found</h1>
+          <p className="text-sm text-slate-700">The requested post could not be loaded. Please check the URL or try again later.</p>
+        </div>
+      </div>
+    );
   }
 
   const words = post.content?.trim().split(/\s+/).length || 0;
