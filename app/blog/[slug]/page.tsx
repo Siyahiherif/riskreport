@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 
@@ -44,8 +44,7 @@ export default async function BlogPostPage({ params }: Props) {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <div className="mx-auto max-w-3xl px-6 py-12 space-y-6">
         <div className="text-sm text-slate-600">
-          <Link href="/">Home</Link> &gt; <Link href="/blog">Blog</Link> &gt; <Link href={`/blog?cat=${encodeURIComponent(post.category)}`}>{post.category}</Link> &gt;{" "}
-          <span className="text-slate-900">{post.title}</span>
+          <Link href="/">Home</Link> &gt; <Link href="/blog">Blog</Link> &gt; <Link href={`/blog?cat=${encodeURIComponent(post.category)}`}>{post.category}</Link> &gt; {post.title}
         </div>
         <article className="prose prose-slate max-w-none bg-white p-6 rounded-2xl border border-slate-200 shadow">
           <p className="text-xs font-semibold uppercase text-slate-500">{post.category}</p>
@@ -53,7 +52,7 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="text-sm text-slate-600 mt-1">
             <time dateTime={(post.publishDate ?? post.createdAt).toISOString()}>
               {new Date(post.publishDate ?? post.createdAt).toLocaleDateString()}
-            </time>{" "}• {readMinutes} min read
+            </time> ? {readMinutes} min read
           </p>
           <p className="text-sm text-slate-700 mt-2">{post.summary}</p>
           <div className="mt-6 text-slate-900 whitespace-pre-line leading-relaxed text-[15px]">{post.content}</div>
