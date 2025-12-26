@@ -8,12 +8,19 @@ export const fetchCache = "force-no-store";
 
 type Props = { params: { slug: string } };
 
-async function getPost(slug: string) {
+async function getPost(rawSlug: string) {
+  const slug = rawSlug?.trim();
   if (!slug) return null;
   try {
-    const exact = await prisma.blogPost.findUnique({ where: { slug } });
+    const exact = await prisma.blogPost.findFirst({
+      where: { slug: { equals: slug, mode: "insensitive" } },
+      orderBy: { createdAt: "desc" },
+    });
     if (exact) return exact;
-    return await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
+    return await prisma.blogPost.findFirst({
+      where: { slug: { contains: slug, mode: "insensitive" } },
+      orderBy: { createdAt: "desc" },
+    });
   } catch {
     return null;
   }
@@ -40,7 +47,8 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="text-sm text-slate-600 mt-1">
             <time dateTime={(post.publishDate ?? post.createdAt).toISOString()}>
               {new Date(post.publishDate ?? post.createdAt).toLocaleDateString()}
-            </time> ? {readMinutes} min read
+            </time>{" "}
+            • {readMinutes} min read
           </p>
           <p className="text-sm text-slate-700 mt-2">{post.summary}</p>
           <div className="mt-6 text-slate-900 whitespace-pre-line leading-relaxed text-[15px]">{post.content}</div>
