@@ -3,23 +3,18 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 export const revalidate = 0;
 export const fetchCache = "force-no-store";
 
 type Props = { params: { slug: string } };
 
 async function getPost(rawSlug: string) {
-  const slug = rawSlug?.trim();
-  if (!slug) return null;
+  const normalizedSlug = (rawSlug ? decodeURIComponent(rawSlug) : "").trim().toLowerCase();
+  if (!normalizedSlug) return null;
   try {
-    const exact = await prisma.blogPost.findFirst({
-      where: { slug: { equals: slug, mode: "insensitive" } },
-      orderBy: { createdAt: "desc" },
-    });
-    if (exact) return exact;
     return await prisma.blogPost.findFirst({
-      where: { slug: { contains: slug, mode: "insensitive" } },
-      orderBy: { createdAt: "desc" },
+      where: { slug: { equals: normalizedSlug, mode: "insensitive" } },
     });
   } catch {
     return null;
