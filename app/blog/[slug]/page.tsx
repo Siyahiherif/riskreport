@@ -8,9 +8,7 @@ type Props = { params: { slug: string } };
 
 async function getPost(slug: string) {
   try {
-    const exact = await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
-    if (exact) return exact;
-    return await prisma.blogPost.findFirst({ where: { slug: { contains: slug, mode: "insensitive" } } });
+    return await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
   } catch {
     return null;
   }
@@ -21,6 +19,9 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) {
     notFound();
   }
+
+  const words = post.content?.trim().split(/\s+/).length || 0;
+  const readMinutes = post.readMinutes || Math.max(1, Math.round(words / 200));
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
@@ -35,8 +36,7 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="text-sm text-slate-600 mt-1">
             <time dateTime={(post.publishDate ?? post.createdAt).toISOString()}>
               {new Date(post.publishDate ?? post.createdAt).toLocaleDateString()}
-            </time>{" "}
-            - {post.readMinutes || Math.max(1, Math.round((post.content?.trim().split(/\s+/).length || 0) / 200))} min read
+            </time>{" "}? {readMinutes} min read
           </p>
           <p className="text-sm text-slate-700 mt-2">{post.summary}</p>
           <div className="mt-6 text-slate-900 whitespace-pre-line leading-relaxed text-[15px]">{post.content}</div>
