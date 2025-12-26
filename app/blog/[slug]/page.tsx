@@ -8,24 +8,12 @@ export const fetchCache = "force-no-store";
 
 type Props = { params: { slug: string } };
 
-async function getPost(rawSlug: string) {
-  let slug = rawSlug;
-  try {
-    slug = decodeURIComponent(rawSlug).trim();
-  } catch {
-    slug = rawSlug.trim();
-  }
+async function getPost(slug: string) {
   if (!slug) return null;
   try {
-    const exact = await prisma.blogPost.findFirst({
-      where: { slug: { equals: slug, mode: "insensitive" } },
-      orderBy: { createdAt: "desc" },
-    });
+    const exact = await prisma.blogPost.findUnique({ where: { slug } });
     if (exact) return exact;
-    return await prisma.blogPost.findFirst({
-      where: { slug: { contains: slug, mode: "insensitive" } },
-      orderBy: { createdAt: "desc" },
-    });
+    return await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
   } catch {
     return null;
   }
