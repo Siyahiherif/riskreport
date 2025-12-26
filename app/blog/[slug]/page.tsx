@@ -12,8 +12,13 @@ async function getPost(rawSlug: string) {
   const slug = decodeURIComponent(rawSlug).trim();
   if (!slug) return null;
   try {
-    return await prisma.blogPost.findFirst({
+    const exact = await prisma.blogPost.findFirst({
       where: { slug: { equals: slug, mode: "insensitive" } },
+      orderBy: { createdAt: "desc" },
+    });
+    if (exact) return exact;
+    return await prisma.blogPost.findFirst({
+      where: { slug: { contains: slug, mode: "insensitive" } },
       orderBy: { createdAt: "desc" },
     });
   } catch {
