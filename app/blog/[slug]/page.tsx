@@ -13,7 +13,10 @@ async function getPost(rawSlug: string) {
   const slug = (rawSlug || "").trim();
   if (!slug) return null;
   try {
-    return await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
+    const exact = await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
+    if (exact) return exact;
+    const lowered = slug.toLowerCase();
+    return await prisma.blogPost.findFirst({ where: { slug: { equals: lowered, mode: "insensitive" } } });
   } catch {
     return null;
   }
