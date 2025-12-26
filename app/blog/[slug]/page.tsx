@@ -1,4 +1,5 @@
-import Link from "next/link";
+﻿import Link from "next/link";
+import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
@@ -9,10 +10,10 @@ export const fetchCache = "force-no-store";
 type Props = { params: { slug: string } };
 
 async function getPost(rawSlug: string) {
-  const slug = (rawSlug || "").trim().toLowerCase();
+  const slug = (rawSlug || "").trim();
   if (!slug) return null;
   try {
-    return await prisma.blogPost.findFirst({ where: { slug: slug }, orderBy: { createdAt: "desc" } });
+    return await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
   } catch {
     return null;
   }
@@ -22,15 +23,7 @@ export default async function BlogPostPage({ params }: Props) {
   const post = await getPost(params.slug);
 
   if (!post) {
-    return (
-      <div className="min-h-screen bg-slate-50 text-slate-900">
-        <div className="mx-auto max-w-3xl px-6 py-12 space-y-4">
-          <p className="text-sm text-slate-600">Home &gt; Blog</p>
-          <h1 className="text-2xl font-semibold">Post not found</h1>
-          <p className="text-sm text-slate-700">The requested post could not be loaded. Please check the URL or try again later.</p>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   const words = post.content?.trim().split(/\s+/).length || 0;
@@ -48,7 +41,7 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="text-sm text-slate-600 mt-1">
             <time dateTime={(post.publishDate ?? post.createdAt).toISOString()}>
               {new Date(post.publishDate ?? post.createdAt).toLocaleDateString()}
-            </time> ? {readMinutes} min read
+            </time> • {readMinutes} min read
           </p>
           <p className="text-sm text-slate-700 mt-2">{post.summary}</p>
           <div className="mt-6 text-slate-900 whitespace-pre-line leading-relaxed text-[15px]">{post.content}</div>
