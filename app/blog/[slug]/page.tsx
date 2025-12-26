@@ -8,9 +8,14 @@ export const fetchCache = "force-no-store";
 
 type Props = { params: { slug: string } };
 
-async function getPost(slug: string) {
+async function getPost(rawSlug: string) {
+  const slug = decodeURIComponent(rawSlug).trim();
+  if (!slug) return null;
   try {
-    return await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } }, orderBy: { createdAt: "desc" } });
+    return await prisma.blogPost.findFirst({
+      where: { slug: { equals: slug, mode: "insensitive" } },
+      orderBy: { createdAt: "desc" },
+    });
   } catch {
     return null;
   }
@@ -82,4 +87,3 @@ export async function generateMetadata({ params }: Props) {
     },
   };
 }
-
