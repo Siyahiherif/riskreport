@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/db";
 
@@ -38,7 +38,7 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="text-sm text-slate-600 mt-1">
             <time dateTime={(post.publishDate ?? post.createdAt).toISOString()}>
               {new Date(post.publishDate ?? post.createdAt).toLocaleDateString()}
-            </time>{" "}� {readMinutes} min read
+            </time>{" "}• {readMinutes} min read
           </p>
           <p className="text-sm text-slate-700 mt-2">{post.summary}</p>
           <div className="mt-6 text-slate-900 whitespace-pre-line leading-relaxed text-[15px]">{post.content}</div>
@@ -82,3 +82,4 @@ export async function generateMetadata({ params }: Props) {
     },
   };
 }
+

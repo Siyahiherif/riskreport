@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { prisma } from "@/lib/db";
 
 export const dynamic = "force-dynamic";
@@ -36,7 +36,7 @@ export default async function BlogIndexPage() {
                 <p className="mt-3 text-xs text-slate-500">
                   <time dateTime={(post.publishDate ?? post.createdAt).toISOString()}>
                     {new Date(post.publishDate ?? post.createdAt).toLocaleDateString()}
-                  </time>{" "}� {readMinutes} min read
+                  </time>{" "}• {readMinutes} min read
                 </p>
               </Link>
             );
@@ -47,3 +47,4 @@ export default async function BlogIndexPage() {
     </div>
   );
 }
+
