@@ -10,25 +10,38 @@ export const runtime = "nodejs";
 
 type Props = { params: { slug: string } };
 
-async function getPost(rawSlug: string) {
+type LookupResult = { post: any | null; error: string | null };
+
+async function lookupPost(rawSlug: string): Promise<LookupResult> {
   const slug = (rawSlug || "").trim();
-  if (!slug) return null;
+  if (!slug) return { post: null, error: "empty slug" };
   try {
     const exact = await prisma.blogPost.findFirst({ where: { slug: { equals: slug, mode: "insensitive" } } });
-    if (exact) return exact;
+    if (exact) return { post: exact, error: null };
     const lowered = slug.toLowerCase();
-    return await prisma.blogPost.findFirst({ where: { slug: { equals: lowered, mode: "insensitive" } } });
-  } catch (err) {
+    const fallback = await prisma.blogPost.findFirst({ where: { slug: { equals: lowered, mode: "insensitive" } } });
+    return { post: fallback, error: null };
+  } catch (err: any) {
     console.error("getPost error", err);
-    return null;
+    return { post: null, error: err?.message ?? "unknown error" };
   }
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const post = await getPost(params.slug);
+  const { post, error } = await lookupPost(params.slug);
 
   if (!post) {
-    notFound();
+    return (
+      <div className="min-h-screen bg-slate-50 text-slate-900">
+        <div className="mx-auto max-w-3xl px-6 py-12 space-y-4">
+          <p className="text-sm text-slate-600">Home &gt; Blog</p>
+          <h1 className="text-2xl font-semibold">Post not found</h1>
+          <p className="text-sm text-slate-700">Slug: {params.slug}</p>
+          {error && <p className="text-sm text-red-600">Error: {error}</p>}
+          <p className="text-sm text-slate-700">Record not found in the database. Please verify the URL or try again later.</p>
+        </div>
+      </div>
+    );
   }
 
   const words = post.content?.trim().split(/\s+/).length || 0;
@@ -52,7 +65,7 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="mt-6 text-slate-900 whitespace-pre-line leading-relaxed text-[15px]">{post.content}</div>
           {(post.tags || []).length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-600">
-              {(post.tags || []).map((t) => (
+              {(post.tags || []).map((t: string) => (
                 <span key={t} className="rounded-full bg-slate-100 px-3 py-1">
                   #{t}
                 </span>
@@ -72,7 +85,7 @@ export default async function BlogPostPage({ params }: Props) {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const post = await getPost(params.slug);
+  const { post } = await lookupPost(params.slug);
   if (!post) return {};
   const title = post.seoTitle || post.title;
   const description = post.summary || post.focusKeyword || "";
