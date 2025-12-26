@@ -6,6 +6,7 @@ export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 export const revalidate = 0;
 export const fetchCache = "force-no-store";
+export const runtime = "nodejs";
 
 type Props = { params: { slug: string } };
 
@@ -17,7 +18,8 @@ async function getPost(rawSlug: string) {
     if (exact) return exact;
     const lowered = slug.toLowerCase();
     return await prisma.blogPost.findFirst({ where: { slug: { equals: lowered, mode: "insensitive" } } });
-  } catch {
+  } catch (err) {
+    console.error("getPost error", err);
     return null;
   }
 }
