@@ -23,7 +23,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ token: str
     return new Response("File not found", { status: 404 });
   }
 
-  return new Response(data, {
+  return new Response(new Uint8Array(data), {
     status: 200,
     headers: {
       "Content-Type": "application/zip",
