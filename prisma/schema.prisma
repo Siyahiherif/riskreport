@@ -87,3 +87,19 @@ model BlogPost {
 
   @@index([status, publishDate])
 }
+
+model ComplianceReport {
+  id           String   @id @default(uuid())
+  reportToken  String   @unique
+  email        String
+  companyName  String?
+  score        Int
+  riskLevel    String
+  readiness    Json
+  storagePath  String
+  createdAt    DateTime @default(now())
+  expiresAt    DateTime
+
+  @@index([email])
+  @@index([expiresAt])
+}

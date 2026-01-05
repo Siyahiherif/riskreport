@@ -4,7 +4,7 @@ import { prisma } from "@/lib/db";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://cyberfacex.com";
   const now = new Date();
-  const staticPaths = ["/", "/pricing", "/refund", "/privacy", "/terms", "/blog"];
+  const staticPaths = ["/", "/pricing", "/refund", "/privacy", "/terms", "/blog", "/compliance"];
 
   let postPaths: MetadataRoute.Sitemap = [];
   try {
