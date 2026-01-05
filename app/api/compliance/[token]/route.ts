@@ -5,8 +5,8 @@ import { prisma } from "@/lib/db";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET(_: Request, { params }: { params: { token: string } }) {
-  const token = params.token;
+export async function GET(_: Request, { params }: { params: Promise<{ token: string }> }) {
+  const { token } = await params;
   const report = await prisma.complianceReport.findUnique({ where: { reportToken: token } });
   if (!report) {
     return new Response("Not found", { status: 404 });
