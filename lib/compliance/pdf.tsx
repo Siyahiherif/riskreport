@@ -65,7 +65,7 @@ export async function generateComplianceSummaryPdf(
         </Text>
       </View>
       <View style={styles.section}>
-        <Text style={styles.h2}>Hazirlik Durumu</Text>
+        <Text style={styles.h2}>Hazırlık Durumu</Text>
         <Text>ISO 27001: {result.readiness.iso27001}</Text>
         <Text>KVKK: {result.readiness.kvkk}</Text>
         <Text>SOC2 (Security): {result.readiness.soc2}</Text>
@@ -278,7 +278,7 @@ const renderHeader = (orgName: string) => (
       </View>
       <View style={[styles.headerCell, { flex: 1.4 }]}>
         <Text style={{ fontSize: 13, fontWeight: "bold", textAlign: "center" }}>
-          BG Olay ve Siber Olay Y?netimi Prosed?r?
+          BG Olay ve Siber Olay Yönetimi Prosedürü
         </Text>
       </View>
       <View style={[styles.headerCellLast, { flex: 1.2 }]}>
@@ -291,7 +291,7 @@ const renderHeader = (orgName: string) => (
     <View style={{ flexDirection: "row" }}>
       <View style={[styles.headerCell, { flex: 0.8, borderBottomWidth: 0 }]} />
       <View style={[styles.headerCell, { flex: 1.4, borderBottomWidth: 0 }]}>
-        <Text style={styles.headerMeta}>Hazirlayan: Bilgi Güvenliği Sorumlusu</Text>
+        <Text style={styles.headerMeta}>Hazırlayan: Bilgi Güvenliği Sorumlusu</Text>
         <Text style={styles.headerMeta}>Onaylayan: Yönetim Kurulu</Text>
       </View>
       <View style={[styles.headerCellLast, { flex: 1.2, borderBottomWidth: 0 }]}>

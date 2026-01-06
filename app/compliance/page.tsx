@@ -84,7 +84,7 @@ export default function CompliancePage() {
             <p className="text-xs font-semibold uppercase text-slate-500">Preview</p>
             <h2 className="mt-2 text-lg font-semibold">PDF preview (excerpt)</h2>
             <p className="mt-2 text-sm text-slate-700">
-              Aşağıdaki onizleme dokumandan kısa bir bölümüdür. Tam dokuman ödeme sonrası teslim edilir.
+              Aşağıdaki önizleme dokümanından kısa bir bölümüdür. Tam doküman ödeme sonrası teslim edilir.
             </p>
             <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
               <iframe
@@ -94,8 +94,8 @@ export default function CompliancePage() {
               />
             </div>
             <p className="mt-3 text-xs text-slate-500">
-              Önizleme, dokumanin kisaltılmış bir bölümüdür. Tam dokuman, ödeme sonrası şirketinize özel olarak
-              oluşturulur ve PDF formatında teslim edilir. Bu dokumanlar, resmi kurum onayı içermez.
+              Önizleme, dokümanın kısaltılmış bir bölümüdür. Tam doküman, ödeme sonrası şirketinize özel olarak
+              oluşturulur ve PDF formatında teslim edilir. Bu dokümanlar, resmi kurum onayı içermez.
             </p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
@@ -108,7 +108,7 @@ export default function CompliancePage() {
             </p>
             <p className="mt-2 text-xs text-slate-500">
               Not: Üretilen dokümanlar örnek ve taslak niteliktedir. Şirketinizin iç süreçlerine göre gözden
-              gecirilmesi ve onaylanmasi onerilir.
+              geçirilmesi ve onaylanması önerilir.
             </p>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function CompliancePage() {
               />
             </label>
           </div>
-          <p className="mt-2 text-xs text-slate-600">Sadece e-posta, rapor ID ve tarih saklanir. 7 gun sonra silinir.</p>
+          <p className="mt-2 text-xs text-slate-600">Sadece e-posta, rapor ID ve tarih saklanır. 7 gün sonra silinir.</p>
         </div>
 
         <div className="space-y-4">
@@ -210,7 +210,7 @@ export default function CompliancePage() {
               <p className="font-semibold">Denetimde bu dokümanları kullanabilir miyim?</p>
               <p>
                 Evet, birçok denetimde başlangıç dokümantasyonu olarak kullanılabilir. Ancak denetim kapsamına göre ek
-                calismalar gerekebilir.
+                çalışmalar gerekebilir.
               </p>
             </div>
           </div>
@@ -219,7 +219,7 @@ export default function CompliancePage() {
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
           <p className="text-xs text-slate-500">
             Bu platform tarafından üretilen rapor ve dokümanlar, bilgilendirme ve denetime hazirlik amaclidir. Herhangi
-            bir resmi kurum, sertifikasyon kurulus ve/veya düzenleyici otorite tarafından onaylanmış oldugu anlamina
+            bir resmi kurum, sertifikasyon kuruluş ve/veya düzenleyici otorite tarafından onaylanmış olduğu anlamına
             gelmez.
           </p>
           <p className="mt-2 text-xs text-slate-500">
