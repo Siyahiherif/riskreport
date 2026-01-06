@@ -86,27 +86,27 @@ const templatePath = path.join(process.cwd(), "lib", "compliance", "templates", 
 const normalizeCompanyName = (companyName?: string) => companyName?.trim() || "Sirket";
 
 const headingPhrases = [
-  "GIRIS",
-  "AMAC",
+  "GİRİŞ",
+  "AMAÇ",
   "KAPSAM",
-  "ILGILI KANUN VE DUZENLEMELER",
+  "İLGİLİ KANUN VE DÜZENLEMELER",
   "TANIMLAMALAR VE KISALTMALAR",
-  "GOREV VE SORUMLULUKLAR",
+  "GÖREV VE SORUMLULUKLAR",
   "UYGULAMA",
-  "BILGI GUVENLIGI OLAYLARININ TANIMLANMASI",
-  "BILGI GUVENLIGI OLAYLARININ TESPIT EDILMESI VE BILDIRILMESI",
-  "BILGI GUVENLIGI OLAYLARININ ANALIZ EDILMESI VE ILETISIM",
-  "BILGI GUVENLIGI OLAYLARINA MUDAHALE EDILMESI",
-  "BILGI GUVENLIGI OLAYLARINA ILISKIN KANITLARIN ELDE EDILMESI",
-  "BILGI GUVENLIGI OLAYLARININ KAPATILMASI",
-  "BILGI GUVENLIGI OLAYLARININ RAPORLANMASI VE IZLENMESI",
-  "SIBER OLAY YONETIMI",
-  "SIBER OLAYLARIN TESPIT EDILMESI",
+  "BİLGİ GÜVENLİĞİ OLAYLARININ TANIMLANMASI",
+  "BİLGİ GÜVENLİĞİ OLAYLARININ TESPIT EDILMESI VE BİLDİRİLMESİ",
+  "BİLGİ GÜVENLİĞİ OLAYLARININ ANALİZ EDİLMESİ VE İLETİŞİM",
+  "BİLGİ GÜVENLİĞİ OLAYLARINA MUDAHALE EDİLMEŞİ",
+  "BİLGİ GÜVENLİĞİ OLAYLARINA İLİŞKİN KANITLARIN ELDE EDİLMESİ",
+  "BİLGİ GÜVENLİĞİ OLAYLARININ KAPATILMASI",
+  "BİLGİ GÜVENLİĞİ OLAYLARININ RAPORLANMASI VE İZLENMESİ",
+  "SİBER OLAY YÖNETİMİ",
+  "SIBER OLAYLARIN TESPİT EDİLMESİ",
   "SIBER OLAYLARIN SINIFLANDIRILMASI",
-  "SIBER OLAYLARA MUDAHALE SURECI",
-  "SIBER OLAY SONRASINDA IZLENECEK ADIMLAR",
-  "SIBER OLAYLARIN ANALIZI VE PAYDASLAR ILE ILISKILER",
-  "ILGILI DOKUMANLAR",
+  "SİBER OLAYLARA MUDAHALE SÜRECİ",
+  "SİBER OLAY SONRASINDA İZLENECEK ADIMLAR",
+  "SİBER OLAYLARIN ANALİZİ VE PAYDAŞLAR İLE İLİŞKİLER",
+  "İLGİLİ DOKÜMANLAR",
 ];
 
 const foldTurkish = (text: string) =>
@@ -143,14 +143,14 @@ const isListTrigger = (line: string) =>
   /siralani|siralanmis|erisilmelidir|asagidaki|asagida/.test(foldTurkish(line.toLowerCase()));
 
 const inlineLabelPrefixes = [
-  "KRITIK",
-  "YUKSEK",
+  "KRİTİK",
+  "YÜKSEK",
   "ORTA",
-  "DUSUK",
-  "ANLIK MUDAHALE",
-  "GUNLUK MUDAHALE",
-  "3 GUNLUK MUDAHALE",
-  "HAFTALIK MUDAHALE",
+  "DÜŞÜK",
+  "ANLIK MÜDAHALE",
+  "GÜNLÜK MÜDAHALE",
+  "3 GÜNLÜK MÜDAHALE",
+  "HAFTALIK MÜDAHALE",
 ];
 
 const isInlineLabel = (line: string) => {
@@ -242,31 +242,31 @@ const chunkParagraphs = (items: LineToken[], size: number) => {
 };
 
 const tocItems = [
-  { label: "1. GIRIS", page: "3" },
-  { label: "1.1 Amac", page: "3" },
-  { label: "1.2 Kapsam", page: "3" },
-  { label: "1.3 Ilgili Kanun ve Duzenlemeler", page: "3" },
-  { label: "1.4 Tanimlamalar ve Kisaltmalar", page: "3" },
-  { label: "2. GOREV VE SORUMLULUKLAR", page: "4" },
-  { label: "2.1 Bilgi Guvenligi Sorumlusu", page: "4" },
-  { label: "2.2 BT Muduru", page: "4" },
-  { label: "2.3 Tedarikci Firma", page: "5" },
-  { label: "2.4 Kurulus Personeli", page: "5" },
+  { label: "1. GİRİŞ", page: "3" },
+  { label: "1.1 AMAÇ", page: "3" },
+  { label: "1.2 KAPSAM", page: "3" },
+  { label: "1.3 İLGİLİ KANUN VE DÜZENLEMELER", page: "3" },
+  { label: "1.4 TANIMLAMALAR VE KISALTMALAR", page: "3" },
+  { label: "2. GÖREV VE SORUMLULUKLAR", page: "4" },
+  { label: "2.1 BİLGİ GÜVENLİĞİ SORUMLUSU", page: "4" },
+  { label: "2.2 BT MÜDÜRÜ", page: "4" },
+  { label: "2.3 TEDARİKÇİ FİRMASI", page: "5" },
+  { label: "2.4 KURULUS PERSONELİ", page: "5" },
   { label: "3. UYGULAMA", page: "5" },
-  { label: "3.1 Bilgi Guvenligi Olaylarinin Tanimlanmasi", page: "5" },
-  { label: "3.2 Bilgi Guvenligi Olaylarinin Tespit Edilmesi ve Bildirilmesi", page: "7" },
-  { label: "3.3 Bilgi Guvenligi Olaylarinin Analiz Edilmesi ve Iletisim", page: "8" },
-  { label: "3.4 Bilgi Guvenligi Olaylarina Mudahale Edilmesi", page: "8" },
-  { label: "3.5 Bilgi Guvenligi Olaylarina Iliskin Kanitlarin Elde Edilmesi", page: "9" },
-  { label: "3.6 Bilgi Guvenligi Olaylarinin Kapatilmasi", page: "9" },
-  { label: "3.7 Bilgi Guvenligi Olaylarinin Raporlanmasi ve Izlenmesi", page: "10" },
-  { label: "3.8 Siber Olay Yonetimi", page: "10" },
-  { label: "3.8.1 Siber Olaylarin Tespit Edilmesi", page: "10" },
-  { label: "3.8.2 Siber Olaylarin Siniflandirilmasi", page: "11" },
-  { label: "3.8.3 Siber Olaylara Mudahale Sureci", page: "11" },
-  { label: "3.8.4 Siber Olay Sonrasinda Izlenecek Adimlar", page: "13" },
-  { label: "3.8.5 Siber Olaylarin Analizi ve Paydaslar ile Iliskiler", page: "13" },
-  { label: "4. ILGILI DOKUMANLAR", page: "15" },
+  { label: "3.1 BİLGİ GÜVENLİĞİ OLAYLARININ TANIMLANMASI", page: "5" },
+  { label: "3.2 BİLGİ GÜVENLİĞİ OLAYLARININ TESPİT EDİLMESİ VE BİLDİRİLMESİ", page: "7" },
+  { label: "3.3 BİLGİ GÜVENLİĞİ OLAYLARININ ANALİZ EDİLMESİ VE İLETİŞİM", page: "8" },
+  { label: "3.4 BİLGİ GÜVENLİĞİ OLAYLARINA MÜDAHALE EDİLMESİ", page: "8" },
+  { label: "3.5 BİLGİ GÜVENLİĞİ OLAYLARINA İLİŞKİN KANITLARIN ELDE EDİLMESİ", page: "9" },
+  { label: "3.6 BİLGİ GÜVENLİĞİ OLAYLARININ KAPATILMASI", page: "9" },
+  { label: "3.7 BİLGİ GÜVENLİĞİ OLAYLARININ RAPORLANMASI VE İZLENMESİ", page: "10" },
+  { label: "3.8 SİBER OLAY YÖNETİMİ", page: "10" },
+  { label: "3.8.1 SİBER OLAYLARIN TESPİT EDİLMESİ", page: "10" },
+  { label: "3.8.2 SİBER OLAYLARIN SINIFLANDIRILMASI", page: "11" },
+  { label: "3.8.3 SİBER OLAYLARA MÜDAHALE SÜRECİ", page: "11" },
+  { label: "3.8.4 SİBER OLAY SONRASINDA İZLENECEK ADIMLAR", page: "13" },
+  { label: "3.8.5 SİBER OLAYLARIN ANALİZİ VE PAYDAŞLAR İLE İLİŞKİLER", page: "13" },
+  { label: "4. İLGİLİ DOKÜMANLAR", page: "15" },
 ];
 
 const renderHeader = (orgName: string) => (
@@ -282,17 +282,17 @@ const renderHeader = (orgName: string) => (
         </Text>
       </View>
       <View style={[styles.headerCellLast, { flex: 1.2 }]}>
-        <Text style={styles.headerMeta}>DOK?MAN NO: PRO-BT-003</Text>
-        <Text style={styles.headerMeta}>YAYIN TAR?H?: 10.07.2024</Text>
-        <Text style={styles.headerMeta}>REV. TAR?H?: 26.12.2025</Text>
-        <Text style={styles.headerMeta}>VERS?YON NO: 2</Text>
+        <Text style={styles.headerMeta}>DOKüMAN NO: </Text>
+        <Text style={styles.headerMeta}>YAYIN TARiH: </Text>
+        <Text style={styles.headerMeta}>REV. TARiHi: </Text>
+        <Text style={styles.headerMeta}>VERSiON NO: </Text>
       </View>
     </View>
     <View style={{ flexDirection: "row" }}>
       <View style={[styles.headerCell, { flex: 0.8, borderBottomWidth: 0 }]} />
       <View style={[styles.headerCell, { flex: 1.4, borderBottomWidth: 0 }]}>
-        <Text style={styles.headerMeta}>Haz?rlayan: Bilgi Guvenligi Sorumlusu</Text>
-        <Text style={styles.headerMeta}>Onaylayan: Y?netim Kurulu</Text>
+        <Text style={styles.headerMeta}>Hazirlayan: Bilgi Güvenliği Sorumlusu</Text>
+        <Text style={styles.headerMeta}>Onaylayan: Yönetim Kurulu</Text>
       </View>
       <View style={[styles.headerCellLast, { flex: 1.2, borderBottomWidth: 0 }]}>
         <Text style={styles.headerMeta}>
@@ -316,7 +316,7 @@ const normalizeForMatch = (text: string) =>
     .trim();
 
 const stripPreamble = (lines: string[]) => {
-  const targets = ["GIRIS", "GENEL BAKIS"];
+  const targets = ["GİRİŞ", "GENEL BAKIŞ"];
   const startIndex = lines.findIndex((line) =>
     targets.some((target) => normalizeForMatch(line).startsWith(target)),
   );
@@ -325,7 +325,7 @@ const stripPreamble = (lines: string[]) => {
 };
 
 const getPreviewTokens = (tokens: LineToken[]) => {
-  const anchor = "BILGI GUVENLIGI OLAYLARINA ILISKIN KANITLARIN ELDE EDILMESI";
+  const anchor = "BİLGİ GÜVENLİĞİ OLAYLARINA İLİŞKİN KANITLARIN ELDE EDİLMESİ";
   const startIndex = tokens.findIndex((token) =>
     normalizeForMatch(token.text).includes(anchor),
   );

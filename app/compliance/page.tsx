@@ -70,8 +70,12 @@ export default function CompliancePage() {
           <p className="text-xs uppercase font-semibold text-slate-500">Compliance Readiness + Policy Docs</p>
           <h1 className="text-3xl font-semibold">Compliance Readiness & Policy Documents</h1>
           <p className="mt-2 text-sm text-slate-700">
-            5 soruluk kisa form (sirket adi dahil) ile compliance readiness degerlendirmesi yapar ve BG Olay ve Siber Olay
-            Yonetimi Proseduru dokumanini sirketinize ozel uretir.
+            Bu araç, denetime hazirlik ve iç süreçlerinizi düzenlemek amacıyla otomatik dokümantasyon üretir.
+            Resmi sertifikasyon veya %100 uyum garantisi vermez.
+          </p>
+          <p className="mt-2 text-sm text-slate-700">
+            5 soruluk kısa form (şirket adı dahil) ile compliance readiness değerlendirmesi yapar ve BG Olay ve Siber Olay
+            Yönetimi Prosedürü dokumanını şirketinize özel üretir.
           </p>
         </div>
 
@@ -80,7 +84,7 @@ export default function CompliancePage() {
             <p className="text-xs font-semibold uppercase text-slate-500">Preview</p>
             <h2 className="mt-2 text-lg font-semibold">PDF preview (excerpt)</h2>
             <p className="mt-2 text-sm text-slate-700">
-              Asagidaki onizleme dokumandan kisa bir bolumdur. Tam dokuman odeme sonrasi teslim edilir.
+              Aşağıdaki onizleme dokumandan kısa bir bölümüdür. Tam dokuman ödeme sonrası teslim edilir.
             </p>
             <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
               <iframe
@@ -89,23 +93,38 @@ export default function CompliancePage() {
                 className="h-96 w-full"
               />
             </div>
+            <p className="mt-3 text-xs text-slate-500">
+              Önizleme, dokumanin kisaltılmış bir bölümüdür. Tam dokuman, ödeme sonrası şirketinize özel olarak
+              oluşturulur ve PDF formatında teslim edilir. Bu dokumanlar, resmi kurum onayı içermez.
+            </p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
-            <h3 className="text-sm font-semibold text-slate-900">Teslim edilecek dokuman</h3>
+            <h3 className="text-sm font-semibold text-slate-900">Teslim edilecek doküman</h3>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
-              <li>- BG Olay ve Siber Olay Yonetimi Proseduru (PDF)</li>
+              <li>- BG Olay ve Siber Olay Yönetimi Prosedürü (PDF)</li>
             </ul>
             <p className="mt-4 text-xs text-slate-500">
-              Not: Onizleme kisa tutulur. Tam dokuman, sirketinize ozel PDF olarak uretilir.
+              Not: Önizleme kısa tutulur. Tam doküman, şirketinize özel PDF olarak üretilir.
+            </p>
+            <p className="mt-2 text-xs text-slate-500">
+              Not: Üretilen dokümanlar örnek ve taslak niteliktedir. Şirketinizin iç süreçlerine göre gözden
+              gecirilmesi ve onaylanmasi onerilir.
             </p>
           </div>
         </div>
 
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
-          <h2 className="text-lg font-semibold">Iletisim</h2>
+          <p className="text-sm text-slate-700">
+            Aşağıdaki sorular, şirketinizin genel yapısını anlamak ve uygun dokümantasyonu oluşturmak amacıyla
+            sorulmaktadir. Yanıtlarınız teknik denetim yerine geçmez.
+          </p>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
+          <h2 className="text-lg font-semibold">İletişim</h2>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             <label className="text-sm text-slate-700">
-              Sirket Adi (opsiyonel)
+              Şirket Adı (opsiyonel)
               <input
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
@@ -150,10 +169,13 @@ export default function CompliancePage() {
         >
           {submitting ? "Isleniyor..." : "Dokumanlari olustur"}
         </button>
+        <p className="text-xs text-slate-500">
+          Üretilen dokümanlar taslak niteliktedir. Şirket içi onay süreçlerinden geçirilmelidir.
+        </p>
 
         {result && (
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
-            <h2 className="text-lg font-semibold">Teslimat Hazir</h2>
+            <h2 className="text-lg font-semibold">Teslimat Hazır</h2>
             <p className="text-sm text-slate-700 mt-2">Rapor ID: {result.reportToken}</p>
             <p className="text-sm text-slate-700">Risk skoru: {result.score} / 100 - {result.riskLevel}</p>
             <p className="text-sm text-slate-700">ISO 27001: {result.readiness.iso27001} | KVKK: {result.readiness.kvkk} | SOC2: {result.readiness.soc2}</p>
@@ -166,6 +188,45 @@ export default function CompliancePage() {
             <p className="mt-2 text-xs text-slate-600">Link {new Date(result.expiresAt).toLocaleDateString()} tarihinde sona erer.</p>
           </div>
         )}
+
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
+          <h2 className="text-lg font-semibold">SSS</h2>
+          <div className="mt-4 space-y-4 text-sm text-slate-700">
+            <div>
+              <p className="font-semibold">Bu dokümanlar ISO 27001 belgesi yerine geçer mi?</p>
+              <p>
+                Hayır. Bu dokümanlar ISO 27001 belgelendirmesi yerine geçmez. Ancak belgelendirme oncesi gerekli temel
+                dokümantasyonu olusturmak icin kullanilabilir.
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold">Bu dokümanlar resmi olarak onaylı mı?</p>
+              <p>
+                Hayır. Dokümanlar şirketinize özel olarak otomatik üretilir ve taslak niteliktedir. Resmi kurum onayi
+                icermez.
+              </p>
+            </div>
+            <div>
+              <p className="font-semibold">Denetimde bu dokümanları kullanabilir miyim?</p>
+              <p>
+                Evet, birçok denetimde başlangıç dokümantasyonu olarak kullanılabilir. Ancak denetim kapsamına göre ek
+                calismalar gerekebilir.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
+          <p className="text-xs text-slate-500">
+            Bu platform tarafından üretilen rapor ve dokümanlar, bilgilendirme ve denetime hazirlik amaclidir. Herhangi
+            bir resmi kurum, sertifikasyon kurulus ve/veya düzenleyici otorite tarafından onaylanmış oldugu anlamina
+            gelmez.
+          </p>
+          <p className="mt-2 text-xs text-slate-500">
+            CyberFaceX, bu dokümanların kullanımı sonucu oluşabilecek doğrudan veya dolaylı zararlardan sorumlu
+            tutulamaz.
+          </p>
+        </div>
       </div>
     </div>
   );
