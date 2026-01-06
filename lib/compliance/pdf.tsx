@@ -96,8 +96,9 @@ const renderParagraph = (text: string, idx: number) => {
     );
   }
   const bullet = trimmed.startsWith("•") || trimmed.startsWith("-");
+  const paragraphStyle = bullet ? [styles.paragraph, styles.bullet] : styles.paragraph;
   return (
-    <Text key={`p-${idx}`} style={[styles.paragraph, bullet ? styles.bullet : undefined]}>
+    <Text key={`p-${idx}`} style={paragraphStyle}>
       {trimmed}
     </Text>
   );
