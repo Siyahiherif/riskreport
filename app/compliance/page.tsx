@@ -70,8 +70,8 @@ export default function CompliancePage() {
           <p className="text-xs uppercase font-semibold text-slate-500">Compliance Readiness + Policy Docs</p>
           <h1 className="text-3xl font-semibold">Compliance Readiness & Policy Documents</h1>
           <p className="mt-2 text-sm text-slate-700">
-            10-15 dakikalik soru seti ile compliance readiness degerlendirmesi yapar, 5 adet Turkce politika dokumani ve
-            ozet raporu uretir.
+            10-15 dakikalik soru seti ile compliance readiness degerlendirmesi yapar ve BG Olay ve Siber Olay Yonetimi
+            Proseduru dokumanini sirketinize ozel uretir.
           </p>
         </div>
 
@@ -80,41 +80,27 @@ export default function CompliancePage() {
             <p className="text-xs font-semibold uppercase text-slate-500">Preview</p>
             <h2 className="mt-2 text-lg font-semibold">Sample package (redacted)</h2>
             <p className="mt-2 text-sm text-slate-700">
-              Asagidaki onizleme kisa bir bolumdur. Tam 6 PDF dokumani odeme sonrasi teslim edilir.
+              Asagidaki onizleme kisa bir bolumdur. Tam dokuman odeme sonrasi teslim edilir.
             </p>
             <div className="mt-4 space-y-3">
               <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <p className="text-sm font-semibold">Compliance Readiness Ozeti</p>
+                <p className="text-sm font-semibold">BG Olay ve Siber Olay Yonetimi</p>
+                <p className="mt-2 text-xs text-slate-500">Bolumler: Genel Bakis, Gorev ve Sorumluluklar, Uygulama</p>
                 <div className="mt-3 space-y-2">
                   <div className="h-3 w-5/6 rounded bg-slate-200" />
-                  <div className="h-3 w-2/3 rounded bg-slate-200" />
-                  <div className="h-3 w-1/2 rounded bg-slate-200" />
-                </div>
-              </div>
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <p className="text-sm font-semibold">BG Olay ve Siber Olay Yonetimi</p>
-                <p className="mt-2 text-xs text-slate-500">Bolumler: Amac, Gorevler, Ilgili Dokumanlar</p>
-                <div className="mt-3 space-y-2">
-                  <div className="h-3 w-4/5 rounded bg-slate-200" />
                   <div className="h-3 w-3/4 rounded bg-slate-200" />
-                  <div className="h-3 w-1/2 rounded bg-slate-200" />
+                  <div className="h-3 w-2/3 rounded bg-slate-200" />
                 </div>
               </div>
             </div>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
-            <h3 className="text-sm font-semibold text-slate-900">Teslim edilecek dokumanlar</h3>
+            <h3 className="text-sm font-semibold text-slate-900">Teslim edilecek dokuman</h3>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
-              <li>- Compliance Readiness Ozeti</li>
-              <li>- Bilgi Guvenligi Politikasi</li>
-              <li>- Erisim Kontrol Politikasi</li>
-              <li>- Loglama ve Izleme Politikasi</li>
-              <li>- Olay Mudahale Proseduru</li>
-              <li>- Risk Degerlendirme Ozeti</li>
-              <li>- BG Olay ve Siber Olay Yonetimi Proseduru</li>
+              <li>- BG Olay ve Siber Olay Yonetimi Proseduru (PDF)</li>
             </ul>
             <p className="mt-4 text-xs text-slate-500">
-              Not: Onizleme kisa tutulur. Tam paket, sirketinize ozel PDF olarak uretilir.
+              Not: Onizleme kisa tutulur. Tam dokuman, sirketinize ozel PDF olarak uretilir.
             </p>
           </div>
         </div>

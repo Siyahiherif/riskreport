@@ -3,7 +3,7 @@ import fsPromises from "node:fs/promises";
 import path from "node:path";
 import archiver from "archiver";
 import { ComplianceAnswers, ComplianceResult } from "./engine";
-import { buildPolicySections, generateComplianceSummaryPdf, generatePolicyPdf } from "./pdf";
+import { buildPolicySections, generateBgIncidentProcedurePdf } from "./pdf";
 
 export type CompliancePackageResult = {
   zipPath: string;
@@ -26,18 +26,17 @@ export async function generateCompliancePackage({
 
   const policySections = buildPolicySections(answers, companyName);
 
-  const summaryPath = await generateComplianceSummaryPdf(reportToken, companyName, result, result.missingAreas);
-  const infoSecurityPath = await generatePolicyPdf(reportToken, "info-security", "Bilgi Guvenligi Politikasi", policySections.infoSecurity);
-  const accessControlPath = await generatePolicyPdf(reportToken, "access-control", "Erisim Kontrol Politikasi", policySections.accessControl);
-  const loggingPath = await generatePolicyPdf(reportToken, "logging-monitoring", "Loglama ve Izleme Politikasi", policySections.loggingMonitoring);
-  const incidentPath = await generatePolicyPdf(reportToken, "incident-response", "Olay Mudahale Proseduru", policySections.incidentResponse);
-  const riskSummaryPath = await generatePolicyPdf(reportToken, "risk-summary", "Risk Degerlendirme Ozeti", policySections.riskSummary);
+  const bgIncidentPath = await generateBgIncidentProcedurePdf(
+    reportToken,
+    companyName,
+    policySections.bgIncidentProcedure,
+  );
 
   const zipPath = path.join(reportDir, `${reportToken}.zip`);
   const output = fs.createWriteStream(zipPath);
   const archive = archiver("zip", { zlib: { level: 9 } });
 
-  const files = [summaryPath, infoSecurityPath, accessControlPath, loggingPath, incidentPath, riskSummaryPath];
+  const files = [bgIncidentPath];
 
   await new Promise<void>((resolve, reject) => {
     output.on("close", () => resolve());
