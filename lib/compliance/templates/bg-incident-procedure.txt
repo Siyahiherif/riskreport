@@ -1,529 +1,265 @@
-BG Olay ve Siber Olay Yönetimi Prosedürü                             Aralık 2025Gizlidir.İşbu belge {{COMPANY}} Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.BG Olay ve Siber Olay Yönetimi Prosedürü                             Aralık 2025Gizlidir.İşbu belge {{COMPANY}} Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.
-
+BG Olay ve Siber Olay Yönetimi Prosedürü Aralık 2025Gizlidir.İşbu belge Moneyout Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.BG Olay ve Siber Olay Yönetimi Prosedürü Aralık 2025Gizlidir.İşbu belge Moneyout Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.
 BG Olay ve Siber Olay Yönetimi Prosedürü
-
 Aralık 2025
-
 Gizlidir.
-
-İşbu belge {{COMPANY}} Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.
-
+İşbu belge Moneyout Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.
 BG Olay ve Siber Olay Yönetimi Prosedürü
-
 Aralık 2025
-
 Gizlidir.
-
-İşbu belge {{COMPANY}} Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.
-
+İşbu belge Moneyout Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.
 Doküman Sorumlusu:
-
 Bilgi Teknolojileri Birimi
-
 İlk Yayın Tarihi:
-
 10.07.2024
-
 Versiyon No:
-
 2
-
 Onay Tarihi:
-
 26.12.2025
-
 Onay Makamı:
-
 Yönetim Kurulu
-
 Gözden Geçirme Sıklığı:
-
 Asgari iki yılda bir veya gerekli olması halinde daha kısa sürede
-
 Gözden Geçirme Sorumlusu:
-
 Bilgi Teknolojileri Birimi
-
 Bir Sonraki Gözden Geçirme Tarihi:
-
 26.12.2027
-
 Versiyon
-
 Tarih
-
 Değişiklik Açıklaması
-
 1.0
-
 10.07.2024
-
 İlk Yayın
-
 2.0
-
 26.12.2025
-
 Süreç Değişikliği
-
 İçindekiler
-
 1.GİRİŞ3
-
 1.1.Amaç3
-
 1.2.Kapsam3
-
 1.3.İlgili kanun ve düzenlemeler kısmı yok 3
-
 1.4.Tanımlamalar ve Kısaltmalar3
-
 2.GÖREV VE SORUMLULUKLAR4
-
 2.1.Bilgi Güvenliği Sorumlusu4
-
 2.2.BT Müdürü4
-
 2.3.Tedarikçi Firma5
-
 2.4.Çalışan5
-
 3.UYGULAMA5
-
 3.1.Bilgi Güvenliği Olaylarının Tanımlanması5
-
 3.2.Bilgi Güvenliği Olaylarının Tespit Edilmesi ve Bildirilmesi7
-
 3.3.Bilgi Güvenliği Olaylarının Analiz Edilmesi ve İletişim8
-
 3.4.Bilgi Güvenliği Olaylarına Müdahale Edilmesi9
-
 3.5.Bilgi Güvenliği Olaylarına İlişkin Kanıtların Elde Edilmesi10
-
 3.6.Bilgi Güvenliği Olaylarının Kapatılması11
-
 3.7.Bilgi Güvenliği Olaylarının Raporlanması ve İzlenmesi11
-
 3.8.Siber Olay Yönetimi11
-
 3.8.1Siber Olayların Tespit Edilmesi12
-
 3.8.2Siber Olayların Sınıflandırılması12
-
 3.8.3Siber Olaylara Müdahale Süreci13
-
 3.8.4Siber Olay Sonrasında İzlenecek Adımlar15
-
 3.8.5Siber Olayların Analizi ve Paydaşlar ile İlişkiler15
-
 4.İLGİLİ DOKÜMANLAR15
-
 GİRİŞ
-
 Amaç
-
-{{COMPANY}} bilgi sistemleri altyapısında oluşabilecek güvenlik ihlallerinin zamanında tespit edilmesi, olaylara ilişkin aksiyon alınması, sebeplerinin analiz edilmesi ve kanıtların toplanması, sistemin en kısa sürede en az zarar ile tekrar çalışır duruma getirilmesi, olayların tekrar etmemesi konularında yönetim ve esaslar ile raporlanması konusundaki kuralları belirlemek amacıyla yayımlanmıştır.
-
+Moneyout bilgi sistemleri altyapısında oluşabilecek güvenlik ihlallerinin zamanında tespit edilmesi, olaylara ilişkin aksiyon alınması, sebeplerinin analiz edilmesi ve kanıtların toplanması, sistemin en kısa sürede en az zarar ile tekrar çalışır duruma getirilmesi, olayların tekrar etmemesi konularında yönetim ve esaslar ile raporlanması konusundaki kuralları belirlemek amacıyla yayımlanmıştır.
 Kapsam
-
-Bilgi Güvenliği Olay Yönetimi Prosedürü tüm {{COMPANY}} personeli, sözleşmeli personel, geçici personel ve kuruluş sistemlerine veya verilerine erişimi olan tedarikçi firmalar için geçerlidir. Bilgi güvenliği ihlal olayına yol açabilecek olası durumlar ve siber olaylar bu kapsamda ele alınmıştır.
-
+Bilgi Güvenliği Olay Yönetimi Prosedürü tüm Moneyout personeli, sözleşmeli personel, geçici personel ve kuruluş sistemlerine veya verilerine erişimi olan tedarikçi firmalar için geçerlidir. Bilgi güvenliği ihlal olayına yol açabilecek olası durumlar ve siber olaylar bu kapsamda ele alınmıştır.
 İlgini Kanun ve Düzenlemeler
-
 Ödeme ve Elektronik para kuruluşlarının bilgi sistemleri ile ödeme hizmeti sağlayıcılarının ödeme hizmetleri alanındaki veri paylaşım servislerine ilişkin tebliğ,
-
 Olay yönetimi ve siber olaylar – Madde 7
-
 Tanımlamalar ve Kısaltmalar
-
 BT (Bilgi Teknolojileri): Bilgi Teknolojileri
-
 İş Birimleri: Bilgi Teknolojileri birimi dışında kalan tüm grup ve birimler
-
-Kurum, Kuruluş: {{COMPANY}}
-
+Kurum, Kuruluş: Moneyout
 Tebliğ: Ödeme Kuruluşları ve Elektronik Para Kuruluşlarının Bilgi Sistemlerinin Yönetimine ve Denetimine İlişkin Tebliğ
-
 TCMB: Türkiye Cumhuriyet Merkez Bankası
-
-Üst Yönetim: {{COMPANY}}’un yönetim kurulu üyeleri ile genel müdür ve genel müdür yardımcıları, İç Kontrol ve Risk Yönetimi ve Uyum Birimlerinin yöneticileri ile başka unvanlarla istihdam edilseler dahi yetki ve görevleri itibarıyla Genel müdür yardımcısına denk veya daha üst konumlarda görev yapan yöneticileri
-
-Bilgi Güvenliği Olayı: {{COMPANY}} bilgi sistemleri altyapısını etkileyen, çalışmasını engelleyen veya {{COMPANY}} bünyesindeki verilerin bütünlüğünün, erişilebilirliğinin ve gizliliğinin olumsuz etkilenmesine sebep olan olaylar
-
+Üst Yönetim: Moneyout’un yönetim kurulu üyeleri ile genel müdür ve genel müdür yardımcıları, İç Kontrol ve Risk Yönetimi ve Uyum Birimlerinin yöneticileri ile başka unvanlarla istihdam edilseler dahi yetki ve görevleri itibarıyla Genel müdür yardımcısına denk veya daha üst konumlarda görev yapan yöneticileri
+Bilgi Güvenliği Olayı: Moneyout bilgi sistemleri altyapısını etkileyen, çalışmasını engelleyen veya Moneyout bünyesindeki verilerin bütünlüğünün, erişilebilirliğinin ve gizliliğinin olumsuz etkilenmesine sebep olan olaylar
 Bilgi Güvenliği Zayıflığı: Sunucu, bilgisayar ve çeşitli cihazların birbirlerine çeşitli yöntemlerle bağlanmasıyla oluşan yapıya verilen genel ad
-
 Denetim İzi (Log/İz Kaydı): Bir veri kaynağı hakkında zaman içindeki durumlarının ya da değişikliklerinin kayıt altına alınması sırasında oluşan sistemsel kayıtlar
-
 DoS (Denial of Service): Bir hedefe yönelik gerçekleştirilen, sistemin hizmet vermesini, kullanıcıların sisteme erişmesini engelleyen bir siber saldırı türü
-
 DDoS (Distributed Denial of Service): DoS saldırısının bir kaynaktan yerine birden fazla sayıda ve farklı kaynaktan başlatılmasıyla gerçekleşen olay
-
 GÖREV VE SORUMLULUKLAR
-
 Bilgi Güvenliği Sorumlusu
-
 Bilgi güvenliği olay yönetimi sürecinin prosedüre uygun olarak işletildiğinin kontrol edilmesi, izlenmesi ve raporlanması.
-
 Güvenlik cihazlarını takip ederek engellenen saldırıların değerlendirilmesi ve gerek görüldüğü durumlarda bilgi güvenliği olay yönetimi sürecinin uygulanması.
-
 Tarafına iletilen bilgi güvenliği olaylarının ivedilikle Üst Yönetim’e bildirilmesi.
-
 Gerçekleşen bilgi güvenliği olayının etkilerini azaltılması amacıyla aksiyon alınması.
-
 Gerçekleşen bilgi güvenliği olayının yeniden gerçekleşmemesi için alınması gereken aksiyonları belirlenmesi ve Üst Yönetim’e sunulması.
-
 Üst Yönetim tarafından onaylanan aksiyonların alınmasının sağlanması.
-
-{{COMPANY}} bünyesinde yaşanan olaylar, {{COMPANY}} standartları ve dünya üzerinde bilgi güvenliği olayı olarak değerlendirilen olaylar doğrultusunda “EK-1. Bilgi Güvenliği Olayları Listesi”ni yılda en az bir defa güncellenmesi.
-
-Bilgi Güvenliği Olay Yönetimi Prosedürü’nü iç gereksinimler, {{COMPANY}} standartları, yasal mevzuat ve uluslararası standartlar doğrultusunda yılda en az bir defa gözden geçirilerek güncellenmesinin sağlanması ve uygulanmasının takip edilmesi.
-
+Moneyout bünyesinde yaşanan olaylar, Moneyout standartları ve dünya üzerinde bilgi güvenliği olayı olarak değerlendirilen olaylar doğrultusunda “EK-1. Bilgi Güvenliği Olayları Listesi”ni yılda en az bir defa güncellenmesi.
+Bilgi Güvenliği Olay Yönetimi Prosedürü’nü iç gereksinimler, Moneyout standartları, yasal mevzuat ve uluslararası standartlar doğrultusunda yılda en az bir defa gözden geçirilerek güncellenmesinin sağlanması ve uygulanmasının takip edilmesi.
 Siber olay öncesinde muhtemel siber saldırılara karşı gerekli önlemlerin alınması.
-
 Zararlı yazılımlar, siber olaylar ve sektörde ortaya çıkan dolandırıcılık yöntemleri hakkında erken müdahalenin sağlanması ve bu olaylar hakkında bilgilendirmelerin yapılması.
-
 BT Müdürü
-
 Bilgi güvenliği olaylarına müdahale edilmesi, prosedüre uyumu engelleyen yetkileri veya bu duruma sebep olan ortamı değiştirilmesi.
-
 Tespit edilen bilgi güvenliği olaylarının ivedilikle Üst Yönetim’e bildirilmesi.
-
 Meydana gelen güvenlik olaylarının Bilgi Güvenliği Sorumlusu’na raporlanmasından ve siber olaylara müdahale planı kapsamında belirlenen aksiyonların alınması ve alınmasının sağlanması.
-
 Tedarikçi Firma
-
 Bilgi güvenliği olaylarına müdahale edilmesi, prosedüre uyumu engelleyen yetkileri veya bu duruma sebep olan ortamı değiştirilmesi.
-
 Tespit edilen bilgi güvenliği olaylarının ivedilikle BT Müdürü’ne bildirilmesi.
-
 Çalışan
-
 Örnek bilgi güvenliği olayları doğrultusunda karşılaştığı olayları veya kullanılan bilgi sistemleri altyapısında karşılaştığı şüpheli olabilecek olayları ivedilikle BT Müdürü’ne bildirmek.
-
 UYGULAMA
-
 Bilgi Güvenliği Olaylarının Tanımlanması
-
-{{COMPANY}} bilgi sistemleri altyapısını etkileyen, çalışmasını engelleyen veya {{COMPANY}} bünyesindeki verilerin bütünlüğünün, erişilebilirliğinin ve gizliliğinin olumsuz etkilenmesine sebep olan olaylar bilgi güvenliği olayı olarak tanımlanmaktadır.
-
+Moneyout bilgi sistemleri altyapısını etkileyen, çalışmasını engelleyen veya Moneyout bünyesindeki verilerin bütünlüğünün, erişilebilirliğinin ve gizliliğinin olumsuz etkilenmesine sebep olan olaylar bilgi güvenliği olayı olarak tanımlanmaktadır.
 Verilen örnekler ile sınırlı olmamak ile birlikte bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:
-
-{{COMPANY}} Bilgi Güvenliği Politikası’na uyumsuzluk.
-
+Moneyout Bilgi Güvenliği Politikası’na uyumsuzluk.
 Bilgi sistemleri servislerine yapılan ataklar.
-
-{{COMPANY}} hizmetlerinde kesintiye sebebiyet verebilecek bilgi sistemleri olayları.
-
+Moneyout hizmetlerinde kesintiye sebebiyet verebilecek bilgi sistemleri olayları.
 Kritik bilgilerin yetkisiz olarak değiştirilmesi.
-
 Personelin veya müşterinin bilgi gizliliğini etkileyecek olaylar.
-
 Kuruluş verilerinin Bilgi Güvenliği Politikası’na aykırı bir şekilde kopyalanması, çıktılarının alınması, çalışanlarla veya üçüncü taraflarla paylaşılması.
-
 Kuruluş verilerinin ve bilgi varlıklarının kaybolması, çalınması, erişilebilirliğinin, gizliliğinin veya bütünlüğünün bozulması (bilgisayar, CD veya USB bellek gibi).
-
 Bir virüs saldırısı veya herhangi bir zararlı kodun kuruluş bilgi sistemleri bünyesinde çalıştırılması.
-
-{{COMPANY}} personelinin çalışma ortamındaki beklenmedik veya tanıdık olmayan bir olay ile karşılaşılması (Bilgisayarın masaüstünde yeni bir dosya ile karşılaşılması veya bir dosyanın içindekilerin beklenmedik bir şekilde değişmesi gibi).
-
-{{COMPANY}} personelinin sahip olduğu yazılım veya donanımda, personelin bilgisi veya onayı olmaksızın kod çalışması.
-
+Moneyout personelinin çalışma ortamındaki beklenmedik veya tanıdık olmayan bir olay ile karşılaşılması (Bilgisayarın masaüstünde yeni bir dosya ile karşılaşılması veya bir dosyanın içindekilerin beklenmedik bir şekilde değişmesi gibi).
+Moneyout personelinin sahip olduğu yazılım veya donanımda, personelin bilgisi veya onayı olmaksızın kod çalışması.
 Bilgi sistemlerine gerekli onayları almadan bağlanmış cihazların tespit edilmesi.
-
-Güvenlik olayları, olayın gerçekleşmesi durumunda {{COMPANY}}’un maruz kalabileceği etkiler göz önünde bulundurularak dört seviyede sınıflandırılmaktadır. Söz konusu sınıflara ilişkin açıklamalar ve örnek olaylar aşağıdaki gibi açıklanmıştır:
-
+Güvenlik olayları, olayın gerçekleşmesi durumunda Moneyout’un maruz kalabileceği etkiler göz önünde bulundurularak dört seviyede sınıflandırılmaktadır. Söz konusu sınıflara ilişkin açıklamalar ve örnek olaylar aşağıdaki gibi açıklanmıştır:
 Kritik: Bu kategorideki olaylar kriz yönetimi gerektiren ve sistemlerin çalışmasını doğrudan ve kapsamlı olarak etkileyen veya “Bilgi Varlıkları Belirleme ve Sınıflandırma Prosedürü” doğrultusunda “Çok Gizli” olarak tanımlanan verilerin gizliliğinin, bütünlüğünün ve erişilebilirliğinin zarar görmesine sebebiyet veren olaylardır. Verilen örnekler ile sınırlı olmamak ile birlikte kritik seviyeli bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:
-
-{{COMPANY}} hizmetlerinin kesintiye uğraması.
-
+Moneyout hizmetlerinin kesintiye uğraması.
 “Çok Gizli” verilerin yetkisiz kişilerce elde edilmesi.
-
 Yetkili kullanıcı seviyesinde yetkisiz kullanıcılar tarafından sisteme girilmesi.
-
 Yetkili kullanıcı haklarına sahip kullanıcının yetkisini kötüye kullanması.
-
-{{COMPANY}} hizmetlerini kesintiye uğratacak zararlı yazılım (virüs, trojan, worm vb.) aktivitesi.
-
+Moneyout hizmetlerini kesintiye uğratacak zararlı yazılım (virüs, trojan, worm vb.) aktivitesi.
 Sistem servislerine yapılan başarılı ataklar.
-
 Sistem dosyalarının ve erişim yetkilerinin yetkisiz değiştirilmesi.
-
 “Çok Gizli” veri içeren bir cihazın çalınması ya da kaybolması.
-
 Yüksek: Bu kategorideki olaylar Bilgi Güvenliği Politikası’nı veya bu politika içerisinde yer alan prosedürlerini ihlal etmiş ve bir ya da birkaç sistemde sistem operasyonlarının çalışmasını olumsuz etkileyen veya “Bilgi Varlıkları Belirleme ve Sınıflandırma Prosedürü” doğrultusunda “Gizli” olarak tanımlanan verilerin gizliliğinin, bütünlüğünün ve erişilebilirliğinin zarar görmesine sebebiyet veren olaylar bütünüdür. Verilen örnekler ile sınırlı olmamak ile birlikte yüksek seviyeli bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:
-
 Yetkili kullanıcı seviyesinde yetkisiz kullanıcılar tarafından sisteme girilmesi.
-
 Yetkili kullanıcı haklarına sahip kullanıcının yetkisini kötüye kullanması.
-
 Parola paylaşımı sonucuyla oluşan yetki ihlalleri.
-
 Bir ya da daha çok sistemde gerçekleşen zararlı yazılım (virüs, trojan, worm vb.) aktivitesi.
-
 Sistem servislerine yapılan başarılı ataklar.
-
 Kontrol edilemeyen bir ağdan gelen kontrolsüz e-postalar.
-
 Sistem dosyalarının ve erişim yetkilerinin yetkisiz değiştirilmesi.
-
 “Gizli” veri içeren bir cihazın çalınması ya da kaybolması.
-
 “Gizli” verilerin yetkisiz kişilerce elde edilmesi.
-
 Orta: Bu olaylar sistem operasyonlarını etkilememiş ancak Bilgi Güvenliği Politikası’nı veya bu politika içerisinde yer alan prosedürlerine aykırı davranılmış veya “Bilgi Varlıkları Belirleme ve Sınıflandırma Prosedürü” “Kuruma Özel” olarak tanımlanan verilerin gizliliğinin, bütünlüğünün ve erişilebilirliğinin zarar görmesine sebebiyet veren güvenlik ihlalleridir. Verilen örnekler ile sınırlı olmamak ile birlikte orta seviyeli bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:
-
 Başarısız DoS/DDoS atakları.
-
 Kuruluş dışından kuruluşun sistem ve uygulamalarına yetkisiz erişim teşebbüsleri.
-
 Ağ ve güvenlik cihazları üzerindeki ihlaller.
-
 Düşük seviyeli ataklarının çoklu tekrarları.
-
 “Kuruma Özel” veri içeren bir cihazın çalınması ya da kaybolması.
-
 “Kuruma Özel” verilerin yetkisiz kişilerce elde edilmesi.
-
-Düşük: Bu olaylar tam saldırı olarak tanımlanamamış, sistem operasyonları üzerinde etkisi olmayan işlemlerdir.  Verilen örnekler ile sınırlı olmamak ile birlikte düşük seviyeli bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:
-
+Düşük: Bu olaylar tam saldırı olarak tanımlanamamış, sistem operasyonları üzerinde etkisi olmayan işlemlerdir. Verilen örnekler ile sınırlı olmamak ile birlikte düşük seviyeli bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:
 Ağ güvenlik cihazları ile tespit edilerek engellenen ataklar.
-
 Sistem ya da ağ üzerinde bulunmuş fakat temizlenmiş zararlı yazılımlar (virüs, trojan vb.).
-
 Bir sistem veya bilgisayar üzerindeki uygunsuz içerik.
-
 Bir kullanıcının parolasının bir başkası tarafından kullanılması (yetkisiz kullanıcı), ancak finansal zarar oluşturmaması ve/veya kuruluş prestijini olumsuz etkilememesi.
-
 Bilgi Güvenliği Olaylarının Tespit Edilmesi ve Bildirilmesi
-
-{{COMPANY}} çalışanları ve {{COMPANY}} sistemlerine veya verilerine erişimi olan üçüncü parti çalışanlar ile destek hizmeti kuruluşları “3.1.1 Bilgi Güvenliği Olaylarının Tanımlanması” başlığı doğrultusunda gerçekleşen veya gerçekleşmesinden şüphe edilen bilgi güvenliği olaylarını e-posta aracılığı ile ivedilikle {{COMPANY}} Bilgi Güvenliği Sorumlusu’ne ulaşılamadığı durumlarda ise BT Müdürü’ne bildirmek ile yükümlüdür.
-
+Moneyout çalışanları ve Moneyout sistemlerine veya verilerine erişimi olan üçüncü parti çalışanlar ile destek hizmeti kuruluşları “3.1.1 Bilgi Güvenliği Olaylarının Tanımlanması” başlığı doğrultusunda gerçekleşen veya gerçekleşmesinden şüphe edilen bilgi güvenliği olaylarını e-posta aracılığı ile ivedilikle Moneyout Bilgi Güvenliği Sorumlusu’ne ulaşılamadığı durumlarda ise BT Müdürü’ne bildirmek ile yükümlüdür.
 Bilgi güvenliği olaylarının tespit edilmesi durumunda kanıtların bozulmasına sebep olabilecek bir hareketten kaçınılmalıdır.
-
-BT müdürlüğü bünyesinde bilgi güvenliği olaylarının önceden tespitini sağlamak ve engellemek amacıyla {{COMPANY}} bünyesinde “Ağ Güvenlik Yönetimi Prosedürü” kapsamında ağ ve güvenlik cihazları ile bilgi sistemleri altyapısı izlenmekte ve denetlenmektedir. “İz Kayıtları Yönetimi Prosedürü” {{COMPANY}} bilgi sistemleri üzerindeki sistemler, uygulamalar, cihazlar ve veritabanları üzerindeki değişiklikler kayıt altına alınarak şüpheli aktiviteler izlenmektedir. Bu doğrultuda verilen örnekler ile sınırlı kalmamak ile birlikte aşağıda örnek olarak belirtilen verilen olayların tespiti durumunda bilgi güvenliği olay yönetimi süreci işletilmelidir:
-
+BT müdürlüğü bünyesinde bilgi güvenliği olaylarının önceden tespitini sağlamak ve engellemek amacıyla Moneyout bünyesinde “Ağ Güvenlik Yönetimi Prosedürü” kapsamında ağ ve güvenlik cihazları ile bilgi sistemleri altyapısı izlenmekte ve denetlenmektedir. “İz Kayıtları Yönetimi Prosedürü” Moneyout bilgi sistemleri üzerindeki sistemler, uygulamalar, cihazlar ve veritabanları üzerindeki değişiklikler kayıt altına alınarak şüpheli aktiviteler izlenmektedir. Bu doğrultuda verilen örnekler ile sınırlı kalmamak ile birlikte aşağıda örnek olarak belirtilen verilen olayların tespiti durumunda bilgi güvenliği olay yönetimi süreci işletilmelidir:
 Antivirüs yazılımı ile sunucu, veritabanı, sistemler üzerinde temizlenmemiş zararlı yazılım (virüs, trojan, worm vb.) tespit edilmesi.
-
 Merkezi kayıt sistemi tarafından sistemler üzerindeki denetim izlerinin silindiğinin veya değiştirildiğinin tespit edilmesi.
-
 Denetim izlerine çoklu yetkisiz erişim denemelerinin tespit edilmesi
-
 Ağ trafiğinde ve ağ güvenlik cihazları üzerinden alınan uyarılarda olağandışı bir farklılık tespit edilmesi
-
 DoS/DDoS ataklarının tespit edilmesi.
-
 Bilgi Güvenliği Olaylarının Analiz Edilmesi ve İletişim
-
 Tespit edilen ve bildirilen bilgi güvenliği olayları ve olaylara ilişkin kanıtlar Bilgi Güvenliği Sorumlusu tarafından incelenerek analiz edilir. Analiz sonucunda bilgi güvenliği olayı olarak değerlendirilen olaylar için; olayın kaynağı, etkilenen sistemler, hangi araç veya saldırı tekniklerinin kullanıldığı, hangi zafiyetlerin kullanıldığı, gizlilik, erişilebilirlik veya bütünlüğü olumsuz etkilenen veriler tespit edilerek bilgi güvenliği olayına ilişkin etki seviyesi belirlenir. Etki seviyesinin “Kritik” veya “Yüksek” olarak belirlenmesi durumunda Üst Yönetim ivedilikle haberdar edilir ve olaya acil olarak müdahale edilir.
-
 Analizi gerçekleştirilen bilgi güvenliği olayları doğrultusunda gerek görüldüğü durumlarda aşağıdaki partiler de bilgi güvenliği olayının durumu ile ilgili sürekli olarak bilgilendirilmelidir:
-
 Mali İşler ve İnsan Kaynakları Müdürü: İnsan kaynaklı meydana gelen olaylarda (eposta ile taciz, politika ihlalleri, yetkisiz erişim vb.).
-
 Hukuk: Yasal mevzuata uyumsuzluğa sebebiyet verebilecek olayların yaşanması durumlarında.
-
 Kurumsal İletişim: Müşterileri ilgilendiren olayların yaşanması durumlarında.
-
 Bilgi Güvenliği Olaylarına Müdahale Edilmesi
-
 Tespit edilen güvenlik olayına göre müdahale süreci farklılık göstermek ile bilgi güvenliği olaylarının seviyelerine göre aşağıda belirtilen sürelerde müdahale edilir:
-
 Anlık Müdahale: Kritiklik seviyesi kritik olarak değerlendirilen bilgi güvenliği olayına yönelik en kısa zamanda aksiyonun alınması.
-
 Günlük Müdahale: Kritiklik seviyesi yüksek olarak değerlendirilen bilgi güvenliği olayına yönelik bir iş günü içerisinde aksiyonun alınması.
-
 3 günlük Müdahale: Kritiklik seviyesi orta olarak değerlendirilen bilgi güvenliği olayına yönelik azami 3 iş günü içerisinde aksiyonun alınması.
-
 Haftalık Müdahale: Kritiklik seviyesi düşük olarak değerlendirilen bilgi güvenliği olayına yönelik 5 iş günü içerisinde aksiyonun alınması.
-
 Tespit edilen güvenlik olayına göre müdahale süreci farklılık göstermek ile birlikte uygun görüldüğü durumlarda aşağıdaki aksiyonların öncelikli olarak gerçekleştirilmesi esastır:
-
 Virüs veya zararlı yazılım tespit edilen durumlarda sistemlerin ağ bağlantılarının kesilmesi.
-
 Tehdidi yaratan bağlantı noktalarının kapatılması ve gerek görüldüğü durumlarda bilgisayarlara el koyulması.
-
-Güvenlik ihlali durumunda kullanıcıların, kullanıcı hesabı ve/veya {{COMPANY}} ağına erişim yetkisinin kapatılması.
-
+Güvenlik ihlali durumunda kullanıcıların, kullanıcı hesabı ve/veya Moneyout ağına erişim yetkisinin kapatılması.
 Güvenlik ihlallerinin diğer ağ donanımlarını etkilemesi ihtimaline karşı tüm ağ erişiminin kapatılması ve BT müdürlüğü tarafından güvenli durumun oluştuğuna karar verilmesi durumunda ağ erişimlerinin tekrar açılması.
-
 Bilgi sistemleri dahilinde gerçeklesen kritik faaliyetlere ilişkin yetkilendirme veritabanlarının güvenilirliğini yitirmesi durumunda, ilgili veritabanları güncel ve güvenilir duruma getirilene kadar kullanılmaz, güvenilir olmayan veritabanları üzerinden yetkilendirme ve erişim hakkı tahsisi işlemleri gerçekleştirilmez.
-
 Bilgi Güvenliği Olaylarına İlişkin Kanıtların Elde Edilmesi
-
 Bilgi güvenliği olayının tespit edilmesinden itibaren olaya ilişkin tüm kanıtların ve aşamaların kayıt altına alınması önem arz etmektedir. Bu kapsamda sistem olayları, telefon konuşmaları, dosyalar üzerinde tespit edilen değişiklikler ve olayın oluşmasından itibaren izlenen ve aksiyon alınan tüm adımlar zaman damgalı olarak saklanmalıdır. Mümkün olması durumunda bilgi güvenliği olayına müdahale ekibinin iki kişiden oluşması, bir personel tarafından olaya müdahale edilirken diğeri tarafından olayın kayıt altına alınması tüm denetim izlerinin kayıt altına alınması sağlanmalıdır. Bu kapsamda yaşanan tüm bilgi güvenliği olayları “EK-2. Bilgi Güvenliği Olayı Raporu” üzerinde kayıt altına alınmalı ve dokümante edilmelidir. Olay kaydı kapsamında aşağıdaki bilgilere erişilmelidir:
-
 Olayın güncel durumu.
-
 Olay ile ilgili özet bilgi.
-
 Olaya ilişkin alınan aksiyonlar.
-
 Sürece dahil olan tüm personele ve tedarikçi firmalara ilişkin bilgiler.
-
 Olay incelemesi sırasında elde edilen kanıtların listesi.
-
 Olay müdahale ekibi yorumları.
-
 Gelecek dönem aksiyonları.
-
 Bilgi güvenliği olayına ilişkin kanıtların elde edilmesinin öncelikli sebebi olayın çözülmesinin sağlanması olmak ile birlikte gerek görüldüğü durumlarda söz konusu kanıtların yasal merciiler tarafından talep edilmesi durumları söz konu olabilmektedir. Bu gibi durumlar için yasa ve mevzuatlara uygun olarak kayıt altına alınarak saklanmalıdır. Elde edilen kanıtlar için asgari olarak aşağıdaki denetim izlerinin tutulması esastır:
-
 Kimlik bilgileri (lokasyon, seri numarası, model numarası, MAC adresi, IP adresi vb.).
-
 Analiz ve inceleme aşamalarında olay kayıtlarını toplayan, oluşturan ve erişimi olan kişilerin kimlik bilgileri (adı, soyadı, unvanı, iletişim bilgileri).
-
 Elde edilen her kanıt dokümana ilişkin zaman damgası.
-
 Kanıtların saklandığı lokasyonlar.
-
-Bilgi güvenliği olaylarına ilişkin elde edilen kanıtlar güvenlik açıkları, sistem zafiyetleri gibi {{COMPANY}} için kritik bilgiler içerebileceğinden kanıtların tutulduğu veritabanına sadece görevi gereği erişim ihtiyacı olan personelin erişebilmesi önem arz etmektedir. Kanıtlar için saklama süresi yasa ve mevzuatlar doğrultusunda belirlenir ve “Yedekleme Yönetimi Prosedürü” doğrultusunda yedeklenerek saklama süresi sonunda imha edilir.
-
+Bilgi güvenliği olaylarına ilişkin elde edilen kanıtlar güvenlik açıkları, sistem zafiyetleri gibi Moneyout için kritik bilgiler içerebileceğinden kanıtların tutulduğu veritabanına sadece görevi gereği erişim ihtiyacı olan personelin erişebilmesi önem arz etmektedir. Kanıtlar için saklama süresi yasa ve mevzuatlar doğrultusunda belirlenir ve “Yedekleme Yönetimi Prosedürü” doğrultusunda yedeklenerek saklama süresi sonunda imha edilir.
 Bilgi Güvenliği Olaylarının Kapatılması
-
 Her bir olayın giderilmesi ve sistemlerin normal işleyişine dönmesi sonrası, BT müdürlüğü güvenlik olay verilerini toplayarak analiz ederek, bu süreçten edinilen deneyimi değerlendir ve çözüm çalışmalarında yer alan ekibi bilgilendirir.
-
 Bilgi Güvenliği Sorumlusu olayın neden ve sonuçlarını inceleyerek olayın bir daha olmasını engelleme amaçlı ne tür uygulamaların devreye alınabileceğini, olaya maruz sistemlerde alınabilecek yeni güvenlik önlemlerini belirler ve engelleyici/düzeltici yöntemler, yöntemlerin süre ve finansal açıdan tahmini maliyetleri ile sorumlularını da içerecek bilgileri raporlayarak üst yönetime sunar.
-
 Bilgi Güvenliği Olaylarının Raporlanması ve İzlenmesi
-
-Bilgi Güvenliği Sorumlusu tarafından {{COMPANY}} bünyesinde yaşanan başarılı veya başarısız tüm olaylara ilişkin olayın kapanmasını müteakip “EK-2. Bilgi Güvenliği Olayı Raporu” kullanılarak olay raporu hazırlanır ve Üst Yönetim değerlendirilmesine sunulur. Rapor kapsamında aşağıdaki maddelerin açıklanması esastır:
-
+Bilgi Güvenliği Sorumlusu tarafından Moneyout bünyesinde yaşanan başarılı veya başarısız tüm olaylara ilişkin olayın kapanmasını müteakip “EK-2. Bilgi Güvenliği Olayı Raporu” kullanılarak olay raporu hazırlanır ve Üst Yönetim değerlendirilmesine sunulur. Rapor kapsamında aşağıdaki maddelerin açıklanması esastır:
 Olayın bildiriminden itibaren konuya dair ulaşan tüm bilgiler, bilgiyi ulaştıran kişi/birim, ilgili kişinin/birimin erişim bilgileri,
-
 Olay kapsamında dahil olan sistemdeki aktiviteler, bunların oluşma veya fark edilme tarih ve zamanları,
-
 Olaydan etkilenen veri, ağ, sistem ve uygulama kaynaklarının listesi,
-
 Olaya dair yapılan tüm görüşmelerde iletişim kurulan kişilerin listesi,
-
 Olaya yönelik çalışmaların ne kadar sürdüğü bilgisi,
-
 Olayın tekrar oluşmasının önlenmesi amacıyla belirlenen aksiyon planı.
-
 Bilgi Güvenliği Sorumlusu tarafından onaylanan aksiyonların durumları BT müdürlüğü tarafından takip edilir.
-
 Siber Olay Yönetimi
-
 Prosedür kapsamında siber olaylardan sonra Bilgi Teknolojileri hizmetlerini normal işleyişine döndürmek amacıyla gerçekleşen siber olayların yönetilmesi, takip edilmesi ve güvenlik önlemlerinin alınmasına yönelik siber olay yönetimi ve siber olaylara müdahale süreci tasarlanmıştır.
-
 Siber Olayların Tespit Edilmesi
-
-{{COMPANY}}’da meydana gelebilecek siber olaylar farklı birimler aracılığıyla farklı yöntemler ile tespit edilebilir. Örnek olabilecek siber güvenlik olaylarına aşağıda yer verilmiştir:
-
+Moneyout’da meydana gelebilecek siber olaylar farklı birimler aracılığıyla farklı yöntemler ile tespit edilebilir. Örnek olabilecek siber güvenlik olaylarına aşağıda yer verilmiştir:
 Sistemleri kilitlenmesine sebep olan, kullanıcıya ve kuruma ait verileri ele geçirmeyi hedefleyen, sistemleri kötü niyetli yazılımlara karşı korumasız bırakan ataklar (İng. Malware),
-
 Sistemler üzerinde gerçekleşen olağan dışı işlemler, yetkinin suistimal edilmesinden kaynaklanan olaylar (Sistem hataları, yetkili kullanıcıların olası kötü niyetli işlemleri, zararlı yazılımlara maruz kalma vb.),
-
 İtibarı etkileyen olaylar (Tehdit, sır niteliğinde verilerin dışarıya sızması, ifşa edilmesi vb.)
-
 Hizmet kesintisine veya yavaşlamasına neden olabilecek ataklar (DDoS, vb.),
-
 Kuruluş sistemlerine sızılan ve belirli bir süre sonra etkilerinin görülebildiği veri sızıntısı, yetkisiz ve usulsüz işlemler sonucu büyük finansal kayıplara neden olabilecek ataklar (APT),
-
 Bilgi güvenliği gözetim faaliyetleri, denetim izi ve alarmlar ile tespit edilen olağandışı veya şüpheli işlemler,
-
 Sistemlerdeki açıklıkların ifşa olmasından kaynaklanan olaylar (Sızma testi sonuçlarının ifşa olması vb.),
-
 Bilgi Güvenliği Politikası ve politikanın referans gösterdiği prosedürlerin ihlal edilmesi olaylarının bütünü,
-
 Yukarıda örneği verilen olayların tespit edilmesi halinde ivedilikle Bilgi Güvenliği Sorumlusu’nun bilgilendirilmesi sağlanmalıdır.
-
 Siber Olayların Sınıflandırılması
-
-Siber olayların önem derecelerine uygun olacak şekilde ele alınmasını sağlamak üzere, siber olayların önemlilik sınıflandırmasına yönelik kriterler yazılır ve gerçekleşen her bir siber olayın bu kriterlere göre belirlenen önem düzeyiyle uygun bir zamanda çözüme kavuşturulmasına yönelik müdahale planları oluşturulur. Buna göre siber olayların sınıflandırılmasına ilişkin {{COMPANY}} bünyesinde aşağıda belirtilen sınıflandırma modeli kullanılmaktadır:
-
-Kritik: Niteliksiz ya da nitelikli saldırgan tarafından {{COMPANY}} dış ağından gerçekleştirilen ve sistemin tamamen ele geçirilmesi ile sonuçlanan saldırılardır. Bu saldırılar sonucunda kritik hizmetlerin ve/veya ana faaliyetlerin kesintiye uğrama durumu ortaya çıkabilir.
-
-Yüksek: {{COMPANY}} dış ağından gerçekleştirilen ve hizmet dışı kalma ile sonuçlanan, yerel ağdan ya da sunucu üzerinden gerçekleştirilen ve sistemlerin çalışmasını doğrudan ve/veya kapsamlı olarak etkileyen saldırılardır.
-
+Siber olayların önem derecelerine uygun olacak şekilde ele alınmasını sağlamak üzere, siber olayların önemlilik sınıflandırmasına yönelik kriterler yazılır ve gerçekleşen her bir siber olayın bu kriterlere göre belirlenen önem düzeyiyle uygun bir zamanda çözüme kavuşturulmasına yönelik müdahale planları oluşturulur. Buna göre siber olayların sınıflandırılmasına ilişkin Moneyout bünyesinde aşağıda belirtilen sınıflandırma modeli kullanılmaktadır:
+Kritik: Niteliksiz ya da nitelikli saldırgan tarafından Moneyout dış ağından gerçekleştirilen ve sistemin tamamen ele geçirilmesi ile sonuçlanan saldırılardır. Bu saldırılar sonucunda kritik hizmetlerin ve/veya ana faaliyetlerin kesintiye uğrama durumu ortaya çıkabilir.
+Yüksek: Moneyout dış ağından gerçekleştirilen ve hizmet dışı kalma ile sonuçlanan, yerel ağdan ya da sunucu üzerinden gerçekleştirilen ve sistemlerin çalışmasını doğrudan ve/veya kapsamlı olarak etkileyen saldırılardır.
 Orta: Yerel ağdan veya sunucu üzerinden gerçekleştirilen ve kısa bir süre hizmet dışı bırakılma ile sonuçlanan saldırılardır.
-
 Düşük: Etkilerinin tam olarak belirlenemediği saldırılardır. Bu olaylar tam saldırı olarak tanımlanamamış, sistem operasyonları üzerinde etkisi olmayan işlemlerdir.
-
 Siber Olaylara Müdahale Süreci
-
 Bilgi Güvenliği Sorumlusunun tarafından siber olaylara müdahale koordinasyonunun gerçekleştirilmesi ve siber olayların çözümüne yönelik aşağıdaki adımlar izlenir ve delillerin toplanmasına azami önem gösterilir:
-
 Siber olay kaynağının tespitinin sağlanması ve etki analizinin gerçekleştirilmesi:
-
 Olayın kaynağının ve etkisinin analiz edilmesi,
-
 Denetim izlerinin incelenmesi,
-
 Önleyici faaliyetlerin belirlenmesi ve uygulanması,
-
 Delillerin toplanması (Çözüme geçmeden önce sistemin yedeği alınmalıdır.),
-
 Geçici çözümün belirlenmesi ve uygulanması,
-
 İlk müdahale sonrası, olayın tipine bağlı olarak ilgili iç ve dış kaynakların bilgilendirilmesi, iletişimin koordine edilmesi,
-
 Müdahalenin tamamlanması, kalıcı çözümün belirlenmesi ve uygulanması,
-
 Siber olay sonrası detaylı olay analizinin gerçekleştirilmesi ve olay raporunun oluşturulması,
-
 Yaşanılan olaylarla ilgili yönetimin bilgilendirilmesi, öğrenilen derslere bağlı olarak alınabilecek ek aksiyonların ve önleyici faaliyetlerin Üst Yönetim’e sunulması,
-
-{{COMPANY}}’da siber olaylara müdahale planlaması, siber olayın tespiti, analizi ve sınıflandırılmasından sonra hayata geçirilir. Buna göre;
-
+Moneyout’da siber olaylara müdahale planlaması, siber olayın tespiti, analizi ve sınıflandırılmasından sonra hayata geçirilir. Buna göre;
 Olay Sınıfı
-
 Müdahale
-
 Nihai Çözüm
-
 Üst Yönetim’e Raporlama
-
 Kritik
-
 1 gün
-
 3 gün
-
 7 gün
-
 Yüksek
-
 1 gün
-
 5 gün
-
 7 gün
-
 Orta
-
 5 gün
-
 14 gün
-
 30 gün
-
 Düşük
-
 10 gün
-
 30 gün
-
 -
-
-“Düşük” olarak sınıflandırılan olaylar için bir müdahale planı geliştirilmesine gerek bulunmamaktadır. Bu olaylarla bilgi teknolojileri bölümünün {{COMPANY}} tarafından belirlenmiş görev, yetki ve sorumluluk tanımlarında bulunan faaliyetler kapsamında müdahale edilir. “Düşük” seviyeli olarak sınıflandırılan olaylar için en geç 72 saat içinde analiz yapılarak Üst Yönetim’e olay raporu sunulur.
-
+“Düşük” olarak sınıflandırılan olaylar için bir müdahale planı geliştirilmesine gerek bulunmamaktadır. Bu olaylarla bilgi teknolojileri bölümünün Moneyout tarafından belirlenmiş görev, yetki ve sorumluluk tanımlarında bulunan faaliyetler kapsamında müdahale edilir. “Düşük” seviyeli olarak sınıflandırılan olaylar için en geç 72 saat içinde analiz yapılarak Üst Yönetim’e olay raporu sunulur.
 “Önemli” ve “Kritik” olaylara Bilgi Güvenliği Sorumlusu’nun koordinasyonu ile sorumlu ekipler veya hizmet alınan firma tarafından bildirime istinaden anında müdahale edilir. Olay tespit edildiği anda Bilgi Güvenliği Sorumlusu tarafından belgelenerek Üst Yönetim’e bildirilir. Müdahale planı hayata geçirilirken yaşanan siber olayın, verilerin sızması ya da ifşası ile sonuçlanması ya da ikincil sistemlerin devreye alınması gibi hallerde Yönetim Kurulu’na olay bildirimi yapılır. Olay sona erdikten sonra 24 saat içinde Üst Yönetim’e olay raporu sunulur.
-
 Oluşturulan müdahale planlarında öngörülen senaryolar için, faaliyetlerin güvenilir bir şekilde sürdürülmesini sağlayan etkili bir tepki süreci oluşturulur. Müdahale planları kapsamında, bilgi sistemlerine ilişkin olayın kaynağını hızlı bir şekilde bulma, yetkili birimlere ulaşma, olayın potansiyel boyutunu, etkisini, hasarı ve etkilenen müşterileri tespit etme ve olayı çözüme kavuşturma süreçleri ele alınır.
-
-Bilgi Güvenliği Sorumlusu bilgi sistemlerine yetkisiz erişim yapılmaması için gerekli tedbirleri alır veya aldırır. Acil durum koordinasyonunu sağlayarak gerekli tüm bilgilendirmeleri e-posta ve telefon üzerinden yapar. Saldırı konularının özelliğine göre ilgili kişilere ulaşarak aksiyon planlaması yapar. Ulaşılan ilgili kişilerin siber olayın aciliyeti ve önemine göre gerekirse fiziksel olarak {{COMPANY}} lokasyonundan müdahale etmesi sağlanır.
-
-Yaşanan bir siber olayın büyüyerek bir krize dönüşmesi, verilerin sızması ya da ifşası ile sonuçlanması veya ikincil merkezin devreye alınması gibi hallerde ivedilikle BT Müdürü ve Üst Yönetim bilgilendirilir. Hassas verilerin veya kişisel verilerin sızmasına ya da ifşasına yol açan bir siber olayın yaşanması durumunda {{COMPANY}} tarafından yapılacak değerlendirme sonrasında müşterilerin bilgilendirilmesi sağlanır. Siber olay müdahale akışı içinde herhangi bir suç unsuruna rastlanması durumunda (5651 Kanun ihlali vb.) savcılık, kolluk makamı gibi yasal makamlara haber verilir.
-
+Bilgi Güvenliği Sorumlusu bilgi sistemlerine yetkisiz erişim yapılmaması için gerekli tedbirleri alır veya aldırır. Acil durum koordinasyonunu sağlayarak gerekli tüm bilgilendirmeleri e-posta ve telefon üzerinden yapar. Saldırı konularının özelliğine göre ilgili kişilere ulaşarak aksiyon planlaması yapar. Ulaşılan ilgili kişilerin siber olayın aciliyeti ve önemine göre gerekirse fiziksel olarak Moneyout lokasyonundan müdahale etmesi sağlanır.
+Yaşanan bir siber olayın büyüyerek bir krize dönüşmesi, verilerin sızması ya da ifşası ile sonuçlanması veya ikincil merkezin devreye alınması gibi hallerde ivedilikle BT Müdürü ve Üst Yönetim bilgilendirilir. Hassas verilerin veya kişisel verilerin sızmasına ya da ifşasına yol açan bir siber olayın yaşanması durumunda Moneyout tarafından yapılacak değerlendirme sonrasında müşterilerin bilgilendirilmesi sağlanır. Siber olay müdahale akışı içinde herhangi bir suç unsuruna rastlanması durumunda (5651 Kanun ihlali vb.) savcılık, kolluk makamı gibi yasal makamlara haber verilir.
 Siber Olay Sonrasında İzlenecek Adımlar
-
-{{COMPANY}}’da bir siber olaya müdahale edildikten sonra hiç zaman kaybetmeden olaya neden olan nedenler belirlenir ve olaya ilişkin bilgiler “EK-2. Bilgi Güvenliği Olayı Raporu” doldurularak kayıt altına alınır. Olayla ilgili olarak gerçekleştirilebilecek düzeltici/önleyici faaliyetlere ilişkin öneriler bilgi teknolojileri birimine ve Üst Yönetim’e arz edilir. Yaşanan siber olayların türleri, etki alanı ve maliyetleri ölçülüp izlenir.
-
+Moneyout’da bir siber olaya müdahale edildikten sonra hiç zaman kaybetmeden olaya neden olan nedenler belirlenir ve olaya ilişkin bilgiler “EK-2. Bilgi Güvenliği Olayı Raporu” doldurularak kayıt altına alınır. Olayla ilgili olarak gerçekleştirilebilecek düzeltici/önleyici faaliyetlere ilişkin öneriler bilgi teknolojileri birimine ve Üst Yönetim’e arz edilir. Yaşanan siber olayların türleri, etki alanı ve maliyetleri ölçülüp izlenir.
 Siber Olayların Analizi ve Paydaşlar ile İlişkiler
-
-{{COMPANY}}, yaşanan bir siber olayın büyüyerek bir krize dönüşmesi, verilerin sızması ya da ifşası ile sonuçlanması, “İş ve BT Sürekliliği Prosedürü”nün ya da ikincil merkezin devreye alınması gibi hallerde Bilgi Güvenliği Sorumlusu derhal Üst Yönetim’i ve Yönetim Kurulu’nu bilgilendirir. Hassas verilerin ya da kişisel verilerin sızmasına ya da ifşasına yol açan bir siber olayın yaşanması halinde Kuruluş tarafından yapılacak değerlendirme sonrasında müşterilerin bilgilendirilmesi sağlanır. Bilgi teknolojileri hizmetlerinde ciddi kesintilere veya bozulmalara yol açan kritik ve önemli olarak sınıflandırılmış siber olaylar için bir kök neden ve etki analizi yaparak benzer olayların tekrarını önlemek için iyileştirici önlemler alır ve yapılan çalışmaları Üst Yönetim’e bildirir.
-
+Moneyout, yaşanan bir siber olayın büyüyerek bir krize dönüşmesi, verilerin sızması ya da ifşası ile sonuçlanması, “İş ve BT Sürekliliği Prosedürü”nün ya da ikincil merkezin devreye alınması gibi hallerde Bilgi Güvenliği Sorumlusu derhal Üst Yönetim’i ve Yönetim Kurulu’nu bilgilendirir. Hassas verilerin ya da kişisel verilerin sızmasına ya da ifşasına yol açan bir siber olayın yaşanması halinde Kuruluş tarafından yapılacak değerlendirme sonrasında müşterilerin bilgilendirilmesi sağlanır. Bilgi teknolojileri hizmetlerinde ciddi kesintilere veya bozulmalara yol açan kritik ve önemli olarak sınıflandırılmış siber olaylar için bir kök neden ve etki analizi yaparak benzer olayların tekrarını önlemek için iyileştirici önlemler alır ve yapılan çalışmaları Üst Yönetim’e bildirir.
 İLGİLİ DOKÜMANLAR
-
 “RP-BT-001” Bilgi Güvenliği Olayı Raporu

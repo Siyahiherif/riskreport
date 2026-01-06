@@ -85,27 +85,142 @@ const templatePath = path.join(process.cwd(), "lib", "compliance", "templates", 
 
 const normalizeCompanyName = (companyName?: string) => companyName?.trim() || "Sirket";
 
+const headingPhrases = [
+  "GIRIS",
+  "AMAC",
+  "KAPSAM",
+  "ILGILI KANUN VE DUZENLEMELER",
+  "TANIMLAMALAR VE KISALTMALAR",
+  "GOREV VE SORUMLULUKLAR",
+  "UYGULAMA",
+  "BILGI GUVENLIGI OLAYLARININ TANIMLANMASI",
+  "BILGI GUVENLIGI OLAYLARININ TESPIT EDILMESI VE BILDIRILMESI",
+  "BILGI GUVENLIGI OLAYLARININ ANALIZ EDILMESI VE ILETISIM",
+  "BILGI GUVENLIGI OLAYLARINA MUDAHALE EDILMESI",
+  "BILGI GUVENLIGI OLAYLARINA ILISKIN KANITLARIN ELDE EDILMESI",
+  "BILGI GUVENLIGI OLAYLARININ KAPATILMASI",
+  "BILGI GUVENLIGI OLAYLARININ RAPORLANMASI VE IZLENMESI",
+  "SIBER OLAY YONETIMI",
+  "SIBER OLAYLARIN TESPIT EDILMESI",
+  "SIBER OLAYLARIN SINIFLANDIRILMASI",
+  "SIBER OLAYLARA MUDAHALE SURECI",
+  "SIBER OLAY SONRASINDA IZLENECEK ADIMLAR",
+  "SIBER OLAYLARIN ANALIZI VE PAYDASLAR ILE ILISKILER",
+  "ILGILI DOKUMANLAR",
+];
+
+const foldTurkish = (text: string) =>
+  text
+    .replace(/İ/g, "I")
+    .replace(/İ/g, "I")
+    .replace(/Ğ/g, "G")
+    .replace(/Ü/g, "U")
+    .replace(/Ş/g, "S")
+    .replace(/Ö/g, "O")
+    .replace(/Ç/g, "C");
+
+const normalizeHeadingLine = (text: string) => {
+  const match = text.match(/^(\d+(?:\.\d+)*)(\.?)(\s*)(.+)$/);
+  if (match) {
+    const [, num, dot, , rest] = match;
+    return `${num}${dot ? "." : ""} ${rest}`;
+  }
+  return text;
+};
+
 const isHeading = (text: string) => {
-  if (/^\d+(\.\d+)*\.?\s/.test(text)) return true;
-  if (/^[A-Z0-9\s\-\.]+$/.test(text.replace(/[^A-Z0-9\s\-\.]/g, ""))) return true;
+  const cleaned = text.trim();
+  if (!cleaned) return false;
+  if (/^\d+(\.\d+)*\.?\s*\S+/.test(cleaned)) return true;
+  const upper = normalizeForMatch(cleaned);
+  if (headingPhrases.some((phrase) => upper.startsWith(phrase))) return true;
+  if (cleaned.length <= 80 && cleaned === cleaned.toUpperCase()) return true;
   return false;
 };
 
-const renderParagraph = (text: string, idx: number) => {
-  const trimmed = text.trim();
-  if (!trimmed) return null;
-  if (isHeading(trimmed)) {
+const isListTrigger = (line: string) =>
+  /:$/.test(line) ||
+  /siralani|siralanmis|erisilmelidir|asagidaki|asagida/.test(foldTurkish(line.toLowerCase()));
+
+const inlineLabelPrefixes = [
+  "KRITIK",
+  "YUKSEK",
+  "ORTA",
+  "DUSUK",
+  "ANLIK MUDAHALE",
+  "GUNLUK MUDAHALE",
+  "3 GUNLUK MUDAHALE",
+  "HAFTALIK MUDAHALE",
+];
+
+const isInlineLabel = (line: string) => {
+  const idx = line.indexOf(":");
+  if (idx <= 0 || idx > 40) return false;
+  const head = normalizeForMatch(line.slice(0, idx));
+  return inlineLabelPrefixes.some((prefix) => head.startsWith(prefix));
+};
+
+type LineToken = { type: "heading" | "bullet" | "text"; text: string };
+
+const tokenizeLines = (rawLines: string[]) => {
+  const tokens: LineToken[] = [];
+  let listMode = false;
+  let previous = "";
+  rawLines.forEach((line) => {
+    let current = line.replace(/\s+/g, " ").trim();
+    if (!current) {
+      listMode = false;
+      return;
+    }
+    if (current === previous) return;
+    previous = current;
+
+    if (current.startsWith("•") || current.startsWith("-")) {
+      tokens.push({ type: "bullet", text: current.replace(/^[-•]\s*/, "") });
+      return;
+    }
+
+    if (isHeading(current)) {
+      listMode = false;
+      tokens.push({ type: "heading", text: normalizeHeadingLine(current) });
+      return;
+    }
+
+    if (listMode && isInlineLabel(current)) {
+      listMode = false;
+    }
+
+    if (listMode) {
+      tokens.push({ type: "bullet", text: current });
+      return;
+    }
+
+    tokens.push({ type: "text", text: current });
+    if (isListTrigger(current)) {
+      listMode = true;
+    }
+  });
+  return tokens;
+};
+
+const renderToken = (token: LineToken, idx: number) => {
+  if (token.type === "heading") {
     return (
       <Text key={`h-${idx}`} style={styles.h2}>
-        {trimmed}
+        {token.text}
       </Text>
     );
   }
-  const bullet = trimmed.startsWith("•") || trimmed.startsWith("-");
-  const paragraphStyle = bullet ? [styles.paragraph, styles.bullet] : styles.paragraph;
+  if (token.type === "bullet") {
+    return (
+      <Text key={`b-${idx}`} style={[styles.paragraph, styles.bullet]}>
+        • {token.text}
+      </Text>
+    );
+  }
   return (
-    <Text key={`p-${idx}`} style={paragraphStyle}>
-      {trimmed}
+    <Text key={`p-${idx}`} style={styles.paragraph}>
+      {token.text}
     </Text>
   );
 };
@@ -113,12 +228,13 @@ const renderParagraph = (text: string, idx: number) => {
 async function loadBgIncidentParagraphs(companyName?: string) {
   const raw = await fs.readFile(templatePath, "utf-8");
   const name = normalizeCompanyName(companyName);
-  const replaced = raw.replace(/\{\{COMPANY\}\}/g, name);
-  return replaced.split(/\n\n+/).map((p) => p.trim()).filter(Boolean);
+  const replaced = raw.replace(/\{\{COMPANY\}\}/g, name).replace(/Moneyout/gi, name);
+  const lines = replaced.split(/\n/).map((line) => line.trim()).filter(Boolean);
+  return stripPreamble(lines);
 }
 
-const chunkParagraphs = (items: string[], size: number) => {
-  const chunks: string[][] = [];
+const chunkParagraphs = (items: LineToken[], size: number) => {
+  const chunks: LineToken[][] = [];
   for (let i = 0; i < items.length; i += size) {
     chunks.push(items.slice(i, i + size));
   }
@@ -162,21 +278,21 @@ const renderHeader = (orgName: string) => (
       </View>
       <View style={[styles.headerCell, { flex: 1.4 }]}>
         <Text style={{ fontSize: 13, fontWeight: "bold", textAlign: "center" }}>
-          BG Olay ve Siber Olay Yonetimi Proseduru
+          BG Olay ve Siber Olay Y?netimi Prosed?r?
         </Text>
       </View>
       <View style={[styles.headerCellLast, { flex: 1.2 }]}>
-        <Text style={styles.headerMeta}>DOKUMAN NO: PRO-BT-003</Text>
-        <Text style={styles.headerMeta}>YAYIN TARIHI: 10.07.2024</Text>
-        <Text style={styles.headerMeta}>REV. TARIHI: 26.12.2025</Text>
-        <Text style={styles.headerMeta}>VERSIYON NO: 2</Text>
+        <Text style={styles.headerMeta}>DOK?MAN NO: PRO-BT-003</Text>
+        <Text style={styles.headerMeta}>YAYIN TAR?H?: 10.07.2024</Text>
+        <Text style={styles.headerMeta}>REV. TAR?H?: 26.12.2025</Text>
+        <Text style={styles.headerMeta}>VERS?YON NO: 2</Text>
       </View>
     </View>
     <View style={{ flexDirection: "row" }}>
       <View style={[styles.headerCell, { flex: 0.8, borderBottomWidth: 0 }]} />
       <View style={[styles.headerCell, { flex: 1.4, borderBottomWidth: 0 }]}>
-        <Text style={styles.headerMeta}>Hazirlayan: Bilgi Guvenligi Sorumlusu</Text>
-        <Text style={styles.headerMeta}>Onaylayan: Yonetim Kurulu</Text>
+        <Text style={styles.headerMeta}>Haz?rlayan: Bilgi Guvenligi Sorumlusu</Text>
+        <Text style={styles.headerMeta}>Onaylayan: Y?netim Kurulu</Text>
       </View>
       <View style={[styles.headerCellLast, { flex: 1.2, borderBottomWidth: 0 }]}>
         <Text style={styles.headerMeta}>
@@ -193,6 +309,32 @@ const renderTocLine = (label: string, page: string) => {
   return `${label} ${dots} ${page}`;
 };
 
+const normalizeForMatch = (text: string) =>
+  foldTurkish(text.toUpperCase())
+    .replace(/[^\w\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const stripPreamble = (lines: string[]) => {
+  const targets = ["GIRIS", "GENEL BAKIS"];
+  const startIndex = lines.findIndex((line) =>
+    targets.some((target) => normalizeForMatch(line).startsWith(target)),
+  );
+  if (startIndex === -1) return lines;
+  return lines.slice(startIndex);
+};
+
+const getPreviewTokens = (tokens: LineToken[]) => {
+  const anchor = "BILGI GUVENLIGI OLAYLARINA ILISKIN KANITLARIN ELDE EDILMESI";
+  const startIndex = tokens.findIndex((token) =>
+    normalizeForMatch(token.text).includes(anchor),
+  );
+  if (startIndex === -1) {
+    return tokens.slice(0, 20);
+  }
+  return tokens.slice(startIndex, startIndex + 26);
+};
+
 export async function generateBgIncidentProcedurePdf(
   reportToken: string,
   companyName: string | undefined,
@@ -202,15 +344,16 @@ export async function generateBgIncidentProcedurePdf(
   await fs.mkdir(reportDir, { recursive: true });
   const filePath = path.join(reportDir, `${reportToken}-bg-olay-siber-olay-yonetimi.pdf`);
   const orgName = normalizeCompanyName(companyName);
-  const paragraphs = await loadBgIncidentParagraphs(companyName);
-  const limited = options?.preview ? paragraphs.slice(0, 10) : paragraphs;
-  const pageChunks = options?.preview ? [limited] : chunkParagraphs(limited, 32);
+  const lines = await loadBgIncidentParagraphs(companyName);
+  const tokens = tokenizeLines(lines);
+  const limited = options?.preview ? getPreviewTokens(tokens) : tokens;
+  const pageChunks = options?.preview ? [limited] : chunkParagraphs(limited, 34);
 
   const doc = (
     <Document>
       <Page size="A4" style={styles.page}>
         {renderHeader(orgName)}
-        <Text style={styles.tocTitle}>Icindekiler</Text>
+        <Text style={styles.tocTitle}>??indekiler</Text>
         {tocItems.map((item) => (
           <Text key={item.label} style={styles.tocLine}>
             {renderTocLine(item.label, item.page)}
@@ -223,7 +366,7 @@ export async function generateBgIncidentProcedurePdf(
       {pageChunks.map((chunk, pageIndex) => (
         <Page key={`page-${pageIndex}`} size="A4" style={styles.page}>
           {renderHeader(orgName)}
-          {chunk.map((text, idx) => renderParagraph(text, pageIndex * 1000 + idx))}
+          {chunk.map((token, idx) => renderToken(token, pageIndex * 1000 + idx))}
           <Text style={styles.footer}>Generated for {orgName} | Report ID: {reportToken}</Text>
         </Page>
       ))}
