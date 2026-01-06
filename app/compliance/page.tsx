@@ -70,28 +70,24 @@ export default function CompliancePage() {
           <p className="text-xs uppercase font-semibold text-slate-500">Compliance Readiness + Policy Docs</p>
           <h1 className="text-3xl font-semibold">Compliance Readiness & Policy Documents</h1>
           <p className="mt-2 text-sm text-slate-700">
-            10-15 dakikalik soru seti ile compliance readiness degerlendirmesi yapar ve BG Olay ve Siber Olay Yonetimi
-            Proseduru dokumanini sirketinize ozel uretir.
+            5 soruluk kisa form (sirket adi dahil) ile compliance readiness degerlendirmesi yapar ve BG Olay ve Siber Olay
+            Yonetimi Proseduru dokumanini sirketinize ozel uretir.
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
             <p className="text-xs font-semibold uppercase text-slate-500">Preview</p>
-            <h2 className="mt-2 text-lg font-semibold">Sample package (redacted)</h2>
+            <h2 className="mt-2 text-lg font-semibold">PDF preview (excerpt)</h2>
             <p className="mt-2 text-sm text-slate-700">
-              Asagidaki onizleme kisa bir bolumdur. Tam dokuman odeme sonrasi teslim edilir.
+              Asagidaki onizleme dokumandan kisa bir bolumdur. Tam dokuman odeme sonrasi teslim edilir.
             </p>
-            <div className="mt-4 space-y-3">
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-                <p className="text-sm font-semibold">BG Olay ve Siber Olay Yonetimi</p>
-                <p className="mt-2 text-xs text-slate-500">Bolumler: Genel Bakis, Gorev ve Sorumluluklar, Uygulama</p>
-                <div className="mt-3 space-y-2">
-                  <div className="h-3 w-5/6 rounded bg-slate-200" />
-                  <div className="h-3 w-3/4 rounded bg-slate-200" />
-                  <div className="h-3 w-2/3 rounded bg-slate-200" />
-                </div>
-              </div>
+            <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+              <iframe
+                title="PDF preview"
+                src="/api/compliance/preview"
+                className="h-96 w-full"
+              />
             </div>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
