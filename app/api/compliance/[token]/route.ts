@@ -11,6 +11,9 @@ export async function GET(_: Request, { params }: { params: Promise<{ token: str
   if (!report) {
     return new Response("Not found", { status: 404 });
   }
+  if (report.status !== "ready" || !report.storagePath) {
+    return new Response("Not ready", { status: 409 });
+  }
   if (report.expiresAt < new Date()) {
     return new Response("Expired", { status: 410 });
   }

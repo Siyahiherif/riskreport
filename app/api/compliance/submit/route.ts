@@ -2,8 +2,7 @@ import { NextResponse } from "next/server";
 import { v4 as uuidv4 } from "uuid";
 import { prisma } from "@/lib/db";
 import { evaluateCompliance } from "@/lib/compliance/engine";
-import { generateCompliancePackage } from "@/lib/compliance/package";
-import { composeComplianceEmail, sendMail } from "@/lib/email";
+import { buildCheckoutUrl } from "@/lib/compliance/checkout";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -28,44 +27,29 @@ export async function POST(req: Request) {
     const result = evaluateCompliance(payload.answers);
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
 
-    const pkg = await generateCompliancePackage({
-      reportToken,
-      companyName: payload.companyName,
-      answers: payload.answers,
-      result,
-    });
-
     await prisma.complianceReport.create({
       data: {
         reportToken,
         email: payload.email,
         companyName: payload.companyName,
+        answers: payload.answers,
         score: result.score,
         riskLevel: result.riskLevel,
         readiness: result.readiness,
-        storagePath: pkg.zipPath,
         expiresAt,
       },
     });
 
-    const downloadBase = process.env.REPORT_BASE_URL ?? "http://localhost:3000";
-    const downloadUrl = `${downloadBase}/api/compliance/${reportToken}`;
-
-    const mail = composeComplianceEmail({
-      to: payload.email,
+    const checkoutUrl = buildCheckoutUrl({
+      reportToken,
+      email: payload.email,
       companyName: payload.companyName,
-      downloadUrl,
-      expiresDays: 7,
-    });
-
-    await sendMail(mail).catch((err) => {
-      console.error("Failed to send compliance email", err);
     });
 
     return NextResponse.json({
       ok: true,
       reportToken,
-      downloadUrl,
+      checkoutUrl,
       score: result.score,
       riskLevel: result.riskLevel,
       readiness: result.readiness,

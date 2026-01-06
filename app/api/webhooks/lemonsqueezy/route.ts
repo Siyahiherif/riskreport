@@ -2,6 +2,9 @@ import crypto from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
 import { generatePdfReport } from "@/lib/pdf";
+import { evaluateCompliance } from "@/lib/compliance/engine";
+import { generateCompliancePackage } from "@/lib/compliance/package";
+import { composeComplianceEmail, sendMail } from "@/lib/email";
 import { buildCacheKey, createQueuedScan, normalizeDomain } from "@/lib/scan/service";
 import { ScanResult } from "@/lib/types";
 import { generateReportToken } from "@/lib/tokens";
@@ -38,11 +41,81 @@ export async function POST(req: NextRequest) {
   const attributes = data?.attributes ?? {};
   const productId = String(attributes.product_id ?? "");
   const email = attributes.user_email ?? attributes.email ?? null;
+  const complianceProductId = process.env.LS_PRODUCT_COMPLIANCE;
   const domainField =
     attributes?.custom_fields?.domain ??
     attributes?.custom_field?.domain ??
     attributes?.custom_domain ??
     attributes?.domain;
+  const complianceToken =
+    attributes?.custom_fields?.reportToken ??
+    attributes?.custom_fields?.report_token ??
+    attributes?.custom_field?.reportToken ??
+    attributes?.custom_field?.report_token ??
+    attributes?.custom_report_token ??
+    attributes?.custom?.reportToken ??
+    attributes?.custom?.report_token ??
+    payload?.meta?.custom_data?.reportToken ??
+    payload?.meta?.custom_data?.report_token ??
+    null;
+
+  if (productId && complianceProductId && productId === complianceProductId) {
+    if (!complianceToken || typeof complianceToken !== "string") {
+      return NextResponse.json({ error: "reportToken is required in custom fields." }, { status: 400 });
+    }
+
+    const report = await prisma.complianceReport.findUnique({ where: { reportToken: complianceToken } });
+    if (!report) {
+      return NextResponse.json({ error: "Compliance report not found." }, { status: 404 });
+    }
+    if (report.status === "ready" && report.storagePath) {
+      return NextResponse.json({ ok: true, idempotent: true });
+    }
+    if (!report.answers) {
+      return NextResponse.json({ error: "Compliance answers missing." }, { status: 500 });
+    }
+
+    const result = evaluateCompliance(report.answers as any);
+    const pkg = await generateCompliancePackage({
+      reportToken: complianceToken,
+      companyName: report.companyName ?? undefined,
+      answers: report.answers as any,
+      result,
+    });
+
+    const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+    await prisma.complianceReport.update({
+      where: { reportToken: complianceToken },
+      data: {
+        status: "ready",
+        paidAt: new Date(),
+        paymentId: lemonOrderId,
+        storagePath: pkg.zipPath,
+        expiresAt,
+      },
+    });
+
+    const downloadBase = process.env.REPORT_BASE_URL ?? "http://localhost:3000";
+    const downloadUrl = `${downloadBase}/api/compliance/${complianceToken}`;
+    await sendMail(
+      composeComplianceEmail({
+        to: report.email,
+        companyName: report.companyName ?? undefined,
+        downloadUrl,
+        expiresDays: 7,
+      }),
+    ).then(async () => {
+      await prisma.complianceReport.update({
+        where: { reportToken: complianceToken },
+        data: { emailSentAt: new Date() },
+      });
+    }).catch((err) => {
+      console.error("Failed to send compliance email", err);
+    });
+
+    return NextResponse.json({ ok: true, compliance: true });
+  }
+
   if (!domainField) {
     return NextResponse.json({ error: "Domain is required in checkout custom field." }, { status: 400 });
   }
