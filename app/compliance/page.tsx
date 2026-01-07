@@ -72,17 +72,16 @@ export default function CompliancePage() {
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <div className="mx-auto max-w-4xl px-6 py-12 space-y-10">
         <div>
-          <p className="text-xs uppercase font-semibold text-slate-500">Compliance Readiness + Policy Docs</p>
-          <h1 className="text-3xl font-semibold">Compliance Readiness & Policy Documents</h1>
+          <p className="text-xs uppercase font-semibold text-slate-500">Bilgi Teknolojileri Uyumluluk Dokümanları</p>
+          <h1 className="text-3xl font-semibold">Bilgi Teknolojileri Uyumluluk Dokümanları</h1>
           <p className="mt-2 text-sm text-slate-700">
             Bu araç, denetime hazırlık ve iç süreçlerinizi düzenlemek amacıyla otomatik dokümantasyon üretir. Resmî
             sertifikasyon veya %100 uyum garantisi vermez.
           </p>
           <p className="mt-2 text-sm text-slate-700">
-  5 soruluk kisa form (sirket adi dahil) ile compliance readiness degerlendirmesi yapar ve
-  BG Olay, Denetim Izleri, Yedekleme, Kullanici Kimlik ve Is/BT Sureklilik prosedurlerini
-  sirketinize ozel olarak uretir.
-</p>
+            5 soruluk kısa form (şirket adı dahil) ile Bilgi Teknolojileri Uyumluluk değerlendirmesi yapar ve BG Olay, Denetim
+            İzleri, Yedekleme, Kullanıcı Kimlik ve İş/BT Süreklilik prosedürlerini şirketinize özel olarak üretir.
+          </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -127,7 +126,7 @@ export default function CompliancePage() {
                   previewDoc === "kimlik" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"
                 }`}
               >
-                Kullanici Kimlik
+                Kullanıcı Kimlik ve Yetkilendirme Yönetimi
               </button>
               <button
                 type="button"
@@ -157,8 +156,8 @@ export default function CompliancePage() {
               <li>- BG Olay ve Siber Olay Yönetimi Prosedürü (PDF)</li>
               <li>- Denetim İzleri Yönetimi Prosedürü (PDF)</li>
               <li>- Yedekleme Yönetimi Prosedürü (PDF)</li>
-              <li>- Kullanici Kimlik ve Yetkilendirme (PDF)</li>
-              <li>- Is ve BT Sureklilik (PDF)</li>
+              <li>- Kullanıcı Kimlik ve Yetkilendirme Yönetimi Prosedürü (PDF)</li>
+              <li>- İş ve BT Süreklilik Prosedürü (PDF)</li>
             </ul>
             <p className="mt-4 text-xs text-slate-500">
               Not: Önizleme kısa tutulur. Tam doküman, şirketinize özel PDF olarak üretilir.
