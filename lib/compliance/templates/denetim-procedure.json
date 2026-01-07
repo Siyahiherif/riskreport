@@ -1,0 +1,520 @@
+{
+  "metaTable": [
+    [
+      "Doküman Sorumlusu:",
+      "Bilgi Teknolojileri Birimi"
+    ],
+    [
+      "İlk Yayın Tarihi:",
+      ""
+    ],
+    [
+      "Versiyon No:",
+      "2"
+    ],
+    [
+      "Onay Tarihi:",
+      ""
+    ],
+    [
+      "Onay Makamı:",
+      "Yönetim Kurulu"
+    ],
+    [
+      "Gözden Geçirme Sıklığı:",
+      ""
+    ],
+    [
+      "Gözden Geçirme Sorumlusu:",
+      "Bilgi Teknolojileri Birimi"
+    ],
+    [
+      "Bir Sonraki Gözden Geçirme Tarihi:",
+      ""
+    ]
+  ],
+  "versionTable": [
+    [
+      "Versiyon",
+      "Tarih",
+      "Değişiklik Açıklaması"
+    ],
+    [
+      "1.0",
+      "",
+      ""
+    ],
+    [
+      "",
+      "",
+      ""
+    ],
+    [
+      "",
+      "",
+      ""
+    ]
+  ],
+  "toc": [
+    {
+      "label": "1.GİRİŞ",
+      "page": "3"
+    },
+    {
+      "label": "1.1Amaç",
+      "page": "3"
+    },
+    {
+      "label": "1.2Kapsam",
+      "page": "3"
+    },
+    {
+      "label": "1.3İlgili Kanun ve Düzenlemeler",
+      "page": "3"
+    },
+    {
+      "label": "1.4Kısaltmalar ve Tanımlar",
+      "page": "3"
+    },
+    {
+      "label": "2.GÖREV ve SORUMLULUKLAR",
+      "page": "3"
+    },
+    {
+      "label": "2.1Bilgi Teknolojileri Müdürü",
+      "page": "3"
+    },
+    {
+      "label": "2.2Bilgi Güvenliği Sorumlusu",
+      "page": "3"
+    },
+    {
+      "label": "2.3İç Kontrol Müdürü",
+      "page": "4"
+    },
+    {
+      "label": "2.4Tedarikçi Firma Görev ve Sorumlulukları",
+      "page": "4"
+    },
+    {
+      "label": "3.UYGULAMA",
+      "page": "4"
+    },
+    {
+      "label": "3.1Denetim İzlerinin Kapsamı ve İçeriği",
+      "page": "5"
+    },
+    {
+      "label": "3.2Denetim İzlerine Erişim",
+      "page": "5"
+    },
+    {
+      "label": "3.3Denetim İzlerinin Gözden Geçirilmesi ve Raporlanması",
+      "page": "6"
+    },
+    {
+      "label": "3.4Denetim İzlerinin Yedeklenmesi ve İmhası",
+      "page": "6"
+    },
+    {
+      "label": "4.İLGİLİ DOKÜMANLAR",
+      "page": "7"
+    }
+  ],
+  "body": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "GİRİŞ"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Amaç"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kritik verilerin tutulduğu veri tabanları, kritik sistemler ve uygulamalar üzerindeki hareketler ile kapsamı ilgili mevzuat doğrultusunda belirlenen denetim izlerini kayıt altına almak, izlemek, analiz etmek ve raporlamak."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Kapsam"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bu doküman işletim sistemleri, veri tabanları ve diğer uygulamalara ilişkin, tüm denetim izi yönetim faaliyetlerini kapsamaktadır."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "İlgili Kanun ve Düzenlemeler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ödeme ve elektronik para kuruluşlarının bilgi sistemleri ile ödeme hizmeti sağlayıcılarının ödeme hizmetleri alanındaki veri paylaşım servislerine ilişkin tebliğ"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim izlerinin oluşturulması- Madde 13"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Kısaltmalar ve Tanımlar"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "BT: Bilgi Teknolojileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim İzi: Bir finansal ya da operasyonel işlemin başlangıcından bitimine kadar adım adım takip edilmesini sağlayacak kayıtlar"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim İzleri Kayıt Sistemi: Gerçekleştirilen işlemler için sorumluluk atama ve inkâr edilemezlik prensiplerinin sağlanması, denetim izlerinin bütünlüğünün sağlanması, izlenmesi ve raporlanması amacıyla kullanılan yazılım"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurum/Kuruluş: Örnek Şirket"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "GÖREV ve SORUMLULUKLAR"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Teknolojileri Müdürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim İzleri Yönetimi Prosedürünün yıllık olarak gözden geçirilmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi Güvenliği Sorumlusu ile denetim izlerinin gözden geçirilmesi ve güvenliğinin sağlanması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistem tarafından oluşturulan raporların düzenli periyotlarla incelenmesi"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Güvenliği Sorumlusu"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurum bünyesinde merkezi olarak kayıt altına alınacak olan denetim izlerinin belirlenmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kritik verilerin tutulduğu veri tabanları, kritik sistemler ve uygulamalar üzerindeki denetim izlerinin kayıt altına alınması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim izleri yönetiminin iç gereksinim ve yasal mevzuatlara uygun olarak yönetilmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim izleri kayıt sisteminin her türlü yetkisiz sistemsel ve kullanıcı müdahalesine karşı korunmasına yönelik kuralların tanımlanmasından ve kural ihlali durumunda işleme giren alarm mekanizma kayıtlarının takip edilerek aksiyonların alınması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim izleri kayıt sistemi hataları, denetim izi arşivleme durumları ve denetim izi verisi aktarım hataları gibi denetim izi yönetimi süreci kapsamında karşılaşılabilecek durumlara ilişkin aksiyon alınmasının sağlanması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim izi kayıt sistemleri tarafından oluşturulan rapor ve alarmların gözden geçirilmesi ve öne çıkan konuların Bilgi Teknolojileri müdürüne raporlanması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Dış kaynak hizmeti alınan kuruluşlar, müşteriler ve personelin bilgi sistemleri üzerindeki aktivitelerinin kaydının tutulduğu konusunda bilgilendirilmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim izleri kayıt sisteminin test edilmesi, sürüm yükseltme ve güncellemelerin gerçekleştirilmesi"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "İç Kontrol Müdürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi Güvenliği Sorumlusu ile denetim izlerinin gözden geçirilmesi ve güvenliğinin sağlanması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistem tarafından oluşturulan raporların düzenli periyotlarla incelenmesi"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Tedarikçi Firma Görev ve Sorumlulukları"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sorumluluğunda bulunan uygulama ve cihazlar üzerinde iz kayıtlarının tutulmasının sağlanması ve erişimlerin kontrol edilmesi."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "UYGULAMA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum bünyesinde denetim izleri iç gereksinimler ve yasal mevzuatlara uyum sağlayacak şekilde yönetilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Denetim izlerinin oluşturulması kapsamında aşağıdaki standartlar uygulanır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi sistemlerine ilişkin veri tabanlarına, uygulamalara ve işletim sistemlerine ait denetim izlerinde, erişim için en düşük yetkinin atanması ve en kısıtlı erişim hakkının verilmesi yaklaşımı esas alınır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ayrıcalıklı yetkilere sahip kullanıcı ve sistem hesapları için, ek denetim izleri kaydedilir ve periyodik olarak gözden geçirilir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Acil durumlar için yetkili personele ulaşılamaması nedeniyle geçici olarak gerçekleştirilen yetkilendirmelerde, yetkilendirme süresince gerçekleştirilecek işlemlerin yeterli düzeyde takibine izin verecek şekilde detaylı denetim izlerinin tutulması sağlanır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim izi kayıt sisteminin durdurulmasını önlemeye veya durdurulması halinde bu durumu tespit etmeye yönelik teknikler kullanılır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi sistemleri üzerinden gerçekleştirilen işlemlerin, kayıtların ve verilerin bütünlüğünün sağlanmasına yönelik olarak, kapsama alınan denetim izleri, denetim izleri kayıt sistemi üzerinde kayıt altına alınarak denetim izlerinin doğruluğunun, tamlığının ve güvenilirliğinin garanti altına alınması sağlanır. Bütünlüğü sağlamaya yönelik olarak denetim izleri kayıt sistemi üzerinde tutulan izlerin, verinin iletimi, işlenmesi ve saklanması aşamalarının tamamını kapsayacak şekilde tutulması esastır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Güvenliği Politikası kapsamında Kurum personeli, müşteriler ve Kurum sistemlerine erişen dış kaynak firmaları, Kurum bilgi sistemleri üzerinde gerçekleştirdikleri işlemlere ilişkin denetim izlerinin tutulduğu konusunda bilgilendirilirler."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi sistemleri faaliyetleri kapsamında destek hizmeti alınıyor olması durumunda, destek hizmeti kuruluşu tarafından saklanan iz kayıtlarının Kurum standartlarına uygunluğunun sağlanması ve Kurum yetkililerince iz kayıtlarına erişilebilmesi esastır."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Denetim İzlerinin Kapsamı ve İçeriği"
+    },
+    {
+      "type": "paragraph",
+      "text": "Denetim izi alınacak sunucular BT bünyesindeki kritik uygulamalar, bilgi sistemleri üzerindeki riskler, sistemlerin boyutu ve faaliyetlerin karmaşıklığı göz önünde bulundurularak belirlenir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum bünyesinde asgari olarak kayıt altına alınması gereken işlemlere “Denetim İzleri Tablosu”nda yer verilmiştir. Kurum ağına yeni eklenen bir sistemin, bir uygulamanın ya da cihazın denetim izlerinin alınması gerekiyorsa Bilgi Güvenliği Sorumlusu tarafından BT müdürüne bildirimde bulunulur."
+    },
+    {
+      "type": "paragraph",
+      "text": "Denetim izleri asgari olarak aşağıdaki bilgileri içerecek şekilde tutulmalıdır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İşlemin türü ve işlemin ayırt edici tanımlayıcısı,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İşlem tutarı, işlem tarihi, işlem saati,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Anonim ön ödemeli araçlar ile gerçekleşen işlemler hariç olmak üzere müşteri tanımlayıcı bilgisi,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Personelin, aracı personelin ve dış hizmet sağlayıcı çalışanının kimlik bilgisi,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Erişimin veya işlemin gerçekleştiği uygulama bilgisi,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kaydı oluşturan işlem ya da olayla birlikte, gerçekleştirilen değişikliğin ne olduğunu gösteren bilgi hususlarını içerir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Denetim izleri kayıt sistemi üzerinde denetim izi kayıt altına alınan tüm konfigürasyon öğelerinin saatleri senkronize edilerek herhangi bir farklılık göstermemesi sağlanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Veri merkezleri ve sistem odaları kör nokta içermeyecek şekilde kamera kayıt sistemleri ile izlenir. Kamera kayıt sistemleri tarafından kaydedilen görüntüler en az bir yıl süre saklanacak şekilde ikincil bir yerleşkede yedeklenmesi sağlanır."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Denetim İzlerine Erişim"
+    },
+    {
+      "type": "paragraph",
+      "text": "Denetim izleri kayıt sisteminin her türlü yetkisiz sistemsel ve kullanıcı müdahalesine karşı korunmasına yönelik olarak sistem üzerinde kimlik doğrulama mekanizması kullanılır. “Kullanıcı Kimlik ve Erişim Yönetimi Prosedürü” doğrultusunda sistem üzerindeki her kullanıcı için tekil bir hesap yaratılmakta ve yetkili personel arasında hesap paylaşımına izin verilmemektedir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Görevlerin ayrılığı prensibine uyum ve denetim izlerinin gizliliğini, tamlığını ve doğruluğunu sağlamak açısından merkezi kayıt sistemi üzerinde denetim izleri tutulan uygulama, veri tabanı ve sistemlerin yöneticisi olan kullanıcılara erişim izni verilmemektedir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Denetim izi yönetimi uygulamasının her türlü yetkisiz sistemsel ve kullanıcı müdahalesine karşı korunmasına yönelik kurallar tanımlanmakta ve kural ihlali durumunda işleme giren mekanizmalar alarm üretmektedir."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Denetim İzlerinin Gözden Geçirilmesi ve Raporlanması"
+    },
+    {
+      "type": "paragraph",
+      "text": "Denetim izleri kayıt sistemi tarafından periyodik olarak oluşturulan raporlar, Bilgi Güvenliği Sorumlusu tarafından gözden geçirilir. Raporların yanı sıra şüpheli aktivitelerin ve denetim izlerinin bütünlüğünün bozulmasının tespitini sağlayacak alarmlar ve uyarı mekanizmaları oluşturularak anlık olarak alarmların takip edilmesi sağlanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "İz kayıtları kayıt sistemi üzerinde Bilgi Güvenliği Sorumlusu tarafından asgari olarak aşağıdaki olaylar takip edilmektedir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurumsal web sitesi saldırı trendleri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Güvenlik olayları"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Hatalı şifre girilen hesaplar, iz kayıtları kayıt sistemi üzerinde yaratılan hata kayıtları"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Veri tabanları üzerinde yetkisiz olarak gerçekleştirilmeye çalışılan değişiklikler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Personel ve maaş bilgilerine erişim teşebbüsleri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kapsamı iş birimleri tarafından belirlenen kritik bilgilere erişim teşebbüsleri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ağ cihazları ve güvenlik uygulamaları üzerindeki yetkisiz değişiklikler"
+    },
+    {
+      "type": "paragraph",
+      "text": "“Denetim İzleri Tablosu”nda ve yukarıda belirtilen işlemlere ek olarak BT müdürünün önem arz ettiğini düşündüğü her tür kaydı inceleyebilir. Denetim izlerinin incelenmesi sonucu Bilgi Güvenliği Sorumlusu tarafından önemli veya şüpheli bulunan konuların tespit durumunda “Bilgi Güvenliği Olay Yönetimi Prosedürü” işletilir. İç Kontrol Müdürü değerlendirmeleri sonucunda ihtiyaç duyulursa konuya ilişkin gerçekleştirilen soruşturmalar gizlilik içerisinde yürütülerek gerekli aksiyonlar alınır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Denetim izi tutulacak aktiviteler ve denetim izlerinin gözden geçirilme sıklıkları “Denetim İzleri Tablosu”nda belirtilmiştir. Denetim izleri kayıt sistemi tarafından 3 aylık periyodlarla oluşturulan raporlar BT Müdürü ve İç Kontrol Müdürüne otomatik e-posta ile gönderilir. BT Müdürü ve İç Kontrol Müdürü tarafından denetim izleri raporları gözden geçirilerek yapılan incelemeye ilişkin oluşturulan doküman imzalanarak saklanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum’un faaliyetlerine ait kayıtlarda değişikliğe sebep olan işlemler ile sır kapsamında olan bilgilerin sorgulanmasına ilişkin işlemlere ait denetim izlerinin periyodik olarak takip edilmesi ve raporlanması süreci Bilgi Güvenliği Sorumlusunun sorumluluğundadır."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Denetim İzlerinin Yedeklenmesi ve İmhası"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi sistemleri dâhilinde gerçekleşen ve Kurum faaliyetlerine ait kayıtlarda değişikliğe sebep olan işlemlere ilişkin iz kayıtları; “Yedekleme Yönetimi Prosedürü” doğrultusunda Kurum nezdinde minimum 10 yıl boyunca saklanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum faaliyetlerine ait kayıtlarda değişikliğe sebep olmayan ancak sır kapsamında olan bilgilerin sorgulanmasına ilişkin iz kayıtları, bilgilerin ifşası durumunda sorumluların tespit edilmesini sağlayacak nitelikte Kurum nezdinde asgari 1 yıl boyunca tutulur."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ağ ve internet erişim kayıtları için 4/5/2007 tarihli ve 5651 sayılı “İnternet Ortamında Yapılan Yayınların Düzenlenmesi ve Bu Yayınlar Yoluyla İşlenen Suçlarla Mücadele Edilmesi Hakkında Kanun’a dayanılarak hazırlanan “İnternet Ortamında Yapılan Yayınların Düzenlenmesine Dair Usul ve Esaslar Hakkında Yönetmelik” uyarınca 1 yıldır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi sistemlerinin kullanımına ilişkin diğer iz kayıtlarının yedekleme periyodu ve saklama süresi iç gereksinimler ve yasal süreler doğrultusunda “Yedekleme Yönetimi Prosedürü”ne uygun olarak belirlenir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Yaşanması muhtemel olumsuzluklar sonrasında, ihtiyaç duyulan denetim iz kayıtlarının 24 saatten fazla olmayacak şekilde erişilebilir olması sağlanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Denetim izlerinin yasal süreler sonunda imha edilmesi süreci “İmha Prosedürü” doğrultusunda işletilir."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "İLGİLİ DOKÜMANLAR"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“POL-BT-001” Bilgi Güvenliği Politikası"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“PRO-BT-009” Kullanıcı Kimlik ve Erişim Yönetimi Prosedürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“PRO-BT-007” Yedekleme Yönetimi Prosedürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“PRO-BT-012” İmha Prosedürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“TAB-BT-003” Denetim İzleri Tablosu"
+    }
+  ]
+}

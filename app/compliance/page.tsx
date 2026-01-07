@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import { COMPLIANCE_QUESTIONS, Question } from "@/lib/compliance/questions";
@@ -23,6 +23,7 @@ export default function CompliancePage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<SubmitResult | null>(null);
+  const [previewDoc, setPreviewDoc] = useState<"bg" | "denetim">("bg");
 
   const setSingle = (id: string, value: string) => {
     setAnswers((prev) => ({ ...prev, [id]: value }));
@@ -53,7 +54,7 @@ export default function CompliancePage() {
       });
       const json = await res.json();
       if (!res.ok) {
-        throw new Error(json?.error || "Gonderim basarisiz");
+        throw new Error(json?.error || "Gönderim başarısız");
       }
       setResult(json);
       if (typeof window !== "undefined") {
@@ -61,7 +62,7 @@ export default function CompliancePage() {
         window.localStorage.setItem("compliance_report_email", email);
       }
     } catch (err: any) {
-      setError(err?.message || "Hata olustu");
+      setError(err?.message || "Hata oluştu");
     } finally {
       setSubmitting(false);
     }
@@ -74,12 +75,12 @@ export default function CompliancePage() {
           <p className="text-xs uppercase font-semibold text-slate-500">Compliance Readiness + Policy Docs</p>
           <h1 className="text-3xl font-semibold">Compliance Readiness & Policy Documents</h1>
           <p className="mt-2 text-sm text-slate-700">
-            Bu arac, denetime hazirlik ve ic sureclerinizi duzenlemek amaciyla otomatik dokumantasyon uretir. Resmi
+            Bu araç, denetime hazırlık ve iç süreçlerinizi düzenlemek amacıyla otomatik dokümantasyon üretir. Resmî
             sertifikasyon veya %100 uyum garantisi vermez.
           </p>
           <p className="mt-2 text-sm text-slate-700">
-            5 soruluk kisa form (sirket adi dahil) ile compliance readiness degerlendirmesi yapar ve BG Olay ve Siber Olay
-            Yonetimi Proseduru dokumanini sirketinize ozel uretir.
+            5 soruluk kısa form (şirket adı dahil) ile compliance readiness değerlendirmesi yapar ve BG Olay ve Siber Olay
+            Yönetimi Prosedürü ile Denetim İzleri Yönetimi Prosedürü dokümanlarını şirketinize özel üretir.
           </p>
         </div>
 
@@ -88,48 +89,73 @@ export default function CompliancePage() {
             <p className="text-xs font-semibold uppercase text-slate-500">Preview</p>
             <h2 className="mt-2 text-lg font-semibold">PDF preview (excerpt)</h2>
             <p className="mt-2 text-sm text-slate-700">
-              Asagidaki onizleme dokumandan kisa bir bolumdur. Tam dokuman odeme sonrasi teslim edilir.
+              Aşağıdaki önizleme dokümandan kısa bir bölümdür. Tam doküman ödeme sonrası teslim edilir.
             </p>
+            <div className="mt-4 flex flex-wrap gap-2 text-xs font-semibold text-slate-700">
+              <button
+                type="button"
+                onClick={() => setPreviewDoc("bg")}
+                className={`rounded-full px-3 py-1 transition ${
+                  previewDoc === "bg" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"
+                }`}
+              >
+                BG Olay ve Siber Olay
+              </button>
+              <button
+                type="button"
+                onClick={() => setPreviewDoc("denetim")}
+                className={`rounded-full px-3 py-1 transition ${
+                  previewDoc === "denetim" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"
+                }`}
+              >
+                Denetim İzleri
+              </button>
+            </div>
             <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
-              <iframe title="PDF preview" src="/api/compliance/preview" className="h-96 w-full" />
+              <iframe
+                title="PDF preview"
+                src={`/api/compliance/preview?doc=${previewDoc}`}
+                className="h-96 w-full"
+              />
             </div>
             <p className="mt-3 text-xs text-slate-500">
-              Onizleme, dokumanin kisaltilmis bir bolumudur. Tam dokuman, odeme sonrasi sirketinize ozel olarak
-              olusturulur ve PDF formatinda teslim edilir. Bu dokumanlar, resmi kurum onayi icermez.
+              Önizleme, dokümanın kısaltılmış bir bölümüdür. Tam doküman, ödeme sonrası şirketinize özel olarak
+              oluşturulur ve PDF formatında teslim edilir. Bu dokümanlar, resmî kurum onayı içermez.
             </p>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
-            <h3 className="text-sm font-semibold text-slate-900">Teslim edilecek dokuman</h3>
+            <h3 className="text-sm font-semibold text-slate-900">Teslim edilecek dokümanlar</h3>
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
-              <li>- BG Olay ve Siber Olay Yonetimi Proseduru (PDF)</li>
+              <li>- BG Olay ve Siber Olay Yönetimi Prosedürü (PDF)</li>
+              <li>- Denetim İzleri Yönetimi Prosedürü (PDF)</li>
             </ul>
             <p className="mt-4 text-xs text-slate-500">
-              Not: Onizleme kisa tutulur. Tam dokuman, sirketinize ozel PDF olarak uretilir.
+              Not: Önizleme kısa tutulur. Tam doküman, şirketinize özel PDF olarak üretilir.
             </p>
             <p className="mt-2 text-xs text-slate-500">
-              Not: Uretilen dokumanlar ornek ve taslak niteliktedir. Sirketinizin ic sureclerine gore gozden
-              gecirilmesi ve onaylanmasi onerilir.
+              Not: Üretilen dokümanlar örnek ve taslak niteliktedir. Şirketinizin iç süreçlerine göre gözden
+              geçirilmesi ve onaylanması önerilir.
             </p>
           </div>
         </div>
 
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
           <p className="text-sm text-slate-700">
-            Asagidaki sorular, sirketinizin genel yapisini anlamak ve uygun dokumantasyonu olusturmak amaciyla
-            sorulmaktadir. Yanitlariniz teknik denetim yerine gecmez.
+            Aşağıdaki sorular, şirketinizin genel yapısını anlamak ve uygun dokümantasyonu oluşturmak amacıyla
+            sorulmaktadır. Yanıtlarınız teknik denetim yerine geçmez.
           </p>
         </div>
 
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
-          <h2 className="text-lg font-semibold">Iletisim</h2>
+          <h2 className="text-lg font-semibold">İletişim</h2>
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             <label className="text-sm text-slate-700">
-              Sirket Adi (opsiyonel)
+              Şirket Adı (opsiyonel)
               <input
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
                 className="mt-1 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
-                placeholder="Orn. Example A.S."
+                placeholder="Örn. Example A.Ş."
               />
             </label>
             <label className="text-sm text-slate-700">
@@ -144,7 +170,7 @@ export default function CompliancePage() {
               />
             </label>
           </div>
-          <p className="mt-2 text-xs text-slate-600">Sadece e-posta, rapor ID ve tarih saklanir. 7 gun sonra silinir.</p>
+          <p className="mt-2 text-xs text-slate-600">Sadece e-posta, rapor ID ve tarih saklanır. 7 gün sonra silinir.</p>
         </div>
 
         <div className="space-y-4">
@@ -161,15 +187,15 @@ export default function CompliancePage() {
           disabled={submitting}
           className="inline-flex items-center justify-center rounded-xl bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow hover:-translate-y-0.5 disabled:opacity-60"
         >
-          {submitting ? "Isleniyor..." : "Dokumanlari olustur"}
+          {submitting ? "İşleniyor..." : "Dokümanları oluştur"}
         </button>
         <p className="text-xs text-slate-500">
-          Uretilen dokumanlar taslak niteliktedir. Sirket ici onay sureclerinden gecirilmelidir.
+          Üretilen dokümanlar taslak niteliktedir. Şirket içi onay süreçlerinden geçirilmelidir.
         </p>
 
         {result && (
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
-            <h2 className="text-lg font-semibold">Ozet Hazir</h2>
+            <h2 className="text-lg font-semibold">Özet Hazır</h2>
             <p className="text-sm text-slate-700 mt-2">Rapor ID: {result.reportToken}</p>
             <p className="text-sm text-slate-700">Risk skoru: {result.score} / 100 - {result.riskLevel}</p>
             <p className="text-sm text-slate-700">
@@ -180,17 +206,17 @@ export default function CompliancePage() {
                 href={result.checkoutUrl}
                 className="inline-flex items-center justify-center rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white"
               >
-                Tam dokuman paketi icin odeme yap
+                Tam doküman paketi için ödeme yap
               </a>
               <a
                 href={`/compliance/access?token=${result.reportToken}`}
                 className="inline-flex items-center justify-center rounded-lg border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-800"
               >
-                Rapor durumunu gor
+                Rapor durumunu gör
               </a>
             </div>
             <p className="mt-2 text-xs text-slate-600">
-              Odeme sonrasi dokumanlar hazirlandiginda 7 gun gecerli indirme linki gonderilir.
+              Ödeme sonrası dokümanlar hazırlandığında 7 gün geçerli indirme linki gönderilir.
             </p>
           </div>
         )}
@@ -199,24 +225,24 @@ export default function CompliancePage() {
           <h2 className="text-lg font-semibold">SSS</h2>
           <div className="mt-4 space-y-4 text-sm text-slate-700">
             <div>
-              <p className="font-semibold">Bu dokumanlar ISO 27001 belgesi yerine gecer mi?</p>
+              <p className="font-semibold">Bu dokümanlar ISO 27001 belgesi yerine geçer mi?</p>
               <p>
-                Hayir. Bu dokumanlar ISO 27001 belgelendirmesi yerine gecmez. Ancak belgelendirme oncesi gerekli temel
-                dokumantasyonu olusturmak icin kullanilabilir.
+                Hayır. Bu dokümanlar ISO 27001 belgelendirmesi yerine geçmez. Ancak belgelendirme öncesi gerekli temel
+                dokümantasyonu oluşturmak için kullanılabilir.
               </p>
             </div>
             <div>
-              <p className="font-semibold">Bu dokumanlar resmi olarak onayli mi?</p>
+              <p className="font-semibold">Bu dokümanlar resmî olarak onaylı mı?</p>
               <p>
-                Hayir. Dokumanlar sirketinize ozel olarak otomatik uretilir ve taslak niteliktedir. Resmi kurum onayi
-                icermez.
+                Hayır. Dokümanlar şirketinize özel olarak otomatik üretilir ve taslak niteliktedir. Resmî kurum onayı
+                içermez.
               </p>
             </div>
             <div>
-              <p className="font-semibold">Denetimde bu dokumanlari kullanabilir miyim?</p>
+              <p className="font-semibold">Denetimde bu dokümanları kullanabilir miyim?</p>
               <p>
-                Evet, bircok denetimde baslangic dokumantasyonu olarak kullanilabilir. Ancak denetim kapsamina gore ek
-                calismalar gerekebilir.
+                Evet, birçok denetimde başlangıç dokümantasyonu olarak kullanılabilir. Ancak denetim kapsamına göre ek
+                çalışmalar gerekebilir.
               </p>
             </div>
           </div>
@@ -224,12 +250,12 @@ export default function CompliancePage() {
 
         <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow">
           <p className="text-xs text-slate-500">
-            Bu platform tarafindan uretilen rapor ve dokumanlar, bilgilendirme ve denetime hazirlik amaclidir. Herhangi
-            bir resmi kurum, sertifikasyon kurulus ve/veya duzenleyici otorite tarafindan onaylanmis oldugu anlamina
+            Bu platform tarafından üretilen rapor ve dokümanlar, bilgilendirme ve denetime hazırlık amaçlıdır. Herhangi
+            bir resmî kurum, sertifikasyon kuruluşu ve/veya düzenleyici otorite tarafından onaylanmış olduğu anlamına
             gelmez.
           </p>
           <p className="mt-2 text-xs text-slate-500">
-            CyberFaceX, bu dokumanlarin kullanimi sonucu olusabilecek dogrudan veya dolayli zararlardan sorumlu
+            CyberFaceX, bu dokümanların kullanımı sonucu oluşabilecek doğrudan veya dolaylı zararlardan sorumlu
             tutulamaz.
           </p>
         </div>
@@ -255,7 +281,7 @@ function QuestionBlock({
       {question.type === "text" && (
         <input
           className="mt-3 w-full rounded-lg border border-slate-200 px-3 py-2 text-sm"
-          placeholder="Yanitinizi yazin"
+          placeholder="Yanıtınızı yazın"
           value={(answer as string) || ""}
           onChange={(e) => onSingle(question.id, e.target.value)}
         />

@@ -3,7 +3,7 @@ import fsPromises from "node:fs/promises";
 import path from "node:path";
 import archiver from "archiver";
 import { ComplianceAnswers, ComplianceResult } from "./engine";
-import { generateBgIncidentProcedurePdf } from "./pdf";
+import { generateBgIncidentProcedurePdf, generateDenetimProcedurePdf } from "./pdf";
 
 export type CompliancePackageResult = {
   zipPath: string;
@@ -25,12 +25,13 @@ export async function generateCompliancePackage({
   await fsPromises.mkdir(reportDir, { recursive: true });
 
   const bgIncidentPath = await generateBgIncidentProcedurePdf(reportToken, companyName);
+  const denetimPath = await generateDenetimProcedurePdf(reportToken, companyName);
 
   const zipPath = path.join(reportDir, `${reportToken}.zip`);
   const output = fs.createWriteStream(zipPath);
   const archive = archiver("zip", { zlib: { level: 9 } });
 
-  const files = [bgIncidentPath];
+  const files = [bgIncidentPath, denetimPath];
 
   await new Promise<void>((resolve, reject) => {
     output.on("close", () => resolve());

@@ -1,11 +1,18 @@
 import fs from "node:fs/promises";
-import { generateBgIncidentProcedurePdf } from "@/lib/compliance/pdf";
+import { generateBgIncidentProcedurePdf, generateDenetimProcedurePdf } from "@/lib/compliance/pdf";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET() {
-  const filePath = await generateBgIncidentProcedurePdf("preview", "Ornek Sirket", { preview: true });
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const doc = searchParams.get("doc");
+  const generator = doc === "denetim" ? generateDenetimProcedurePdf : generateBgIncidentProcedurePdf;
+  const filePath = await generator("preview", "Ornek Sirket", { preview: true });
+  const filename =
+    doc === "denetim"
+      ? "denetim-izleri-yonetimi-preview.pdf"
+      : "bg-olay-siber-olay-yonetimi-preview.pdf";
   const data = await fs.readFile(filePath);
 
   return new Response(new Uint8Array(data), {
@@ -13,7 +20,7 @@ export async function GET() {
     headers: {
       "Cache-Control": "no-store",
       "Content-Type": "application/pdf",
-      "Content-Disposition": "inline; filename=\"bg-olay-siber-olay-yonetimi-preview.pdf\"",
+      "Content-Disposition": `inline; filename="${filename}"`,
       "X-Robots-Tag": "noindex, nofollow",
     },
   });

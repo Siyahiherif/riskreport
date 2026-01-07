@@ -75,7 +75,28 @@ type TemplateDoc = {
   body: TemplateItem[];
 };
 
-const templatePath = path.join(process.cwd(), "lib", "compliance", "templates", "bg-incident-procedure.json");
+type ProcedureKey = "bg" | "denetim";
+
+const templateMap: Record<ProcedureKey, string> = {
+  bg: path.join(process.cwd(), "lib", "compliance", "templates", "bg-incident-procedure.json"),
+  denetim: path.join(process.cwd(), "lib", "compliance", "templates", "denetim-procedure.json"),
+};
+
+const procedureConfig: Record<ProcedureKey, { title: string; docNo: string }> = {
+  bg: {
+    title: "BG Olay ve Siber Olay Yönetimi Prosedürü",
+    docNo: "PRO-BT-003",
+  },
+  denetim: {
+    title: "Denetim İzleri Yönetimi Prosedürü",
+    docNo: "PRO-BT-004",
+  },
+};
+
+const previewAnchors: Record<ProcedureKey, string> = {
+  bg: "Bilgi Güvenliği Olaylarına İlişkin Kanıtların Elde Edilmesi",
+  denetim: "Denetim İzlerinin Gözden Geçirilmesi ve Raporlanması",
+};
 
 const formatDate = (date: Date) => {
   const day = String(date.getDate()).padStart(2, "0");
@@ -84,13 +105,26 @@ const formatDate = (date: Date) => {
   return `${day}.${month}.${year}`;
 };
 
-const normalizeCompanyName = (companyName?: string) => companyName?.trim() || "Sirket";
+const normalizeCompanyName = (companyName?: string) => companyName?.trim() || "Şirket";
 
-const replaceCompany = (text: string, companyName: string) =>
-  text.replace(/Moneyout/gi, companyName).replace(/\{\{COMPANY\}\}/g, companyName);
+const fixEncoding = (text: string) => {
+  const decoded = Buffer.from(text, "latin1").toString("utf8");
+  return decoded
+    .replace(/ƒ\?o/g, "\"")
+    .replace(/ƒ\?\?/g, "\"")
+    .replace(/�/g, "");
+};
 
-const loadTemplate = async (): Promise<TemplateDoc> => {
-  const raw = await fs.readFile(templatePath, "utf-8");
+const replaceCompany = (text: string, companyName: string) => {
+  const cleaned = fixEncoding(text);
+  return cleaned
+    .replace(/Moneyout/gi, companyName)
+    .replace(/Örnek Şirket/gi, companyName)
+    .replace(/\{\{COMPANY\}\}/g, companyName);
+};
+
+const loadTemplate = async (key: ProcedureKey): Promise<TemplateDoc> => {
+  const raw = await fs.readFile(templateMap[key], "utf-8");
   return JSON.parse(raw) as TemplateDoc;
 };
 
@@ -124,11 +158,12 @@ const numberHeadings = (items: TemplateItem[]) => {
     } else {
       counters[2] += 1;
     }
-    const prefix = level === 1
-      ? `${counters[0]}.`
-      : level === 2
-      ? `${counters[0]}.${counters[1]}`
-      : `${counters[0]}.${counters[1]}.${counters[2]}`;
+    const prefix =
+      level === 1
+        ? `${counters[0]}.`
+        : level === 2
+        ? `${counters[0]}.${counters[1]}`
+        : `${counters[0]}.${counters[1]}.${counters[2]}`;
     if (/^\d+(\.\d+)*\s*/.test(item.text)) {
       return item;
     }
@@ -136,40 +171,41 @@ const numberHeadings = (items: TemplateItem[]) => {
   });
 };
 
-const renderHeader = (orgName: string) => (
-  <View style={styles.headerBox}>
-    <View style={styles.headerRow}>
-      <View style={[styles.headerCell, { flex: 0.9 }]}>
-        <Text style={{ fontSize: 10 }}>LOGO</Text>
-        <Text style={{ fontSize: 11, marginTop: 6 }}>{orgName}</Text>
+const renderHeader = (orgName: string, key: ProcedureKey) => {
+  const config = procedureConfig[key];
+  return (
+    <View style={styles.headerBox}>
+      <View style={styles.headerRow}>
+        <View style={[styles.headerCell, { flex: 0.9 }]}>
+          <Text style={{ fontSize: 10 }}>LOGO</Text>
+          <Text style={{ fontSize: 11, marginTop: 6 }}>{orgName}</Text>
+        </View>
+        <View style={[styles.headerCell, { flex: 1.5 }]}>
+          <Text style={{ fontSize: 12, fontWeight: "bold", textAlign: "center" }}>{config.title}</Text>
+        </View>
+        <View style={[styles.headerCellLast, { flex: 1.2 }]}>
+          <Text style={styles.headerMeta}>DOKÜMAN NO : {config.docNo}</Text>
+          <Text style={styles.headerMeta}>YAYIN TARİHİ : {formatDate(new Date())}</Text>
+          <Text style={styles.headerMeta}>REV. TARİHİ : {formatDate(new Date())}</Text>
+          <Text style={styles.headerMeta}>VERSİYON NO : 1</Text>
+        </View>
       </View>
-      <View style={[styles.headerCell, { flex: 1.5 }]}>
-        <Text style={{ fontSize: 12, fontWeight: "bold", textAlign: "center" }}>
-          BG Olay ve Siber Olay Yönetimi Prosedürü
-        </Text>
-      </View>
-      <View style={[styles.headerCellLast, { flex: 1.2 }]}>
-        <Text style={styles.headerMeta}>DOKÜMAN NO: PRO-BT-003</Text>
-        <Text style={styles.headerMeta}>YAYIN TARİHİ: 10.07.2024</Text>
-        <Text style={styles.headerMeta}>REV. TARİHİ: {formatDate(new Date())}</Text>
-        <Text style={styles.headerMeta}>VERSİYON NO: 2</Text>
+      <View style={{ flexDirection: "row" }}>
+        <View style={[styles.headerCell, { flex: 0.9, borderBottomWidth: 0 }]} />
+        <View style={[styles.headerCell, { flex: 1.5, borderBottomWidth: 0 }]}>
+          <Text style={styles.headerMeta}>Hazırlayan : Bilgi Teknolojileri Birimi</Text>
+          <Text style={styles.headerMeta}>Onaylayan : Yönetim Kurulu</Text>
+        </View>
+        <View style={[styles.headerCellLast, { flex: 1.2, borderBottomWidth: 0 }]}>
+          <Text style={styles.headerMeta}>
+            SAYFA NO :{" "}
+            <Text render={({ pageNumber, totalPages }) => `Sayfa ${pageNumber} / ${totalPages}`} />
+          </Text>
+        </View>
       </View>
     </View>
-    <View style={{ flexDirection: "row" }}>
-      <View style={[styles.headerCell, { flex: 0.9, borderBottomWidth: 0 }]} />
-      <View style={[styles.headerCell, { flex: 1.5, borderBottomWidth: 0 }]}>
-        <Text style={styles.headerMeta}>Hazırlayan: Bilgi Güvenliği Sorumlusu</Text>
-        <Text style={styles.headerMeta}>Onaylayan: Yönetim Kurulu</Text>
-      </View>
-      <View style={[styles.headerCellLast, { flex: 1.2, borderBottomWidth: 0 }]}>
-        <Text style={styles.headerMeta}>
-          SAYFA NO:{" "}
-          <Text render={({ pageNumber, totalPages }) => `Sayfa ${pageNumber} / ${totalPages}`} />
-        </Text>
-      </View>
-    </View>
-  </View>
-);
+  );
+};
 
 const renderFooter = (orgName: string) => (
   <View style={styles.footer}>
@@ -183,8 +219,8 @@ const renderMetaTable = (rows: string[][]) => (
   <View style={styles.table}>
     {rows.map((row, idx) => (
       <View key={`meta-${idx}`} style={styles.tableRow}>
-        <Text style={[styles.tableCell, { flex: 1, fontWeight: "bold" }]}>{row[0]}</Text>
-        <Text style={[styles.tableCell, { flex: 2 }]}>{row[1]}</Text>
+        <Text style={[styles.tableCell, { flex: 1, fontWeight: "bold" }]}>{fixEncoding(row[0])}</Text>
+        <Text style={[styles.tableCell, { flex: 2 }]}>{fixEncoding(row[1])}</Text>
       </View>
     ))}
   </View>
@@ -205,7 +241,7 @@ const renderTable = (rows: string[][]) => {
               idx === header.length - 1 ? { borderRightWidth: 0 } : {},
             ]}
           >
-            {cell}
+            {fixEncoding(cell)}
           </Text>
         ))}
       </View>
@@ -219,7 +255,7 @@ const renderTable = (rows: string[][]) => {
                 cidx === row.length - 1 ? { borderRightWidth: 0 } : {},
               ]}
             >
-              {cell}
+              {fixEncoding(cell)}
             </Text>
           ))}
         </View>
@@ -229,7 +265,7 @@ const renderTable = (rows: string[][]) => {
 };
 
 const renderTocLine = (label: string, page: string) => {
-  const clean = label
+  const clean = fixEncoding(label)
     .replace(/\s+/g, " ")
     .replace(/(\d)\.(?=\S)/g, "$1. ")
     .replace(/(\d)([A-Za-zÇĞİÖŞÜçğıöşü])/g, "$1 $2")
@@ -240,16 +276,17 @@ const renderTocLine = (label: string, page: string) => {
 
 const renderItem = (item: TemplateItem, idx: number) => {
   if (item.type === "heading") {
-    if (item.level === 1) return <Text key={`h1-${idx}`} style={styles.heading1}>{item.text}</Text>;
-    if (item.level === 2) return <Text key={`h2-${idx}`} style={styles.heading2}>{item.text}</Text>;
-    return <Text key={`h3-${idx}`} style={styles.heading3}>{item.text}</Text>;
+    if (item.level === 1) return <Text key={`h1-${idx}`} style={styles.heading1}>{fixEncoding(item.text)}</Text>;
+    if (item.level === 2) return <Text key={`h2-${idx}`} style={styles.heading2}>{fixEncoding(item.text)}</Text>;
+    return <Text key={`h3-${idx}`} style={styles.heading3}>{fixEncoding(item.text)}</Text>;
   }
   if (item.type === "list") {
     const indent = BULLET_INDENT * (item.level + 1);
+    const bulletSymbol = item.level > 0 ? "–" : "•";
     return (
       <View key={`li-${idx}`} style={[styles.listRow, { marginLeft: indent - BULLET_INDENT }]}>
-        <Text style={styles.listBullet}>•</Text>
-        <Text style={styles.listText}>{item.text}</Text>
+        <Text style={styles.listBullet}>{bulletSymbol}</Text>
+        <Text style={styles.listText}>{fixEncoding(item.text)}</Text>
       </View>
     );
   }
@@ -258,19 +295,20 @@ const renderItem = (item: TemplateItem, idx: number) => {
   }
   return (
     <Text key={`p-${idx}`} style={styles.paragraph}>
-      {item.text}
+      {fixEncoding(item.text)}
     </Text>
   );
 };
 
-const getPreviewItems = (items: TemplateItem[]) => {
-  const anchor = "BILGI GUVENLIGI OLAYLARINA ILISKIN KANITLARIN ELDE EDILMESI";
-  const normalize = (text: string) => text.toUpperCase().replace(/[^\w\s]/g, " ").replace(/\s+/g, " ").trim();
-  const startIndex = items.findIndex((item) =>
-    item.type === "heading" && normalize(item.text).includes(anchor),
+const getPreviewItems = (items: TemplateItem[], key: ProcedureKey) => {
+  const anchor = previewAnchors[key];
+  const normalize = (text: string) =>
+    fixEncoding(text).toUpperCase().replace(/[^\w\s]/g, " ").replace(/\s+/g, " ").trim();
+  const startIndex = items.findIndex(
+    (item) => item.type === "heading" && normalize(item.text).includes(normalize(anchor)),
   );
   if (startIndex === -1) return items.slice(0, 20);
-  return items.slice(startIndex, startIndex + 24);
+  return items.slice(startIndex, startIndex + 26);
 };
 
 const chunkItems = (items: TemplateItem[], size: number) => {
@@ -292,7 +330,7 @@ const DocShell = ({ title, children }: { title: string; children: ReactNode }) =
 
 const buildInfoLines = (companyName?: string) => {
   const name = companyName || "Belirtilmedi";
-  return [`Sirket: ${name}`, `Tarih: ${formatDate(new Date())}`, "Versiyon: v1.0"];
+  return [`Şirket: ${name}`, `Tarih: ${formatDate(new Date())}`, "Versiyon: v1.0"];
 };
 
 export async function generateComplianceSummaryPdf(
@@ -303,7 +341,7 @@ export async function generateComplianceSummaryPdf(
 ) {
   const filePath = path.join(process.cwd(), "reports", "compliance", `${reportToken}-summary.pdf`);
   const doc = (
-    <DocShell title="Compliance Readiness Ozeti">
+    <DocShell title="Compliance Readiness Özeti">
       <View style={{ marginBottom: 8 }}>
         {buildInfoLines(companyName).map((line) => (
           <Text key={line}>{line}</Text>
@@ -316,7 +354,7 @@ export async function generateComplianceSummaryPdf(
         </Text>
       </View>
       <View style={{ marginBottom: 8 }}>
-        <Text style={styles.heading2}>Hazirlik Durumu</Text>
+        <Text style={styles.heading2}>Hazırlık Durumu</Text>
         <Text>ISO 27001: {result.readiness.iso27001}</Text>
         <Text>KVKK: {result.readiness.kvkk}</Text>
         <Text>SOC2 (Security): {result.readiness.soc2}</Text>
@@ -332,24 +370,26 @@ export async function generateComplianceSummaryPdf(
   return filePath;
 }
 
-export async function generateBgIncidentProcedurePdf(
+async function generateProcedurePdf(
+  key: ProcedureKey,
   reportToken: string,
   companyName: string | undefined,
   options?: { preview?: boolean },
 ) {
   const reportDir = path.join(process.cwd(), "reports", "compliance");
   await fs.mkdir(reportDir, { recursive: true });
-  const filePath = path.join(reportDir, `${reportToken}-bg-olay-siber-olay-yonetimi.pdf`);
+  const fileSlug = key === "bg" ? "bg-olay-siber-olay-yonetimi" : "denetim-izleri-yonetimi";
+  const filePath = path.join(reportDir, `${reportToken}-${fileSlug}.pdf`);
   const orgName = normalizeCompanyName(companyName);
-  const template = applyCompany(await loadTemplate(), orgName);
+  const template = applyCompany(await loadTemplate(key), orgName);
   const numberedBody = numberHeadings(template.body);
-  const previewItems = options?.preview ? getPreviewItems(numberedBody) : numberedBody;
+  const previewItems = options?.preview ? getPreviewItems(numberedBody, key) : numberedBody;
   const pageChunks = options?.preview ? [previewItems] : chunkItems(previewItems, 28);
 
   const doc = (
     <Document>
       <Page size="A4" style={styles.page}>
-        {renderHeader(orgName)}
+        {renderHeader(orgName, key)}
         {renderMetaTable(template.metaTable)}
         {renderTable(template.versionTable)}
         <Text style={styles.tocTitle}>İçindekiler</Text>
@@ -360,7 +400,7 @@ export async function generateBgIncidentProcedurePdf(
         ))}
         {options?.preview && (
           <Text style={styles.previewStamp}>
-            Onizleme, dokumanin kisaltilmis bir bolumudur. Tam dokuman odeme sonrasi teslim edilir.
+            Önizleme, dokümanın kısaltılmış bir bölümüdür. Tam doküman ödeme sonrası teslim edilir.
           </Text>
         )}
         {renderFooter(orgName)}
@@ -368,7 +408,7 @@ export async function generateBgIncidentProcedurePdf(
 
       {pageChunks.map((chunk, pageIndex) => (
         <Page key={`page-${pageIndex}`} size="A4" style={styles.page}>
-          {renderHeader(orgName)}
+          {renderHeader(orgName, key)}
           {chunk.map((item, idx) => renderItem(item, pageIndex * 1000 + idx))}
           {renderFooter(orgName)}
         </Page>
@@ -379,4 +419,20 @@ export async function generateBgIncidentProcedurePdf(
   const buffer = await pdf(doc).toBuffer();
   await fs.writeFile(filePath, buffer);
   return filePath;
+}
+
+export async function generateBgIncidentProcedurePdf(
+  reportToken: string,
+  companyName: string | undefined,
+  options?: { preview?: boolean },
+) {
+  return generateProcedurePdf("bg", reportToken, companyName, options);
+}
+
+export async function generateDenetimProcedurePdf(
+  reportToken: string,
+  companyName: string | undefined,
+  options?: { preview?: boolean },
+) {
+  return generateProcedurePdf("denetim", reportToken, companyName, options);
 }
