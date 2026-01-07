@@ -288,6 +288,9 @@ export default function CompliancePage() {
             CyberFaceX, bu dokümanların kullanımı sonucu oluşabilecek doğrudan veya dolaylı zararlardan sorumlu
             tutulamaz.
           </p>
+          <p className="mt-2 text-xs text-slate-500">
+            Iletisim: <a className="underline" href="mailto:info@cyberfacex.com">info@cyberfacex.com</a>
+          </p>
         </div>
       </div>
     </div>

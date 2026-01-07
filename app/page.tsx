@@ -333,6 +333,9 @@ export default function Home() {
             <span>•</span>
             <a className="underline hover:text-slate-900" href="/blog">Blog</a>
           </div>
+          <div>
+            Contact: <a className="underline hover:text-slate-900" href="mailto:info@cyberfacex.com">info@cyberfacex.com</a>
+          </div>
         </div>
       </footer>
     </div>
