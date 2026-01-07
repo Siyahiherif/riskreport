@@ -198,7 +198,13 @@ const renderTable = (rows: string[][]) => {
     <View style={styles.table}>
       <View style={styles.tableRow}>
         {header.map((cell, idx) => (
-          <Text key={`th-${idx}`} style={[styles.tableHeaderCell, idx === header.length - 1 ? { borderRightWidth: 0 } : null]}>
+          <Text
+            key={`th-${idx}`}
+            style={[
+              styles.tableHeaderCell,
+              idx === header.length - 1 ? { borderRightWidth: 0 } : {},
+            ]}
+          >
             {cell}
           </Text>
         ))}
@@ -206,7 +212,13 @@ const renderTable = (rows: string[][]) => {
       {bodyRows.map((row, ridx) => (
         <View key={`tr-${ridx}`} style={styles.tableRow}>
           {row.map((cell, cidx) => (
-            <Text key={`td-${ridx}-${cidx}`} style={[styles.tableCell, cidx === row.length - 1 ? { borderRightWidth: 0 } : null]}>
+            <Text
+              key={`td-${ridx}-${cidx}`}
+              style={[
+                styles.tableCell,
+                cidx === row.length - 1 ? { borderRightWidth: 0 } : {},
+              ]}
+            >
               {cell}
             </Text>
           ))}
