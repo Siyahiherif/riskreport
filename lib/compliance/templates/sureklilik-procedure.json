@@ -54,7 +54,7 @@
   "body": [
     {
       "type": "paragraph",
-      "text": "İş ve BT Süreklilik Prosedürü Aralık 2025Gizlidir.İşbu belge Moneyout Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.İş ve BT Süreklilik Prosedürü Aralık 2025Gizlidir.İşbu belge Moneyout Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz."
+      "text": ""
     },
     {
       "type": "list",
@@ -68,7 +68,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Moneyout bünyesinde gerçekleşebilecek olağanüstü ve/veya acil durum hallerinde hizmet sürekliliğinin sağlanması amacıyla İş ve BT Sürekliliği Planı, Acil ve Beklenmedik Durum Eylem Planı ve eklerinin oluşturulmasına ilişkin sürecin tanımlanması amacıyla oluşturulmuştur."
+      "text": "Örnek şirket bünyesinde gerçekleşebilecek olağanüstü ve/veya acil durum hallerinde hizmet sürekliliğinin sağlanması amacıyla İş ve BT Sürekliliği Planı, Acil ve Beklenmedik Durum Eylem Planı ve eklerinin oluşturulmasına ilişkin sürecin tanımlanması amacıyla oluşturulmuştur."
     },
     {
       "type": "list",
@@ -112,7 +112,7 @@
     {
       "type": "list",
       "level": 0,
-      "text": "Kurum, Kuruluş: Moneyout"
+      "text": "Kurum, Kuruluş: Örnek şirket"
     },
     {
       "type": "list",
@@ -122,12 +122,12 @@
     {
       "type": "list",
       "level": 0,
-      "text": "Yönetim Kurulu: Moneyout Yönetim Kurulu üyelerini"
+      "text": "Yönetim Kurulu: Örnek Şirket Yönetim Kurulu üyelerini"
     },
     {
       "type": "list",
       "level": 0,
-      "text": "Üst Yönetim: Moneyout‘un yönetim kurulu üyeleri ile genel müdür ve genel müdür yardımcıları, iç kontrol ve risk yönetimi ve uyum birimlerinin yöneticileri ile başka unvanlarla istihdam edilseler dahi yetki ve görevleri itibarıyla genel müdür yardımcısına denk veya daha üst konumlarda görev yapan yöneticileri"
+      "text": "Üst Yönetim: Örnek şirket yönetim kurulu üyeleri ile genel müdür ve genel müdür yardımcıları, iç kontrol ve risk yönetimi ve uyum birimlerinin yöneticileri ile başka unvanlarla istihdam edilseler dahi yetki ve görevleri itibarıyla genel müdür yardımcısına denk veya daha üst konumlarda görev yapan yöneticileri"
     },
     {
       "type": "list",
@@ -142,12 +142,12 @@
     {
       "type": "list",
       "level": 0,
-      "text": "Kaynak: Moneyout‘un normal iş sürecinde ve beklenmeyen durum sürecinde harekete geçirmek üzere sahip olduğu insan, teçhizat ve finansal değer taşıyan diğer unsurlar"
+      "text": "Kaynak: Örnek şirket normal iş sürecinde ve beklenmeyen durum sürecinde harekete geçirmek üzere sahip olduğu insan, teçhizat ve finansal değer taşıyan diğer unsurlar"
     },
     {
       "type": "list",
       "level": 0,
-      "text": "Birincil Sistemler: Moneyout‘un faaliyetlerini yerine getirmesi için gerekli bilgilerin elektronik ortamda güvenli ve istenildiği an erişime imkân sağlayacak şekilde kaydedilmesini ve kullanılmasını sağlayan altyapı, donanım, yazılım ve veriden oluşan sistemin tamamı"
+      "text": "Birincil Sistemler: Örnek şirket faaliyetlerini yerine getirmesi için gerekli bilgilerin elektronik ortamda güvenli ve istenildiği an erişime imkân sağlayacak şekilde kaydedilmesini ve kullanılmasını sağlayan altyapı, donanım, yazılım ve veriden oluşan sistemin tamamı"
     },
     {
       "type": "list",
@@ -551,11 +551,11 @@
     },
     {
       "type": "paragraph",
-      "text": "İş ve BT etki Analizi çalışması sonucunda önceliklendirilen süreçlerin olağanüstü durum halinde kurtarılması için gerekli olan asil ve yedek personeller iş birimleri yöneticileri tarafından belirlenir. Her bir süreç için belirlenen kurtarma ekiplerine ilişkin bilgiler “EK-2. Moneyout Kurtarma Ekipleri Listesi”nde yer alan Süreç Kurtarma Ekipleri bölümünde dokümante edilir."
+      "text": "İş ve BT etki Analizi çalışması sonucunda önceliklendirilen süreçlerin olağanüstü durum halinde kurtarılması için gerekli olan asil ve yedek personeller iş birimleri yöneticileri tarafından belirlenir. Her bir süreç için belirlenen kurtarma ekiplerine ilişkin bilgiler “EK-2. Örnek şirket Kurtarma Ekipleri Listesi”nde yer alan Süreç Kurtarma Ekipleri bölümünde dokümante edilir."
     },
     {
       "type": "paragraph",
-      "text": "Önceliklendirilen iş süreçlerini destekleyen BT varlıklarının kurtarılması için gerekli olan personel ya da tedarikçiler BT Direktörü tarafından belirlenir. “EK-2. Moneyout Kurtarma Ekipleri Listesi”nde yer alan BT Kurtarma Ekipleri bölümünde dokümante edilir."
+      "text": "Önceliklendirilen iş süreçlerini destekleyen BT varlıklarının kurtarılması için gerekli olan personel ya da tedarikçiler BT Direktörü tarafından belirlenir. “EK-2. Örnek şirket Kurtarma Ekipleri Listesi”nde yer alan BT Kurtarma Ekipleri bölümünde dokümante edilir."
     },
     {
       "type": "list",

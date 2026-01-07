@@ -134,8 +134,8 @@ const fixEncoding = (text: string) => {
 const replaceCompany = (text: string, companyName: string) => {
   const cleaned = fixEncoding(text);
   return cleaned
-    .replace(/Moneyout/gi, companyName)
-    .replace(/\u00d6rnek \u015eirket/gi, companyName)
+    .replace(/Örnek şirket/gi, companyName)
+    .replace(/\Örnek şirket \Örnek şirket/gi, companyName)
     .replace(/Ornek Sirket/gi, companyName)
     .replace(/Örnek Şirket/gi, companyName)
     .replace(/Örnek şirket/gi, companyName)
