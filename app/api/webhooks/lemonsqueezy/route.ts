@@ -31,8 +31,17 @@ export async function POST(req: NextRequest) {
   const rawBody = rawBuffer.toString("utf8");
   const signature =
     req.headers.get("x-signature") ||
+    req.headers.get("x-signature-256") ||
+    req.headers.get("x-signature-hmac-sha256") ||
     req.headers.get("X-Signature") ||
-    req.headers.get("x-signature".toUpperCase());
+    req.headers.get("X-Signature-256") ||
+    req.headers.get("X-Signature-HMAC-SHA256");
+  if (!process.env.LS_WEBHOOK_SECRET) {
+    return NextResponse.json({ error: "Missing LS_WEBHOOK_SECRET" }, { status: 500 });
+  }
+  if (!signature) {
+    return NextResponse.json({ error: "Missing signature header" }, { status: 401 });
+  }
   if (!verifySignature(rawBuffer, signature)) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
   }
