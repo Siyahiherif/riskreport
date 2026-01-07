@@ -99,7 +99,7 @@ const procedureConfig: Record<ProcedureKey, { title: string; docNo: string }> = 
     docNo: "PRO-BT-007",
   },
   kimlik: {
-    title: "KullanŽñcŽñ Kimlik ve Yetkilendirme YAnetimi ProsedA¬rA¬",
+    title: "Kullanıcı Kimlik ve Yetkilendirme Yönetimi Prosedürü",
     docNo: "PRO-BT-009",
   },
   sureklilik: {
@@ -109,11 +109,11 @@ const procedureConfig: Record<ProcedureKey, { title: string; docNo: string }> = 
 };
 
 const previewAnchors: Record<ProcedureKey, string> = {
-  bg: "Bilgi GA?venli?Yi Olaylar??na ??li?Ykin Kan??tlar??n Elde Edilmesi",
-  denetim: "Denetim ??zlerinin GAızden GeAĲirilmesi ve Raporlanmas??",
-  yedekleme: "Yedekleme Plan??n??n Olu?Yturulmas??",
-  kimlik: "Kimlik Do?Yrulama Teknikleri",
-  sureklilik: "???Y ve BT Etki Analizi",
+  bg: "Bilgi Güvenliği Olaylarına İlişkin Kullanıcı Kanıtlarının Elde Edilmesi",
+  denetim: "Denetim İzlerinin Gözden Geçirilmesi ve Raporlanması",
+  yedekleme: "Yedekleme Planının Oluşturulması",
+  kimlik: "Kimlik Doğrulama Teknikleri",
+  sureklilik: "İş ve BT Süreklilik Prosedürü",
 };
 
 const formatDate = (date: Date) => {
@@ -337,10 +337,10 @@ const isBulletSectionHeading = (text: string) => {
   const normalized = text.toLowerCase();
   return (
     normalized.includes("k?saltmalar") ||
-    normalized.includes("tan?mlar") ||
-    normalized.includes("tan?mlamalar") ||
+    normalized.includes("tanımlar") ||
+    normalized.includes("tanımlamalar") ||
     normalized.includes("ilgili kanun") ||
-    normalized.includes("d?zenlemeler")
+    normalized.includes("düzenlemeler")
   );
 };
 
@@ -381,10 +381,10 @@ const normalizeProcedureItems = (items: TemplateItem[]) => {
       const endsWithColon = /:$/.test(text);
       if (
         endsWithColon ||
-        lower.includes("a?Ya?Y??daki") ||
-        lower.includes("a?Ya?Y??da") ||
-        lower.includes("hususlar??") ||
-        lower.includes("a?a??daki")
+        lower.includes("aşağıdaki") ||
+        lower.includes("aşağıda") ||
+        lower.includes("hususlar") ||
+        lower.includes("aşağıda")
       ) {
         inBulletSection = true;
       } else if (isHeadingCandidate(text)) {
