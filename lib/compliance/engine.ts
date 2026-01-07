@@ -12,9 +12,9 @@ export type ComplianceResult = {
 };
 
 const riskWeights: Record<string, { bad: string[]; weight: number; label: string }> = {
-  security_training: { bad: ["no"], weight: 10, label: "Guvenlik farkindalik egitimi yok" },
-  incident_owner: { bad: ["none"], weight: 20, label: "Olay mudahale sorumlusu belirlenmemis" },
-  personal_data: { bad: ["yes"], weight: 10, label: "Kisisel veri isleniyor" },
+  security_training: { bad: ["no"], weight: 10, label: "Güvenlik farkındalık eğitimi yok" },
+  incident_owner: { bad: ["none"], weight: 20, label: "Olay mudahale sorumlusu belirlenmemiş" },
+  personal_data: { bad: ["yes"], weight: 10, label: "Kişisel veri işleniyor" },
 };
 
 const readinessFromScore = (score: number): "Ready" | "Partially Ready" | "Not Ready" => {
