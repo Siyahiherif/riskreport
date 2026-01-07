@@ -1,0 +1,1089 @@
+{
+  "metaTable": [
+    [
+      "Doküman Sorumlusu:",
+      "Bilgi Teknolojileri Birimi"
+    ],
+    [
+      "İlk Yayın Tarihi:",
+      "10.07.2024"
+    ],
+    [
+      "Versiyon No:",
+      "2"
+    ],
+    [
+      "Onay Tarihi:",
+      "26.12.2025"
+    ],
+    [
+      "Onay Makamı:",
+      "Yönetim Kurulu"
+    ],
+    [
+      "Gözden Geçirme Sıklığı:",
+      "Asgari iki yılda bir veya gerekli olması halinde daha kısa sürede"
+    ],
+    [
+      "Gözden Geçirme Sorumlusu:",
+      "Bilgi Teknolojileri Birimi"
+    ],
+    [
+      "Bir Sonraki Gözden Geçirme Tarihi:",
+      "26.12.2027"
+    ]
+  ],
+  "versionTable": [
+    [
+      "Versiyon",
+      "Tarih",
+      "Değişiklik Açıklaması"
+    ],
+    [
+      "1.0",
+      "10.07.2024",
+      "İlk Yayın"
+    ],
+    [
+      "2.0",
+      "26.12.2025",
+      "Süreç Değişikliği"
+    ],
+    [
+      "",
+      "",
+      ""
+    ]
+  ],
+  "toc": [
+    {
+      "label": "1.GİRİŞ",
+      "page": "3"
+    },
+    {
+      "label": "1.1.Amaç",
+      "page": "3"
+    },
+    {
+      "label": "1.2.Kapsam",
+      "page": "3"
+    },
+    {
+      "label": "1.3.İlgili kanun ve düzenlemeler kısmı yok",
+      "page": "3"
+    },
+    {
+      "label": "1.4.Tanımlamalar ve Kısaltmalar",
+      "page": "3"
+    },
+    {
+      "label": "2.GÖREV VE SORUMLULUKLAR",
+      "page": "4"
+    },
+    {
+      "label": "2.1.Bilgi Güvenliği Sorumlusu",
+      "page": "4"
+    },
+    {
+      "label": "2.2.BT Müdürü",
+      "page": "4"
+    },
+    {
+      "label": "2.3.Tedarikçi Firma",
+      "page": "5"
+    },
+    {
+      "label": "2.4.Çalışan",
+      "page": "5"
+    },
+    {
+      "label": "3.UYGULAMA",
+      "page": "5"
+    },
+    {
+      "label": "3.1.Bilgi Güvenliği Olaylarının Tanımlanması",
+      "page": "5"
+    },
+    {
+      "label": "3.2.Bilgi Güvenliği Olaylarının Tespit Edilmesi ve Bildirilmesi",
+      "page": "7"
+    },
+    {
+      "label": "3.3.Bilgi Güvenliği Olaylarının Analiz Edilmesi ve İletişim",
+      "page": "8"
+    },
+    {
+      "label": "3.4.Bilgi Güvenliği Olaylarına Müdahale Edilmesi",
+      "page": "9"
+    },
+    {
+      "label": "3.5.Bilgi Güvenliği Olaylarına İlişkin Kanıtların Elde Edilmesi",
+      "page": "10"
+    },
+    {
+      "label": "3.6.Bilgi Güvenliği Olaylarının Kapatılması",
+      "page": "11"
+    },
+    {
+      "label": "3.7.Bilgi Güvenliği Olaylarının Raporlanması ve İzlenmesi",
+      "page": "11"
+    },
+    {
+      "label": "3.8.Siber Olay Yönetimi",
+      "page": "11"
+    },
+    {
+      "label": "3.8.1Siber Olayların Tespit Edilmesi",
+      "page": "12"
+    },
+    {
+      "label": "3.8.2Siber Olayların Sınıflandırılması",
+      "page": "12"
+    },
+    {
+      "label": "3.8.3Siber Olaylara Müdahale Süreci",
+      "page": "13"
+    },
+    {
+      "label": "3.8.4Siber Olay Sonrasında İzlenecek Adımlar",
+      "page": "15"
+    },
+    {
+      "label": "3.8.5Siber Olayların Analizi ve Paydaşlar ile İlişkiler",
+      "page": "15"
+    },
+    {
+      "label": "4.İLGİLİ DOKÜMANLAR",
+      "page": "15"
+    }
+  ],
+  "body": [
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "GİRİŞ"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Amaç"
+    },
+    {
+      "type": "paragraph",
+      "text": "bilgi sistemleri altyapısında oluşabilecek güvenlik ihlallerinin zamanında tespit edilmesi, olaylara ilişkin aksiyon alınması, sebeplerinin analiz edilmesi ve kanıtların toplanması, sistemin en kısa sürede en az zarar ile tekrar çalışır duruma getirilmesi, olayların tekrar etmemesi konularında yönetim ve esaslar ile raporlanması konusundaki kuralları belirlemek amacıyla yayımlanmıştır."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Kapsam"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Güvenliği Olay Yönetimi Prosedürü tüm personeli, sözleşmeli personel, geçici personel ve kuruluş sistemlerine veya verilerine erişimi olan tedarikçi firmalar için geçerlidir. Bilgi güvenliği ihlal olayına yol açabilecek olası durumlar ve siber olaylar bu kapsamda ele alınmıştır."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "İlgini Kanun ve Düzenlemeler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ödeme ve Elektronik para kuruluşlarının bilgi sistemleri ile ödeme hizmeti sağlayıcılarının ödeme hizmetleri alanındaki veri paylaşım servislerine ilişkin tebliğ,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olay yönetimi ve siber olaylar – Madde 7"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Tanımlamalar ve Kısaltmalar"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "BT (Bilgi Teknolojileri): Bilgi Teknolojileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş Birimleri: Bilgi Teknolojileri birimi dışında kalan tüm grup ve birimler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurum, Kuruluş:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tebliğ: Ödeme Kuruluşları ve Elektronik Para Kuruluşlarının Bilgi Sistemlerinin Yönetimine ve Denetimine İlişkin Tebliğ"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "TCMB: Türkiye Cumhuriyet Merkez Bankası"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Üst Yönetim: yönetim kurulu üyeleri ile genel müdür ve genel müdür yardımcıları, İç Kontrol ve Risk Yönetimi ve Uyum Birimlerinin yöneticileri ile başka unvanlarla istihdam edilseler dahi yetki ve görevleri itibarıyla Genel müdür yardımcısına denk veya daha üst konumlarda görev yapan yöneticileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi Güvenliği Olayı: bilgi sistemleri altyapısını etkileyen, çalışmasını engelleyen veya bünyesindeki verilerin bütünlüğünün, erişilebilirliğinin ve gizliliğinin olumsuz etkilenmesine sebep olan olaylar"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi Güvenliği Zayıflığı: Sunucu, bilgisayar ve çeşitli cihazların birbirlerine çeşitli yöntemlerle bağlanmasıyla oluşan yapıya verilen genel ad"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim İzi (Log/İz Kaydı): Bir veri kaynağı hakkında zaman içindeki durumlarının ya da değişikliklerinin kayıt altına alınması sırasında oluşan sistemsel kayıtlar"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "DoS (Denial of Service): Bir hedefe yönelik gerçekleştirilen, sistemin hizmet vermesini, kullanıcıların sisteme erişmesini engelleyen bir siber saldırı türü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "DDoS (Distributed Denial of Service): DoS saldırısının bir kaynaktan yerine birden fazla sayıda ve farklı kaynaktan başlatılmasıyla gerçekleşen olay"
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "GÖREV VE SORUMLULUKLAR"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Güvenliği Sorumlusu"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi güvenliği olay yönetimi sürecinin prosedüre uygun olarak işletildiğinin kontrol edilmesi, izlenmesi ve raporlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Güvenlik cihazlarını takip ederek engellenen saldırıların değerlendirilmesi ve gerek görüldüğü durumlarda bilgi güvenliği olay yönetimi sürecinin uygulanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tarafına iletilen bilgi güvenliği olaylarının ivedilikle Üst Yönetim’e bildirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Gerçekleşen bilgi güvenliği olayının etkilerini azaltılması amacıyla aksiyon alınması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Gerçekleşen bilgi güvenliği olayının yeniden gerçekleşmemesi için alınması gereken aksiyonları belirlenmesi ve Üst Yönetim’e sunulması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Üst Yönetim tarafından onaylanan aksiyonların alınmasının sağlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "bünyesinde yaşanan olaylar, standartları ve dünya üzerinde bilgi güvenliği olayı olarak değerlendirilen olaylar doğrultusunda “EK-1. Bilgi Güvenliği Olayları Listesi”ni yılda en az bir defa güncellenmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi Güvenliği Olay Yönetimi Prosedürü’nü iç gereksinimler, standartları, yasal mevzuat ve uluslararası standartlar doğrultusunda yılda en az bir defa gözden geçirilerek güncellenmesinin sağlanması ve uygulanmasının takip edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Siber olay öncesinde muhtemel siber saldırılara karşı gerekli önlemlerin alınması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Zararlı yazılımlar, siber olaylar ve sektörde ortaya çıkan dolandırıcılık yöntemleri hakkında erken müdahalenin sağlanması ve bu olaylar hakkında bilgilendirmelerin yapılması."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "BT Müdürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi güvenliği olaylarına müdahale edilmesi, prosedüre uyumu engelleyen yetkileri veya bu duruma sebep olan ortamı değiştirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tespit edilen bilgi güvenliği olaylarının ivedilikle Üst Yönetim’e bildirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Meydana gelen güvenlik olaylarının Bilgi Güvenliği Sorumlusu’na raporlanmasından ve siber olaylara müdahale planı kapsamında belirlenen aksiyonların alınması ve alınmasının sağlanması."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Tedarikçi Firma"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi güvenliği olaylarına müdahale edilmesi, prosedüre uyumu engelleyen yetkileri veya bu duruma sebep olan ortamı değiştirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tespit edilen bilgi güvenliği olaylarının ivedilikle BT Müdürü’ne bildirilmesi."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Çalışan"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Örnek bilgi güvenliği olayları doğrultusunda karşılaştığı olayları veya kullanılan bilgi sistemleri altyapısında karşılaştığı şüpheli olabilecek olayları ivedilikle BT Müdürü’ne bildirmek."
+    },
+    {
+      "type": "heading",
+      "level": 1,
+      "text": "UYGULAMA"
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Güvenliği Olaylarının Tanımlanması"
+    },
+    {
+      "type": "paragraph",
+      "text": "Moneyout bilgi sistemleri altyapısını etkileyen, çalışmasını engelleyen veya Moneyout bünyesindeki verilerin bütünlüğünün, erişilebilirliğinin ve gizliliğinin olumsuz etkilenmesine sebep olan olaylar bilgi güvenliği olayı olarak tanımlanmaktadır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Verilen örnekler ile sınırlı olmamak ile birlikte bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi Güvenliği Politikası’na uyumsuzluk."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi sistemleri servislerine yapılan ataklar."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "hizmetlerinde kesintiye sebebiyet verebilecek bilgi sistemleri olayları."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kritik bilgilerin yetkisiz olarak değiştirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Personelin veya müşterinin bilgi gizliliğini etkileyecek olaylar."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kuruluş verilerinin Bilgi Güvenliği Politikası’na aykırı bir şekilde kopyalanması, çıktılarının alınması, çalışanlarla veya üçüncü taraflarla paylaşılması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kuruluş verilerinin ve bilgi varlıklarının kaybolması, çalınması, erişilebilirliğinin, gizliliğinin veya bütünlüğünün bozulması (bilgisayar, CD veya USB bellek gibi)."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bir virüs saldırısı veya herhangi bir zararlı kodun kuruluş bilgi sistemleri bünyesinde çalıştırılması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "personelinin çalışma ortamındaki beklenmedik veya tanıdık olmayan bir olay ile karşılaşılması (Bilgisayarın masaüstünde yeni bir dosya ile karşılaşılması veya bir dosyanın içindekilerin beklenmedik bir şekilde değişmesi gibi)."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "personelinin sahip olduğu yazılım veya donanımda, personelin bilgisi veya onayı olmaksızın kod çalışması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi sistemlerine gerekli onayları almadan bağlanmış cihazların tespit edilmesi."
+    },
+    {
+      "type": "paragraph",
+      "text": "Güvenlik olayları, olayın gerçekleşmesi durumunda  maruz kalabileceği etkiler göz önünde bulundurularak dört seviyede sınıflandırılmaktadır. Söz konusu sınıflara ilişkin açıklamalar ve örnek olaylar aşağıdaki gibi açıklanmıştır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kritik: Bu kategorideki olaylar kriz yönetimi gerektiren ve sistemlerin çalışmasını doğrudan ve kapsamlı olarak etkileyen veya “Bilgi Varlıkları Belirleme ve Sınıflandırma Prosedürü” doğrultusunda “Çok Gizli” olarak tanımlanan verilerin gizliliğinin, bütünlüğünün ve erişilebilirliğinin zarar görmesine sebebiyet veren olaylardır. Verilen örnekler ile sınırlı olmamak ile birlikte kritik seviyeli bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "hizmetlerinin kesintiye uğraması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Çok Gizli” verilerin yetkisiz kişilerce elde edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yetkili kullanıcı seviyesinde yetkisiz kullanıcılar tarafından sisteme girilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yetkili kullanıcı haklarına sahip kullanıcının yetkisini kötüye kullanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "hizmetlerini kesintiye uğratacak zararlı yazılım (virüs, trojan, worm vb.) aktivitesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistem servislerine yapılan başarılı ataklar."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistem dosyalarının ve erişim yetkilerinin yetkisiz değiştirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Çok Gizli” veri içeren bir cihazın çalınması ya da kaybolması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yüksek: Bu kategorideki olaylar Bilgi Güvenliği Politikası’nı veya bu politika içerisinde yer alan prosedürlerini ihlal etmiş ve bir ya da birkaç sistemde sistem operasyonlarının çalışmasını olumsuz etkileyen veya “Bilgi Varlıkları Belirleme ve Sınıflandırma Prosedürü” doğrultusunda “Gizli” olarak tanımlanan verilerin gizliliğinin, bütünlüğünün ve erişilebilirliğinin zarar görmesine sebebiyet veren olaylar bütünüdür. Verilen örnekler ile sınırlı olmamak ile birlikte yüksek seviyeli bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yetkili kullanıcı seviyesinde yetkisiz kullanıcılar tarafından sisteme girilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yetkili kullanıcı haklarına sahip kullanıcının yetkisini kötüye kullanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Parola paylaşımı sonucuyla oluşan yetki ihlalleri."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bir ya da daha çok sistemde gerçekleşen zararlı yazılım (virüs, trojan, worm vb.) aktivitesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistem servislerine yapılan başarılı ataklar."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kontrol edilemeyen bir ağdan gelen kontrolsüz e-postalar."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistem dosyalarının ve erişim yetkilerinin yetkisiz değiştirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Gizli” veri içeren bir cihazın çalınması ya da kaybolması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Gizli” verilerin yetkisiz kişilerce elde edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Orta: Bu olaylar sistem operasyonlarını etkilememiş ancak Bilgi Güvenliği Politikası’nı veya bu politika içerisinde yer alan prosedürlerine aykırı davranılmış veya “Bilgi Varlıkları Belirleme ve Sınıflandırma Prosedürü” “Kuruma Özel” olarak tanımlanan verilerin gizliliğinin, bütünlüğünün ve erişilebilirliğinin zarar görmesine sebebiyet veren güvenlik ihlalleridir. Verilen örnekler ile sınırlı olmamak ile birlikte orta seviyeli bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Başarısız DoS/DDoS atakları."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kuruluş dışından kuruluşun sistem ve uygulamalarına yetkisiz erişim teşebbüsleri."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ağ ve güvenlik cihazları üzerindeki ihlaller."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Düşük seviyeli ataklarının çoklu tekrarları."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Kuruma Özel” veri içeren bir cihazın çalınması ya da kaybolması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Kuruma Özel” verilerin yetkisiz kişilerce elde edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Düşük: Bu olaylar tam saldırı olarak tanımlanamamış, sistem operasyonları üzerinde etkisi olmayan işlemlerdir.  Verilen örnekler ile sınırlı olmamak ile birlikte düşük seviyeli bilgi güvenliği olaylarına örnek olabilecek olaylar aşağıdaki gibi sıralanmıştır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ağ güvenlik cihazları ile tespit edilerek engellenen ataklar."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistem ya da ağ üzerinde bulunmuş fakat temizlenmiş zararlı yazılımlar (virüs, trojan vb.)."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bir sistem veya bilgisayar üzerindeki uygunsuz içerik."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bir kullanıcının parolasının bir başkası tarafından kullanılması (yetkisiz kullanıcı), ancak finansal zarar oluşturmaması ve/veya kuruluş prestijini olumsuz etkilememesi."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Güvenliği Olaylarının Tespit Edilmesi ve Bildirilmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "çalışanları ve sistemlerine veya verilerine erişimi olan üçüncü parti çalışanlar ile destek hizmeti kuruluşları “3.1.1 Bilgi Güvenliği Olaylarının Tanımlanması” başlığı doğrultusunda gerçekleşen veya gerçekleşmesinden şüphe edilen bilgi güvenliği olaylarını e-posta aracılığı ile ivedilikle Bilgi Güvenliği Sorumlusu’ne ulaşılamadığı durumlarda ise BT Müdürü’ne bildirmek ile yükümlüdür."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi güvenliği olaylarının tespit edilmesi durumunda kanıtların bozulmasına sebep olabilecek bir hareketten kaçınılmalıdır."
+    },
+    {
+      "type": "paragraph",
+      "text": "BT müdürlüğü bünyesinde bilgi güvenliği olaylarının önceden tespitini sağlamak ve engellemek amacıyla bünyesinde “Ağ Güvenlik Yönetimi Prosedürü” kapsamında ağ ve güvenlik cihazları ile bilgi sistemleri altyapısı izlenmekte ve denetlenmektedir. “İz Kayıtları Yönetimi Prosedürü” bilgi sistemleri üzerindeki sistemler, uygulamalar, cihazlar ve veritabanları üzerindeki değişiklikler kayıt altına alınarak şüpheli aktiviteler izlenmektedir. Bu doğrultuda verilen örnekler ile sınırlı kalmamak ile birlikte aşağıda örnek olarak belirtilen verilen olayların tespiti durumunda bilgi güvenliği olay yönetimi süreci işletilmelidir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Antivirüs yazılımı ile sunucu, veritabanı, sistemler üzerinde temizlenmemiş zararlı yazılım (virüs, trojan, worm vb.) tespit edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Merkezi kayıt sistemi tarafından sistemler üzerindeki denetim izlerinin silindiğinin veya değiştirildiğinin tespit edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Denetim izlerine çoklu yetkisiz erişim denemelerinin tespit edilmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ağ trafiğinde ve ağ güvenlik cihazları üzerinden alınan uyarılarda olağandışı bir farklılık tespit edilmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "DoS/DDoS ataklarının tespit edilmesi."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Güvenliği Olaylarının Analiz Edilmesi ve İletişim"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tespit edilen ve bildirilen bilgi güvenliği olayları ve olaylara ilişkin kanıtlar Bilgi Güvenliği Sorumlusu tarafından incelenerek analiz edilir. Analiz sonucunda bilgi güvenliği olayı olarak değerlendirilen olaylar için; olayın kaynağı, etkilenen sistemler, hangi araç veya saldırı tekniklerinin kullanıldığı, hangi zafiyetlerin kullanıldığı, gizlilik, erişilebilirlik veya bütünlüğü olumsuz etkilenen veriler tespit edilerek bilgi güvenliği olayına ilişkin etki seviyesi belirlenir. Etki seviyesinin “Kritik” veya “Yüksek” olarak belirlenmesi durumunda Üst Yönetim ivedilikle haberdar edilir ve olaya acil olarak müdahale edilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Analizi gerçekleştirilen bilgi güvenliği olayları doğrultusunda gerek görüldüğü durumlarda aşağıdaki partiler de bilgi güvenliği olayının durumu ile ilgili sürekli olarak bilgilendirilmelidir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Mali İşler ve İnsan Kaynakları Müdürü: İnsan kaynaklı meydana gelen olaylarda (eposta ile taciz, politika ihlalleri, yetkisiz erişim vb.)."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Hukuk: Yasal mevzuata uyumsuzluğa sebebiyet verebilecek olayların yaşanması durumlarında."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurumsal İletişim: Müşterileri ilgilendiren olayların yaşanması durumlarında."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Güvenliği Olaylarına Müdahale Edilmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tespit edilen güvenlik olayına göre müdahale süreci farklılık göstermek ile bilgi güvenliği olaylarının seviyelerine göre aşağıda belirtilen sürelerde müdahale edilir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Anlık Müdahale: Kritiklik seviyesi kritik olarak değerlendirilen bilgi güvenliği olayına yönelik en kısa zamanda aksiyonun alınması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Günlük Müdahale: Kritiklik seviyesi yüksek olarak değerlendirilen bilgi güvenliği olayına yönelik bir iş günü içerisinde aksiyonun alınması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "3 günlük Müdahale: Kritiklik seviyesi orta olarak değerlendirilen bilgi güvenliği olayına yönelik azami 3 iş günü içerisinde aksiyonun alınması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Haftalık Müdahale: Kritiklik seviyesi düşük olarak değerlendirilen bilgi güvenliği olayına yönelik 5 iş günü içerisinde aksiyonun alınması."
+    },
+    {
+      "type": "paragraph",
+      "text": "Tespit edilen güvenlik olayına göre müdahale süreci farklılık göstermek ile birlikte uygun görüldüğü durumlarda aşağıdaki aksiyonların öncelikli olarak gerçekleştirilmesi esastır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Virüs veya zararlı yazılım tespit edilen durumlarda sistemlerin ağ bağlantılarının kesilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tehdidi yaratan bağlantı noktalarının kapatılması ve gerek görüldüğü durumlarda bilgisayarlara el koyulması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Güvenlik ihlali durumunda kullanıcıların, kullanıcı hesabı ve/veya ağına erişim yetkisinin kapatılması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Güvenlik ihlallerinin diğer ağ donanımlarını etkilemesi ihtimaline karşı tüm ağ erişiminin kapatılması ve BT müdürlüğü tarafından güvenli durumun oluştuğuna karar verilmesi durumunda ağ erişimlerinin tekrar açılması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi sistemleri dahilinde gerçeklesen kritik faaliyetlere ilişkin yetkilendirme veritabanlarının güvenilirliğini yitirmesi durumunda, ilgili veritabanları güncel ve güvenilir duruma getirilene kadar kullanılmaz, güvenilir olmayan veritabanları üzerinden yetkilendirme ve erişim hakkı tahsisi işlemleri gerçekleştirilmez."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Güvenliği Olaylarına İlişkin Kanıtların Elde Edilmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi güvenliği olayının tespit edilmesinden itibaren olaya ilişkin tüm kanıtların ve aşamaların kayıt altına alınması önem arz etmektedir. Bu kapsamda sistem olayları, telefon konuşmaları, dosyalar üzerinde tespit edilen değişiklikler ve olayın oluşmasından itibaren izlenen ve aksiyon alınan tüm adımlar zaman damgalı olarak saklanmalıdır. Mümkün olması durumunda bilgi güvenliği olayına müdahale ekibinin iki kişiden oluşması, bir personel tarafından olaya müdahale edilirken diğeri tarafından olayın kayıt altına alınması tüm denetim izlerinin kayıt altına alınması sağlanmalıdır. Bu kapsamda yaşanan tüm bilgi güvenliği olayları “EK-2. Bilgi Güvenliği Olayı Raporu” üzerinde kayıt altına alınmalı ve dokümante edilmelidir. Olay kaydı kapsamında aşağıdaki bilgilere erişilmelidir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olayın güncel durumu."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olay ile ilgili özet bilgi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olaya ilişkin alınan aksiyonlar."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sürece dahil olan tüm personele ve tedarikçi firmalara ilişkin bilgiler."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olay incelemesi sırasında elde edilen kanıtların listesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olay müdahale ekibi yorumları."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Gelecek dönem aksiyonları."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi güvenliği olayına ilişkin kanıtların elde edilmesinin öncelikli sebebi olayın çözülmesinin sağlanması olmak ile birlikte gerek görüldüğü durumlarda söz konusu kanıtların yasal merciiler tarafından talep edilmesi durumları söz konu olabilmektedir. Bu gibi durumlar için yasa ve mevzuatlara uygun olarak kayıt altına alınarak saklanmalıdır. Elde edilen kanıtlar için asgari olarak aşağıdaki denetim izlerinin tutulması esastır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kimlik bilgileri (lokasyon, seri numarası, model numarası, MAC adresi, IP adresi vb.)."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Analiz ve inceleme aşamalarında olay kayıtlarını toplayan, oluşturan ve erişimi olan kişilerin kimlik bilgileri (adı, soyadı, unvanı, iletişim bilgileri)."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Elde edilen her kanıt dokümana ilişkin zaman damgası."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kanıtların saklandığı lokasyonlar."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi güvenliği olaylarına ilişkin elde edilen kanıtlar güvenlik açıkları, sistem zafiyetleri gibi için kritik bilgiler içerebileceğinden kanıtların tutulduğu veritabanına sadece görevi gereği erişim ihtiyacı olan personelin erişebilmesi önem arz etmektedir. Kanıtlar için saklama süresi yasa ve mevzuatlar doğrultusunda belirlenir ve “Yedekleme Yönetimi Prosedürü” doğrultusunda yedeklenerek saklama süresi sonunda imha edilir."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Güvenliği Olaylarının Kapatılması"
+    },
+    {
+      "type": "paragraph",
+      "text": "Her bir olayın giderilmesi ve sistemlerin normal işleyişine dönmesi sonrası, BT müdürlüğü güvenlik olay verilerini toplayarak analiz ederek, bu süreçten edinilen deneyimi değerlendir ve çözüm çalışmalarında yer alan ekibi bilgilendirir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Güvenliği Sorumlusu olayın neden ve sonuçlarını inceleyerek olayın bir daha olmasını engelleme amaçlı ne tür uygulamaların devreye alınabileceğini, olaya maruz sistemlerde alınabilecek yeni güvenlik önlemlerini belirler ve engelleyici/düzeltici yöntemler, yöntemlerin süre ve finansal açıdan tahmini maliyetleri ile sorumlularını da içerecek bilgileri raporlayarak üst yönetime sunar."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Bilgi Güvenliği Olaylarının Raporlanması ve İzlenmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Güvenliği Sorumlusu tarafından Moneyout bünyesinde yaşanan başarılı veya başarısız tüm olaylara ilişkin olayın kapanmasını müteakip “EK-2. Bilgi Güvenliği Olayı Raporu” kullanılarak olay raporu hazırlanır ve Üst Yönetim değerlendirilmesine sunulur. Rapor kapsamında aşağıdaki maddelerin açıklanması esastır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olayın bildiriminden itibaren konuya dair ulaşan tüm bilgiler, bilgiyi ulaştıran kişi/birim, ilgili kişinin/birimin erişim bilgileri,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olay kapsamında dahil olan sistemdeki aktiviteler, bunların oluşma veya fark edilme tarih ve zamanları,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olaydan etkilenen veri, ağ, sistem ve uygulama kaynaklarının listesi,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olaya dair yapılan tüm görüşmelerde iletişim kurulan kişilerin listesi,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olaya yönelik çalışmaların ne kadar sürdüğü bilgisi,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olayın tekrar oluşmasının önlenmesi amacıyla belirlenen aksiyon planı."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Güvenliği Sorumlusu tarafından onaylanan aksiyonların durumları BT müdürlüğü tarafından takip edilir."
+    },
+    {
+      "type": "heading",
+      "level": 2,
+      "text": "Siber Olay Yönetimi"
+    },
+    {
+      "type": "paragraph",
+      "text": "Prosedür kapsamında siber olaylardan sonra Bilgi Teknolojileri hizmetlerini normal işleyişine döndürmek amacıyla gerçekleşen siber olayların yönetilmesi, takip edilmesi ve güvenlik önlemlerinin alınmasına yönelik siber olay yönetimi ve siber olaylara müdahale süreci tasarlanmıştır."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Siber Olayların Tespit Edilmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "meydana gelebilecek siber olaylar farklı birimler aracılığıyla farklı yöntemler ile tespit edilebilir. Örnek olabilecek siber güvenlik olaylarına aşağıda yer verilmiştir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistemleri kilitlenmesine sebep olan, kullanıcıya ve kuruma ait verileri ele geçirmeyi hedefleyen, sistemleri kötü niyetli yazılımlara karşı korumasız bırakan ataklar (İng. Malware),"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistemler üzerinde gerçekleşen olağan dışı işlemler, yetkinin suistimal edilmesinden kaynaklanan olaylar (Sistem hataları, yetkili kullanıcıların olası kötü niyetli işlemleri, zararlı yazılımlara maruz kalma vb.),"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İtibarı etkileyen olaylar (Tehdit, sır niteliğinde verilerin dışarıya sızması, ifşa edilmesi vb.)"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Hizmet kesintisine veya yavaşlamasına neden olabilecek ataklar (DDoS, vb.),"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kuruluş sistemlerine sızılan ve belirli bir süre sonra etkilerinin görülebildiği veri sızıntısı, yetkisiz ve usulsüz işlemler sonucu büyük finansal kayıplara neden olabilecek ataklar (APT),"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi güvenliği gözetim faaliyetleri, denetim izi ve alarmlar ile tespit edilen olağandışı veya şüpheli işlemler,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistemlerdeki açıklıkların ifşa olmasından kaynaklanan olaylar (Sızma testi sonuçlarının ifşa olması vb.),"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi Güvenliği Politikası ve politikanın referans gösterdiği prosedürlerin ihlal edilmesi olaylarının bütünü,"
+    },
+    {
+      "type": "paragraph",
+      "text": "Yukarıda örneği verilen olayların tespit edilmesi halinde ivedilikle Bilgi Güvenliği Sorumlusu’nun bilgilendirilmesi sağlanmalıdır."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Siber Olayların Sınıflandırılması"
+    },
+    {
+      "type": "paragraph",
+      "text": "Siber olayların önem derecelerine uygun olacak şekilde ele alınmasını sağlamak üzere, siber olayların önemlilik sınıflandırmasına yönelik kriterler yazılır ve gerçekleşen her bir siber olayın bu kriterlere göre belirlenen önem düzeyiyle uygun bir zamanda çözüme kavuşturulmasına yönelik müdahale planları oluşturulur. Buna göre siber olayların sınıflandırılmasına ilişkin bünyesinde aşağıda belirtilen sınıflandırma modeli kullanılmaktadır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kritik: Niteliksiz ya da nitelikli saldırgan tarafından dış ağından gerçekleştirilen ve sistemin tamamen ele geçirilmesi ile sonuçlanan saldırılardır. Bu saldırılar sonucunda kritik hizmetlerin ve/veya ana faaliyetlerin kesintiye uğrama durumu ortaya çıkabilir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yüksek: dış ağından gerçekleştirilen ve hizmet dışı kalma ile sonuçlanan, yerel ağdan ya da sunucu üzerinden gerçekleştirilen ve sistemlerin çalışmasını doğrudan ve/veya kapsamlı olarak etkileyen saldırılardır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Orta: Yerel ağdan veya sunucu üzerinden gerçekleştirilen ve kısa bir süre hizmet dışı bırakılma ile sonuçlanan saldırılardır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Düşük: Etkilerinin tam olarak belirlenemediği saldırılardır. Bu olaylar tam saldırı olarak tanımlanamamış, sistem operasyonları üzerinde etkisi olmayan işlemlerdir."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Siber Olaylara Müdahale Süreci"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Güvenliği Sorumlusunun tarafından siber olaylara müdahale koordinasyonunun gerçekleştirilmesi ve siber olayların çözümüne yönelik aşağıdaki adımlar izlenir ve delillerin toplanmasına azami önem gösterilir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Siber olay kaynağının tespitinin sağlanması ve etki analizinin gerçekleştirilmesi:"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Olayın kaynağının ve etkisinin analiz edilmesi,"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Denetim izlerinin incelenmesi,"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Önleyici faaliyetlerin belirlenmesi ve uygulanması,"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Delillerin toplanması (Çözüme geçmeden önce sistemin yedeği alınmalıdır.),"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Geçici çözümün belirlenmesi ve uygulanması,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İlk müdahale sonrası, olayın tipine bağlı olarak ilgili iç ve dış kaynakların bilgilendirilmesi, iletişimin koordine edilmesi,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Müdahalenin tamamlanması, kalıcı çözümün belirlenmesi ve uygulanması,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Siber olay sonrası detaylı olay analizinin gerçekleştirilmesi ve olay raporunun oluşturulması,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yaşanılan olaylarla ilgili yönetimin bilgilendirilmesi, öğrenilen derslere bağlı olarak alınabilecek ek aksiyonların ve önleyici faaliyetlerin Üst Yönetim’e sunulması,"
+    },
+    {
+      "type": "paragraph",
+      "text": "siber olaylara müdahale planlaması, siber olayın tespiti, analizi ve sınıflandırılmasından sonra hayata geçirilir. Buna göre;"
+    },
+    {
+      "type": "table",
+      "rows": [
+        [
+          "Olay Sınıfı",
+          "Müdahale",
+          "Nihai Çözüm",
+          "Üst Yönetim’e Raporlama"
+        ],
+        [
+          "Kritik",
+          "1 gün",
+          "3 gün",
+          "7 gün"
+        ],
+        [
+          "Yüksek",
+          "1 gün",
+          "5 gün",
+          "7 gün"
+        ],
+        [
+          "Orta",
+          "5 gün",
+          "14 gün",
+          "30 gün"
+        ],
+        [
+          "Düşük",
+          "10 gün",
+          "30 gün",
+          "-"
+        ]
+      ]
+    },
+    {
+      "type": "paragraph",
+      "text": "“Düşük” olarak sınıflandırılan olaylar için bir müdahale planı geliştirilmesine gerek bulunmamaktadır. Bu olaylarla bilgi teknolojileri bölümünün tarafından belirlenmiş görev, yetki ve sorumluluk tanımlarında bulunan faaliyetler kapsamında müdahale edilir. “Düşük” seviyeli olarak sınıflandırılan olaylar için en geç 72 saat içinde analiz yapılarak Üst Yönetim’e olay raporu sunulur."
+    },
+    {
+      "type": "paragraph",
+      "text": "“Önemli” ve “Kritik” olaylara Bilgi Güvenliği Sorumlusu’nun koordinasyonu ile sorumlu ekipler veya hizmet alınan firma tarafından bildirime istinaden anında müdahale edilir. Olay tespit edildiği anda Bilgi Güvenliği Sorumlusu tarafından belgelenerek Üst Yönetim’e bildirilir. Müdahale planı hayata geçirilirken yaşanan siber olayın, verilerin sızması ya da ifşası ile sonuçlanması ya da ikincil sistemlerin devreye alınması gibi hallerde Yönetim Kurulu’na olay bildirimi yapılır. Olay sona erdikten sonra 24 saat içinde Üst Yönetim’e olay raporu sunulur."
+    },
+    {
+      "type": "paragraph",
+      "text": "Oluşturulan müdahale planlarında öngörülen senaryolar için, faaliyetlerin güvenilir bir şekilde sürdürülmesini sağlayan etkili bir tepki süreci oluşturulur. Müdahale planları kapsamında, bilgi sistemlerine ilişkin olayın kaynağını hızlı bir şekilde bulma, yetkili birimlere ulaşma, olayın potansiyel boyutunu, etkisini, hasarı ve etkilenen müşterileri tespit etme ve olayı çözüme kavuşturma süreçleri ele alınır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Güvenliği Sorumlusu bilgi sistemlerine yetkisiz erişim yapılmaması için gerekli tedbirleri alır veya aldırır. Acil durum koordinasyonunu sağlayarak gerekli tüm bilgilendirmeleri e-posta ve telefon üzerinden yapar. Saldırı konularının özelliğine göre ilgili kişilere ulaşarak aksiyon planlaması yapar. Ulaşılan ilgili kişilerin siber olayın aciliyeti ve önemine göre gerekirse fiziksel olarak lokasyonundan müdahale etmesi sağlanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Yaşanan bir siber olayın büyüyerek bir krize dönüşmesi, verilerin sızması ya da ifşası ile sonuçlanması veya ikincil merkezin devreye alınması gibi hallerde ivedilikle BT Müdürü ve Üst Yönetim bilgilendirilir. Hassas verilerin veya kişisel verilerin sızmasına ya da ifşasına yol açan bir siber olayın yaşanması durumunda tarafından yapılacak değerlendirme sonrasında müşterilerin bilgilendirilmesi sağlanır. Siber olay müdahale akışı içinde herhangi bir suç unsuruna rastlanması durumunda (5651 Kanun ihlali vb.) savcılık, kolluk makamı gibi yasal makamlara haber verilir."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Siber Olay Sonrasında İzlenecek Adımlar"
+    },
+    {
+      "type": "paragraph",
+      "text": "bir siber olaya müdahale edildikten sonra hiç zaman kaybetmeden olaya neden olan nedenler belirlenir ve olaya ilişkin bilgiler “EK-2. Bilgi Güvenliği Olayı Raporu” doldurularak kayıt altına alınır. Olayla ilgili olarak gerçekleştirilebilecek düzeltici/önleyici faaliyetlere ilişkin öneriler bilgi teknolojileri birimine ve Üst Yönetim’e arz edilir. Yaşanan siber olayların türleri, etki alanı ve maliyetleri ölçülüp izlenir."
+    },
+    {
+      "type": "heading",
+      "level": 3,
+      "text": "Siber Olayların Analizi ve Paydaşlar ile İlişkiler"
+    },
+    {
+      "type": "paragraph",
+      "text": ", yaşanan bir siber olayın büyüyerek bir krize dönüşmesi, verilerin sızması ya da ifşası ile sonuçlanması, “İş ve BT Sürekliliği Prosedürü”nün ya da ikincil merkezin devreye alınması gibi hallerde Bilgi Güvenliği Sorumlusu derhal Üst Yönetim’i ve Yönetim Kurulu’nu bilgilendirir. Hassas verilerin ya da kişisel verilerin sızmasına ya da ifşasına yol açan bir siber olayın yaşanması halinde Kuruluş tarafından yapılacak değerlendirme sonrasında müşterilerin bilgilendirilmesi sağlanır. Bilgi teknolojileri hizmetlerinde ciddi kesintilere veya bozulmalara yol açan kritik ve önemli olarak sınıflandırılmış siber olaylar için bir kök neden ve etki analizi yaparak benzer olayların tekrarını önlemek için iyileştirici önlemler alır ve yapılan çalışmaları Üst Yönetim’e bildirir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İLGİLİ DOKÜMANLAR"
+    },
+    {
+      "type": "paragraph",
+      "text": "“RP-BT-001” Bilgi Güvenliği Olayı Raporu"
+    }
+  ]
+}
