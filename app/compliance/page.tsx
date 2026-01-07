@@ -56,6 +56,10 @@ export default function CompliancePage() {
         throw new Error(json?.error || "Gonderim basarisiz");
       }
       setResult(json);
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("compliance_report_token", json.reportToken);
+        window.localStorage.setItem("compliance_report_email", email);
+      }
     } catch (err: any) {
       setError(err?.message || "Hata olustu");
     } finally {

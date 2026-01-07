@@ -13,6 +13,9 @@ export const buildCheckoutUrl = ({ reportToken, email, companyName }: CheckoutIn
   }
 
   const url = new URL(base);
+  const redirectBase = process.env.REPORT_BASE_URL ?? "https://cyberfacex.com";
+  url.searchParams.set("checkout[success_url]", `${redirectBase}/compliance/access?token=${reportToken}`);
+  url.searchParams.set("checkout[cancel_url]", `${redirectBase}/compliance`);
   url.searchParams.set("checkout[custom][reportToken]", reportToken);
   url.searchParams.set("checkout[custom][email]", sanitize(email));
   if (companyName) {

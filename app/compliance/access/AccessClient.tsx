@@ -46,7 +46,8 @@ const STATUS_COPY: Record<
 
 export default function AccessClient() {
   const params = useSearchParams();
-  const token = params.get("token");
+  const queryToken = params.get("token");
+  const [token, setToken] = useState<string | null>(null);
   const [status, setStatus] = useState<Status>("pending");
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
   const [isPolling, setIsPolling] = useState(false);
@@ -54,10 +55,25 @@ export default function AccessClient() {
   const statusCopy = useMemo(() => STATUS_COPY[status], [status]);
 
   useEffect(() => {
-    if (!token) {
-      setStatus("not_found");
+    if (queryToken) {
+      setToken(queryToken);
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("compliance_report_token", queryToken);
+      }
       return;
     }
+    if (typeof window !== "undefined") {
+      const stored = window.localStorage.getItem("compliance_report_token");
+      if (stored) {
+        setToken(stored);
+        return;
+      }
+    }
+    setStatus("not_found");
+  }, [queryToken]);
+
+  useEffect(() => {
+    if (!token) return;
 
     let timer: NodeJS.Timeout | null = null;
     let stopped = false;

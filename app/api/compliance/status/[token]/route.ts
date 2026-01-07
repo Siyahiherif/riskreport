@@ -10,7 +10,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ token: str
     return Response.json({ status: "not_found" }, { status: 404 });
   }
 
-  if (report.expiresAt < new Date()) {
+  if (report.expiresAt && report.expiresAt < new Date()) {
     return Response.json({ status: "expired" });
   }
 
