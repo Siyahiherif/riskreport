@@ -25,7 +25,10 @@ const verifySignature = (raw: string, signature: string | null) => {
 
 export async function POST(req: NextRequest) {
   const rawBody = await req.text();
-  const signature = req.headers.get("x-signature");
+  const signature =
+    req.headers.get("x-signature") ||
+    req.headers.get("X-Signature") ||
+    req.headers.get("x-signature".toUpperCase());
   if (!verifySignature(rawBody, signature)) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
   }
@@ -39,7 +42,9 @@ export async function POST(req: NextRequest) {
   const data = payload?.data;
   const lemonOrderId = data?.id as string;
   const attributes = data?.attributes ?? {};
-  const productId = String(attributes.product_id ?? "");
+  const productId = String(
+    attributes.first_order_item?.product_id ?? attributes.product_id ?? ""
+  );
   const email = attributes.user_email ?? attributes.email ?? null;
   const complianceProductId = process.env.LS_PRODUCT_COMPLIANCE;
   const domainField =
