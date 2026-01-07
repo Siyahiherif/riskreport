@@ -23,7 +23,7 @@ export default function CompliancePage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<SubmitResult | null>(null);
-  const [previewDoc, setPreviewDoc] = useState<"bg" | "denetim">("bg");
+  const [previewDoc, setPreviewDoc] = useState<"bg" | "denetim" | "yedekleme">("bg");
 
   const setSingle = (id: string, value: string) => {
     setAnswers((prev) => ({ ...prev, [id]: value }));
@@ -110,6 +110,15 @@ export default function CompliancePage() {
               >
                 Denetim İzleri
               </button>
+              <button
+                type="button"
+                onClick={() => setPreviewDoc("yedekleme")}
+                className={`rounded-full px-3 py-1 transition ${
+                  previewDoc === "yedekleme" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"
+                }`}
+              >
+                Yedekleme Yönetimi
+              </button>
             </div>
             <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
               <iframe
@@ -128,6 +137,7 @@ export default function CompliancePage() {
             <ul className="mt-4 space-y-2 text-sm text-slate-700">
               <li>- BG Olay ve Siber Olay Yönetimi Prosedürü (PDF)</li>
               <li>- Denetim İzleri Yönetimi Prosedürü (PDF)</li>
+              <li>- Yedekleme Yönetimi Prosedürü (PDF)</li>
             </ul>
             <p className="mt-4 text-xs text-slate-500">
               Not: Önizleme kısa tutulur. Tam doküman, şirketinize özel PDF olarak üretilir.

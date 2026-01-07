@@ -1,0 +1,400 @@
+{
+  "metaTable": [
+    [
+      "Doküman Sorumlusu:",
+      ""
+    ],
+    [
+      "İlk Yayın Tarihi:",
+      ""
+    ],
+    [
+      "Versiyon No:",
+      ""
+    ],
+    [
+      "Onay Tarihi:",
+      ""
+    ],
+    [
+      "Onay Makamı:",
+      ""
+    ],
+    [
+      "Gözden Geçirme Sıklığı:",
+      ""
+    ],
+    [
+      "Gözden Geçirme Sorumlusu:",
+      ""
+    ],
+    [
+      "Bir Sonraki Gözden Geçirme Tarihi:",
+      ""
+    ]
+  ],
+  "versionTable": [
+    [
+      "Versiyon",
+      "Tarih",
+      "Değişiklik Açıklaması"
+    ]
+  ],
+  "toc": [],
+  "body": [
+    {
+      "type": "list",
+      "level": 0,
+      "text": "GİRİŞ"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Amaç"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum tarafından yönetilen bilgi sistemlerinde herhangi bir arızadan dolayı veya kasıtlı olarak oluşabilecek veri kayıplarını, tahribatları ve hizmet kesintilerini önlemek veya en aza indirgemek için kritik verilerin ve sistemlerin yedeklenmesi, yedeklerin saklanması, periyodik olarak test edilmesi ve ihtiyaç halinde yedekten geri dönüş işlemlerinin gerçekleştirilmesi konuları kapsamında uyumlu süreç adımlarını belirlemek."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kapsam"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Teknolojileri tarafından yönetilen ve tedarikçi firmalar tarafından destek hizmeti alınan tüm bilgi sistemleri operasyonlarına ilişkin periyodik yedek ve yedekten dönme işlemlerini kapsamaktadır."
+    },
+    {
+      "type": "paragraph",
+      "text": "İlgili kanun ve Düzenlemeler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ödeme ve elektronik para kuruluşlarının bilgi sistemleri ile ödeme hizmeti sağlayıcılarının ödeme hizmetleri alanındaki veri paylaşım servislerine ilişkin tebliğ"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İkincil merkez, ikincil sistem ve veri yedekleme merkezi – Madde 16"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kısaltmalar ve Tanımlar"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "BT: Bilgi Teknolojileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurum/Kuruluş: Örnek şirket"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Veri: İş operasyonlarının sürekliliğini garanti altına almak için gereken bilgi ve sistem dosyaları."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Varlık Sahibi: Varlık Belirleme ve Sınıflandırma Şeması’na göre belirlenmiş olan varlıkların sahipliğine atanmış olan personel."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedekleme: Orijinalleri bozulduğunda, en az kayıpla geri yüklemeyi sağlayacak şekilde ilgili verilerin veya programların kopyalarının gereken zamanlarda saklanması, geri yüklenecek şekilde muhafazası ve talep üzerine bu verilere ve programlara erişimin sağlanmasına yönelik işlemlerdir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "GÖREV ve SORUMLULUKLAR"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Teknolojileri Müdürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Yedekleme Planı”nın gözden geçirilmesi ve onaylanması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedekleme planına eklenecek/değiştirilecek yedekleme taleplerinin onaylanması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Acil durumlarda yedekleme/ geri yükleme işlemlerinin başlatılmasına onay verilmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedekten geri yükleme testlerinin gözden geçirilmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Yedekleme Planı”nı hazırlamak ve varlık sahipleri ile birlikte çalışarak yılda en az bir defa planın gözden geçirilerek güncellenmesinin sağlanması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Yedekleme Planı” doğrultusunda yedekleme sürecinin işletilmesi ve yedekleme medyalarını plan kapsamında belirlenen koşullarda muhafaza edilmesinin sağlanması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedekleme işlemlerinin takibini gerçekleştirmek ve gün sonu mevcut durum hakkında bilgileri içeren dokümanı hazırlanmak, aylık olarak BT müdürüne raporlamak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedek geri yükleme taleplerinin gerçekleştirilmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Yedekleme planı” doğrultusunda yedek geri dönüş testlerinin gerçekleştirilmesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Prosedürün yılda en az bir defa gözden geçirilerek güncellenmesinin sağlanması"
+    },
+    {
+      "type": "paragraph",
+      "text": "Çalışan"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sahibi olduğu varlıklar için yedekleme periyodu, yedekleme tipi ve saklama sürelerini belirlemek."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sahibi olduğu varlıklar için saklama süresi sonunda varlıkların imha edilmesi amacıyla Bilişim Teknolojilerine bilgi vermek."
+    },
+    {
+      "type": "paragraph",
+      "text": "Genel Müdür"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İmha edilecek medyaları iş gereksinimleri ve ihtiyaçlar doğrultusunda değerlendirerek onay vermek, imha sürecine gözlemci olarak katılmak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "UYGULAMA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum bünyesinde bilgi varlıklarının korunması ve veri kayıplarının önlenmesi amacı ile ikincil bir merkez oluşturulur. İş ihtiyaçları, İş Etki Analizi çalışması sonuçları, yasal gereklilikler ile uyumlu “Yedekleme Planı” formatına uygun olarak yedekleme planının oluşturulması esastır. Yedekleme planı kapsamında, yedeklenecek verilere, yedekleme periyodu ve yöntemine, yedek saklama sürelerine, yedekleme tipine, yedeklerin şifrelenmesine, uzak ofise iletilme ihtiyaçlarına, yedek saklama ortamı ve saklama ortamının özelliklerine yer verilir. Yedekleme faaliyetleri, oluşturulan yedekleme planı doğrultusunda gerçekleştirilir ve yedekleme denetim izlerinin yedekleme esnasında oluşması sağlanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Yedekleme planının oluşturulması kapsamında “Varlık Belirleme ve Sınıflandırma Şeması” doğrultusunda belirlenen Varlık Sahibi tarafından sahibi olduğu varlığın Kurum politikalarına ve yasal mevzuata uygun olarak yedeklenmesi, saklanması ve imha edilmesi için gerekli bilgilendirmeleri yapması esastır. “Yedekleme Planı” kapsamında ağ ve güvenlik cihazları konfigürasyon yedekleri ile ses kayıtlarının yedeklerinin alınmasına ilişkin gereksinimler de belirlenmektedir."
+    },
+    {
+      "type": "paragraph",
+      "text": "BT Operasyon Sorumlusu ve Varlık Sahibi tarafından periyodik olarak gözden geçirilen ve güncellenen “Yedekleme Planı” doğrultusunda belirlenen veriler için plan kapsamında belirlenen periyotlarda BT Operasyon Sorumlusu tarafından yedekten geri dönüş testleri gerçekleştirilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yedekleme Planının Oluşturulması"
+    },
+    {
+      "type": "paragraph",
+      "text": "İş sürekliği süreci kapsamında gerçekleştirilen İş Etki Analizi çalışmalarının sonucuna göre yedeklenecek sistemler ve yedekleme periyodu BT Operasyon Sorumlusu ve Varlık Sahiplerinin ortak çalışmaları sonucu belirlenir. Bu doğrultuda BT Operasyon Sorumlusu tarafından “Yedekleme Planı” oluşturulur. Oluşturulan “Yedekleme Planı” BT müdürü onayından geçer."
+    },
+    {
+      "type": "paragraph",
+      "text": "“Yedekleme Planı” asgari olarak aşağıdaki hususları içermelidir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedeği Alınan Sunucu İsmi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedekleme Sıklığı"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedekleme Yapılacak Günler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedekleme Tipi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedekleri Saklama Süresi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedekleri Saklama Ortamı"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yedeklemede Kullanılan Yazılım"
+    },
+    {
+      "type": "paragraph",
+      "text": "“Yedekleme Planı” kapsamında ağ ve güvenlik cihazları konfigürasyon yedekleri ile ses kayıtlarının yedeklerinin alınmasına ilişkin gereksinimler de belirlenmektedir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Plana yeni eklenen veya değiştirilen her yedekleme işlemi için BT müdürünün onayı alınır."
+    },
+    {
+      "type": "list",
+      "level": 2,
+      "text": "Yedekleme Tipleri"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tam (Full) Yedekleme: Yedeklenmesi istenen verilerin her seferinde yeniden tamamının yedeklerinin alınmasını ifade eden yedekleme yöntemidir. Tam yedekleme yönteminde orijinal verinin birebir aynısını her seferinde tekrar alınması sebebiyle, orijinal veriyle aynı boyutta yer kaplamaktadır. Bu sebeple, bu yedekleme yönetimi yedek alma süresini uzatmakta ve ihtiyaç duyulan yedekleme sıklığını zorlaştırmaktadır. Öte yandan, tam yedekleme yönetimi, bilginin geri döndürülme ihtiyacı ortaya çıktığında orijinal verinin tamamını içermesi sebebiyle başka yöntemlere ihtiyaç duymaz. Kurum bünyesinde bütün yedekleme işlemlerinin başlangıç noktası olarak görüldüğünden, tüm yedekleme işlemleri bütün veriler için ilk adımdır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ayrımsal (Differential) Yedekleme: Yedeklik istenen verilerde alınan son tam yedek sonrası değişen dosyaların yedeklerinin alınmasını ifade eden yedekleme yöntemidir. Sadece en son alınan tam yedeğe göre farkın yedeklenmesi sebebiyle tam yedekleme işlemine göre daha hızlıdır ve yedekleme medyası üzerinde daha düşük alan kaplamaktadır. Her zaman son alınan tam yedeğe göre işlemin yapılması nedeniyle, yedeklenen veri miktarı sürekli olarak artış göstermektedir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Artımlı (Incremental) Yedekleme: Alınan son yedek sonrası değişen dosyaların yedeklerinin alınmasını ifade eden yedekleme yöntemidir. Sadece en son değişikliklerin yedeklenmesi sebebiyle yedekleme işleminin tamamlanma süresi kısadır. Yedekten geri dönüş işlemi yapılmak istediğinde tam yedekleme ve ayrımsal yedekleme ile yapılmış yedeklere ihtiyaç vardır. Bu nedenle geri dönüş hızı ve geri dönüş başarısı düşüktür. Kurum bünyesinde anlık olarak alınması gereken yedekler buna göre işlenmektedir."
+    },
+    {
+      "type": "list",
+      "level": 2,
+      "text": "Yedeklenecek Verilerin Belirlenmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi sistemlerinde oluşabilecek kesinti sürelerini ve muhtemel bilgi kayıplarını önlemek veya en alt düzeye indirmek için sistemlerin düzenli olarak yedeklenmesi esastır. Bu doğrultuda varlık sahibi tarafından, belirlenen kritik bilgi varlıklarına yönelik yedekleme gereksinimleri aşağıda belirtilen hususlar göz önüne alınarak tanımlanır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yeni bir bilgi sisteminin devreye alınması,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Mevcut bilgi sisteminde değişiklik yapılması,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Geriye dönük veri erişim ihtiyaçları,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İhtiyaç halinde erişilemeyen veriler,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş Etki Analizi sonuçları,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Veri saklama sürelerine ilişkin yasal zorunluluklar."
+    },
+    {
+      "type": "paragraph",
+      "text": "Varlık Sahibi tarafından belirlenen yedekleme gereksinimleri doğrultusunda BT Operasyon Sorumlusu tarafından yedekleme planı oluşturulur."
+    },
+    {
+      "type": "paragraph",
+      "text": "Yedekleme planı dışındaki ek gereksinimlerin oluşması veya planda değişiklik yapılması ihtiyacı durumunda talep sahibi iş birimleri tarafından Talep Yönetim Sistemi aracığıyla Bilişim Teknolojileri’ne talep bildirilir. Talepte bulunan birim tarafından yedekleme periyodu, yedekleme tipi ve saklama süresi belirlenir ve açılan talebe istinaden onay süreci başlatılır. Talep; talep sahibi, birim yöneticisi, Varlık Sahibi ve BT Operasyon Sorumlusu onayına sunulur.  Talebin onaylanması durumunda talep edilen yedekleme periyodu, yedekleme tipi ve saklama süresi doğrultusunda “Yedekleme Planı” güncellenir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yedekleme İşlemlerinin Gerçekleştirilmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "“Yedekleme Planı” doğrultusunda belirlenen veriler Kurum Bilişim Teknolojileri birimi tarafından yedeklenir. Kurum BT sorumluluğunda bulunan sistemlere ilişkin yedekleme süreci izlenir ve izleme sonuçları ‘‘Yedekleme Kontrol Listesi’’ne işlenir. Hatalı veya eksik olan yedeklemeler manüel olarak yeniden çalıştırılır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Acil değişiklik, güvenlik olayı veya yedekleme sürecini etkileyecek BT olay ve problemlerinin oluştuğu durumlarda, planlananın dışında yedekleme/geri yükleme işlemlerinin başlatılması yetkisi BT müdüründedir. Ayrıca, “Yedekleme Planı”nda bir değişiklik yapılmasına gerek olmadan, geçici olarak yedekleme zamanlarındaki değişiklik yapma yetkisi, veri sınıflandırması ve İş Etki Analizi çalışmaları sonuçlarında elde edilen yedekleme gerekliliklere uygun kalmak kaydıyla yine BT müdüründedir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Geri Yükleme ve Yedekten Geri Dönüş Testleri"
+    },
+    {
+      "type": "paragraph",
+      "text": "İş birimleri tarafından ihtiyaç doğrultusunda anlık olarak yedekten geri dönüş talebi Talep Yönetim Sistemi aracılığı ile BT Operasyon Sorumlusuna iletilir. BT Operasyon Sorumlusu tarafından değerlendirilen talebe ilişkin geri yükleme işlemi uygun görülmesi sonucu gerçekleştirilir. Kullanıcılara ait dosyaların yedek geri yükleme talepleri için BT Operasyon Sorumlusunun onayı gerekmeksizin talep BT Birimi tarafından ele alınır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Günlük, aylık, haftalık ve yıllık olarak farklı periyotlarda gerçekleştirilen yedekleme işlemlerinin doğru sonuçlandığına ve yedeklenen verilerin erişilebilirlik ve bütünlüğüne ilişkin güvence sağlanması amacıyla periyodik olarak yedeklerden geri dönüş testlerinin gerçekleştirilmesi esastır. Bu doğrultuda, “Yedekleme Planı” kapsamında belirlenen veriler için, uzak ofise iletilen yedekler de dahil olmak üzere plan kapsamında belirlenen periyotlarda yedeklerden geri dönüş testleri gerçekleştirilir ve kartuşların çalışıp çalışmadığı kontrol edilir. Geri dönülen verilerin doğrulanması Varlık Sahibi sorumluluğundadır. Varlık sahibinden onay alınması doğrultusunda test sonuçları “Yedekten Geri Dönüş Test Formu” kapsamında dokümante edilir. Test sonucunun olumsuz olması durumunda destek alınan firmalara sorunun kaynağının tespiti için danışılır. Soruna ilişkin sebebin tespit edilememesi durumunda listenin güncellenmesine ek olarak ilgili Varlık Sahipleri ve İç Kontrol bilgilendirilerek soruna ilişkin aksiyon planı geliştirilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Geri dönüş testlerine ek olarak, BT Süreklilik Planı kapsamında yılda en az bir defa olmak üzere Kurumun bütün işleyişi bir gün boyunca Olağanüstü Durum Merkezi üzerinden gerçekleştirilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yedeklerin Uzak Konuma Gönderilmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "Yedeklerin uzak konuma gönderilme işlemleri Yedekleme Uygulaması ile yönetilir.  Sistem odasında bulunan sunucuların, Olağanüstü Durum Merkezi’nde (ODM) bulunan sunuculara yedeklenmesi sağlanır. Yedekler, şifreleme yöntemleri kullanılarak ulaşacağı noktaya iletilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Alınan yedekler, iş gereklilikleri ve kanuni saklama süresi yükümlülükleri de göz önünde bulundurularak; ihtiyaç duyulduğunda kullanılmak üzere Olağanüstü Durum Merkezi’nde (ODM) saklanır. Denetim izlerine ait yedeklerin asgari olarak 10 yıl süreyle saklanması sağlanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Veri merkezlerine ve sistem odalarını izleyen kamera kayıt sistemlerinin görüntüleri “Yedekleme Planı” kapsamına alınır ve ikincil merkezde yedeklenir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Yedeklerin ihtiyaç duyulması halinde 24 saatten fazla olmayacak şekilde makul bir sürede bu yedeklerden geri dönüş sağlanarak inceleme yapılmasına imkân verecek şekilde saklanması esastır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yedeklerin İmhası"
+    },
+    {
+      "type": "paragraph",
+      "text": "Saklama süresi dolan veya veri yedekleme esnasında bozulan kartuşların imha edilmesi önem arz etmektedir. İlgili Varlık Sahibi verinin saklama süresi ile ilgili Kurum politikaları ve yasal düzenlemeleri göz önünde bulundurarak Bilişim Teknolojilerini bilgilendirir. Yedeklerin imhası “İmha Prosedürü” doğrultusunda gerçekleştirilir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İLGİLİ DOKÜMANLAR"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İLGİLİ DOKÜMANLAR KISMI EKLENMESİ GEREK"
+    }
+  ]
+}

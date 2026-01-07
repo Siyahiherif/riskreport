@@ -75,11 +75,12 @@ type TemplateDoc = {
   body: TemplateItem[];
 };
 
-type ProcedureKey = "bg" | "denetim";
+type ProcedureKey = "bg" | "denetim" | "yedekleme";
 
 const templateMap: Record<ProcedureKey, string> = {
   bg: path.join(process.cwd(), "lib", "compliance", "templates", "bg-incident-procedure.json"),
   denetim: path.join(process.cwd(), "lib", "compliance", "templates", "denetim-procedure.json"),
+  yedekleme: path.join(process.cwd(), "lib", "compliance", "templates", "yedekleme-procedure.json"),
 };
 
 const procedureConfig: Record<ProcedureKey, { title: string; docNo: string }> = {
@@ -91,11 +92,16 @@ const procedureConfig: Record<ProcedureKey, { title: string; docNo: string }> = 
     title: "Denetim İzleri Yönetimi Prosedürü",
     docNo: "PRO-BT-004",
   },
+  yedekleme: {
+    title: "Yedekleme Yönetimi Prosedürü",
+    docNo: "PRO-BT-007",
+  },
 };
 
 const previewAnchors: Record<ProcedureKey, string> = {
   bg: "Bilgi Güvenliği Olaylarına İlişkin Kanıtların Elde Edilmesi",
   denetim: "Denetim İzlerinin Gözden Geçirilmesi ve Raporlanması",
+  yedekleme: "Yedekleme Planının Oluşturulması",
 };
 
 const formatDate = (date: Date) => {
@@ -109,10 +115,7 @@ const normalizeCompanyName = (companyName?: string) => companyName?.trim() || "�
 
 const fixEncoding = (text: string) => {
   const decoded = Buffer.from(text, "latin1").toString("utf8");
-  return decoded
-    .replace(/ƒ\?o/g, "\"")
-    .replace(/ƒ\?\?/g, "\"")
-    .replace(/�/g, "");
+  return decoded.replace(/ƒ\?o/g, "\"").replace(/ƒ\?\?/g, "\"").replace(/�/g, "");
 };
 
 const replaceCompany = (text: string, companyName: string) => {
@@ -120,6 +123,7 @@ const replaceCompany = (text: string, companyName: string) => {
   return cleaned
     .replace(/Moneyout/gi, companyName)
     .replace(/Örnek Şirket/gi, companyName)
+    .replace(/Örnek şirket/gi, companyName)
     .replace(/\{\{COMPANY\}\}/g, companyName);
 };
 
@@ -219,8 +223,8 @@ const renderMetaTable = (rows: string[][]) => (
   <View style={styles.table}>
     {rows.map((row, idx) => (
       <View key={`meta-${idx}`} style={styles.tableRow}>
-        <Text style={[styles.tableCell, { flex: 1, fontWeight: "bold" }]}>{fixEncoding(row[0])}</Text>
-        <Text style={[styles.tableCell, { flex: 2 }]}>{fixEncoding(row[1])}</Text>
+        <Text style={[styles.tableCell, { flex: 1, fontWeight: "bold" }]}>{fixEncoding(row[0] || "")}</Text>
+        <Text style={[styles.tableCell, { flex: 2 }]}>{fixEncoding(row[1] || "")}</Text>
       </View>
     ))}
   </View>
@@ -270,15 +274,18 @@ const renderTocLine = (label: string, page: string) => {
     .replace(/(\d)\.(?=\S)/g, "$1. ")
     .replace(/(\d)([A-Za-zÇĞİÖŞÜçğıöşü])/g, "$1 $2")
     .trim();
+  if (!page) {
+    return clean;
+  }
   const dots = ".".repeat(Math.max(3, 80 - clean.length));
   return `${clean} ${dots} ${page}`;
 };
 
 const renderItem = (item: TemplateItem, idx: number) => {
   if (item.type === "heading") {
-    if (item.level === 1) return <Text key={`h1-${idx}`} style={styles.heading1}>{fixEncoding(item.text)}</Text>;
-    if (item.level === 2) return <Text key={`h2-${idx}`} style={styles.heading2}>{fixEncoding(item.text)}</Text>;
-    return <Text key={`h3-${idx}`} style={styles.heading3}>{fixEncoding(item.text)}</Text>;
+    if (item.level === 1) return <Text key={`h1-${idx}`} style={styles.heading1}>{item.text}</Text>;
+    if (item.level === 2) return <Text key={`h2-${idx}`} style={styles.heading2}>{item.text}</Text>;
+    return <Text key={`h3-${idx}`} style={styles.heading3}>{item.text}</Text>;
   }
   if (item.type === "list") {
     const indent = BULLET_INDENT * (item.level + 1);
@@ -286,7 +293,7 @@ const renderItem = (item: TemplateItem, idx: number) => {
     return (
       <View key={`li-${idx}`} style={[styles.listRow, { marginLeft: indent - BULLET_INDENT }]}>
         <Text style={styles.listBullet}>{bulletSymbol}</Text>
-        <Text style={styles.listText}>{fixEncoding(item.text)}</Text>
+        <Text style={styles.listText}>{item.text}</Text>
       </View>
     );
   }
@@ -295,15 +302,72 @@ const renderItem = (item: TemplateItem, idx: number) => {
   }
   return (
     <Text key={`p-${idx}`} style={styles.paragraph}>
-      {fixEncoding(item.text)}
+      {item.text}
     </Text>
   );
 };
 
+const isHeadingCandidate = (text: string) => {
+  const trimmed = text.trim();
+  if (trimmed.length === 0) return false;
+  if (trimmed.length > 60) return false;
+  if (/[.!?]$/.test(trimmed)) return false;
+  const words = trimmed.split(/\s+/).length;
+  if (words > 7) return false;
+  return true;
+};
+
+const normalizeYedeklemeItems = (items: TemplateItem[]) => {
+  let inBulletSection = false;
+  return items.map((item) => {
+    if (item.type === "heading") {
+      inBulletSection = false;
+      return item;
+    }
+
+    if (item.type === "table") {
+      inBulletSection = false;
+      return item;
+    }
+
+    if (item.type === "paragraph") {
+      const text = item.text.trim();
+      const lower = text.toLowerCase();
+      const endsWithColon = /:$/.test(text);
+      if (endsWithColon || lower.includes("aşağıdaki") || lower.includes("aşağıda") || lower.includes("hususları")) {
+        inBulletSection = true;
+      } else if (isHeadingCandidate(text)) {
+        inBulletSection = false;
+        return { type: "heading", level: 2, text } as TemplateItem;
+      } else {
+        inBulletSection = false;
+      }
+      return item;
+    }
+
+    if (item.type === "list") {
+      const text = item.text.trim();
+      if (!inBulletSection && isHeadingCandidate(text)) {
+        const level = item.level === 0 ? 1 : item.level === 1 ? 2 : 3;
+        inBulletSection = false;
+        return { type: "heading", level, text } as TemplateItem;
+      }
+      return item;
+    }
+
+    return item;
+  });
+};
+
+const buildTocFromHeadings = (items: TemplateItem[]) =>
+  items
+    .filter((item) => item.type === "heading")
+    .map((item) => ({ label: item.text, page: "" }));
+
 const getPreviewItems = (items: TemplateItem[], key: ProcedureKey) => {
   const anchor = previewAnchors[key];
   const normalize = (text: string) =>
-    fixEncoding(text).toUpperCase().replace(/[^\w\s]/g, " ").replace(/\s+/g, " ").trim();
+    text.toUpperCase().replace(/[^\w\s]/g, " ").replace(/\s+/g, " ").trim();
   const startIndex = items.findIndex(
     (item) => item.type === "heading" && normalize(item.text).includes(normalize(anchor)),
   );
@@ -378,11 +442,14 @@ async function generateProcedurePdf(
 ) {
   const reportDir = path.join(process.cwd(), "reports", "compliance");
   await fs.mkdir(reportDir, { recursive: true });
-  const fileSlug = key === "bg" ? "bg-olay-siber-olay-yonetimi" : "denetim-izleri-yonetimi";
+  const fileSlug =
+    key === "bg" ? "bg-olay-siber-olay-yonetimi" : key === "denetim" ? "denetim-izleri-yonetimi" : "yedekleme-yonetimi";
   const filePath = path.join(reportDir, `${reportToken}-${fileSlug}.pdf`);
   const orgName = normalizeCompanyName(companyName);
   const template = applyCompany(await loadTemplate(key), orgName);
-  const numberedBody = numberHeadings(template.body);
+  const normalizedBody = key === "yedekleme" ? normalizeYedeklemeItems(template.body) : template.body;
+  const numberedBody = numberHeadings(normalizedBody);
+  const toc = template.toc.length ? template.toc : buildTocFromHeadings(numberedBody);
   const previewItems = options?.preview ? getPreviewItems(numberedBody, key) : numberedBody;
   const pageChunks = options?.preview ? [previewItems] : chunkItems(previewItems, 28);
 
@@ -393,7 +460,7 @@ async function generateProcedurePdf(
         {renderMetaTable(template.metaTable)}
         {renderTable(template.versionTable)}
         <Text style={styles.tocTitle}>İçindekiler</Text>
-        {template.toc.map((item) => (
+        {toc.map((item) => (
           <Text key={item.label} style={styles.tocLine}>
             {renderTocLine(item.label, item.page)}
           </Text>
@@ -435,4 +502,12 @@ export async function generateDenetimProcedurePdf(
   options?: { preview?: boolean },
 ) {
   return generateProcedurePdf("denetim", reportToken, companyName, options);
+}
+
+export async function generateYedeklemeProcedurePdf(
+  reportToken: string,
+  companyName: string | undefined,
+  options?: { preview?: boolean },
+) {
+  return generateProcedurePdf("yedekleme", reportToken, companyName, options);
 }
