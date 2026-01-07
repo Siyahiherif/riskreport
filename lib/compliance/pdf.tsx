@@ -88,23 +88,23 @@ const templateMap: Record<ProcedureKey, string> = {
 const procedureConfig: Record<ProcedureKey, { title: string; docNo: string }> = {
   bg: {
     title: "BG Olay ve Siber Olay Yönetimi Prosedürü",
-    docNo: "PRO-BT-003",
+    docNo: "",
   },
   denetim: {
     title: "Denetim İzleri Yönetimi Prosedürü",
-    docNo: "PRO-BT-004",
+    docNo: "",
   },
   yedekleme: {
     title: "Yedekleme Yönetimi Prosedürü",
-    docNo: "PRO-BT-007",
+    docNo: "",
   },
   kimlik: {
     title: "Kullanıcı Kimlik ve Yetkilendirme Yönetimi Prosedürü",
-    docNo: "PRO-BT-009",
+    docNo: "",
   },
   sureklilik: {
-    title: "ŽøY ve BT SA¬reklilik ProsedA¬rA¬",
-    docNo: "PRO-BT-015",
+    title: "İş ve BT Süreklilik Prosedürü",
+    docNo: "",
   },
 };
 
