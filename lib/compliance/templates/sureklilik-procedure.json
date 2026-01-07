@@ -1,0 +1,720 @@
+{
+  "metaTable": [
+    [
+      "Doküman Sorumlusu:",
+      "Bilgi Teknolojileri Birimi"
+    ],
+    [
+      "İlk Yayın Tarihi:",
+      "10.07.2024"
+    ],
+    [
+      "Versiyon No:",
+      "2"
+    ],
+    [
+      "Onay Tarihi:",
+      "26.12.2025"
+    ],
+    [
+      "Onay Makamı:",
+      "Yönetim Kurulu"
+    ],
+    [
+      "Gözden Geçirme Sıklığı:",
+      "Asgari iki yılda bir veya gerekli olması halinde daha kısa sürede"
+    ],
+    [
+      "Gözden Geçirme Sorumlusu:",
+      "Bilgi Teknolojileri Birimi"
+    ],
+    [
+      "Bir Sonraki Gözden Geçirme Tarihi:",
+      "26.12.2027"
+    ]
+  ],
+  "versionTable": [
+    [
+      "Versiyon",
+      "Tarih",
+      "Değişiklik Açıklaması"
+    ],
+    [
+      "1.0",
+      "10.07.2024",
+      "İlk Yayın"
+    ],
+    [
+      "2.0",
+      "26.12.2025",
+      "Süreç Değişikliği"
+    ]
+  ],
+  "toc": [],
+  "body": [
+    {
+      "type": "paragraph",
+      "text": "İş ve BT Süreklilik Prosedürü Aralık 2025Gizlidir.İşbu belge Moneyout Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz.İş ve BT Süreklilik Prosedürü Aralık 2025Gizlidir.İşbu belge Moneyout Elektronik Para ve Ödeme Hizmetleri A.Ş.’nin yazılı izni olmaksızın çoğaltılıp dağıtılamaz."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "GİRİŞ"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Amaç"
+    },
+    {
+      "type": "paragraph",
+      "text": "Moneyout bünyesinde gerçekleşebilecek olağanüstü ve/veya acil durum hallerinde hizmet sürekliliğinin sağlanması amacıyla İş ve BT Sürekliliği Planı, Acil ve Beklenmedik Durum Eylem Planı ve eklerinin oluşturulmasına ilişkin sürecin tanımlanması amacıyla oluşturulmuştur."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Kapsam"
+    },
+    {
+      "type": "paragraph",
+      "text": "Süreklilik planlarının oluşturulması amacıyla iş etki analizlerinin gerçekleştirilmesi, kritik süreçleri destekleyen bilgi varlıklarının belirlenmesi, kurtarma ekiplerinin oluşturulması, planların test edilmesi, dağıtılması ve saklanmasına yönelik adımları kapsamaktadır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "İlgili Kanun ve Düzenlemeler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ödeme ve elektronik para kuruluşlarının bilgi sistemleri ile ödeme hizmeti sağlayıcılarının ödeme hizmetleri alanındaki veri paylaşım servislerine ilişkin tebliğ"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi sistemleri süreklilik planı – Madde 14"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Kısaltmalar ve Tanımlamalar"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "BT: Bilgi Teknolojileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş Birimleri: Bilgi Teknolojileri birimi dışında kalan tüm grup ve birimler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurum, Kuruluş: Moneyout"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tebliğ: Ödeme Kuruluşları ve Elektronik Para Kuruluşlarının Bilgi Sistemlerinin Yönetimine ve Denetimine İlişkin Tebliğ"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yönetim Kurulu: Moneyout Yönetim Kurulu üyelerini"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Üst Yönetim: Moneyout‘un yönetim kurulu üyeleri ile genel müdür ve genel müdür yardımcıları, iç kontrol ve risk yönetimi ve uyum birimlerinin yöneticileri ile başka unvanlarla istihdam edilseler dahi yetki ve görevleri itibarıyla genel müdür yardımcısına denk veya daha üst konumlarda görev yapan yöneticileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Prosedür: İş ve BT Sürekliliği Prosedürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş Sürekliliği Yönetim Komitesi: İş sürekliği yönetim süreçlerinde yönetim desteğinin en üst seviyede sağlanması için Genel Müdür ve ilgili bölümlerin (BT Müdürü vb.) katılımı ile oluşturulan komite"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kaynak: Moneyout‘un normal iş sürecinde ve beklenmeyen durum sürecinde harekete geçirmek üzere sahip olduğu insan, teçhizat ve finansal değer taşıyan diğer unsurlar"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Birincil Sistemler: Moneyout‘un faaliyetlerini yerine getirmesi için gerekli bilgilerin elektronik ortamda güvenli ve istenildiği an erişime imkân sağlayacak şekilde kaydedilmesini ve kullanılmasını sağlayan altyapı, donanım, yazılım ve veriden oluşan sistemin tamamı"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İkincil Sistemler: Olağanüstü durum halinde kritik iş süreçlerini destekleyen sistemlerin hasar görmesi durumunda süreçlerin devamlılığını sağlayacak teknik altyapının hazır bulunduğu birincil sistem odası ile aynı riskleri taşımayan ve ikincil sistemleri içeren merkez"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "RPO (Recovery Point Objective): Olası bir felaket anında kabul edilebilir veri kaybının miktarı"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "RTO (Recovery Time Objective): Olası bir felaket anında verilerin geri döndürülebilir olması için kabul edilen kesinti süresi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "GÖREV ve SORUMLULUKLAR"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yönetim Kurulu"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kuruluş içerisinde iş ve BT sürekliliği yönetiminin genel sorumluluğunun yerine getirilmesini sağlamak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi programının yürütülmesi için gerekli süreçleri gözden geçirmek ve onaylamak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş sürekliliği yönetim süreçlerinde yönetim desteğinin en üst seviyede sağlanması amacıyla oluşturulan İş Sürekliliği Yönetimi Komitesi’nin faaliyetlerini yürütmek."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yönetim Kurulu’nun, iş ve BT sürekliliği yönetimi konularında düzenli olarak bilgilendirilmesini sağlamak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi sürecine ilişkin yönetim gözden geçirme fonksiyonunu yerine getirmek."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Süreklilik Planları, süreç ve BT kurtarma prosedürleri ile plan eklerini gözden geçirmek ve onaylamak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Süreklilik planlarının yılda en az bir kez test edilmesini sağlamak, test sonuçlarını değerlendirmek ve planlarda güncelleme ihtiyacı olup olmadığını belirlemek."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Süreklilik planlarına ilişkin gerçekleştirilen test sonuçlarını analiz etmek ve değerlendirmek."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“EK-1. İş ve BT Etki Analizi” çalışmalarının kontrolünü sağlamak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olağanüstü durumlarda Kuruluş’un yönetilmesini ve koordinasyonunu sağlamak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olağanüstü durum esnasında İş ve BT Sürekliliği Planı’nın devreye alınmasına ilişkin kararları almak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olağan dönemlerde yılda en az bir kez, olağanüstü durumlarda ise derhal toplanmak."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tüm toplantılara ilişkin sekretarya faaliyetlerinin yürütülmesini, toplantı tutanaklarının ve olağanüstü durumlarda olay ve aksiyon tarihçesinin kayıt altına alınmasını ve arşivlenmesini sağlamak."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Genel Müdür"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi sürecinin stratejik yönünün ve risk iştahının belirlenmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi sürecinin sürekliliği için liderlik yapılması ve gereken bütçenin tahsisinin sağlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“EK-1. İş ve BT Etki Analizi” sonuçlarının değerlendirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi süreci güncellemeleri ile ilgili bilgilerin Kuruluş personeli ile paylaşılması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi sürecinin çerçevesinde tanımlanmış olan rol ve sorumlulukların gereklerinin yerine getirilmesinin sağlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi sürecinin sorumluluklarının performans değerlendirmelerinde kriter olarak ele alınmasının sağlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yönetim Kurulu’nun iş ve BT sürekliliği yönetimi süreci hakkında bilgilendirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yönetim Kurulu’nun iş ve bt sürekliliği yönetimi sürecinin ile ilgili kararlarının uygulanmasının sağlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olağanüstü durum esnasında İş ve BT Sürekliliği Yönetimi Komitesi’ne başkanlık edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olağanüstü durum esnasında Yönetim Kurulu’nun olağanüstü durumun etkileri ve kriz yönetimi hakkında bilgilendirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Bilgi Güvenliği Sorumlusu"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“EK-1. İş ve BT Etki Analizi” çalışmalarında önceliklendirilen süreçleri destekleyen BT varlıklarının belirlenmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT Süreklilik Planı dokümanı içerisinde yer alan BT Süreklilik Planı’nı hazırlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "BT kurtarma ekiplerinin oluşturulması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "BT kurtarma prosedürlerinin oluşturulmasının sağlanması, gözden geçirilmesi ve onaylanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "BT Süreklilik Planı kapsamında BT sistemlerinin yılda en az bir defa test edilmesinin sağlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "BT sürekliği açısından önemlilik arz eden tüm dokümanların birincil ve ikincil lokasyonlarda erişilebilir olmasının sağlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olağanüstü durum esnasında BT kurtarma ekiplerinin yönetilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olağanüstü durum esnasında Genel Müdür’ün olaylar ve kriz yönetimi konusunda bilgilendirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olağanüstü durum esnasında İş Sürekliliği Yönetimi Komitesi’nden gelen talimatların uygulanması."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Çalışan"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi süreci rollerinin ve sorumluluklarının farkında olunması ve onaylanan süreklilik dokümanlarının takip edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tahliye planlarını anlaşılarak toplanma yerlerini ve kriz anında yapılması gerekenleri bilinmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi farkındalık eğitimlerini tamamlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş ve BT sürekliliği yönetimi sürecinin iyileştirilmesi için Genel Müdür’e geri bildirimlerin iletilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Olağanüstü durum esnasında Genel Müdür’ün, ilgili iş birim yöneticilerinin ve kurtarma ekiplerinin talimatlarına uyulması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "UYGULAMA"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "İş ve BT Etki Analizi"
+    },
+    {
+      "type": "paragraph",
+      "text": "“EK-1. İş ve BT Etki Analizi”’nin amacı; müşterilere sunulan ürün ve hizmetler ile onların gerçekleştirilmesini sağlayan süreçlerin kritikliği ve kurtarma önceliklerinin belirlenmesi için gerekli olan bilgileri değerlendirmektir. “EK-1. İş ve BT Etki Analizi” iş sürekliliği stratejisinin belirlenmesi ve iş sürekliliği planlarının oluşturulması için temel teşkil eder."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum’da uygulanan iş etki analizi ortaya çıkabilecek iş kesintilerinin yol açabileceği sonuçları 3 ana alanda değerlendirmektedir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İtibar etkisi (müşteri memnuniyeti)."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Uyum (kanun, regülasyon ve sözleşme vb.) etkisi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Finansal etkiler."
+    },
+    {
+      "type": "list",
+      "level": 2,
+      "text": "İş ve BT Etki Analiz Yöntemi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“EK-1. İş ve BT Etki Analizi” çalışması, tüm ürün ve hizmetleri destekleyen süreçler için iş birimleri yöneticileri tarafından yılda bir kere olmak üzere tekrar edilir. Aşağıda belirtilen hususların gerçekleşmesi halinde yapılacak değerlendirmeye bağlı olarak “EK-1. İş ve BT Etki Analizi” dokümanı revize edilmektedir:"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yeni ürün ve hizmetlerin devreye alınması,"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yeni sistemlerin kullanılmaya başlanması,"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Organizasyon yapısında köklü değişiklik,"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yeni dış kaynakların kullanımı ya da dış kaynaklarda yapılan değişiklikler."
+    },
+    {
+      "type": "paragraph",
+      "text": "Revizyon kararı verilirken meydana gelen değişikliğin Kuruluş’un iş hacmine olan etkisi göz önüne alınır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş birimleri yöneticileri, iş etki analizinin tamamlanmasında, varsa süreç sahipleri ve kurtarma ekipleri ile, ortaklaşa bir çalışma gerçekleştirir. İş etki analizi, “EK-1. İş ve BT Etki Analizi” formu üzerinde dokümante edilir ve Genel Müdür onayına sunulur."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş etki analizi çalışmalarında; süreçler, süreç sahipleri, süreçlerin bağımlı olduğu uygulamalar ve hizmet alınan dış kurumlar tespit edilir. Kurum bünyesinde yürütülen her süreç için ayrı ayrı geri kurtarma süresi hedefi (RTO) ve geri kurtarma noktası hedefi (RPO) belirlenir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "RTO değerleri, üç zaman aralığında gruplandırılır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "0 – 4 saat"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "4 – 72 saat"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": ">72 saat"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kaynakların uygun kullanımını sağlamak amacıyla etki değeri bileşenlerinden herhangi biri kesintiden sonraki ilk 72 saatlik dönemde 3 seviyesine ulaşan süreçler “Öncelikli” olarak değerlendirilmiştir. Etki tiplerine göre öncelik değerlerini gösteren tabloya aşağıda yer verilmiştir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“Öncelikli” olarak belirlenen süreçlerin kendi aralarında kurtarma öncelikleri ise RTO değerleri göz önünde bulundurularak sıralanır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Kritik Süreçleri Destekleyen BT Varlıklarının Belirlenmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "İş ve BT etki analizi çalışmalarında, süreçlerde kullanılan BT uygulamaları ilgili süreç sahipleri tarafından belirlenir. Söz konusu BT uygulamalarının hizmet vermesi için gerekli olan BT varlıkları (sunucu, veri tabanı, ağ ve güvenlik cihazları vb.), BT Müdürü tarafından belirlenir. Birden fazla süreci destekleyen BT varlıklarının RTO değerinin belirlenmesinde, minimum RTO değerine sahip süreç dikkate alınır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Süreklilik Planlarının Oluşturulması"
+    },
+    {
+      "type": "paragraph",
+      "text": "İş etki analizi ve kritik süreçleri destekleyen BT varlıklarının belirlenmesinin ardından süreklilik planları oluşturulur. İş ve BT Sürekliliği Planı’nda ve Acil ve Beklenmedik Durum Eylem Planı’nda aşağıdaki bilgilere yer verilir."
+    },
+    {
+      "type": "list",
+      "level": 2,
+      "text": "Rol ve Sorumluluklar"
+    },
+    {
+      "type": "paragraph",
+      "text": "İş sürekliliği yönetiminin sağlanması amacıyla gerekli iş sürekliliği organizasyon yapısı oluşturulur. Süreklilik planlarının başlatılması, uygulanması, iletişim koordinasyonu, raporlama gibi aşamalardaki rol ve sorumluluklar belirlenerek dokümante edilir."
+    },
+    {
+      "type": "list",
+      "level": 2,
+      "text": "Planın Başlatılması"
+    },
+    {
+      "type": "paragraph",
+      "text": "Olağanüstü durum halinin ilan edilmesine ve süreklilik planlarının devreye alınmasına ilişkin verilecek kararın etkenleri belirlenir. Planların devreye alınması kararının alınmasının ardından iç ve dış paydaşlarla iletişimin koordine edilmesi ve kurtarma ekiplerine talimat verilmesine ilişkin adımlar süreklilik planlarında belirtilir."
+    },
+    {
+      "type": "list",
+      "level": 2,
+      "text": "Senaryolar"
+    },
+    {
+      "type": "paragraph",
+      "text": "Meydana gelecek farklı olağanüstü durum senaryolarına göre uygulanacak akışlar farklılık göstermektedir. İş sürekliliği planında asgari olarak aşağıdaki olağanüstü durum senaryoları ele alınır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi sistemlerinin hasar görmesi/kullanılamaz duruma gelmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Merkez binanın hasar görmesi/kullanılamaz duruma gelmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Çalışanların fiziksel olarak yaralanması/iş göremez durumda olması."
+    },
+    {
+      "type": "paragraph",
+      "text": "Basitlik ve çabuk hareket etme adına, senaryolarda sadece ana akışa yönelik görevi olan roller ve aktiviteler belirtilir. Burada aktivite atanmayan rol sahiplerinin acil veya olağanüstü durumlarda sahip oldukları görevler, planların ve kurtarma prosedürlerinin ilgili bölümlerinde dokümante edilir."
+    },
+    {
+      "type": "list",
+      "level": 2,
+      "text": "Kurtarma Ekipleri"
+    },
+    {
+      "type": "paragraph",
+      "text": "İş ve BT etki Analizi çalışması sonucunda önceliklendirilen süreçlerin olağanüstü durum halinde kurtarılması için gerekli olan asil ve yedek personeller iş birimleri yöneticileri tarafından belirlenir. Her bir süreç için belirlenen kurtarma ekiplerine ilişkin bilgiler “EK-2. Moneyout Kurtarma Ekipleri Listesi”nde yer alan Süreç Kurtarma Ekipleri bölümünde dokümante edilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Önceliklendirilen iş süreçlerini destekleyen BT varlıklarının kurtarılması için gerekli olan personel ya da tedarikçiler BT Direktörü tarafından belirlenir. “EK-2. Moneyout Kurtarma Ekipleri Listesi”nde yer alan BT Kurtarma Ekipleri bölümünde dokümante edilir."
+    },
+    {
+      "type": "list",
+      "level": 2,
+      "text": "Kurtarma Prosedürleri"
+    },
+    {
+      "type": "paragraph",
+      "text": "İş Etki Analizi çalışmalarında önceliklendirilen süreçlerin kurtarılabilmesi için gerekli adımları içeren “EK-3. Süreç Kurtarma Prosedürleri” oluşturulur. “EK-3. Süreç Kurtarma Prosedürleri” her bir süreç için ayrı ayrı oluşturulur ve Genel Müdür onayına sunulur."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurtarma prosedürünü uygulayacak kişiler ve kritik kontak bilgileri kurtarma prosedürlerinde belirtilir. Prosedür içerisinden kurtarma yöntemine göre uygun adımlar seçilir. Her bir süreç ya da sistem için oluşturulan kurtarma prosedürlerinde aşağıdaki bilgilere yer verilir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Amaç ve Kapsam"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Genel Süreç/Sistem Bilgileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurtarma Hedefleri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sorumlular ve Kritik Kontak Bilgileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurtarma Aksiyonları"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Normale Dönüş Aksiyonları"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ek Bilgiler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Doğrulama Prosedürü"
+    },
+    {
+      "type": "list",
+      "level": 2,
+      "text": "Normal Operasyonlara Dönüş"
+    },
+    {
+      "type": "paragraph",
+      "text": "Olağanüstü durum halinin sona ermesinin ardından faaliyetlerin olağanüstü durum öncesindeki duruma döndürülebilmesi için gerekli olan aksiyonların belirlenmesi gerekmektedir. Olağanüstü durum ilanından, Kurum’un vermekte olduğu hizmetlerin öngörülen kalitede sunulmasına elverecek kapasiteye ulaşıldığı noktaya kadar olağanüstü durum hali devam eder. Olağanüstü durum halinin sona ermesinin ardından normale dönüş adımları süreklilik planları ve kurtarma prosedürlerinde tanımlanır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Planların Test Edilmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "İş ve bilgi sistemleri sürekliliği yönetiminin sürekli yaşayan ve gelişen süreçler olması sebebiyle denetim, gözden geçirme ve güncellemeler suretiyle planlar işlevsel ve güncel halde tutulur."
+    },
+    {
+      "type": "paragraph",
+      "text": "Planların test edilmesinin amaçları aşağıda belirtilmiştir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Alternatif çalışma mekanlarının büyük ölçekli bir kesintiye hazırlık düzeylerinin belirlenmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İkincil sistemlerin performans ve kapasitelerinin ölçülmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Belirlenen kaynakların alternatif çalışma yerindeki çalışma düzeninin akışını sağlayacak yeterlilikte olup olmadığının belirlenmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Planların güncelliğinin ölçümlenmesi."
+    },
+    {
+      "type": "paragraph",
+      "text": "Test planları gerekli test parametrelerini, hedefleri ve ölçümleme kriterlerini, iş akış şemalarını ve zamanlama çizelgesini içerir. Testlerin kapsamı personelin yetkinlik düzeyi arttıkça genişletilir. İş ve BT Sürekliliği Planı’nın testi yılda en az bir kez uygulanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Test sonuçları BT Müdürü tarafından analiz edilir ve İş Sürekliliği Yönetimi Komitesi’ne raporlanır. Test esnasında RTO süreleri içerisinde kurtarılmayan süreçler için test sonrasında ilgili birimlerle çalışılarak fiili kurtarma süresini kısaltmak için alternatif çözümler değerlendirilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Planların Güncellenmesi ve Geliştirilmesi"
+    },
+    {
+      "type": "paragraph",
+      "text": "İş ve BT Süreklilik Planı teknoloji sistemlerinde, operasyonel süreçlerde ve sorumlu personele ilişkin yapılan değişikliklerin ardından, iş ve bilgi sistemleri sürekliliğini etkileyecek olayların ardından ya da yıllık olarak gerçekleştirilen testlerin sonucunda gözden geçirilerek gerek duyulması halinde revize edilir. Belirtilen durumların dışında İş ve BT Sürekliliği Planı yılda en az bir kere gözden geçirilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "İş ve BT Sürekliliği Planı, İş Sürekliliği Yönetim Komitesi tarafından onaylanır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Planların Saklanması ve Dağıtılması"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum personelinin olağanüstü durum organizasyon yapısı ve olağanüstü durum sırasında üzerlerine düşen görev ve sorumluluklar hakkında bilgi sahibi olması için İş ve BT Sürekliliği Planı, Acil ve Beklenmedik Durum Eylem Planı ve İş ve BT sürekliliği eğitimine yönelik diğer doküman ile bilgilere ortak alan üzerinden erişim sağlanır. İş ve BT Sürekliliği Planı’nın ana nüshası Genel Müdür tarafından tutulur. Ayrıca, planların güncel birer kopyası, Kurum’un diğer iş süreçleri ve prosedürleri ile birlikte Olağanüstü Durum Merkezi’nde saklanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Belirtilen ana plan ile bu planı tamamlayan diğer tüm alt plan ve prosedürlerin dağıtımı Genel Müdür tarafından gerçekleştirilir. Planların iş kurtarma ve olağanüstü durum yönetimine ilişkin bölümleri sadece ilgili birim, grup, ekiplerle paylaşılır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İLGİLİ DOKÜMANLAR"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“LS-BT-007” İş ve BT Etki Analiz Listesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“LS-BT-006” Kurtarma Ekipleri Listesi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“PRO-BT-015” Süreç Kurtarma Prosedürleri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“PLN-BT-003” İş ve BT Sürekliliği Planı"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“PLN-BT-001” Acil ve Beklenmedik Durum Eylem Planı"
+    }
+  ]
+}

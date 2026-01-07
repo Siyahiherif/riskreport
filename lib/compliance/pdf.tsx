@@ -75,12 +75,14 @@ type TemplateDoc = {
   body: TemplateItem[];
 };
 
-type ProcedureKey = "bg" | "denetim" | "yedekleme";
+type ProcedureKey = "bg" | "denetim" | "yedekleme" | "kimlik" | "sureklilik";
 
 const templateMap: Record<ProcedureKey, string> = {
   bg: path.join(process.cwd(), "lib", "compliance", "templates", "bg-incident-procedure.json"),
   denetim: path.join(process.cwd(), "lib", "compliance", "templates", "denetim-procedure.json"),
   yedekleme: path.join(process.cwd(), "lib", "compliance", "templates", "yedekleme-procedure.json"),
+  kimlik: path.join(process.cwd(), "lib", "compliance", "templates", "kullanici-kimlik-procedure.json"),
+  sureklilik: path.join(process.cwd(), "lib", "compliance", "templates", "sureklilik-procedure.json"),
 };
 
 const procedureConfig: Record<ProcedureKey, { title: string; docNo: string }> = {
@@ -96,12 +98,22 @@ const procedureConfig: Record<ProcedureKey, { title: string; docNo: string }> = 
     title: "Yedekleme Yönetimi Prosedürü",
     docNo: "PRO-BT-007",
   },
+  kimlik: {
+    title: "KullanŽñcŽñ Kimlik ve Yetkilendirme YAnetimi ProsedA¬rA¬",
+    docNo: "PRO-BT-009",
+  },
+  sureklilik: {
+    title: "ŽøY ve BT SA¬reklilik ProsedA¬rA¬",
+    docNo: "PRO-BT-015",
+  },
 };
 
 const previewAnchors: Record<ProcedureKey, string> = {
-  bg: "Bilgi Güvenliği Olaylarına İlişkin Kanıtların Elde Edilmesi",
-  denetim: "Denetim İzlerinin Gözden Geçirilmesi ve Raporlanması",
-  yedekleme: "Yedekleme Planının Oluşturulması",
+  bg: "Bilgi GA?venli?Yi Olaylar??na ??li?Ykin Kan??tlar??n Elde Edilmesi",
+  denetim: "Denetim ??zlerinin GAızden GeAĲirilmesi ve Raporlanmas??",
+  yedekleme: "Yedekleme Plan??n??n Olu?Yturulmas??",
+  kimlik: "Kimlik Do?Yrulama Teknikleri",
+  sureklilik: "???Y ve BT Etki Analizi",
 };
 
 const formatDate = (date: Date) => {
@@ -114,14 +126,17 @@ const formatDate = (date: Date) => {
 const normalizeCompanyName = (companyName?: string) => companyName?.trim() || "Şirket";
 
 const fixEncoding = (text: string) => {
-  const decoded = Buffer.from(text, "latin1").toString("utf8");
-  return decoded.replace(/ƒ\?o/g, "\"").replace(/ƒ\?\?/g, "\"").replace(/�/g, "");
+  const needsDecode = /[-]|A¬|A|A|Ž|/u.test(text);
+  if (!needsDecode) return text;
+  return Buffer.from(text, "latin1").toString("utf8");
 };
 
 const replaceCompany = (text: string, companyName: string) => {
   const cleaned = fixEncoding(text);
   return cleaned
     .replace(/Moneyout/gi, companyName)
+    .replace(/\u00d6rnek \u015eirket/gi, companyName)
+    .replace(/Ornek Sirket/gi, companyName)
     .replace(/Örnek Şirket/gi, companyName)
     .replace(/Örnek şirket/gi, companyName)
     .replace(/\{\{COMPANY\}\}/g, companyName);
@@ -312,16 +327,46 @@ const isHeadingCandidate = (text: string) => {
   if (trimmed.length === 0) return false;
   if (trimmed.length > 60) return false;
   if (/[.!?]$/.test(trimmed)) return false;
+  if (/:/.test(trimmed)) return false;
   const words = trimmed.split(/\s+/).length;
   if (words > 7) return false;
   return true;
 };
 
-const normalizeYedeklemeItems = (items: TemplateItem[]) => {
+const isBulletSectionHeading = (text: string) => {
+  const normalized = text.toLowerCase();
+  return (
+    normalized.includes("k?saltmalar") ||
+    normalized.includes("tan?mlar") ||
+    normalized.includes("tan?mlamalar") ||
+    normalized.includes("ilgili kanun") ||
+    normalized.includes("d?zenlemeler")
+  );
+};
+
+const isAllCapsHeading = (text: string) => {
+  const trimmed = text.trim();
+  if (!trimmed) return false;
+  return trimmed === trimmed.toUpperCase();
+};
+
+const isMajorSectionHeading = (text: string) => {
+  const normalized = text.toLowerCase();
+  return (
+    normalized.includes("görev") ||
+    normalized.includes("gorev") ||
+    normalized.includes("uygulama") ||
+    normalized.includes("giriş") ||
+    normalized.includes("giris") ||
+    normalized.includes("genel esaslar")
+  );
+};
+
+const normalizeProcedureItems = (items: TemplateItem[]) => {
   let inBulletSection = false;
   return items.map((item) => {
     if (item.type === "heading") {
-      inBulletSection = false;
+      inBulletSection = isBulletSectionHeading(item.text);
       return item;
     }
 
@@ -334,7 +379,13 @@ const normalizeYedeklemeItems = (items: TemplateItem[]) => {
       const text = item.text.trim();
       const lower = text.toLowerCase();
       const endsWithColon = /:$/.test(text);
-      if (endsWithColon || lower.includes("aşağıdaki") || lower.includes("aşağıda") || lower.includes("hususları")) {
+      if (
+        endsWithColon ||
+        lower.includes("a?Ya?Y??daki") ||
+        lower.includes("a?Ya?Y??da") ||
+        lower.includes("hususlar??") ||
+        lower.includes("a?a??daki")
+      ) {
         inBulletSection = true;
       } else if (isHeadingCandidate(text)) {
         inBulletSection = false;
@@ -347,9 +398,11 @@ const normalizeYedeklemeItems = (items: TemplateItem[]) => {
 
     if (item.type === "list") {
       const text = item.text.trim();
-      if (!inBulletSection && isHeadingCandidate(text)) {
+      const forceHeading =
+        isAllCapsHeading(text) || isBulletSectionHeading(text) || isMajorSectionHeading(text);
+      if ((forceHeading || !inBulletSection) && isHeadingCandidate(text)) {
         const level = item.level === 0 ? 1 : item.level === 1 ? 2 : 3;
-        inBulletSection = false;
+        inBulletSection = isBulletSectionHeading(text);
         return { type: "heading", level, text } as TemplateItem;
       }
       return item;
@@ -443,11 +496,22 @@ async function generateProcedurePdf(
   const reportDir = path.join(process.cwd(), "reports", "compliance");
   await fs.mkdir(reportDir, { recursive: true });
   const fileSlug =
-    key === "bg" ? "bg-olay-siber-olay-yonetimi" : key === "denetim" ? "denetim-izleri-yonetimi" : "yedekleme-yonetimi";
+    key === "bg"
+      ? "bg-olay-siber-olay-yonetimi"
+      : key === "denetim"
+      ? "denetim-izleri-yonetimi"
+      : key === "yedekleme"
+      ? "yedekleme-yonetimi"
+      : key === "kimlik"
+      ? "kullanici-kimlik-yonetimi"
+      : "is-bt-sureklilik";
   const filePath = path.join(reportDir, `${reportToken}-${fileSlug}.pdf`);
   const orgName = normalizeCompanyName(companyName);
   const template = applyCompany(await loadTemplate(key), orgName);
-  const normalizedBody = key === "yedekleme" ? normalizeYedeklemeItems(template.body) : template.body;
+  const normalizedBody =
+    key === "yedekleme" || key === "kimlik" || key === "sureklilik"
+      ? normalizeProcedureItems(template.body)
+      : template.body;
   const numberedBody = numberHeadings(normalizedBody);
   const toc = template.toc.length ? template.toc : buildTocFromHeadings(numberedBody);
   const previewItems = options?.preview ? getPreviewItems(numberedBody, key) : numberedBody;
@@ -510,4 +574,20 @@ export async function generateYedeklemeProcedurePdf(
   options?: { preview?: boolean },
 ) {
   return generateProcedurePdf("yedekleme", reportToken, companyName, options);
+}
+
+export async function generateKullaniciKimlikProcedurePdf(
+  reportToken: string,
+  companyName: string | undefined,
+  options?: { preview?: boolean },
+) {
+  return generateProcedurePdf("kimlik", reportToken, companyName, options);
+}
+
+export async function generateSureklilikProcedurePdf(
+  reportToken: string,
+  companyName: string | undefined,
+  options?: { preview?: boolean },
+) {
+  return generateProcedurePdf("sureklilik", reportToken, companyName, options);
 }

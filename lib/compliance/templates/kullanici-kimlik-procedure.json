@@ -1,0 +1,692 @@
+{
+  "metaTable": [
+    [
+      "Doküman Sorumlusu:",
+      ""
+    ],
+    [
+      "İlk Yayın Tarihi:",
+      ""
+    ],
+    [
+      "Versiyon No:",
+      ""
+    ],
+    [
+      "Onay Tarihi:",
+      ""
+    ],
+    [
+      "Onay Makamı:",
+      ""
+    ],
+    [
+      "Gözden Geçirme Sıklığı:",
+      ""
+    ],
+    [
+      "Gözden Geçirme Sorumlusu:",
+      ""
+    ],
+    [
+      "Bir Sonraki Gözden Geçirme Tarihi:",
+      ""
+    ]
+  ],
+  "versionTable": [
+    [
+      "Versiyon",
+      "Tarih",
+      "Değişiklik Açıklaması"
+    ]
+  ],
+  "toc": [],
+  "body": [
+    {
+      "type": "list",
+      "level": 0,
+      "text": "GİRİŞ"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Amaç"
+    },
+    {
+      "type": "paragraph",
+      "text": "Örnek Şirket bilgi sistemlerine fiziksel ve mantıksal erişimde kullanılan kullanıcı hesaplarının yaratılması, değişiklik yapılması, kapatılması, uzaktan erişimlerin yönetilmesi ve izlenmesine yönelik standartlarının belirlenmesi ve kullanıcı kimlik yönetimine ilişkin risklerin yönetilmesi amacıyla işbu prosedür yayımlanmıştır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Kapsam"
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi Teknolojileri tarafından yönetilen ağ ve güvenlik cihazları, dosya sunucusu, fiziksel erişim, e-posta ve uzaktan erişim ve Örnek Şirket uygulaması kullanıcı hesapları yönetimi bu prosedür kapsamındadır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "İlgili Kanun ve Düzenlemeler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ödeme ve elektronik para kuruluşlarının bilgi sistemleri ile ödeme hizmeti sağlayıcılarının ödeme hizmetleri alanındaki veri paylaşım servislerine ilişkin tebliğ"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi güvenliği ve bilgi güvenliği yönetimi"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Kısaltmalar ve Tanımlamalar"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "BT: Bilgi Teknolojileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş Birimleri: Bilgi Teknolojileri birimi dışında kalan tüm grup ve birimler"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurum, Kuruluş: Örnek Şirket"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tebliğ: Ödeme Kuruluşları ve Elektronik Para Kuruluşlarının Bilgi Sistemlerinin Yönetimine ve Denetimine İlişkin Tebliğ"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yönetim Kurulu: Örnek Şirket Yönetim Kurulu üyelerini"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Üst Yönetim: Örnek Şirket yönetim kurulu üyeleri ile genel müdür ve genel müdür yardımcıları, iç kontrol ve risk yönetimi ve uyum birimlerinin yöneticileri ile başka unvanlarla istihdam edilseler dahi yetki ve görevleri itibariyle genel müdür yardımcısına denk veya daha üst konumlarda görev yapan yöneticileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Prosedür: Kullanıcı Kimlik ve Yetkilendirme Yönetimi Prosedürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kimlik Doğrulama: Bildirilen bir kimliğin gerçekten bildiren şahsa ait olduğuna dair güvence sağlayan mekanizma"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kullanıcı Hesabı: Kullanıcının, Örnek Şirket bilgisayar sistemlerine giriş için kullandığı, tüm işlemlerde kullanıcıyı temsil eden ve kendisine tanımlanan parola ile sisteme girişin mümkün olduğu tekil ve kişiye özel karakterler bütünü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Aktif Dizin (Active Directory): Microsoft tarafından geliştirilen, Windows tabanlı sistemlerde oturum açılmasını sağlayan kimlik yönetimi uygulaması"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Parola: Kullanıcının, bilgisayar sistemine kullanıcı adı ile birlikte kendisini tanıtmasını ve işlem yaratma ve/veya sonuçlandırmasını sağlayan, sadece kendisinin bildiği ve belirli dönemlerde değiştirilmesi zorunlu kılınan gizli karakterler dizisi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "VPN (Virtual Private Network): Kullanıcıların, uzaktan Örnek Şirket iç ağına güvenli ve özel veri aktarımı sağlayarak erişmeleri için kullandıkları teknoloji"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kaba Kuvvet Saldırılar (Brute Force Attack): Olası tüm olasılıkların tek tek denenmesi yolu ile sistemlere gerçekleştirilen saldırı tipi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sözlük Saldırısı (Dictionary Attack): Sözlüklerde yer alan olası tüm kelimelerin tek tek denenmesi yolu ile sistemlere gerçekleştirilen saldırı tipi"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "GÖREV ve SORUMLULUKLAR"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Mali İşler ve İnsan Kaynakları Müdürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kurum bünyesinde yeni işe başlayan, ücretsiz izne ayrılan, zorunlu blok izin kullanan, işten ayrılan ve görev değiştiren personele ilişkin kendisine ilgili bilgi ulaştıktan sonra aynı gün içinde BT Müdürü’ne talep yönetimi uygulaması üzerinden bildirimde bulunulması."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Bilgi Güvenliği Sorumlusu"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İletilen talepler doğrultusunda aktif dizin, e-posta, dosya sunucusu ve ana faaliyet alanında kullanılan uygulamalara ilişkin hesap açma, hesap kapama ve yetki değişikliklerinin bilgi güvenliği açısından değerlendirerek taleplere ilişkin görüş belirtilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Destek hizmeti kuruluşlarına verilecek erişim yetkilerinin değerlendirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Bilgi Teknolojileri Müdürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İletilen talepler doğrultusunda aktif dizin, e-posta, dosya sunucusu ve ana faaliyet alanında kullanılan uygulamalara ilişkin hesap açma, hesap kapama ve yetki değişikliklerinin gerçekleştirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kullanıcı hesabı ve geçici parola bilgilerinin son kullanıcıya bildirilmesi, kullanıcı bilgisayarına gerekli ayarları ve kurulumları yaparak kullanıcıya teslim edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Uzaktan erişime imkân veren sistemlerin, uygulamaların ve cihazların kurulumunun sağlanması ve yönetilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“EK-2. Genel/Ortak/Servis Hesapları Envanteri”nin güncelliğinin sağlanması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Veri tabanı, işletim sistemi, aktif dizin, ağ ve güvenlik cihazlarındaki hesapları ve yetkilerini yıllık olarak gözden geçirmek, gözden geçirme çalışmalarını İç Kontrol Müdürüne iletmek, gözden geçirme sonuçlarına ilişkin gerekli aksiyonları almak."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "İç Kontrol Müdürü"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İş birim yöneticileri tarafından yıllık olarak yapılan kullanıcı hesabı ve yetki gözden geçirme çalışmalarına ilişkin çıktıların kontrol edilmesi ve çalışma sonucunda alınması gereken aksiyonların alındığının kontrol edilmesi."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "İş Birim Yöneticileri"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Birimlerinden başka bir birime transfer olan personelin kaldırılması gereken yetkilerine ilişkin aksiyonların alınması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Birimlerinde bulunan personelin talep ettiği yetkilerin değerlendirilmesi."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Birimlerinde bulunan personelin, uygulama seviyesindeki yetkilerinin yıllık olarak gözden geçirilmesi, gözden geçirme çalışmalarının İç Kontrol Müdürüne iletmek, gözden geçirme sonuçlarına ilişkin gerekli aksiyonların alınması."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "UYGULAMA"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kullanıcı kimlik ve erişim yönetimine ilişkin standartlar ve iç gereksinimler, yasal mevzuatlar ile uluslararası standartlara uyum sağlayacak şekilde belirlenmektedir. Bu doğrultuda süreç kapsamında asgari olarak aşağıdaki standartların uygulanması esastır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi sistemleri üzerinden gerçekleşen işlemler için uygun bir kimlik doğrulama mekanizması kurulur."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Uygulanacak kimlik doğrulama mekanizması, müşterilerin ve personelin bilgi sistemlerine dahil olmalarından, işlemlerini tamamlayıp sistemden ayrılmalarına kadar geçecek tüm süreci kapsayacak şekilde tesis edilir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yetkilendirme düzeyi ve erişim haklarının atanmasında ilgili unsurun görev ve sorumlulukları göz önünde bulundurularak, gerekli olacak en düşük yetkinin atanması ve en kısıtlı erişim hakkının verilmesi yaklaşımı esas alınır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kullanıcı erişim yetkilerinin ve hesaplarının tanımlanmasına yönelik olarak geçerli bir iş sebebine dayanan, yetkili ve onaylı bir talebin oluşturulması esastır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kullanıcıların ilave yetki talebi yapmaları durumunda, işe uygunluğunun ve görevler ayrılığına uyumun kontrol edilebilmesi amacıyla, talepler kullanıcının yöneticisine ve ilgili sistem ve/veya süreç yöneticilerine iletilir ve uygunluğu için görüşleri alınır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yetkilendirme ve erişim hakkı verilmesinde “Bilgi Güvenliği Politikası” kapsamında belirlenen görevler ayrılığı prensibinin uygulanması esastır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Tüm kullanıcı hesapları atandığı kişiye özel ve benzersiz olarak oluşturulur."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kullanıcıların, aktivitelerinden sorumlu tutulması ve aktivitelerinin takibi için tek bir kullanıcı hesabı kullanılır ve her bir hesabın sorumlu bir sahibi olduğundan emin olunur."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Yetkilendirme ve erişim hakkı tahsis mekanizması, hiçbir kullanıcı, taraf ya da sistemin kendi yetkilendirme düzeyini ve erişim haklarını önceden tanımlanmış düzeylerin üzerine çıkartmasına izin vermeyecek şekilde tesis edilir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ayrıcalıklı yetkilere sahip kullanıcılar, yetkilerinin başka kişilerce kullanımının önlenmesinin önemli konusunda yeterli düzeyde bilinçlendirilir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Görevlerin tam manasıyla ve uygun şekilde ayrıştırılmasının mümkün olmadığı durumlarda, bu durumdan kaynaklanabilecek hata ve suistimalleri önlemeye yönelik risk azaltıcı veya telafi edici kontroller tesis edilir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kullanıcı hesapları ve yetkileri düzenli olarak gözden geçirilir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kimlik doğrulama verileri, şifreli olarak muhafaza edilir ve “İz Kayıtları Yönetimi Prosedürü” kapsamında belirtilen standartlara uygun olarak güvenliği sağlanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Bilgi sistemleri dâhilinde gerçekleşen kritik faaliyetlere ilişkin yetkilendirme veri tabanlarının güvenilirliğini yitirmesi durumunda, ilgili veri tabanları güncel ve güvenilir duruma getirilene kadar kullanılmaz, güvenilir olmayan veri tabanları üzerinden yetkilendirme ve erişim hakkı tahsisi işlemleri gerçekleştirilmez."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Kimlik Doğrulama Teknikleri"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kullanıcılar kimliklerini sistemlere kanıtlamak ve doğrulatmak amacı ile bildikleri, sahip oldukları ya da biyometrik bilgi gibi kimlik doğrulama verilerini kullanırlar. Kimlik doğrulama verileri “Çok Gizli” sınıfındaki verilerdir. Sistem ve uygulamaların kimlik doğrulama mekanizmaları oluşturulurken kullanılacak tekniklere ve hangi kimlik doğrulama mekanizmasının kullanılacağına, Yönetim Kurulu onayı ile yayımlanan risk değerlendirmesi sonucuna göre karar verilir. Risk değerlendirmesi, bilgi sistemleri üzerinden gerçekleştirilmesi planlanan işlemlerin türü, tipi, niteliği, varsa doğuracağı finansal ve finansal olmayan etkilerinin büyüklüğü, işleme konu verinin hassaslık derecesi ve kimlik doğrulama tekniğinin kullanım kolaylığı göz önünde bulundurularak gerçekleştirilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Parola Yönetimi"
+    },
+    {
+      "type": "paragraph",
+      "text": "BT Müdürü’nün yönetiminden sorumlu olduğu bilgi, sistem, iletişim ağı, uygulama ve diğer ortamlara erişim için verilen parolalar için aşağıda yer alan kurallara göre işlem yapılır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Parolalar başkalarıyla paylaşılmamalı, başkaları tarafından görülebilecek yerlere yazılmamalıdır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Her personel kullandığı parolanın gizliliğinin sağlanmasından sorumludur."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Parola güvenliği ile ilgili bir sorun hissedildiğinde parola hemen değiştirilerek konu ile ilgili BT Müdürü’ne haber verilmelidir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İlk kullanımda parola değişikliği zorunlu kılınacak şekilde tanımlanır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Geçici parolalar her bir kullanıcı için farklı olmalı ve tahmin edilebilir olmamalıdır."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Sistem üretici firmalarının tanımladığı parolalar, sistem ve yazılımların kurulumunu takiben ivedilikle değiştirilmelidir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Parolalar belirlenen minimum karakter sayısından kısa olmamak üzere, akılda kalıcı, ancak kolay kırılamayacak şekilde seçilmelidir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Parola parametreleri sistemler üzerinde aşağıdaki standartlara uygun olacak şekilde tanımlanır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Aktif Dizin Parola Parametreleri:"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Parola en az 8 karakterden oluşmalıdır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Minimum parola yaşı en az 1 gün olarak tanımlanır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Kompleks parola parametreleri kullanılarak, parola içerisinde en az 1 değerin numerik olması ve en az 1 değerin alfanumerik olması sağlanır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Parolanın en fazla 60 gün sonra değiştirilmesi gerekir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Parola en fazla 5 kez yanlış girilirse kullanıcı hesabı bloke olur."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "En son kullanılan 5 parolanın yeniden kullanılmasına izin verilmez."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ödeme Uygulaması Parola Parametreleri:"
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Parola en az 8 karakterden oluşmalıdır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Kompleks parola parametreleri kullanılarak, parola içerisinde en az 2 değerin numerik olması ve en az 1 değerin alfanumerik olması sağlanır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Parolanın en fazla 120 gün sonra değiştirilmesi gerekir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Parola en fazla 10 kez yanlış girilirse kullanıcı hesabı bloke olur."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "En son kullanılan 3 parolanın yeniden kullanılmasına izin verilmez."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kullanıcı hesabı bloke olan veya parolasını unutan kullanıcı, BT Müdürü’nden yeni parola talebinden bulunur. BT Müdürü tarafından personelin yeni parolası güvenli bir biçimde ve ilk girişte değiştirilmek üzere iletilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yeni Kullanıcı Hesabı Oluşturma"
+    },
+    {
+      "type": "paragraph",
+      "text": "Yeni işe başlayan personelin erişeceği uygulamalar ve sahip olacağı rollere ilişkin olarak ilgili ilgili iş birimi yöneticisi veya Genel Müdür tarafından “EK-1. Kullanıcı Hesap-Yetki Talep Formu” doldurulup, Bilgi Güvenliği Sorumlusu de incelemelerinin ardından yetkili Mali İşler ve İnsan Kaynakları Müdürü’ne teslim edilir. Fiziksel bir form olan “EK-1. Kullanıcı Hesap-Yetki Talep Fomu”nda yer alan bilgiler, Mali İşler ve İnsan Kaynakları Müdürü tarafından talep yönetimi uygulamasına girilerek BT Müdürü’ne bildirim gerçekleştirilir. Bununla birlikte “EK-1. Kullanıcı Hesap-Yetki Talep Formu” talep yönetimi uygulamasına Mali İşler ve İnsan Kaynakları Müdürü tarafından eklenir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Mali İşler ve İnsan Kaynakları Müdürü’nden gelen talep doğrultusunda BT Müdürü tarafından talep edilen kullanıcı için uygulama, aktif dizin, dosya sunucusu ve e-posta kullanıcı hesapları oluşturulur."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yetki Talepleri"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kuruluş personelinin görev gereği kullanması gereken bilgi sistemleri ve kaynaklara erişiminde, çalıştığı bölümün doğal üyesi ve sahibi olduğu kaynaklara doğrudan erişim sağlanır. Bunların dışındaki tüm kaynaklara erişim için Kuruluş personeli tarafından talep edilen erişimler için talep yönetimi uygulaması üzerinden talep açılması esastır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Yetki talepleri için talep yönetimi uygulaması aracılığıyla talep açan kullanıcının yöneticisinin, erişim istenen uygulamaya ilişkin ilgili süreç sahibinin ve Bilgi Güvenliği Sorumlusu onayı alınır. Yetkilendirme taleplerine ilişkin operasyonların gerçekleştirilmesi, BT Müdürü sorumluluğundadır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kullanıcının yöneticisi ve ilgili süreç sahibi onayı olmadan erişim yetkisi sağlanamaz, mevcut kullanıcı yetkileri kaldırılamaz veya değiştirilemez. Ancak, Mali İşler ve İnsan Kaynakları Müdürü’nden gelen bildirim ile kullanıcı hesapları bloke edilebilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Hesap Kapama"
+    },
+    {
+      "type": "paragraph",
+      "text": "Personelin iş akdinin feshedilmesi/işten ayrılması durumunda işten ayrılan kişinin bilgileri (ad, soyad, unvan, birim, işten ayrılış tarihi) Mali İşler ve İnsan Kaynakları Birimi tarafından talep yönetimi uygulamasına açılan kullanıcı işten ayrılma talebi ile BT Müdürü’ne bildirilir. Talepte belirtilen personele ait uygulama, e-posta ve dosya sunucusunda bulunan kullanıcı hesapları BT Müdürü tarafından, personelin işten ayrıldığı gün ivedilikle kapatılır. Kullanıcıya ait aktif dizin hesabının şifresi değiştirilir ve aktif dizin gruplarından çıkartılır. Kullanıcıya ait aktif dizin hesabı, e-posta arşiv sürecinin tamamlanması için ertesi gün kapatılır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kapatılan personel hesapları 7 gün sonunda sistemden silinir. İşten ayrılan personele ait kullanıcı hesapları ancak işten ayrılan personelin yöneticisinin talebi olması durumunda 7 günden uzun süre tutulabilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Görev Değişikliği"
+    },
+    {
+      "type": "paragraph",
+      "text": "Görev değişikliği gerçekleşen personel bilgileri Mali İşler ve İnsan Kaynakları Müdürü tarafından talep yönetimi uygulaması üzerinden açılacak kayıt aracılığı ile BT Müdürü’ne bildirilir. İnsan kaynaklarının, personelin görev değişimi detaylarını içeren bildirimiyle, BT Müdürü tarafından kullanıcıya ilişkin yetki ekleme/kaldırma işlemleri gerçekleştirilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Geçici Yetkilendirme ve Acil Durum Değişiklikleri"
+    },
+    {
+      "type": "paragraph",
+      "text": "İzin, hastalık vb. zorunlu durumlarda bir personele kendi rolü dışında yetki tanımlanması gerektiğinde, geçici yetki talepleri süreli olarak tanımlanır. Geçici yetkilendirmeler için, personel tarafından talep yönetimi uygulaması üzerinden erişim talebi açılması, kullanıcının yöneticisi ve erişim talep edilen yetki için süreç sahibi onayının alınması esastır. Geçici yetkilendirmeler, talep edilen sürenin sonunda BT Müdürü tarafından kaldırılır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Yetki değişikliğinin en kısa süre içerisinde gerçekleştirilmesi gerektiği ve acil olduğuna karar verilen durumlarda, “3.4 Yetki Talepleri” başlığında tanımlanan süreç işletilmeden yetkilendirme işlemleri gerçekleştirilebilir. Bu tür acil durumlarda, ilgili süreç sahibinin ya da bir üst unvandaki kişinin e-posta ile onayının alınması yeterlidir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Acil durumun ortadan kalkmasını müteakip erişim hakkı tahsis edilen personel tarafından talep yönetimi uygulaması üzerinden talep açılarak “3.4 Yetki Talepleri” süreci işletilir ve gerekli onayların alınması sağlanır. Acil durumlara özgü yetkilendirmelerin geçici ve tüm sürecin kayıt altına alınarak yapılması esastır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Uzaktan Erişim"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum etki alanı dışından, Kurum bilgi sistemlerine yapılacak olan bağlantılarda VPN kullanılır. VPN kullanımına ihtiyaç duyan personelin talep yönetimi uygulaması üzerinden yetki talebinde bulunması esastır. Talep yönetimi uygulaması üzerinden açılan VPN erişim talebi, kullanıcının bağlı bulunduğu yöneticisi tarafından onaylandıktan sonra Bilgi Güvenliği Sorumlusuna iletilir. Bilgi Güvenliği Sorumlusuna değerlendirmesi sonucunda uygun görüldüğü takdirde ilgili iş gereksinimlerini karşılayacak biçimde BT Müdürü tarafından VPN erişim hakkı verilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Personelin iç ağdaki uygulama ve sistemlere Kuruluş’un dışından uzaktan erişim gerçekleştirmesine, ilgili kontrol mekanizmalarından geçerek işin ve günün şartlarının gerekleri doğrultusunda onaylanmadığı sürece izin verilmez. Uzaktan erişime izin verildiği durumlarda güçlü kimlik doğrulamaya dayanan güvenli bağlantı yöntemleri uygulanır, erişimlere ilişkin denetim izleri tutulur, bağlantının süresi ve bağlantının yapılabileceği cihazlar kısıtlanır ve personel belli aralıklarla kimliğini tekrar doğrulamaya zorlanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kullanıcıların VPN kullanarak Kurum etki alanı dışında gerçekleştirdikleri tüm işlemlerin denetim izleri, “İz Kayıtları Yönetimi Prosedürü” doğrultusuna tutulur ve gözden geçirilir. VPN hesabının şifresi ile aktif dizin hesabının şifresinin birbirinden farklı olması sağlanır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Destek Hizmeti Kuruluşları Erişim Yetkilendirme Süreci"
+    },
+    {
+      "type": "paragraph",
+      "text": "Destek hizmeti kuruluşlarından alınan hizmetin doğası gereği firma personelinin Kurum sistemlerine veya verilerine erişimin gerektiği durumlarda, BT Müdürü tarafından gerçekleştirilen risk değerlendirmesine uygun olarak firma personeline erişim hakkı tahsis edilebilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum ağına veya verilerine erişim talep eden firma personeli Kurum’un güvenlik ve gizlilik başta olmak üzere Kurum tarafından belirlenen tüm bilgi sistemleri politika ve prosedürlerine, Kurum ile imzalanan sözleşmeler doğrultusunda uymak zorundadır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Yasal zorunluluklar dışında Kurum ile arasında gizlilik ya da iş anlaşması bulunmayan diğer firmalara erişim ya da bu firmaların Kurum ağına erişimine izin verilmez."
+    },
+    {
+      "type": "paragraph",
+      "text": "Destek hizmeti kuruluşları için talep edilen erişimler için Kurum içerisinde hizmet alan bölüm tarafından talep yönetimi uygulaması üzerinde talep açılması esastır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Destek hizmeti personeli için erişim talebi isteyen Kurum personeli, destek hizmeti kuruluşu personelinin Kurum politikalarına uyumlu çalışmasının sağlanmasından sorumludur."
+    },
+    {
+      "type": "paragraph",
+      "text": "Erişim talebi, talep açan personelin yöneticisi ve erişim talep edilen uygulamalara ilişkin olarak BT Müdürü’nün onayı alındıktan sonra “EK-3. Destek Hizmet Firmaları Erişimi Risk Değerlendirme Formu” doğrultusunda risk değerlendirmesi yapılması için Bilgi Güvenliği Sorumlusu iletir. Bilgi Güvenliği Sorumlusunun olumlu değerlendirmesi durumunda firma personeline aktif dizin, e-posta ve dosya sunucusu, ana faaliyet alanı uygulamaları hesap ve erişimleri için BT Müdürü tarafından kişiye özel bir kullanıcı hesabı oluşturulur ve kullanıcılara şifreleri SMS ile iletilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kullanıcı hesaplarının destek hizmeti firması ile imzalanan sözleşme süresi ve iş gereksinimleri doğrultusunda geçici süreli olarak oluşturulması esastır. Tanımlanan sürenin sona ermesinin ardından, destek hizmeti firmasına verilen erişim yetkileri BT Müdürü tarafından kaldırılır. Mümkün olduğu durumda çalışma yapacak üçüncü taraf personeline Kurum personeli de eşlik etmelidir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Ayrıcalıklı Yetkiler"
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum bünyesindeki veri tabanı, uygulama, işletim sistemi, ağ ve güvenlik cihazları üzerindeki yetkili kullanıcı hesapları görevler ayrılığı prensibine uygun olarak personelin görev ve sorumlulukları doğrultusunda tanımlanır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum bünyesinde bilgi sistemleri altyapısının yönetimi BT Müdürü sorumluluğundadır. BT Müdürü dışındaki Kurum personeline personele ağ ve sistemler üzerinde yetkili kullanıcı hesabı tanımlanmaz."
+    },
+    {
+      "type": "paragraph",
+      "text": "Kurum personeline görev tanımı dışında ayrıcalıklı yetkilerin tanımlanması ile destek hizmeti personeline ayrıcalıklı yetki tanımlanması işlemleri, erişim gerçekleştirilecek uygulamaya ilişkin süreç sahibi BT Müdürü ve Bilgi Güvenliği Sorumlusunun onayına tabidir."
+    },
+    {
+      "type": "paragraph",
+      "text": "İşten ayrılan/iş akdi feshedilen ayrıcalıklı yetkilere sahip personel hesapları için “3.5 Hesap Kapama” süreci işletilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Ayrıcalıklı yetkili hesaplarının oluşturulmasında ve kullanılmasında aşağıdaki standartların uygulanması esastır:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ayrıcalıklı yetkilere sahip kullanıcılar, yetkilerinin başka kişilerce kullanımının önlenmesinden sorumludur."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Bilgi sistemleri bünyesindeki yetkili sistem hesaplarına ilişkin kullanıcı adı ve şifreleri Kurum’a ait yanmaz kasada kapalı zarf içinde saklanır. Bilgi Güvenliği Sorumlusu onayı ile ihtiyaç halinde kullanıldıktan sonra şifre değiştirilir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Ayrıcalıklı yetkilere sahip kullanıcı ve sistem hesapları için “İz Kayıtları Yönetimi Prosedürü” doğrultusunda ek denetim izleri tutulur ve periyodik olarak gözden geçirilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Servis Hesapları"
+    },
+    {
+      "type": "paragraph",
+      "text": "Sistem ve uygulamalar tarafından kullanılan ve kişiler tarafından kullanılmayan hesaplar servis hesapları olarak kabul edilir. İnkâr edilemezlik prensibi gereği servis hesaplarının sorumluluklarının atanması esastır. Söz konusu hesapların sorumlulukları, BT Müdürü tarafından bilgi teknolojileri birimindeki uygun personele atanır ve “EK-2. Genel/Ortak/Servis Hesapları Envanteri” ile kayıt altına alınır. “EK-2. Genel/Ortak/Servis Hesapları Envanteri”nde bulunan hesaplara ait şifrelerin, belirlenen sorumlular tarafından bilindiğine ve söz konusu hesaplarla yapılan işlemlerin kendilerine ait olduğuna ilişkin sorumlular tarafından taahattüname imzalanır ve Mali İşler ve İnsan Kaynakları Müdürü’ne teslim edilir. “EK-2. Genel/Ortak/Servis Hesapları Envanteri” yıllık olarak BT Müdürü tarafından gözden geçirilir ve gerekli güncellemeler gerçekleştirilir."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Fiziksel Erişim"
+    },
+    {
+      "type": "paragraph",
+      "text": "Örnek Şirket tarafından yönetilen fiziksel alanlara erişimlerin tamamı kayıt altına alınarak gerçekleştirilmelidir. Destek hizmeti alınması kapsamında, Turkcell tarafından yönetilen veri merkezlerine erişim yetkisi verilecek ve/veya iptal edilecek personel, manyetik giriş kartı için Bilgi Güvenliği Sorumlusu ve BT Müdürü’ne bilgilendirmelidir. Gerçekleştirilen bilgilendirmenin ardından, yetkilendirme sistemlerinin Örnek Şirket bünyesinde bulunması durumunda BT Müdürü’nün onayı ile Sistem Uzmanı’na yetki tanımlama ve/veya iptal talebi yapılır. Yetkilendirme sistemlerinin veri merkezlerinin yönetiminden sorumlu Turkcell bünyesinde bulunması durumunda ise ilgili talepler BT Müdürü tarafından Turkcell veri merkezine iletilir. İlgili talep iş tanımına göre ihtiyaç duyulması durumunda ise doğrudan BT Müdürü tarafından iletilebilir. Talep sonucu, Bilgi Güvenliği Sorumlusu tarafından değerlendirilir ve talebin onaylanması durumunda, güncel “EK-4. Veri Merkezi Erişim Listesi” e-posta aracılığı ile Üst Yönetim’e gönderilir. Bilgi Güvenliği Sorumlusu tarafından veri merkezlerine erişim yetkileri ile erişimlere ait denetim izi kayıtları üç ayda bir gözden geçirilerek İç Kontrol Müdürüne raporlanır. Veri merkezlerine ziyaretçi erişimleri, önceden randevu alınarak, refakatçi eşliğinde gerçekleştirilir ve ziyareti gerçekleştirilen kişilere ilişkin bilgiler ile ziyarete ilişkin iz kayıtları kayıt altına alınır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Örnek Şirket ait genel müdürlük ve diğer fiziksel alanlara ait erişimler kısıtlanır. Personel harici erişimlere izin verilmez ve erişimler kayıt altına alınır. Kuruluş’a gerçekleştirilecek ziyaretler için ise ziyaretlerin gerçekleştirilme amacını ve gerçekleştiren kişilere ilişkin bilgileri de içeren kayıtların tutulması esastır."
+    },
+    {
+      "type": "list",
+      "level": 1,
+      "text": "Yetki Gözden Geçirme"
+    },
+    {
+      "type": "paragraph",
+      "text": "Erişim güvenliğinden emin olmak, görev değiştiren veya işten ayrılan personel hesapları ile yetki seviyelerinin görevler ayrılığı ilkesine uyumunun kontrol edilmesi amacı ile yıllık olarak süreç sahiplerine sahibi oldukları uygulama/modüllere ilişkin mevcut kullanıcı yetkileri raporlanarak süreç sahipleri tarafından yetki gözden geçirme çalışmasının gerçekleştirilmesi sağlanır. Süreç sahipleri tarafından yapılan gözden geçirme çalışmalarına ilişkin çıktılar kayıt altına alınır. Yetki gözden geçirme çalışmasının sonuçları doğrultusunda kapatılacak hesaplar ve kaldırılacak yetkilere ilişkin çağrılar, talep yönetimi uygulaması üzerinden BT Müdürü’ne iletilir."
+    },
+    {
+      "type": "paragraph",
+      "text": "Uygulama katmanı dışındaki katmanlarda (veri tabanı, işletim sistemi, aktif dizin, ağ ve güvenlik cihazları) yapılacak kullanıcı hesabı ve yetki gözden geçirme çalışmaları BT Müdürü tarafından gerçekleştirilir. Gözden geçirme çalışmalarına ilişkin çıktılar kayıt altına alınır ve çalışma sonuçları doğrultusunda aksiyonlar alınır."
+    },
+    {
+      "type": "paragraph",
+      "text": "Gözden geçirme çalışmasında aşağıdaki konular kontrol edilir:"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Silinmesi gereken ama silinmeyen hesapların varlığı,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Pasif edilmesi gereken ama pasif edilmeyen hesapların varlığı,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "90 günden uzun süredir kullanılmayan hesapların varlığı,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Kişiye atanmamış hesapların varlığı,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "Birden fazla kişi tarafından kullanılan hesapların varlığı,"
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "“EK-2. Genel/Ortak/Servis Hesapları Envanterinde güncel olmayan servis hesapların varlığı."
+    },
+    {
+      "type": "paragraph",
+      "text": "İş birimleri ve BT tarafından yıllık olarak yapılan kullanıcı hesabı ve yetki gözden geçirme çalışmalarına ilişkin çıktılar, İç Kontrol Müdürü’ne iletilmelidir."
+    },
+    {
+      "type": "list",
+      "level": 0,
+      "text": "İLGİLİ DOKÜMANLAR"
+    }
+  ]
+}

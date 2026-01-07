@@ -1,5 +1,11 @@
 import fs from "node:fs/promises";
-import { generateBgIncidentProcedurePdf, generateDenetimProcedurePdf, generateYedeklemeProcedurePdf } from "@/lib/compliance/pdf";
+import {
+  generateBgIncidentProcedurePdf,
+  generateDenetimProcedurePdf,
+  generateKullaniciKimlikProcedurePdf,
+  generateSureklilikProcedurePdf,
+  generateYedeklemeProcedurePdf,
+} from "@/lib/compliance/pdf";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -12,6 +18,10 @@ export async function GET(req: Request) {
       ? generateYedeklemeProcedurePdf
       : doc === "denetim"
       ? generateDenetimProcedurePdf
+      : doc === "kimlik"
+      ? generateKullaniciKimlikProcedurePdf
+      : doc === "sureklilik"
+      ? generateSureklilikProcedurePdf
       : generateBgIncidentProcedurePdf;
   const filePath = await generator("preview", "Ornek Sirket", { preview: true });
   const filename =
@@ -19,6 +29,10 @@ export async function GET(req: Request) {
       ? "yedekleme-yonetimi-preview.pdf"
       : doc === "denetim"
       ? "denetim-izleri-yonetimi-preview.pdf"
+      : doc === "kimlik"
+      ? "kullanici-kimlik-yonetimi-preview.pdf"
+      : doc === "sureklilik"
+      ? "is-bt-sureklilik-preview.pdf"
       : "bg-olay-siber-olay-yonetimi-preview.pdf";
   const data = await fs.readFile(filePath);
 

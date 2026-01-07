@@ -23,7 +23,7 @@ export default function CompliancePage() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<SubmitResult | null>(null);
-  const [previewDoc, setPreviewDoc] = useState<"bg" | "denetim" | "yedekleme">("bg");
+  const [previewDoc, setPreviewDoc] = useState<"bg" | "denetim" | "yedekleme" | "kimlik" | "sureklilik">("bg");
 
   const setSingle = (id: string, value: string) => {
     setAnswers((prev) => ({ ...prev, [id]: value }));
@@ -79,9 +79,10 @@ export default function CompliancePage() {
             sertifikasyon veya %100 uyum garantisi vermez.
           </p>
           <p className="mt-2 text-sm text-slate-700">
-            5 soruluk kısa form (şirket adı dahil) ile compliance readiness değerlendirmesi yapar ve BG Olay ve Siber Olay
-            Yönetimi Prosedürü ile Denetim İzleri Yönetimi Prosedürü dokümanlarını şirketinize özel üretir.
-          </p>
+  5 soruluk kisa form (sirket adi dahil) ile compliance readiness degerlendirmesi yapar ve
+  BG Olay, Denetim Izleri, Yedekleme, Kullanici Kimlik ve Is/BT Sureklilik prosedurlerini
+  sirketinize ozel olarak uretir.
+</p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
@@ -119,6 +120,24 @@ export default function CompliancePage() {
               >
                 Yedekleme Yönetimi
               </button>
+              <button
+                type="button"
+                onClick={() => setPreviewDoc("kimlik")}
+                className={`rounded-full px-3 py-1 transition ${
+                  previewDoc === "kimlik" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"
+                }`}
+              >
+                Kullanici Kimlik
+              </button>
+              <button
+                type="button"
+                onClick={() => setPreviewDoc("sureklilik")}
+                className={`rounded-full px-3 py-1 transition ${
+                  previewDoc === "sureklilik" ? "bg-slate-900 text-white" : "bg-slate-100 text-slate-700"
+                }`}
+              >
+                Is ve BT Sureklilik
+              </button>
             </div>
             <div className="mt-4 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
               <iframe
@@ -138,6 +157,8 @@ export default function CompliancePage() {
               <li>- BG Olay ve Siber Olay Yönetimi Prosedürü (PDF)</li>
               <li>- Denetim İzleri Yönetimi Prosedürü (PDF)</li>
               <li>- Yedekleme Yönetimi Prosedürü (PDF)</li>
+              <li>- Kullanici Kimlik ve Yetkilendirme (PDF)</li>
+              <li>- Is ve BT Sureklilik (PDF)</li>
             </ul>
             <p className="mt-4 text-xs text-slate-500">
               Not: Önizleme kısa tutulur. Tam doküman, şirketinize özel PDF olarak üretilir.
