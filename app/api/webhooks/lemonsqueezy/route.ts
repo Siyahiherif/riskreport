@@ -16,9 +16,15 @@ export const runtime = "nodejs";
 const verifySignature = (raw: string, signature: string | null) => {
   const secret = process.env.LS_WEBHOOK_SECRET;
   if (!secret || !signature) return false;
-  const hmac = crypto.createHmac("sha256", secret).update(raw).digest("hex");
-  const sigBuf = Buffer.from(signature);
-  const hmacBuf = Buffer.from(hmac);
+  const cleaned = signature.startsWith("sha256=")
+    ? signature.slice(7)
+    : signature;
+  const hmacBuf = crypto
+    .createHmac("sha256", secret)
+    .update(raw)
+    .digest();
+  const isHex = /^[0-9a-f]+$/i.test(cleaned);
+  const sigBuf = Buffer.from(cleaned, isHex ? "hex" : "base64");
   if (sigBuf.length !== hmacBuf.length) return false;
   return crypto.timingSafeEqual(sigBuf, hmacBuf);
 };
