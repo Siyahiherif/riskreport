@@ -13,16 +13,13 @@ import { runScanAndPersist } from "@/lib/scan/service";
 
 export const runtime = "nodejs";
 
-const verifySignature = (raw: string, signature: string | null) => {
+const verifySignature = (raw: Buffer, signature: string | null) => {
   const secret = process.env.LS_WEBHOOK_SECRET;
   if (!secret || !signature) return false;
   const cleaned = signature.startsWith("sha256=")
     ? signature.slice(7)
     : signature;
-  const hmacBuf = crypto
-    .createHmac("sha256", secret)
-    .update(raw)
-    .digest();
+  const hmacBuf = crypto.createHmac("sha256", secret).update(raw).digest();
   const isHex = /^[0-9a-f]+$/i.test(cleaned);
   const sigBuf = Buffer.from(cleaned, isHex ? "hex" : "base64");
   if (sigBuf.length !== hmacBuf.length) return false;
@@ -30,12 +27,13 @@ const verifySignature = (raw: string, signature: string | null) => {
 };
 
 export async function POST(req: NextRequest) {
-  const rawBody = await req.text();
+  const rawBuffer = Buffer.from(await req.arrayBuffer());
+  const rawBody = rawBuffer.toString("utf8");
   const signature =
     req.headers.get("x-signature") ||
     req.headers.get("X-Signature") ||
     req.headers.get("x-signature".toUpperCase());
-  if (!verifySignature(rawBody, signature)) {
+  if (!verifySignature(rawBuffer, signature)) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
   }
 
