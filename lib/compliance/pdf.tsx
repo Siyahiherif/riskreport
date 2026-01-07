@@ -204,16 +204,16 @@ const renderHeader = (orgName: string, key: ProcedureKey) => {
         </View>
         <View style={[styles.headerCellLast, { flex: 1.2 }]}>
           <Text style={styles.headerMeta}>DOKÜMAN NO : {config.docNo}</Text>
-          <Text style={styles.headerMeta}>YAYIN TARİHİ : {formatDate(new Date())}</Text>
-          <Text style={styles.headerMeta}>REV. TARİHİ : {formatDate(new Date())}</Text>
-          <Text style={styles.headerMeta}>VERSİYON NO : 1</Text>
+          <Text style={styles.headerMeta}>YAYIN TARİHİ : </Text>
+          <Text style={styles.headerMeta}>REV. TARİHİ : </Text>
+          <Text style={styles.headerMeta}>VERSİYON NO : </Text>
         </View>
       </View>
       <View style={{ flexDirection: "row" }}>
         <View style={[styles.headerCell, { flex: 0.9, borderBottomWidth: 0 }]} />
         <View style={[styles.headerCell, { flex: 1.5, borderBottomWidth: 0 }]}>
-          <Text style={styles.headerMeta}>Hazırlayan : Bilgi Teknolojileri Birimi</Text>
-          <Text style={styles.headerMeta}>Onaylayan : Yönetim Kurulu</Text>
+          <Text style={styles.headerMeta}>Hazırlayan : </Text>
+          <Text style={styles.headerMeta}>Onaylayan :</Text>
         </View>
         <View style={[styles.headerCellLast, { flex: 1.2, borderBottomWidth: 0 }]}>
           <Text style={styles.headerMeta}>
@@ -336,7 +336,7 @@ const isHeadingCandidate = (text: string) => {
 const isBulletSectionHeading = (text: string) => {
   const normalized = text.toLowerCase();
   return (
-    normalized.includes("k?saltmalar") ||
+    normalized.includes("kısaltmalar") ||
     normalized.includes("tanımlar") ||
     normalized.includes("tanımlamalar") ||
     normalized.includes("ilgili kanun") ||
